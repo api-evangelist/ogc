@@ -1,0 +1,84 @@
+generated: '2026-08-20'
+method: searched
+source: https://www.ogc.org/about/governance/
+type: standards-governance
+note: 'OGC governance verified by anonymous HTTP probe on 2026-08-20. The split that matters: the PUBLISHED output
+  is open — every adopted standard is a free download, the schemas and OpenAPI are anonymous on schemas.opengis.net,
+  and the specification drafting happens in a public GitHub org. The WORKING surface is member-gated — portal.ogc.org
+  returned HTTP 401 unauthenticated, and that portal is where Technical Committee documents, votes and delegate
+  rosters live. So OGC publishes its results openly and its process privately, which is why this repo can measure
+  the standards and the member coalition but cannot name who holds a committee seat.'
+bodies:
+- name: Board of Directors
+  role: Corporate governance and fiduciary oversight of the consortium.
+  roster_public: false
+- name: Technical Committee (TC)
+  role: The standards body proper. All Standards Working Groups and Domain Working Groups sit under it, and adoption
+    of a candidate standard is a TC vote.
+  roster_public: false
+  note: Delegates are appointed by member organizations; the roster is on the member portal.
+- name: Planning Committee (PC)
+  role: Strategy, work-programme priorities and final approval steps; Strategic members hold seats here.
+  roster_public: false
+- name: OGC Architecture Board (OAB)
+  role: Reviews every candidate standard for architectural consistency across the baseline before it can go to a
+    TC adoption vote.
+  roster_public: false
+- name: Standards Working Groups (SWG)
+  count: 62
+  role: Chartered to write or revise ONE standard, then dissolve. Listed in working-groups/.
+  roster_public: true
+- name: Domain Working Groups (DWG)
+  count: 35
+  role: Standing forum for a subject area (Defense, Climate Resilience, Agriculture, AI in Geoinformatics …) that
+    identifies requirements and hands them to an SWG.
+  roster_public: true
+membership_levels:
+- level: Strategic
+  members: 10
+  note: Highest commitment tier; Planning Committee seats.
+- level: Principal
+  members: 12
+- level: Catalyst
+  members: 66
+- level: Developer
+  members: 45
+- level: Professional
+  members: 123
+  note: Includes individual (person) memberships.
+- level: Explorer
+  members: 265
+  note: Entry tier; the largest group by count.
+surfaces:
+- type: Website
+  url: https://www.ogc.org/
+  status: 200
+- type: Governance
+  url: https://www.ogc.org/about/governance/
+  status: 200
+- type: Policies
+  url: https://www.ogc.org/about/policies/
+  status: 200
+- type: Membership
+  url: https://www.ogc.org/membership/
+  status: 200
+- type: Participants
+  url: https://www.ogc.org/ogc-member-directory/
+  status: 200
+  note: ArcGIS dashboard; the underlying roster CSV is the source for companies/.
+- type: Certification
+  url: https://www.ogc.org/compliance/
+  status: 200
+  note: OGC CITE — the compliance and certification programme.
+- type: Specification
+  url: https://schemas.opengis.net/ogcapi/
+  status: 200
+  note: Anonymous, browsable; 24 root OpenAPI documents harvested from here.
+- type: GitHubOrganization
+  url: https://github.com/opengeospatial
+  status: 200
+  note: 361 public repositories.
+- type: Portal
+  url: https://portal.ogc.org/
+  status: 401
+  note: MEMBER-GATED. Committee documents, votes and delegate rosters are behind this.

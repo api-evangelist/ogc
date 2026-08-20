@@ -1,0 +1,430 @@
+generated: '2026-08-20'
+method: searched
+source: https://ogcapi.ogc.org/ + https://www.ogc.org/wp-json/wp/v2/standards
+type: standards-taxonomy
+note: Two layers. `ogc_api_family` is the modern OpenAPI-described OGC API suite with the maturity OGC itself badges
+  on ogcapi.ogc.org — this is what a developer means today by "an OGC API". `standards_catalog` is the full published
+  standards list from OGC's own CMS, which still includes the legacy OWS suite (WMS, WFS, WCS, WMTS, CSW) that the
+  OGC API family supersedes. Maturity is reported as OBSERVED on the date shown; OGC approval is a Technical Committee
+  vote and the website can lag it.
+summary:
+  ogc_api_family: 18
+  approved: 11
+  draft: 7
+  standards_catalog: 98
+ogc_api_family:
+- name: OGC API - Features
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+  repository: https://github.com/opengeospatial/ogcapi-features
+  stars: 383
+  archived: false
+  description: An open standard for querying geospatial information on the web.
+- name: OGC API - Common
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+  repository: https://github.com/opengeospatial/ogcapi-common
+  stars: 55
+  archived: false
+  description: OGC API - Common provides those elements shared by most or all of the OGC API standards to ensure
+    consistency across the family.
+- name: OGC API - EDR
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+  repository: https://github.com/opengeospatial/ogcapi-environmental-data-retrieval
+  stars: 71
+  archived: false
+  description: A Web API that provides a family of lightweight interfaces for accessing Environmental Data resources.
+- name: OGC API - Tiles
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+  repository: https://github.com/opengeospatial/ogcapi-tiles
+  stars: 43
+  archived: false
+  description: OGC API - Tiles draft specification
+- name: OGC API - Processes
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+  repository: https://github.com/opengeospatial/ogcapi-processes
+  stars: 62
+  archived: false
+- name: OGC API - Maps
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+  repository: https://github.com/opengeospatial/ogcapi-maps
+  stars: 55
+  archived: false
+  description: OGC API - Map draft specification
+- name: OGC API - Moving Features
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+  repository: https://github.com/opengeospatial/ogcapi-movingfeatures
+  stars: 12
+  archived: false
+  description: OGC API - Moving Features
+- name: OGC API - Records
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+  repository: https://github.com/opengeospatial/ogcapi-records
+  stars: 82
+  archived: false
+  description: An open standard for the discovery of geospatial resources on the Web.
+- name: OGC API - Connected Systems
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+  repository: https://github.com/opengeospatial/ogcapi-connected-systems
+  stars: 17
+  archived: false
+  description: Public Repository for the Connected Systems SWG
+- name: OGC API - DGGS
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+  repository: https://github.com/opengeospatial/ogcapi-discrete-global-grid-systems
+  stars: 37
+  archived: false
+  description: https://ogcapi.ogc.org/dggs
+- name: SensorThings API
+  status: Approved Standard
+  status_evidence: status badge on ogcapi.ogc.org, retrieved 2026-08-20
+- name: OGC API - Coverages
+  status: Draft
+  status_evidence: no approved badge on ogcapi.ogc.org; the GitHub repo description calls it a draft/SWG repo
+  repository: https://github.com/opengeospatial/ogcapi-coverages
+  stars: 27
+  archived: false
+  description: OGC API - Coverages draft specification
+- name: OGC API - Styles
+  status: Draft
+  status_evidence: no approved badge on ogcapi.ogc.org; the GitHub repo description calls it a draft/SWG repo
+  repository: https://github.com/opengeospatial/ogcapi-styles
+  stars: 12
+  archived: false
+  description: A Web API that enables map servers, clients as well as visual style editors, to manage and fetch
+    styles.
+- name: OGC API - Joins
+  status: Draft
+  status_evidence: no approved badge on ogcapi.ogc.org; the GitHub repo description calls it a draft/SWG repo
+  repository: https://github.com/opengeospatial/ogcapi-joins
+  stars: 5
+  archived: false
+  description: OGC API - Joins SWG public repo
+- name: OGC API - Routes
+  status: Draft
+  status_evidence: no approved badge on ogcapi.ogc.org; the GitHub repo description calls it a draft/SWG repo
+  repository: https://github.com/opengeospatial/ogcapi-routes
+  stars: 12
+  archived: false
+  description: public repo for OGC API - Routes Standards Working Group
+- name: OGC API - GeoDataCubes
+  status: Draft
+  status_evidence: no approved badge on ogcapi.ogc.org; the GitHub repo description calls it a draft/SWG repo
+  repository: https://github.com/opengeospatial/ogcapi-geodatacubes
+  stars: 4
+  archived: false
+- name: OGC API - 3D GeoVolumes
+  status: Draft
+  status_evidence: no approved badge on ogcapi.ogc.org; the GitHub repo description calls it a draft/SWG repo
+  repository: https://github.com/opengeospatial/ogcapi-3d-geovolumes
+  stars: 10
+  archived: false
+- name: OGC API - SOSA
+  status: Draft
+  status_evidence: no approved badge on ogcapi.ogc.org; the GitHub repo description calls it a draft/SWG repo
+  repository: https://github.com/opengeospatial/ogcapi-sosa
+  stars: 4
+  archived: false
+standards_catalog:
+- name: 3D Portrayal Service
+  url: https://www.ogc.org/standards/3dp/
+  slug: 3dp
+- name: 3D Tiles
+  url: https://www.ogc.org/standards/3dtiles/
+  slug: 3dtiles
+- name: Abstract Specification
+  url: https://www.ogc.org/standards/abstract-specification/
+  slug: abstract-specification
+- name: Augmented Reality Markup Language 2.0 (ARML 2.0)
+  url: https://www.ogc.org/standards/arml/
+  slug: arml
+- name: Bathymetric Attributed Grid (BAG)
+  url: https://www.ogc.org/standards/bag/
+  slug: bag
+- name: Catalogue Service
+  url: https://www.ogc.org/standards/cat/
+  slug: cat
+- name: 'Catalogue Services Standard 2.0 Extension Package for ebRIM Application Profile: Earth Observation Products'
+  url: https://www.ogc.org/standards/cat2eoext4ebrim/
+  slug: cat2eoext4ebrim
+- name: CDB
+  url: https://www.ogc.org/standards/cdb/
+  slug: cdb
+- name: CityGML
+  url: https://www.ogc.org/standards/citygml/
+  slug: citygml
+- name: CityJSON
+  url: https://www.ogc.org/standards/cityjson/
+  slug: cityjson
+- name: Cloud Optimized GeoTIFF
+  url: https://www.ogc.org/standards/ogc-cloud-optimized-geotiff/
+  slug: ogc-cloud-optimized-geotiff
+- name: Common Query Language (CQL2)
+  url: https://www.ogc.org/standards/cql2/
+  slug: cql2
+- name: Coordinate Transformation Service
+  url: https://www.ogc.org/standards/ct/
+  slug: ct
+- name: CoverageJSON
+  url: https://www.ogc.org/standards/coveragejson/
+  slug: coveragejson
+- name: Discrete Global Grid Systems
+  url: https://www.ogc.org/standards/dggs/
+  slug: dggs
+- name: EO Dataset Metadata GeoJSON(-LD)
+  url: https://www.ogc.org/standards/eo-geojson/
+  slug: eo-geojson
+- name: Features and Geometries JSON
+  url: https://www.ogc.org/standards/json-fg/
+  slug: json-fg
+- name: Filter Encoding
+  url: https://www.ogc.org/standards/filter/
+  slug: filter
+- name: GeoAPI Implementation Specification
+  url: https://www.ogc.org/standards/geoapi/
+  slug: geoapi
+- name: Geodetic data Grid eXchange Format (GGXF)
+  url: https://www.ogc.org/standards/ggfx/
+  slug: ggfx
+- name: Geography Markup Language (GML)
+  url: https://www.ogc.org/standards/gml/
+  slug: gml
+- name: GeoPackage
+  url: https://www.ogc.org/standards/geopackage/
+  slug: geopackage
+- name: GeoPose
+  url: https://www.ogc.org/standards/geopose/
+  slug: geopose
+- name: GeoRSS
+  url: https://www.ogc.org/standards/georss/
+  slug: georss
+- name: GeoSPARQL – A Geographic Query Language for RDF Data
+  url: https://www.ogc.org/standards/geosparql/
+  slug: geosparql
+- name: Geospatial User Feedback (GUF)
+  url: https://www.ogc.org/standards/guf/
+  slug: guf
+- name: GeoXACML
+  url: https://www.ogc.org/standards/geoxacml/
+  slug: geoxacml
+- name: GML in JPEG 2000 for Geographic Imagery
+  url: https://www.ogc.org/standards/gmljp2/
+  slug: gmljp2
+- name: Indexed 3D Scene Layers (I3S)
+  url: https://www.ogc.org/standards/i3s/
+  slug: i3s
+- name: Indoor Mapping Data Format (IMDF)
+  url: https://www.ogc.org/standards/indoor-mapping-data-format/
+  slug: indoor-mapping-data-format
+- name: KML
+  url: https://www.ogc.org/standards/kml/
+  slug: kml
+- name: LAS Specification
+  url: https://www.ogc.org/standards/las/
+  slug: las
+- name: Location Service (OpenLS)
+  url: https://www.ogc.org/standards/ols/
+  slug: ols
+- name: MUDDI
+  url: https://www.ogc.org/standards/muddi/
+  slug: muddi
+- name: Observations, Measurements, and Samples
+  url: https://www.ogc.org/standards/om/
+  slug: om
+- name: OGC API – Common
+  url: https://www.ogc.org/standards/ogcapi-common/
+  slug: ogcapi-common
+- name: OGC API – Connected Systems
+  url: https://www.ogc.org/standards/ogc-api-connected-systems/
+  slug: ogc-api-connected-systems
+- name: 'OGC API – EDR – Part 2: Publish-Subscribe Workflow'
+  url: https://www.ogc.org/standards/sensor-things-api-extension-2/
+  slug: sensor-things-api-extension-2
+- name: OGC API – Environmental Data Retrieval
+  url: https://www.ogc.org/standards/ogcapi-edr/
+  slug: ogcapi-edr
+- name: OGC API – Features
+  url: https://www.ogc.org/standards/ogcapi-features/
+  slug: ogcapi-features
+- name: OGC API – Maps
+  url: https://www.ogc.org/standards/ogcapi-maps/
+  slug: ogcapi-maps
+- name: OGC API – Moving Features
+  url: https://www.ogc.org/standards/ogc-api-moving-features/
+  slug: ogc-api-moving-features
+- name: OGC API – Processes
+  url: https://www.ogc.org/standards/ogcapi-processes/
+  slug: ogcapi-processes
+- name: OGC API – Records
+  url: https://www.ogc.org/standards/ogcapi-records/
+  slug: ogcapi-records
+- name: OGC API – Tiles
+  url: https://www.ogc.org/standards/ogcapi-tiles/
+  slug: ogcapi-tiles
+- name: OGC Geoscience Markup Language (GeoSciML)
+  url: https://www.ogc.org/standards/geosciml/
+  slug: geosciml
+- name: OGC GeoTIFF
+  url: https://www.ogc.org/standards/geotiff/
+  slug: geotiff
+- name: OGC Hierarchical Data Format Version 5 (HDF5®)
+  url: https://www.ogc.org/standards/hdf5/
+  slug: hdf5
+- name: OGC IndoorGML
+  url: https://www.ogc.org/standards/indoorgml/
+  slug: indoorgml
+- name: OGC LandInfra / InfraGML
+  url: https://www.ogc.org/standards/infragml/
+  slug: infragml
+- name: OGC Moving Features
+  url: https://www.ogc.org/standards/movingfeatures/
+  slug: movingfeatures
+- name: OGC network Common Data Form (netCDF) standards suite
+  url: https://www.ogc.org/standards/netcdf/
+  slug: netcdf
+- name: OGC Open Modelling Interface (OpenMI)
+  url: https://www.ogc.org/standards/openmi/
+  slug: openmi
+- name: OGC PUCK Protocol
+  url: https://www.ogc.org/standards/puck/
+  slug: puck
+- name: OGC Two Dimensional Tile Matrix Set
+  url: https://www.ogc.org/standards/tms/
+  slug: tms
+- name: OGC WaterML
+  url: https://www.ogc.org/standards/waterml/
+  slug: waterml
+- name: 'OGC WaterML 2: Part 4 – GroundWaterML 2 (GWML2)'
+  url: https://www.ogc.org/standards/gwml2/
+  slug: gwml2
+- name: OGC Web Services Context Document (OWS Context)
+  url: https://www.ogc.org/standards/owc/
+  slug: owc
+- name: Open GeoSMS – Core
+  url: https://www.ogc.org/standards/opengeosms/
+  slug: opengeosms
+- name: openEO
+  url: https://www.ogc.org/standards/openeo/
+  slug: openeo
+- name: OpenFlight Scene
+  url: https://www.ogc.org/standards/openflight-scene/
+  slug: openflight-scene
+- name: OpenSearch
+  url: https://www.ogc.org/standards/opensearch/
+  slug: opensearch
+- name: Ordering Services Framework for Earth Observation Products
+  url: https://www.ogc.org/standards/oseo/
+  slug: oseo
+- name: PipelineML Conceptual and Encoding Model
+  url: https://www.ogc.org/standards/pipelineml/
+  slug: pipelineml
+- name: Points of Interest (POI)
+  url: https://www.ogc.org/standards/points-of-interest-poi/
+  slug: points-of-interest-poi
+- name: Publish/Subscribe
+  url: https://www.ogc.org/standards/pubsub/
+  slug: pubsub
+- name: Semantic Sensor Network Ontology
+  url: https://www.ogc.org/standards/semantic-sensor-network-ontology/
+  slug: semantic-sensor-network-ontology
+- name: Sensor Model Language (SensorML)
+  url: https://www.ogc.org/standards/sensorml/
+  slug: sensorml
+- name: Sensor Observation Service
+  url: https://www.ogc.org/standards/sos/
+  slug: sos
+- name: Sensor Planning Service (SPS)
+  url: https://www.ogc.org/standards/sps/
+  slug: sps
+- name: SensorThings API
+  url: https://www.ogc.org/standards/sensorthings/
+  slug: sensorthings
+- name: 'Simple Feature Access – Part 1: Common Architecture'
+  url: https://www.ogc.org/standards/sfa/
+  slug: sfa
+- name: 'Simple Feature Access – Part 2: SQL Option'
+  url: https://www.ogc.org/standards/sfs/
+  slug: sfs
+- name: Simple Features for CORBA
+  url: https://www.ogc.org/standards/sfc/
+  slug: sfc
+- name: Simple Features for OLE/COM
+  url: https://www.ogc.org/standards/sfo/
+  slug: sfo
+- name: SpatioTemporal Asset Catalog (STAC)
+  url: https://www.ogc.org/standards/stac/
+  slug: stac
+- name: 'STAplus: Sensor Things API Extension'
+  url: https://www.ogc.org/standards/sensor-things-api-extension/
+  slug: sensor-things-api-extension
+- name: Styled Layer Descriptor
+  url: https://www.ogc.org/standards/sld/
+  slug: sld
+- name: SWE Common Data Model Encoding
+  url: https://www.ogc.org/standards/swecommon/
+  slug: swecommon
+- name: SWE Service Model Implementation
+  url: https://www.ogc.org/standards/swes/
+  slug: swes
+- name: Symbology Conceptual Core Model
+  url: https://www.ogc.org/standards/symbology-conceptual-core-model/
+  slug: symbology-conceptual-core-model
+- name: Symbology Encoding
+  url: https://www.ogc.org/standards/se/
+  slug: se
+- name: Table Joining Service
+  url: https://www.ogc.org/standards/tjs/
+  slug: tjs
+- name: The ModSpec Model
+  url: https://www.ogc.org/standards/modspec/
+  slug: modspec
+- name: Time Ontology in OWL
+  url: https://www.ogc.org/standards/time-ontology-in-owl/
+  slug: time-ontology-in-owl
+- name: TimeseriesML (TSML)
+  url: https://www.ogc.org/standards/tsml/
+  slug: tsml
+- name: Training Data Markup Language for Artificial Intelligence
+  url: https://www.ogc.org/standards/trainingdml-ai/
+  slug: trainingdml-ai
+- name: Web Coverage Processing Service (WCPS)
+  url: https://www.ogc.org/standards/wcps/
+  slug: wcps
+- name: Web Coverage Service
+  url: https://www.ogc.org/standards/wcs/
+  slug: wcs
+- name: Web Feature Service
+  url: https://www.ogc.org/standards/wfs/
+  slug: wfs
+- name: Web Map Context
+  url: https://www.ogc.org/standards/wmc/
+  slug: wmc
+- name: Web Map Service
+  url: https://www.ogc.org/standards/wms/
+  slug: wms
+- name: Web Map Tile Service
+  url: https://www.ogc.org/standards/wmts/
+  slug: wmts
+- name: Web Processing Service
+  url: https://www.ogc.org/standards/wps/
+  slug: wps
+- name: Web Service Common
+  url: https://www.ogc.org/standards/common/
+  slug: common
+- name: Web Services Security
+  url: https://www.ogc.org/standards/security/
+  slug: security
+- name: Well-known text representation of coordinate reference systems
+  url: https://www.ogc.org/standards/wkt-crs/
+  slug: wkt-crs
+- name: Zarr Storage Specification
+  url: https://www.ogc.org/standards/zarr-storage-specification/
+  slug: zarr-storage-specification

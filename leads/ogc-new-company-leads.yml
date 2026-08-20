@@ -1,0 +1,2690 @@
+generated: '2026-08-20'
+method: derived
+source: https://portal.ogc.org/services/srv_active_members_csv_new.php
+type: standards-new-company-leads
+note: OGC member organizations with no repo in the api-evangelist network. Ranked by OGC membership level — Strategic
+  and Principal members hold seats and pay the most for them, Explorer is the entry tier — then by member type.
+  341 of 362 member organizations publish their own URL in the roster, so most leads arrive with a confirmed domain
+  and can be stubbed without a name search. Individual (person) memberships are excluded upstream and are not leads.
+  Seven members were profiled into the network on 2026-08-20 after a live OGC surface was verified on their own
+  hosts, and have been removed from this list.
+summary:
+  leads: 299
+  with_domain: 278
+  by_level:
+    Explorer: 235
+    Catalyst: 48
+    Professional: 9
+    Principal: 4
+    Strategic: 3
+  by_member_type:
+    Commercial: 115
+    Government: 70
+    Non-Profit: 68
+    University: 50
+    Emeritus Membership: 9
+  top_countries:
+    United States: 73
+    India: 24
+    Canada: 23
+    United Kingdom: 22
+    Germany: 20
+    France: 11
+    Australia: 11
+    Korea, Republic of: 10
+    Japan: 9
+    Italy: 9
+  removed_already_in_network: 6
+  harvested_2026_08_20: 7
+leads:
+- name: General Authority for Survey and Geospatial Information (GEOSA)
+  suggested_slug: general-authority-for-survey-and-geospatial-information-geosa
+  level: Strategic
+  member_type: Government
+  country: Saudi Arabia
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.gasgi.gov.sa/
+  domain: gasgi.gov.sa
+- name: GeoConnections - Natural Resources Canada
+  suggested_slug: geoconnections-natural-resources-canada
+  level: Strategic
+  member_type: Government
+  country: Canada
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.nrcan.gc.ca/
+  domain: nrcan.gc.ca
+- name: United Kingdom Hydrographic Office (UKHO)
+  suggested_slug: united-kingdom-hydrographic-office-ukho
+  level: Strategic
+  member_type: Government
+  country: United Kingdom
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.ukho.gov.uk
+  domain: ukho.gov.uk
+- name: LeapThought
+  suggested_slug: leapthought
+  level: Principal
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.leapthought.com/
+  domain: leapthought.com
+- name: Bureau National d'Etudes Techniques et de Developpement (BNETD)
+  suggested_slug: bureau-national-d-etudes-techniques-et-de-developpement-bnetd
+  level: Principal
+  member_type: Government
+  country: Cote d'Ivoire
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://bnetd.ci
+  domain: bnetd.ci
+- name: Department of Land Reform and Rural Development (DLRRD)
+  suggested_slug: department-of-land-reform-and-rural-development-dlrrd
+  level: Principal
+  member_type: Government
+  country: South Africa
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.dalrrd.gov.za/
+  domain: dalrrd.gov.za
+- name: Feng Chia University
+  suggested_slug: feng-chia-university
+  level: Principal
+  member_type: University
+  country: Taiwan
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.gis.tw
+  domain: gis.tw
+- name: Aechelon Technology
+  suggested_slug: aechelon-technology
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.aechelon.com
+  domain: aechelon.com
+- name: Airbus Defence & Space
+  suggested_slug: airbus-defence-space
+  level: Catalyst
+  member_type: Commercial
+  country: France
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.astrium-geo.com
+  domain: astrium-geo.com
+- name: CAE Inc.
+  suggested_slug: cae-inc
+  level: Catalyst
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.cae.com
+  domain: cae.com
+- name: Esri Canada
+  suggested_slug: esri-canada
+  level: Catalyst
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.esri.ca
+  domain: esri.ca
+- name: FlightSafety International
+  suggested_slug: flightsafety-international
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.flightsafety.com
+  domain: flightsafety.com
+- name: GeoRobotix, Inc.
+  suggested_slug: georobotix-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://georobotix.com/
+  domain: georobotix.com
+- name: Hitachi, Ltd., Central Research Laboratory
+  suggested_slug: hitachi-ltd-central-research-laboratory
+  level: Catalyst
+  member_type: Commercial
+  country: Japan
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.hitachi.com/rd/index.html
+  domain: hitachi.com
+- name: Inframappa, Inc.
+  suggested_slug: inframappa-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://inframappa.com/
+  domain: inframappa.com
+- name: Kongsberg Defence & Aerospace AS
+  suggested_slug: kongsberg-defence-aerospace-as
+  level: Catalyst
+  member_type: Commercial
+  country: Norway
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.kongsberg.com
+  domain: kongsberg.com
+- name: NV5 Geospatial, Inc.
+  suggested_slug: nv5-geospatial-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.nv5.com/
+  domain: nv5.com
+- name: OPN USA, Inc.
+  suggested_slug: opn-usa-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.OPNUSA.US
+  domain: opnusa.us
+- name: Safe Software, Inc.
+  suggested_slug: safe-software-inc
+  level: Catalyst
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.safe.com
+  domain: safe.com
+- name: SGL Resources Limited
+  suggested_slug: sgl-resources-limited
+  level: Catalyst
+  member_type: Commercial
+  country: India
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.sgligis.com/
+  domain: sgligis.com
+- name: Spatineo Oy
+  suggested_slug: spatineo-oy
+  level: Catalyst
+  member_type: Commercial
+  country: Finland
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.spatineo.com
+  domain: spatineo.com
+- name: Teledyne Geospatial Caris and Optech
+  suggested_slug: teledyne-geospatial-caris-and-optech
+  level: Catalyst
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.caris.com
+  domain: caris.com
+- name: Woolpert, Inc.
+  suggested_slug: woolpert-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.aamgroup.com/
+  domain: aamgroup.com
+- name: ADG Military Survey (GSGS), Integrated HQ of MoD (Army)
+  suggested_slug: adg-military-survey-gsgs-integrated-hq-of-mod-army
+  level: Catalyst
+  member_type: Government
+  country: India
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+- name: AdV (Working Committee of the Surveying Authorities of the Laender of the Federal Republic of Germany)
+  suggested_slug: adv-working-committee-of-the-surveying-authorities-of-the-laender-of-the-federal-republic-of-germany
+  level: Catalyst
+  member_type: Government
+  country: Germany
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.adv-online.de/Home/
+  domain: adv-online.de
+- name: BRGM
+  suggested_slug: brgm
+  level: Catalyst
+  member_type: Government
+  country: France
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.brgm.fr
+  domain: brgm.fr
+- name: Clark University
+  suggested_slug: clark-university
+  level: Catalyst
+  member_type: University
+  country: United States
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://www.clarku.edu/
+  domain: clarku.edu
+- name: Defence Geospatial Information Working Group (DGIWG)
+  suggested_slug: defence-geospatial-information-working-group-dgiwg
+  level: Catalyst
+  member_type: Non-Profit
+  country: United Kingdom
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.dgiwg.org
+  domain: dgiwg.org
+- name: Defence Science & Technology Laboratories (Dstl)
+  suggested_slug: defence-science-technology-laboratories-dstl
+  level: Catalyst
+  member_type: Government
+  country: United Kingdom
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.dstl.gov.uk
+  domain: dstl.gov.uk
+- name: Department of Defence (Australia)
+  suggested_slug: department-of-defence-australia
+  level: Catalyst
+  member_type: Government
+  country: Australia
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+- name: Department of Land Resources, Ministry of Rural Development, Government of India
+  suggested_slug: department-of-land-resources-ministry-of-rural-development-government-of-india
+  level: Catalyst
+  member_type: Government
+  country: India
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.dolr.gov.in/
+  domain: dolr.gov.in
+- name: EUMETSAT
+  suggested_slug: eumetsat
+  level: Catalyst
+  member_type: Non-Profit
+  country: Germany
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.eumetsat.int/
+  domain: eumetsat.int
+- name: European Centre for Medium-Range Weather Forecasts (ECMWF)
+  suggested_slug: european-centre-for-medium-range-weather-forecasts-ecmwf
+  level: Catalyst
+  member_type: Government
+  country: United Kingdom
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.ecmwf.int
+  domain: ecmwf.int
+- name: European Union Satellite Centre
+  suggested_slug: european-union-satellite-centre
+  level: Catalyst
+  member_type: Government
+  country: Spain
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.eusc.europa.eu
+  domain: eusc.europa.eu
+- name: Foundation for Ecological Security
+  suggested_slug: foundation-for-ecological-security
+  level: Catalyst
+  member_type: Non-Profit
+  country: India
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.fes.org.in
+  domain: fes.org.in
+- name: FRONTEX
+  suggested_slug: frontex
+  level: Catalyst
+  member_type: Government
+  country: Poland
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.frontex.europa.eu/
+  domain: frontex.europa.eu
+- name: Geonovum
+  suggested_slug: geonovum
+  level: Catalyst
+  member_type: Non-Profit
+  country: Netherlands
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.geonovum.nl
+  domain: geonovum.nl
+- name: Geoscience Australia
+  suggested_slug: geoscience-australia
+  level: Catalyst
+  member_type: Government
+  country: Australia
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.ga.gov.au/
+  domain: ga.gov.au
+- name: Haryana Space Applications Centre (HARSAC)
+  suggested_slug: haryana-space-applications-centre-harsac
+  level: Catalyst
+  member_type: Government
+  country: India
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://hsac.org.in
+  domain: hsac.org.in
+- name: Institut National de l'information geographique et forestiere (IGN - France)
+  suggested_slug: institut-national-de-l-information-geographique-et-forestiere-ign-france
+  level: Catalyst
+  member_type: Government
+  country: France
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.ign.fr
+  domain: ign.fr
+- name: Instituto Nacional de Estadística y Geografía (INEGI)
+  suggested_slug: instituto-nacional-de-estad-stica-y-geograf-a-inegi
+  level: Catalyst
+  member_type: Government
+  country: Mexico
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.inegi.org.mx
+  domain: inegi.org.mx
+- name: Joint Research Centre (JRC)
+  suggested_slug: joint-research-centre-jrc
+  level: Catalyst
+  member_type: Government
+  country: Italy
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://ec.europa.eu/jrc/
+  domain: ec.europa.eu
+- name: Ministry of Land, Infrastructure & Transport-MOLIT
+  suggested_slug: ministry-of-land-infrastructure-transport-molit
+  level: Catalyst
+  member_type: Government
+  country: Korea, Republic of
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://english.molit.go.kr/intro.do
+  domain: english.molit.go.kr
+- name: National Land Survey of Finland
+  suggested_slug: national-land-survey-of-finland
+  level: Catalyst
+  member_type: Government
+  country: Finland
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.nls.fi
+  domain: nls.fi
+- name: National Remote Sensing Centre (NRSC)
+  suggested_slug: national-remote-sensing-centre-nrsc
+  level: Catalyst
+  member_type: Government
+  country: India
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.nrsc.gov.in
+  domain: nrsc.gov.in
+- name: NATO HQ SITCEN
+  suggested_slug: nato-hq-sitcen
+  level: Catalyst
+  member_type: Government
+  country: Belgium
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+- name: NYC Dept. of Information Technology & Telecommunications
+  suggested_slug: nyc-dept-of-information-technology-telecommunications
+  level: Catalyst
+  member_type: Government
+  country: United States
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www1.nyc.gov/site/doitt/index.page
+  domain: www1.nyc.gov
+- name: Office of the Surveyor General of the Federation (OSGOF)
+  suggested_slug: office-of-the-surveyor-general-of-the-federation-osgof
+  level: Catalyst
+  member_type: Government
+  country: Nigeria
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://osgof.gov.ng/
+  domain: osgof.gov.ng
+- name: Singapore Land Authority
+  suggested_slug: singapore-land-authority
+  level: Catalyst
+  member_type: Government
+  country: Singapore
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.sla.gov.sg
+  domain: sla.gov.sg
+- name: Statens kartverk - Norwegian Mapping Authority
+  suggested_slug: statens-kartverk-norwegian-mapping-authority
+  level: Catalyst
+  member_type: Government
+  country: Norway
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.kartverket.no/
+  domain: kartverket.no
+- name: Survey of India (SoI)
+  suggested_slug: survey-of-india-soi
+  level: Catalyst
+  member_type: Government
+  country: India
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.surveyofindia.gov.in
+  domain: surveyofindia.gov.in
+- name: UK Met Office
+  suggested_slug: uk-met-office
+  level: Catalyst
+  member_type: Government
+  country: United Kingdom
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.metoffice.gov.uk/
+  domain: metoffice.gov.uk
+- name: University Corporation for Atmospheric Research (UCAR)
+  suggested_slug: university-corporation-for-atmospheric-research-ucar
+  level: Catalyst
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.ucar.edu
+  domain: ucar.edu
+- name: US Army Geospatial Center
+  suggested_slug: us-army-geospatial-center
+  level: Catalyst
+  member_type: Government
+  country: United States
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.tec.army.mil/
+  domain: tec.army.mil
+- name: Wuhan University
+  suggested_slug: wuhan-university
+  level: Catalyst
+  member_type: University
+  country: China
+  lead_kind: academic / research
+  source_standard: ogc
+- name: Alameh, Nadine
+  suggested_slug: alameh-nadine
+  level: Professional
+  member_type: Emeritus Membership
+  country: United States
+  lead_kind: emeritus
+  source_standard: ogc
+- name: Brown, Nicholas
+  suggested_slug: brown-nicholas
+  level: Professional
+  member_type: Emeritus Membership
+  country: Germany
+  lead_kind: emeritus
+  source_standard: ogc
+- name: Colaiacomo, Lucio
+  suggested_slug: colaiacomo-lucio
+  level: Professional
+  member_type: Emeritus Membership
+  country: Italy
+  lead_kind: emeritus
+  source_standard: ogc
+- name: Hobona, Gobe
+  suggested_slug: hobona-gobe
+  level: Professional
+  member_type: Emeritus Membership
+  country: United Kingdom
+  lead_kind: emeritus
+  source_standard: ogc
+- name: Jones, Martin
+  suggested_slug: jones-martin
+  level: Professional
+  member_type: Emeritus Membership
+  country: United Kingdom
+  lead_kind: emeritus
+  source_standard: ogc
+  url: https://www.linkedin.com/in/martin-jones-9a8a8047/
+  domain: linkedin.com
+- name: McKenzie, Denise
+  suggested_slug: mckenzie-denise
+  level: Professional
+  member_type: Emeritus Membership
+  country: United Kingdom
+  lead_kind: emeritus
+  source_standard: ogc
+- name: Taylor, Trevor
+  suggested_slug: taylor-trevor
+  level: Professional
+  member_type: Emeritus Membership
+  country: Canada
+  lead_kind: emeritus
+  source_standard: ogc
+- name: Van den Berg, Eric
+  suggested_slug: van-den-berg-eric
+  level: Professional
+  member_type: Emeritus Membership
+  country: Canada
+  lead_kind: emeritus
+  source_standard: ogc
+- name: Voidrot, Marie-Françoise
+  suggested_slug: voidrot-marie-fran-oise
+  level: Professional
+  member_type: Emeritus Membership
+  country: France
+  lead_kind: emeritus
+  source_standard: ogc
+- name: AfriGIS (Pty) Ltd
+  suggested_slug: afrigis-pty-ltd
+  level: Explorer
+  member_type: Commercial
+  country: South Africa
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.afrigis.co.za
+  domain: afrigis.co.za
+- name: Aganitha Space Technologies
+  suggested_slug: aganitha-space-technologies
+  level: Explorer
+  member_type: Commercial
+  country: India
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://aganithaspace.com/
+  domain: aganithaspace.com
+- name: Asia Air Survey Co., Ltd.
+  suggested_slug: asia-air-survey-co-ltd
+  level: Explorer
+  member_type: Commercial
+  country: Japan
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.ajiko.co.jp/
+  domain: ajiko.co.jp
+- name: Atlas AI P.B.C.
+  suggested_slug: atlas-ai-p-b-c
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.atlasai.co/
+  domain: atlasai.co
+- name: Aveki AB
+  suggested_slug: aveki-ab
+  level: Explorer
+  member_type: Commercial
+  country: Sweden
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.aveki.se
+  domain: aveki.se
+- name: ByteRoad, Sociedade Unipessoal Lda
+  suggested_slug: byteroad-sociedade-unipessoal-lda
+  level: Explorer
+  member_type: Commercial
+  country: Portugal
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://byteroad.net/
+  domain: byteroad.net
+- name: Cadcorp Limited
+  suggested_slug: cadcorp-limited
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.cadcorp.com
+  domain: cadcorp.com
+- name: Camptocamp SA
+  suggested_slug: camptocamp-sa
+  level: Explorer
+  member_type: Commercial
+  country: Switzerland
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.camptocamp.com
+  domain: camptocamp.com
+- name: Carmenta Geospatial Technologies AB
+  suggested_slug: carmenta-geospatial-technologies-ab
+  level: Explorer
+  member_type: Commercial
+  country: Sweden
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.carmenta.se
+  domain: carmenta.se
+- name: Clairvoyint
+  suggested_slug: clairvoyint
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.clairvoyint.ai/
+  domain: clairvoyint.ai
+- name: Cloud Lake Technology, LLC
+  suggested_slug: cloud-lake-technology-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+- name: CmWorld Co., Ltd.
+  suggested_slug: cmworld-co-ltd
+  level: Explorer
+  member_type: Commercial
+  country: Korea, Republic of
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.cmworld.co.kr/
+  domain: cmworld.co.kr
+- name: Collabora Ltd.
+  suggested_slug: collabora-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.collabora.com/
+  domain: collabora.com
+- name: Compass, Inc.
+  suggested_slug: compass-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.cmpsinc.com/
+  domain: cmpsinc.com
+- name: Compusult Limited
+  suggested_slug: compusult-limited
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.compusult.net
+  domain: compusult.net
+- name: con terra GmbH
+  suggested_slug: con-terra-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.conterra.de
+  domain: conterra.de
+- name: CS Group
+  suggested_slug: cs-group
+  level: Explorer
+  member_type: Commercial
+  country: France
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.cs-soprasteria.com/en/
+  domain: cs-soprasteria.com
+- name: CubeNexus Inc
+  suggested_slug: cubenexus-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://cubenexus.xyz/
+  domain: cubenexus.xyz
+- name: CubeWerx
+  suggested_slug: cubewerx
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.cubewerx.com/
+  domain: cubewerx.com
+- name: DEIMOS Space S.L.U.
+  suggested_slug: deimos-space-s-l-u
+  level: Explorer
+  member_type: Commercial
+  country: Spain
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.elecnor-deimos.com/
+  domain: elecnor-deimos.com
+- name: DevDat.ai
+  suggested_slug: devdat-ai
+  level: Explorer
+  member_type: Commercial
+  country: Singapore
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.devdat.ai
+  domain: devdat.ai
+- name: Development Seed
+  suggested_slug: development-seed
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.developmentseed.org
+  domain: developmentseed.org
+- name: Dirk Farin - Algorithmic Research e.K.
+  suggested_slug: dirk-farin-algorithmic-research-e-k
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://imagemeter.com/
+  domain: imagemeter.com
+- name: Ecere Corporation
+  suggested_slug: ecere-corporation
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://ecere.ca
+  domain: ecere.ca
+- name: Environics Analytics Group
+  suggested_slug: environics-analytics-group
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://environicsanalytics.com/
+  domain: environicsanalytics.com
+- name: Envitia Ltd.
+  suggested_slug: envitia-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.envitia.com
+  domain: envitia.com
+- name: EOX IT Services GmbH
+  suggested_slug: eox-it-services-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Austria
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.eox.at
+  domain: eox.at
+- name: Epsilon Italia srl
+  suggested_slug: epsilon-italia-srl
+  level: Explorer
+  member_type: Commercial
+  country: Italy
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.epsilon-italia.it
+  domain: epsilon-italia.it
+- name: Esri India
+  suggested_slug: esri-india
+  level: Explorer
+  member_type: Commercial
+  country: India
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.esriindia.com
+  domain: esriindia.com
+- name: Esri UK
+  suggested_slug: esri-uk
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.esriuk.com
+  domain: esriuk.com
+- name: FPT IS Company Limited
+  suggested_slug: fpt-is-company-limited
+  level: Explorer
+  member_type: Commercial
+  country: Viet Nam
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://fpt-is.com/en/
+  domain: fpt-is.com
+- name: Gaia3D, Inc.
+  suggested_slug: gaia3d-inc
+  level: Explorer
+  member_type: Commercial
+  country: Korea, Republic of
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.gaia3d.com
+  domain: gaia3d.com
+- name: GarudaUAV Soft Solutions Private Limited
+  suggested_slug: garudauav-soft-solutions-private-limited
+  level: Explorer
+  member_type: Commercial
+  country: India
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://garudauav.com/
+  domain: garudauav.com
+- name: GatewayGeo
+  suggested_slug: gatewaygeo
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://gatewaygeomatics.com/
+  domain: gatewaygeomatics.com
+- name: GECOsistema srl
+  suggested_slug: gecosistema-srl
+  level: Explorer
+  member_type: Commercial
+  country: Italy
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://gecosistema.com/
+  domain: gecosistema.com
+- name: GEO Solutions
+  suggested_slug: geo-solutions
+  level: Explorer
+  member_type: Commercial
+  country: Belgium
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.geosolutions.be
+  domain: geosolutions.be
+- name: Geocento Limited
+  suggested_slug: geocento-limited
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.geocento.com/
+  domain: geocento.com
+- name: GeoInsight AG
+  suggested_slug: geoinsight-ag
+  level: Explorer
+  member_type: Commercial
+  country: Switzerland
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://geoinsight.ai
+  domain: geoinsight.ai
+- name: Geoknoesis LLC
+  suggested_slug: geoknoesis-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+- name: GeoLabs
+  suggested_slug: geolabs
+  level: Explorer
+  member_type: Commercial
+  country: France
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.geolabs.fr/
+  domain: geolabs.fr
+- name: Geolynx
+  suggested_slug: geolynx
+  level: Explorer
+  member_type: Commercial
+  country: Estonia
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://geolynx.ee
+  domain: geolynx.ee
+- name: GEOMATYS
+  suggested_slug: geomatys
+  level: Explorer
+  member_type: Commercial
+  country: France
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.geomatys.com
+  domain: geomatys.com
+- name: Geoscape
+  suggested_slug: geoscape
+  level: Explorer
+  member_type: Commercial
+  country: Australia
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://geoscape.com.au/
+  domain: geoscape.com.au
+- name: Geospatial Media & Communications Pvt Ltd
+  suggested_slug: geospatial-media-communications-pvt-ltd
+  level: Explorer
+  member_type: Commercial
+  country: India
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.geospatialmedia.net/
+  domain: geospatialmedia.net
+- name: Global Nomad GIS Services, LLC
+  suggested_slug: global-nomad-gis-services-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.gn-gis.com
+  domain: gn-gis.com
+- name: HARTIS Integrated Nautical Services
+  suggested_slug: hartis-integrated-nautical-services
+  level: Explorer
+  member_type: Commercial
+  country: Greece
+  lead_kind: commercial vendor
+  source_standard: ogc
+- name: Helyx secure information systems ltd
+  suggested_slug: helyx-secure-information-systems-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.helyx.co.uk/
+  domain: helyx.co.uk
+- name: i-bitz company limited
+  suggested_slug: i-bitz-company-limited
+  level: Explorer
+  member_type: Commercial
+  country: Thailand
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.i-bitz.co.th
+  domain: i-bitz.co.th
+- name: IBL Software Engineering
+  suggested_slug: ibl-software-engineering
+  level: Explorer
+  member_type: Commercial
+  country: Slovakia
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.iblsoft.com
+  domain: iblsoft.com
+- name: Idox Geospatial
+  suggested_slug: idox-geospatial
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://idoxgeospatial.co.uk/
+  domain: idoxgeospatial.co.uk
+- name: interactive instruments GmbH
+  suggested_slug: interactive-instruments-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.interactive-instruments.de
+  domain: interactive-instruments.de
+- name: Interbilla LLC
+  suggested_slug: interbilla-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.interbilla.com
+  domain: interbilla.com
+- name: JUNGDO UIT CO., LTD.
+  suggested_slug: jungdo-uit-co-ltd
+  level: Explorer
+  member_type: Commercial
+  country: Korea, Republic of
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://uitgis.com/eng/
+  domain: uitgis.com
+- name: KurrawongAI
+  suggested_slug: kurrawongai
+  level: Explorer
+  member_type: Commercial
+  country: Australia
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://kurrawong.ai
+  domain: kurrawong.ai
+- name: Lampata LTD
+  suggested_slug: lampata-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.lampata.eu/
+  domain: lampata.eu
+- name: lat/lon GmbH
+  suggested_slug: lat-lon-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.lat-lon.de
+  domain: lat-lon.de
+- name: MapmyIndia Mappls (C.E. Info Systems Ltd.)
+  suggested_slug: mapmyindia-mappls-c-e-info-systems-ltd
+  level: Explorer
+  member_type: Commercial
+  country: India
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.mapmyindia.com
+  domain: mapmyindia.com
+- name: MASV Inc.
+  suggested_slug: masv-inc
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://massive.io/
+  domain: massive.io
+- name: Mitsubishi Electric Corporation
+  suggested_slug: mitsubishi-electric-corporation
+  level: Explorer
+  member_type: Commercial
+  country: Japan
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://global.mitsubishielectric.com/
+  domain: global.mitsubishielectric.com
+- name: Navteca
+  suggested_slug: navteca
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://navteca.com/
+  domain: navteca.com
+- name: NETCAD YAZILIM A.S.
+  suggested_slug: netcad-yazilim-a-s
+  level: Explorer
+  member_type: Commercial
+  country: Türkiye
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.netcad.com.tr
+  domain: netcad.com.tr
+- name: OceanWise Ltd
+  suggested_slug: oceanwise-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.oceanwise.eu
+  domain: oceanwise.eu
+- name: Pacific Spatial Solutions Inc.
+  suggested_slug: pacific-spatial-solutions-inc
+  level: Explorer
+  member_type: Commercial
+  country: Japan
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://pacificspatial.com
+  domain: pacificspatial.com
+- name: Pangaea Innovations Pty. Ltd.
+  suggested_slug: pangaea-innovations-pty-ltd
+  level: Explorer
+  member_type: Commercial
+  country: Australia
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.pangaeainnovations.com
+  domain: pangaeainnovations.com
+- name: Pixalytics Ltd
+  suggested_slug: pixalytics-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.pixalytics.com
+  domain: pixalytics.com
+- name: rapidlasso GmbH - LAStools LiDAR processing
+  suggested_slug: rapidlasso-gmbh-lastools-lidar-processing
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://rapidlasso.de/
+  domain: rapidlasso.de
+- name: Ribose Inc.
+  suggested_slug: ribose-inc
+  level: Explorer
+  member_type: Commercial
+  country: Hong Kong SAR, China
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.ribose.com
+  domain: ribose.com
+- name: Romaeris Corporation
+  suggested_slug: romaeris-corporation
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://romaeris.com/
+  domain: romaeris.com
+- name: Rotten Grapes Private Limited
+  suggested_slug: rotten-grapes-private-limited
+  level: Explorer
+  member_type: Commercial
+  country: India
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://rottengrapes.tech/
+  domain: rottengrapes.tech
+- name: RSS-Hydro Sarl-S
+  suggested_slug: rss-hydro-sarl-s
+  level: Explorer
+  member_type: Commercial
+  country: Luxembourg
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://clustermembers.luxinnovation.lu/space/members/rss-hydro-sarl-s/
+  domain: clustermembers.luxinnovation.lu
+- name: Saab AB
+  suggested_slug: saab-ab
+  level: Explorer
+  member_type: Commercial
+  country: Sweden
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.saabgroup.com/
+  domain: saabgroup.com
+- name: SatSure Analytics India Private Limited
+  suggested_slug: satsure-analytics-india-private-limited
+  level: Explorer
+  member_type: Commercial
+  country: India
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://satsure.co/
+  domain: satsure.co
+- name: Secure Dimensions GmbH
+  suggested_slug: secure-dimensions-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.secure-dimensions.de
+  domain: secure-dimensions.de
+- name: SensorUp Inc.
+  suggested_slug: sensorup-inc
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.sensorup.com
+  domain: sensorup.com
+- name: Silvereye Technology
+  suggested_slug: silvereye-technology
+  level: Explorer
+  member_type: Commercial
+  country: Australia
+  lead_kind: commercial vendor
+  source_standard: ogc
+- name: Sparkgeo
+  suggested_slug: sparkgeo
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://sparkgeo.com
+  domain: sparkgeo.com
+- name: Starion Group
+  suggested_slug: starion-group
+  level: Explorer
+  member_type: Commercial
+  country: Italy
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.stariongroup.eu/
+  domain: stariongroup.eu
+- name: Starling Foundries LLC
+  suggested_slug: starling-foundries-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://starlingfoundries.com/
+  domain: starlingfoundries.com
+- name: Sundosoft Co., Ltd.
+  suggested_slug: sundosoft-co-ltd
+  level: Explorer
+  member_type: Commercial
+  country: Korea, Republic of
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.sundosoft.co.kr
+  domain: sundosoft.co.kr
+- name: SuperMap Software Co., Ltd.
+  suggested_slug: supermap-software-co-ltd
+  level: Explorer
+  member_type: Commercial
+  country: China
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.supermap.com/
+  domain: supermap.com
+- name: T-Kartor USA Corporation
+  suggested_slug: t-kartor-usa-corporation
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.t-kartor.com
+  domain: t-kartor.com
+- name: Tata Advanced Systems Limited (TASL)
+  suggested_slug: tata-advanced-systems-limited-tasl
+  level: Explorer
+  member_type: Commercial
+  country: India
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.tataadvancedsystems.com
+  domain: tataadvancedsystems.com
+- name: TCarta Marine LLC
+  suggested_slug: tcarta-marine-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.tcarta.com
+  domain: tcarta.com
+- name: Teknicare, Inc.
+  suggested_slug: teknicare-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.teknicare.com
+  domain: teknicare.com
+- name: Telespazio VEGA UK Ltd
+  suggested_slug: telespazio-vega-uk-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.telespazio-vega.com/
+  domain: telespazio-vega.com
+- name: Terradue Srl
+  suggested_slug: terradue-srl
+  level: Explorer
+  member_type: Commercial
+  country: Italy
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.terradue.com
+  domain: terradue.com
+- name: TerraFrame, Inc.
+  suggested_slug: terraframe-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.terraframe.com
+  domain: terraframe.com
+- name: Tuxuri Sdn Bhd
+  suggested_slug: tuxuri-sdn-bhd
+  level: Explorer
+  member_type: Commercial
+  country: Malaysia
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.tuxuri.com
+  domain: tuxuri.com
+- name: virtualcitySYSTEMS GmbH
+  suggested_slug: virtualcitysystems-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://vc.systems/en/
+  domain: vc.systems
+- name: Voyager Search
+  suggested_slug: voyager-search
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://voyagersearch.com
+  domain: voyagersearch.com
+- name: WAVUS
+  suggested_slug: wavus
+  level: Explorer
+  member_type: Commercial
+  country: Korea, Republic of
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://wavus.co.kr
+  domain: wavus.co.kr
+- name: Wherobots Inc.
+  suggested_slug: wherobots-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: https://www.wherobots.ai/
+  domain: wherobots.ai
+- name: Xentity Corporation
+  suggested_slug: xentity-corporation
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  lead_kind: commercial vendor
+  source_standard: ogc
+  url: http://www.xentity.com
+  domain: xentity.com
+- name: 52°North Spatial Information Research GmbH
+  suggested_slug: 52-north-spatial-information-research-gmbh
+  level: Explorer
+  member_type: Non-Profit
+  country: Germany
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.52north.org
+  domain: 52north.org
+- name: Aerospace Information Research Institute, Chinese Academy of Sciences
+  suggested_slug: aerospace-information-research-institute-chinese-academy-of-sciences
+  level: Explorer
+  member_type: Government
+  country: China
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.radi.ac.cn
+  domain: radi.ac.cn
+- name: AfroLeadership
+  suggested_slug: afroleadership
+  level: Explorer
+  member_type: Non-Profit
+  country: Cameroon
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://afroleadership.org
+  domain: afroleadership.org
+- name: Agency of Rural Development & Soil and Water Conservation (ARDSWC)
+  suggested_slug: agency-of-rural-development-soil-and-water-conservation-ardswc
+  level: Explorer
+  member_type: Government
+  country: Taiwan
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.swcb.gov.tw/Home/eng/
+  domain: swcb.gov.tw
+- name: AIT Austrian Institute of Technology GmbH
+  suggested_slug: ait-austrian-institute-of-technology-gmbh
+  level: Explorer
+  member_type: Non-Profit
+  country: Austria
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.ait.ac.at
+  domain: ait.ac.at
+- name: American Society for Photogrammetry & Remote Sensing (ASPRS)
+  suggested_slug: american-society-for-photogrammetry-remote-sensing-asprs
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.asprs.org
+  domain: asprs.org
+- name: Anyang University
+  suggested_slug: anyang-university
+  level: Explorer
+  member_type: University
+  country: Korea, Republic of
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://www.anyang.ac.kr/main/index.do
+  domain: anyang.ac.kr
+- name: AODN - Australian Ocean Data Network
+  suggested_slug: aodn-australian-ocean-data-network
+  level: Explorer
+  member_type: Non-Profit
+  country: Australia
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.imos.org.au/aodn.html
+  domain: imos.org.au
+- name: Association of Geospatial Industries (AGI)
+  suggested_slug: association-of-geospatial-industries-agi
+  level: Explorer
+  member_type: Non-Profit
+  country: India
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://agiindia.com/
+  domain: agiindia.com
+- name: Aston University
+  suggested_slug: aston-university
+  level: Explorer
+  member_type: University
+  country: United Kingdom
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.aston.ac.uk/
+  domain: aston.ac.uk
+- name: buildingSMART International Ltd.
+  suggested_slug: buildingsmart-international-ltd
+  level: Explorer
+  member_type: Non-Profit
+  country: United Kingdom
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.buildingsmart.com
+  domain: buildingsmart.com
+- name: Center for Coastal and Ocean Mapping
+  suggested_slug: center-for-coastal-and-ocean-mapping
+  level: Explorer
+  member_type: University
+  country: United States
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://ccom.unh.edu/
+  domain: ccom.unh.edu
+- name: CEPT Research and Development Foundation (CRDF)
+  suggested_slug: cept-research-and-development-foundation-crdf
+  level: Explorer
+  member_type: Non-Profit
+  country: India
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://crdf.org.in/
+  domain: crdf.org.in
+- name: City Bureau, Ministry of Land, Infrastructure and Tourism (MLIT)
+  suggested_slug: city-bureau-ministry-of-land-infrastructure-and-tourism-mlit
+  level: Explorer
+  member_type: Government
+  country: Japan
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.mlit.go.jp/plateau/
+  domain: mlit.go.jp
+- name: City of Helsinki
+  suggested_slug: city-of-helsinki
+  level: Explorer
+  member_type: Government
+  country: Finland
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.hel.fi/www/helsinki/en
+  domain: hel.fi
+- name: City of Vienna
+  suggested_slug: city-of-vienna
+  level: Explorer
+  member_type: Government
+  country: Austria
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.wien.gv.at/kontakte/ma01/index.html
+  domain: wien.gv.at
+- name: CNES
+  suggested_slug: cnes
+  level: Explorer
+  member_type: Government
+  country: France
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.cnes.fr
+  domain: cnes.fr
+- name: Collateral Risk Network, Inc. (CRN)
+  suggested_slug: collateral-risk-network-inc-crn
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.collateralrisk.org/
+  domain: collateralrisk.org
+- name: Columbia University-CIESIN
+  suggested_slug: columbia-university-ciesin
+  level: Explorer
+  member_type: University
+  country: United States
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.ciesin.columbia.edu
+  domain: ciesin.columbia.edu
+- name: Concordia University Montréal
+  suggested_slug: concordia-university-montr-al
+  level: Explorer
+  member_type: University
+  country: Canada
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://www.concordia.ca/research/cities-institute.html
+  domain: concordia.ca
+- name: Constructor University Bremen gGmbH
+  suggested_slug: constructor-university-bremen-ggmbh
+  level: Explorer
+  member_type: University
+  country: Germany
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.jacobs-university.de/
+  domain: jacobs-university.de
+- name: Curtin University
+  suggested_slug: curtin-university
+  level: Explorer
+  member_type: University
+  country: Australia
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://curtin.edu.au
+  domain: curtin.edu.au
+- name: CyberGIS Center for Advanced Digital & Spatial Studies
+  suggested_slug: cybergis-center-for-advanced-digital-spatial-studies
+  level: Explorer
+  member_type: University
+  country: United States
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://cybergis.illinois.edu
+  domain: cybergis.illinois.edu
+- name: Delft University of Technology
+  suggested_slug: delft-university-of-technology
+  level: Explorer
+  member_type: University
+  country: Netherlands
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.gdmc.nl
+  domain: gdmc.nl
+- name: Digitaal Vlaanderen
+  suggested_slug: digitaal-vlaanderen
+  level: Explorer
+  member_type: Government
+  country: Belgium
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.vlaanderen.be/digitaal-vlaanderen
+  domain: vlaanderen.be
+- name: Digital Architecture Design Center(DADC), Information-technology Promotion Agency (IPA)
+  suggested_slug: digital-architecture-design-center-dadc-information-technology-promotion-agency-ipa
+  level: Explorer
+  member_type: Government
+  country: Japan
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.ipa.go.jp/en/
+  domain: ipa.go.jp
+- name: Diputació de Barcelona-Oficina Tècnica de Cartografia i Sig Local
+  suggested_slug: diputaci-de-barcelona-oficina-t-cnica-de-cartografia-i-sig-local
+  level: Explorer
+  member_type: Government
+  country: Spain
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.diba.cat/idebarcelona
+  domain: diba.cat
+- name: Dr. Babasaheb Ambedkar Technological University (DBATU)
+  suggested_slug: dr-babasaheb-ambedkar-technological-university-dbatu
+  level: Explorer
+  member_type: University
+  country: India
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://www.dbatu.ac.in
+  domain: dbatu.ac.in
+- name: Earth Science Information Partners (ESIP)
+  suggested_slug: earth-science-information-partners-esip
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.esipfed.org
+  domain: esipfed.org
+- name: EarthScope Consortium, Inc.
+  suggested_slug: earthscope-consortium-inc
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.earthscope.org/
+  domain: earthscope.org
+- name: Energistics
+  suggested_slug: energistics
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.energistics.org
+  domain: energistics.org
+- name: ETRI (Electronics & Telecommunications Institute)
+  suggested_slug: etri-electronics-telecommunications-institute
+  level: Explorer
+  member_type: Non-Profit
+  country: Korea, Republic of
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.etri.re.kr
+  domain: etri.re.kr
+- name: Federation University Australia
+  suggested_slug: federation-university-australia
+  level: Explorer
+  member_type: University
+  country: Australia
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://federation.edu.au
+  domain: federation.edu.au
+- name: Finnish Meteorological Institute
+  suggested_slug: finnish-meteorological-institute
+  level: Explorer
+  member_type: Government
+  country: Finland
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.fmi.fi/en
+  domain: fmi.fi
+- name: Fisheries and Oceans Canada
+  suggested_slug: fisheries-and-oceans-canada
+  level: Explorer
+  member_type: Government
+  country: Canada
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.charts.gc.ca/
+  domain: charts.gc.ca
+- name: FrontierSI
+  suggested_slug: frontiersi
+  level: Explorer
+  member_type: Non-Profit
+  country: Australia
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://frontiersi.com.au/
+  domain: frontiersi.com.au
+- name: Fuzhou University
+  suggested_slug: fuzhou-university
+  level: Explorer
+  member_type: University
+  country: China
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.fzu.edu.cn/html/EN/index.shtml
+  domain: fzu.edu.cn
+- name: Gemeente Rotterdam
+  suggested_slug: gemeente-rotterdam
+  level: Explorer
+  member_type: Government
+  country: Netherlands
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+- name: Geoforum
+  suggested_slug: geoforum
+  level: Explorer
+  member_type: Non-Profit
+  country: Denmark
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://geoforum.dk
+  domain: geoforum.dk
+- name: Geographic Knowledge Lab at RMIT University
+  suggested_slug: geographic-knowledge-lab-at-rmit-university
+  level: Explorer
+  member_type: University
+  country: Australia
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://www.rmit.edu.au/
+  domain: rmit.edu.au
+- name: GEOHuntsville
+  suggested_slug: geohuntsville
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.geohuntsville.org/
+  domain: geohuntsville.org
+- name: GEOMAR Helmholtz Centre for Ocean Research Kiel
+  suggested_slug: geomar-helmholtz-centre-for-ocean-research-kiel
+  level: Explorer
+  member_type: Non-Profit
+  country: Germany
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://helmholtz-metadaten.de
+  domain: helmholtz-metadaten.de
+- name: Geomatics & Cartographic Research Centre, Carleton University
+  suggested_slug: geomatics-cartographic-research-centre-carleton-university
+  level: Explorer
+  member_type: University
+  country: Canada
+  lead_kind: academic / research
+  source_standard: ogc
+- name: George Mason University
+  suggested_slug: george-mason-university
+  level: Explorer
+  member_type: University
+  country: United States
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://csiss.gmu.edu
+  domain: csiss.gmu.edu
+- name: GFZ Potsdam
+  suggested_slug: gfz-potsdam
+  level: Explorer
+  member_type: Non-Profit
+  country: Germany
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.gfz-potsdam.de
+  domain: gfz-potsdam.de
+- name: Helmholtz Centre for Environmental Research - UFZ
+  suggested_slug: helmholtz-centre-for-environmental-research-ufz
+  level: Explorer
+  member_type: Non-Profit
+  country: Germany
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.ufz.de/
+  domain: ufz.de
+- name: HKSARG, Development Bureau
+  suggested_slug: hksarg-development-bureau
+  level: Explorer
+  member_type: Government
+  country: Hong Kong SAR, China
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.devb.gov.hk/
+  domain: devb.gov.hk
+- name: Hochschule für Technik Stuttgart
+  suggested_slug: hochschule-f-r-technik-stuttgart
+  level: Explorer
+  member_type: University
+  country: Germany
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.hft-stuttgart.de
+  domain: hft-stuttgart.de
+- name: HUB Ocean
+  suggested_slug: hub-ocean
+  level: Explorer
+  member_type: Non-Profit
+  country: Norway
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.hubocean.earth/
+  domain: hubocean.earth
+- name: Hubei Luojia Laboratory
+  suggested_slug: hubei-luojia-laboratory
+  level: Explorer
+  member_type: Non-Profit
+  country: China
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://luojia.whu.edu.cn/
+  domain: luojia.whu.edu.cn
+- name: IEEE Geoscience & Remote Sensing Society
+  suggested_slug: ieee-geoscience-remote-sensing-society
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.grss-ieee.org/
+  domain: grss-ieee.org
+- name: IIT Tirupati Navavishkar I-Hub Foundation (IITTNiF)
+  suggested_slug: iit-tirupati-navavishkar-i-hub-foundation-iittnif
+  level: Explorer
+  member_type: Non-Profit
+  country: India
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://iittnif.com/
+  domain: iittnif.com
+- name: IJIS Institute
+  suggested_slug: ijis-institute
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.ijis.org/
+  domain: ijis.org
+- name: Indian Institute of Technology Bombay (IIT Bombay)
+  suggested_slug: indian-institute-of-technology-bombay-iit-bombay
+  level: Explorer
+  member_type: University
+  country: India
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.cse.iitb.ac.in/gise
+  domain: cse.iitb.ac.in
+- name: INESC TEC - Institute for Systems and Computer Engineering, Technology and Science
+  suggested_slug: inesc-tec-institute-for-systems-and-computer-engineering-technology-and-science
+  level: Explorer
+  member_type: Non-Profit
+  country: Portugal
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.inesctec.pt/en
+  domain: inesctec.pt
+- name: Institute of Bioorganic Chemistry of the Polish Academy of Sciences - Poznan Supercomputing and Networking
+    Center
+  suggested_slug: institute-of-bioorganic-chemistry-of-the-polish-academy-of-sciences-poznan-supercomputing-and-networking-center
+  level: Explorer
+  member_type: Non-Profit
+  country: Poland
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.psnc.pl/
+  domain: psnc.pl
+- name: Institute of Communication and Computer Systems (ICCS)
+  suggested_slug: institute-of-communication-and-computer-systems-iccs
+  level: Explorer
+  member_type: Non-Profit
+  country: Greece
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://i-sense.iccs.gr/
+  domain: i-sense.iccs.gr
+- name: Institute “Big Data for Smart Society” - GATE
+  suggested_slug: institute-big-data-for-smart-society-gate
+  level: Explorer
+  member_type: University
+  country: Bulgaria
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://www.gate-ai.eu/
+  domain: gate-ai.eu
+- name: Instituto Geográfico Nacional (IGN of Spain)
+  suggested_slug: instituto-geogr-fico-nacional-ign-of-spain
+  level: Explorer
+  member_type: Government
+  country: Spain
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.ign.es
+  domain: ign.es
+- name: International Association of Oil & Gas Producers (IOGP)
+  suggested_slug: international-association-of-oil-gas-producers-iogp
+  level: Explorer
+  member_type: Non-Profit
+  country: United Kingdom
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.iogp.org/
+  domain: iogp.org
+- name: International Cartographic Association ICA
+  suggested_slug: international-cartographic-association-ica
+  level: Explorer
+  member_type: Non-Profit
+  country: Switzerland
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://icaci.org/
+  domain: icaci.org
+- name: International Institute of Information Technology Hyderabad (IIITH)
+  suggested_slug: international-institute-of-information-technology-hyderabad-iiith
+  level: Explorer
+  member_type: University
+  country: India
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://lsi.iiit.ac.in/
+  domain: lsi.iiit.ac.in
+- name: International Map Industry Association (IMIA)
+  suggested_slug: international-map-industry-association-imia
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://imiamaps.org/
+  domain: imiamaps.org
+- name: ISO/TC 204
+  suggested_slug: iso-tc-204
+  level: Explorer
+  member_type: Non-Profit
+  country: Switzerland
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+- name: ISRIC - World Soil Information
+  suggested_slug: isric-world-soil-information
+  level: Explorer
+  member_type: Non-Profit
+  country: Netherlands
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.isric.org
+  domain: isric.org
+- name: Italian Hydrographic Institute
+  suggested_slug: italian-hydrographic-institute
+  level: Explorer
+  member_type: Government
+  country: Italy
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.marina.difesa.it/noi-siamo-la-marina/pilastro-logistico/scientifici/
+  domain: marina.difesa.it
+- name: ITC, University of Twente
+  suggested_slug: itc-university-of-twente
+  level: Explorer
+  member_type: University
+  country: Netherlands
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.itc.nl/
+  domain: itc.nl
+- name: Jawaharlal Nehru Technological University Hyderabad
+  suggested_slug: jawaharlal-nehru-technological-university-hyderabad
+  level: Explorer
+  member_type: University
+  country: India
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://jntuh.ac.in/
+  domain: jntuh.ac.in
+- name: Kadaster International
+  suggested_slug: kadaster-international
+  level: Explorer
+  member_type: Government
+  country: Netherlands
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.kadaster.nl
+  domain: kadaster.nl
+- name: Katholieke Universiteit Leuven, Spatial Applications Division
+  suggested_slug: katholieke-universiteit-leuven-spatial-applications-division
+  level: Explorer
+  member_type: University
+  country: Belgium
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.sadl.kuleuven.be
+  domain: sadl.kuleuven.be
+- name: KNMI Royal Netherlands Meteorological Institute
+  suggested_slug: knmi-royal-netherlands-meteorological-institute
+  level: Explorer
+  member_type: Government
+  country: Netherlands
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.knmi.nl/
+  domain: knmi.nl
+- name: Korea Land & Geospatial InformatiX Corporation
+  suggested_slug: korea-land-geospatial-informatix-corporation
+  level: Explorer
+  member_type: Non-Profit
+  country: Korea, Republic of
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.lx.or.kr
+  domain: lx.or.kr
+- name: Lab-STICC CNRS UMR 6285
+  suggested_slug: lab-sticc-cnrs-umr-6285
+  level: Explorer
+  member_type: Government
+  country: France
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.lab-sticc.fr/
+  domain: lab-sticc.fr
+- name: Land Information New Zealand (LINZ)
+  suggested_slug: land-information-new-zealand-linz
+  level: Explorer
+  member_type: Government
+  country: New Zealand
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.linz.govt.nz
+  domain: linz.govt.nz
+- name: Lands Department, Hong Kong SAR Government
+  suggested_slug: lands-department-hong-kong-sar-government
+  level: Explorer
+  member_type: Government
+  country: Hong Kong SAR, China
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://landsd.gov.hk
+  domain: landsd.gov.hk
+- name: Lantmäteriet
+  suggested_slug: lantm-teriet
+  level: Explorer
+  member_type: Government
+  country: Sweden
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.lantmateriet.se/
+  domain: lantmateriet.se
+- name: Lincoln Institute of Land Policy
+  suggested_slug: lincoln-institute-of-land-policy
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://cgs.earth
+  domain: cgs.earth
+- name: LiRiS
+  suggested_slug: liris
+  level: Explorer
+  member_type: University
+  country: France
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://liris.cnrs.fr/
+  domain: liris.cnrs.fr
+- name: Luqia Technologies
+  suggested_slug: luqia-technologies
+  level: Explorer
+  member_type: Non-Profit
+  country: Canada
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.crim.ca
+  domain: crim.ca
+- name: Luxembourg Institute of Science & Technology (LIST)
+  suggested_slug: luxembourg-institute-of-science-technology-list
+  level: Explorer
+  member_type: Government
+  country: Luxembourg
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.list.lu/
+  domain: list.lu
+- name: Malaysian Communications and Multimedia Commission (MCMC)
+  suggested_slug: malaysian-communications-and-multimedia-commission-mcmc
+  level: Explorer
+  member_type: Government
+  country: Malaysia
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.mcmc.gov.my/en/home
+  domain: mcmc.gov.my
+- name: Maryland Department of Assessments and Taxation
+  suggested_slug: maryland-department-of-assessments-and-taxation
+  level: Explorer
+  member_type: Government
+  country: United States
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://dat.maryland.gov/Pages/default.aspx
+  domain: dat.maryland.gov
+- name: MINES ParisTech
+  suggested_slug: mines-paristech
+  level: Explorer
+  member_type: University
+  country: France
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.mines-paristech.eu
+  domain: mines-paristech.eu
+- name: Mohawk Council of Kahnawake
+  suggested_slug: mohawk-council-of-kahnawake
+  level: Explorer
+  member_type: Government
+  country: Canada
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.kahnawake.com/
+  domain: kahnawake.com
+- name: Mortgage Industry Standards Maintenance Organization (MISMO)
+  suggested_slug: mortgage-industry-standards-maintenance-organization-mismo
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.mortgagebankers.org
+  domain: mortgagebankers.org
+- name: National Center for High-performance Computing (NCHC)
+  suggested_slug: national-center-for-high-performance-computing-nchc
+  level: Explorer
+  member_type: Non-Profit
+  country: Taiwan
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.nchc.org.tw/en/
+  domain: nchc.org.tw
+- name: National Council of Geographic Information (CNIG)
+  suggested_slug: national-council-of-geographic-information-cnig
+  level: Explorer
+  member_type: Government
+  country: Algeria
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+- name: National Geospatial Collaborative (NGC)
+  suggested_slug: national-geospatial-collaborative-ngc
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://nationalgeospatialcollaborative.org/
+  domain: nationalgeospatialcollaborative.org
+- name: National Institute of Advanced Industrial Science & Technology (AIST)
+  suggested_slug: national-institute-of-advanced-industrial-science-technology-aist
+  level: Explorer
+  member_type: Non-Profit
+  country: Japan
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.aist.go.jp/index_en.html
+  domain: aist.go.jp
+- name: National Institute of Building Sciences (NIBS)
+  suggested_slug: national-institute-of-building-sciences-nibs
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.nibs.org
+  domain: nibs.org
+- name: National Meteorological Administration
+  suggested_slug: national-meteorological-administration
+  level: Explorer
+  member_type: Government
+  country: Romania
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.meteoromania.ro
+  domain: meteoromania.ro
+- name: National States Geographic Information Council (NSGIC)
+  suggested_slug: national-states-geographic-information-council-nsgic
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.nsgic.org/
+  domain: nsgic.org
+- name: New York City Geospatial Information System and Mapping Organization (GISMO)
+  suggested_slug: new-york-city-geospatial-information-system-and-mapping-organization-gismo
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.gismonyc.org/
+  domain: gismonyc.org
+- name: Office for Promotion of Regional Revitalization, Cabinet Office of Japan
+  suggested_slug: office-for-promotion-of-regional-revitalization-cabinet-office-of-japan
+  level: Explorer
+  member_type: Government
+  country: Japan
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.kantei.go.jp/jp/singi/sousei/index.html
+  domain: kantei.go.jp
+- name: Open & Agile Smart Cities
+  suggested_slug: open-agile-smart-cities
+  level: Explorer
+  member_type: Non-Profit
+  country: Belgium
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://oascities.org/
+  domain: oascities.org
+- name: Open AR Cloud Association
+  suggested_slug: open-ar-cloud-association
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.openarcloud.org/
+  domain: openarcloud.org
+- name: Open Design Alliance
+  suggested_slug: open-design-alliance
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.opendesign.com/
+  domain: opendesign.com
+- name: Open Site Plan
+  suggested_slug: open-site-plan
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.opensiteplan.org
+  domain: opensiteplan.org
+- name: Open Source Geospatial Foundation (OSGeo)
+  suggested_slug: open-source-geospatial-foundation-osgeo
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.osgeo.org
+  domain: osgeo.org
+- name: OPeNDAP
+  suggested_slug: opendap
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.opendap.org
+  domain: opendap.org
+- name: Pan American Institute of Geography and History (PAIGH)
+  suggested_slug: pan-american-institute-of-geography-and-history-paigh
+  level: Explorer
+  member_type: Non-Profit
+  country: Mexico
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.ipgh.org
+  domain: ipgh.org
+- name: Peking University International Sci-Tech Innovation Center at Lin-gang Special Area, China (Shanghai) Pilot
+    Free Trade Zone (PKU-IICSH)
+  suggested_slug: peking-university-international-sci-tech-innovation-center-at-lin-gang-special-area-china-shanghai-pilot-free-trade-zone-pku-iicsh
+  level: Explorer
+  member_type: University
+  country: China
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://iicsh.pku.edu.cn/
+  domain: iicsh.pku.edu.cn
+- name: Penn State Applied Research Lab
+  suggested_slug: penn-state-applied-research-lab
+  level: Explorer
+  member_type: University
+  country: United States
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.arl.psu.edu
+  domain: arl.psu.edu
+- name: Plan4All z.s.
+  suggested_slug: plan4all-z-s
+  level: Explorer
+  member_type: Non-Profit
+  country: Czech Republic
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.plan4all.eu/
+  domain: plan4all.eu
+- name: Polish Geological Institute - National Research Institute
+  suggested_slug: polish-geological-institute-national-research-institute
+  level: Explorer
+  member_type: Government
+  country: Poland
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.pgi.gov.pl/
+  domain: pgi.gov.pl
+- name: Pusan National University
+  suggested_slug: pusan-national-university
+  level: Explorer
+  member_type: University
+  country: Korea, Republic of
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.cse.pusan.ac.kr
+  domain: cse.pusan.ac.kr
+- name: Regional Centre for Mapping of Resources for Development (RCMRD)
+  suggested_slug: regional-centre-for-mapping-of-resources-for-development-rcmrd
+  level: Explorer
+  member_type: Non-Profit
+  country: Kenya
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.rcmrd.org
+  domain: rcmrd.org
+- name: Riverside Research
+  suggested_slug: riverside-research
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.riversideresearch.org
+  domain: riversideresearch.org
+- name: School of Engineering & Applied Science, Ahmedabad University
+  suggested_slug: school-of-engineering-applied-science-ahmedabad-university
+  level: Explorer
+  member_type: University
+  country: India
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://iet.ahduni.edu.in/
+  domain: iet.ahduni.edu.in
+- name: State Authority for Geospatial Information (ASIG)
+  suggested_slug: state-authority-for-geospatial-information-asig
+  level: Explorer
+  member_type: Government
+  country: Albania
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://asig.gov.al/
+  domain: asig.gov.al
+- name: State Service of Ukraine for Geodesy, Cartography and Cadastre
+  suggested_slug: state-service-of-ukraine-for-geodesy-cartography-and-cadastre
+  level: Explorer
+  member_type: Government
+  country: Ukraine
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://land.gov.ua/
+  domain: land.gov.ua
+- name: Statistics Centre - Abu Dhabi
+  suggested_slug: statistics-centre-abu-dhabi
+  level: Explorer
+  member_type: Government
+  country: United Arab Emirates
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.scad.ae
+  domain: scad.ae
+- name: Survey of Pakistan
+  suggested_slug: survey-of-pakistan
+  level: Explorer
+  member_type: Government
+  country: Pakistan
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.surveyofpakistan.gov.pk/
+  domain: surveyofpakistan.gov.pk
+- name: swisstopo
+  suggested_slug: swisstopo
+  level: Explorer
+  member_type: Government
+  country: Switzerland
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://www.swisstopo.admin.ch/
+  domain: swisstopo.admin.ch
+- name: Technische Universität München - Runder Tisch GIS e.V.
+  suggested_slug: technische-universit-t-m-nchen-runder-tisch-gis-e-v
+  level: Explorer
+  member_type: University
+  country: Germany
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.gis.bv.tum.de
+  domain: gis.bv.tum.de
+- name: The Aerospace Corporation
+  suggested_slug: the-aerospace-corporation
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.aerospace.org
+  domain: aerospace.org
+- name: The Danish Agency for Climate Data
+  suggested_slug: the-danish-agency-for-climate-data
+  level: Explorer
+  member_type: Government
+  country: Denmark
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: https://eng.klimadatastyrelsen.dk/
+  domain: eng.klimadatastyrelsen.dk
+- name: The GovLab (Governance Lab) at New York University
+  suggested_slug: the-govlab-governance-lab-at-new-york-university
+  level: Explorer
+  member_type: University
+  country: United States
+  lead_kind: academic / research
+  source_standard: ogc
+- name: The HDF Group
+  suggested_slug: the-hdf-group
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.hdfgroup.org
+  domain: hdfgroup.org
+- name: The Khronos Group, Inc.
+  suggested_slug: the-khronos-group-inc
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://www.khronos.org/
+  domain: khronos.org
+- name: Trafikverket, Swedish Transport Administration
+  suggested_slug: trafikverket-swedish-transport-administration
+  level: Explorer
+  member_type: Government
+  country: Sweden
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.trafikverket.se/en/startpage/
+  domain: trafikverket.se
+- name: U.S. Geospatial Intelligence Foundation (USGIF)
+  suggested_slug: u-s-geospatial-intelligence-foundation-usgif
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.usgif.org
+  domain: usgif.org
+- name: UGIX Programme Unit, Foundation for Science and Development (FSID)
+  suggested_slug: ugix-programme-unit-foundation-for-science-and-development-fsid
+  level: Explorer
+  member_type: Non-Profit
+  country: India
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://ugix.og.in
+  domain: ugix.og.in
+- name: Universidad Politecnica de Madrid (Grupo Mercator)
+  suggested_slug: universidad-politecnica-de-madrid-grupo-mercator
+  level: Explorer
+  member_type: University
+  country: Spain
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.latingeo.net
+  domain: latingeo.net
+- name: Universitat Autònoma de Barcelona (CREAF)
+  suggested_slug: universitat-aut-noma-de-barcelona-creaf
+  level: Explorer
+  member_type: University
+  country: Spain
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://www.creaf.cat/en/research/research-directory/gis-miramon
+  domain: creaf.cat
+- name: University of Applied Sciences, Western Switzerland, School of Business & Engineering Vaud (HEIG-VD)
+  suggested_slug: university-of-applied-sciences-western-switzerland-school-of-business-engineering-vaud-heig-vd
+  level: Explorer
+  member_type: University
+  country: Switzerland
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.heig-vd.ch
+  domain: heig-vd.ch
+- name: University of Florida, Florida Institute for Built Environment Resilience
+  suggested_slug: university-of-florida-florida-institute-for-built-environment-resilience
+  level: Explorer
+  member_type: University
+  country: United States
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://dcp.ufl.edu/fiber/
+  domain: dcp.ufl.edu
+- name: University of Ljubljana, Faculty of Civil and Geodetic Engineering
+  suggested_slug: university-of-ljubljana-faculty-of-civil-and-geodetic-engineering
+  level: Explorer
+  member_type: University
+  country: Slovenia
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://www.en.fgg.uni-lj.si/
+  domain: en.fgg.uni-lj.si
+- name: University of Maryland Dept. of Geographical Sciences
+  suggested_slug: university-of-maryland-dept-of-geographical-sciences
+  level: Explorer
+  member_type: University
+  country: United States
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://geog.umd.edu
+  domain: geog.umd.edu
+- name: University of Muenster - Institute for Geoinformatics
+  suggested_slug: university-of-muenster-institute-for-geoinformatics
+  level: Explorer
+  member_type: University
+  country: Germany
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://ifgi.uni-muenster.de/
+  domain: ifgi.uni-muenster.de
+- name: University of Salzburg
+  suggested_slug: university-of-salzburg
+  level: Explorer
+  member_type: University
+  country: Austria
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.zgis.at
+  domain: zgis.at
+- name: University of Tartu
+  suggested_slug: university-of-tartu
+  level: Explorer
+  member_type: University
+  country: Estonia
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://www.geograafia ut.ee/en/department-geography
+  domain: geograafia ut.ee
+- name: University of Vienna - Department of Geography and Regional Research
+  suggested_slug: university-of-vienna-department-of-geography-and-regional-research
+  level: Explorer
+  member_type: University
+  country: Austria
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://carto.univie.ac.at
+  domain: carto.univie.ac.at
+- name: Université Libre de Bruxelles (ULB)
+  suggested_slug: universit-libre-de-bruxelles-ulb
+  level: Explorer
+  member_type: University
+  country: Belgium
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://cs.ulb.ac.be/members/esteban/http://cs.ulb.ac.be/members/esteban/
+  domain: cs.ulb.ac.be
+- name: Urban Structure Visualization Promotion Organization
+  suggested_slug: urban-structure-visualization-promotion-organization
+  level: Explorer
+  member_type: Non-Profit
+  country: Japan
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://kashika.or.jp/
+  domain: kashika.or.jp
+- name: US Dept. of Defense/DISA
+  suggested_slug: us-dept-of-defense-disa
+  level: Explorer
+  member_type: Government
+  country: United States
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.disa.mil/
+  domain: disa.mil
+- name: VITO (Flemish Institute for Technological Research)
+  suggested_slug: vito-flemish-institute-for-technological-research
+  level: Explorer
+  member_type: Non-Profit
+  country: Belgium
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.vito.be
+  domain: vito.be
+- name: Web3D Consortium, Inc.
+  suggested_slug: web3d-consortium-inc
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: http://www.web3d.org/
+  domain: web3d.org
+- name: West University of Timisoara
+  suggested_slug: west-university-of-timisoara
+  level: Explorer
+  member_type: University
+  country: Romania
+  lead_kind: academic / research
+  source_standard: ogc
+  url: http://www.uvt.ro/
+  domain: uvt.ro
+- name: World Geospatial Industry Council (WGIC)
+  suggested_slug: world-geospatial-industry-council-wgic
+  level: Explorer
+  member_type: Non-Profit
+  country: Netherlands
+  lead_kind: non-profit / NGO
+  source_standard: ogc
+  url: https://wgicouncil.org/
+  domain: wgicouncil.org
+- name: Wupperverband
+  suggested_slug: wupperverband
+  level: Explorer
+  member_type: Government
+  country: Germany
+  lead_kind: government / public-sector data publisher
+  source_standard: ogc
+  url: http://www.wupperverband.de
+  domain: wupperverband.de
+- name: Yale Center for Geospatial Solutions
+  suggested_slug: yale-center-for-geospatial-solutions
+  level: Explorer
+  member_type: University
+  country: United States
+  lead_kind: academic / research
+  source_standard: ogc
+  url: https://geospatial.yale.edu/
+  domain: geospatial.yale.edu

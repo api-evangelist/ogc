@@ -1,0 +1,3544 @@
+generated: '2026-08-20'
+method: searched
+source: https://github.com/opengeospatial
+type: Contributors
+organization: opengeospatial
+summary:
+  contributors: 487
+  repositories_checked: 337
+  total_contributions: 53446
+contributors:
+- github_id: gbuehler
+  contributions: 9170
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - Agriculture-DWG
+  - BigTIFF
+  - CBD-Volume-13-CDB-Rules-for-Encoding-CDB-Vector-Data-using-GeoPackage
+  - CRS-Deformation-Models
+  - CitSciIE
+  - CloudOptimizedGeoTIFF
+  - CoverageJSON
+  - D040-Complex_Feature_Handling_Engineering_Report
+  - ELFIE
+  - ESGF-Compute
+  - EmissionML
+  - GeoDataSciWhitePaper
+  - GeoPose
+  - GeoPoseGuides
+  - GeoPoseWeb
+  - Geospatial-User-Feedback
+  - HY_Features
+  - MetOceanDWG
+  - Multidimensional-TIFF
+  - NamingAuthority
+  - OGC-Disaster-Response
+  - OGC-IPR-Review-2021
+  - OGC-ISG-Sprint-Sep-2020
+  - Overture-Maps-GERS
+  - PubSub-Whitepaper
+  - Standards_Incubator
+  - Temporal-Abstract-Spec
+  - Testbed-20
+  - TrainingDML-AI_SWG
+  - Weather-on-the-Web-ER
+  - aim-swg
+  - api_whitepaper
+  - bblocks
+  - cartographic-symbology
+  - cdb-vector-gpkg-ie
+  - cdb-volume-0
+  - cdb-volume-1
+  - cdb-volume-10
+  - cdb-volume-11
+  - cdb-volume-12
+  - cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion
+  - cdb-volume-2
+  - cdb-volume-3
+  - cdb-volume-4
+  - cdb-volume-5
+  - cdb-volume-6
+  - cdb-volume-7
+  - cdb-volume-8
+  - coverage-implementation-schema
+  - developer-track
+  - er_template
+  - geoapi
+  - geopackage
+  - geopose-bblocks
+  - geopose-cm
+  - geopose-json-encoding
+  - geotiff
+  - gss-swg
+  - mf-json
+  - muddi
+  - netcdf-ld
+  - ogc-feat-geo-json
+  - ogc-geosparql
+  - ogc-i3s-community-standard
+  - ogc-modspec
+  - ogcapi-3d-geovolumes
+  - ogcapi-common
+  - ogcapi-coverages
+  - ogcapi-discrete-global-grid-systems
+  - ogcapi-environmental-data-retrieval
+  - ogcapi-features
+  - ogcapi-joins
+  - ogcapi-maps
+  - ogcapi-org
+  - ogcapi-processes
+  - ogcapi-records
+  - ogcapi-routes
+  - ogcapi-tiles
+  - ogcna-auto-review
+  - opengeospatial
+  - poi
+  - quantum
+  - requests
+  - t16-dapa-terradue-sentinel-5p-NO2
+  - teamengine-site
+  - templates
+  - test-standard
+  - testbed_resources
+  - unggim_standards_guide
+  repository_count: 90
+- github_id: cnreediii
+  contributions: 2930
+  repositories:
+  - CBD-Volume-13-CDB-Rules-for-Encoding-CDB-Vector-Data-using-GeoPackage
+  - Overture-Maps-GERS
+  - api_whitepaper
+  - cdb-vector-gpkg-ie
+  - cdb-volume-0
+  - cdb-volume-1
+  - cdb-volume-10
+  - cdb-volume-11
+  - cdb-volume-12
+  - cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion
+  - cdb-volume-2
+  - cdb-volume-3
+  - cdb-volume-4
+  - cdb-volume-5
+  - cdb-volume-6
+  - cdb-volume-7
+  - cdb-volume-8
+  - geopackage
+  - ogc-i3s-community-standard
+  - ogc-modspec
+  - ogcapi-coverages
+  - ogcapi-maps
+  - ogcapi-processes
+  repository_count: 23
+- github_id: dstenger
+  contributions: 2735
+  repositories:
+  - cite
+  - cite1-utils
+  - developer-events
+  - ets-19139
+  - ets-archetype-testng
+  - ets-cat20-dgiwg10
+  - ets-cat30
+  - ets-cdb10
+  - ets-citygml20
+  - ets-citygml30-part2
+  - ets-common
+  - ets-csw202
+  - ets-dgiwg
+  - ets-dgiwg-core
+  - ets-eo-geojson10
+  - ets-geopose10
+  - ets-georss10
+  - ets-geotiff11
+  - ets-gml32
+  - ets-gmljpx20
+  - ets-gpkg10
+  - ets-gpkg12
+  - ets-gpkg12-nsg
+  - ets-indoorgml10
+  - ets-infragml10
+  - ets-kml2
+  - ets-kml22
+  - ets-ogcapi-edr10
+  - ets-ogcapi-features10
+  - ets-ogcapi-processes10
+  - ets-ogcapi-tiles10
+  - ets-omxml20
+  - ets-owc10
+  - ets-pipelineml10
+  - ets-security-client10
+  - ets-sensorml10
+  - ets-sensorml20
+  - ets-sfs11
+  - ets-sfs12
+  - ets-sos10
+  - ets-sos20
+  - ets-sps20
+  - ets-sta10
+  - ets-swecommon20
+  - ets-trainingdmlai10-part2
+  - ets-wcs10
+  - ets-wcs11
+  - ets-wcs20
+  - ets-wcseo10
+  - ets-wfs10
+  - ets-wfs11
+  - ets-wfs20
+  - ets-wfs20-dgiwg
+  - ets-wfs20-nsg10
+  - ets-wms-client13
+  - ets-wms11
+  - ets-wms13
+  - ets-wms13-dgiwg
+  - ets-wms13-nsg
+  - ets-wmts10
+  - ets-wmts10-nsg10
+  - ets-wps10
+  - ets-wps20
+  - geomatics-geotk
+  - ogcapi-features
+  - schema-utils
+  - teamengine
+  - teamengine-bom
+  - teamengine-docker
+  - teamengine-site
+  repository_count: 70
+- github_id: situx
+  contributions: 2577
+  repositories:
+  - geosemantics-dwg
+  - geosparql3dwhitepaper
+  - ogc-geosparql
+  - ogc-geosparql-shapes
+  - ontology-crs
+  repository_count: 5
+- github_id: desruisseaux
+  contributions: 2138
+  repositories:
+  - CRS-Gridded-Geodetic-data-eXchange-Format
+  - CRS-JSON-Encoding
+  - MetOceanDWG
+  - developer-events
+  - ets-cat30
+  - ets-gml32
+  - ets-gpkg12-nsg
+  - ets-ogcapi-edr10
+  - ets-wfs20
+  - geoapi
+  - geomatics-geotk
+  - geotiff
+  - ogcapi-movingfeatures
+  - ogcna-auto-review
+  - testbed_resources
+  repository_count: 15
+- github_id: chris-little
+  contributions: 2126
+  repositories:
+  - Bounding-Box-Abstract-Specification
+  - CoverageJSON
+  - MetOceanDWG
+  - Temporal-Abstract-Spec
+  - Weather-on-the-Web-ER
+  - bblocks
+  - developer-events
+  - developer-track
+  - metocean-ogcapi-maps-profile
+  - netcdf-ld
+  - ogcapi-common
+  - ogcapi-environmental-data-retrieval
+  - ogcapi-tiles
+  - pubsub
+  - weather-on-the-web
+  repository_count: 15
+- github_id: cportele
+  contributions: 1785
+  repositories:
+  - D040-Complex_Feature_Handling_Engineering_Report
+  - NamingAuthority
+  - developer-events
+  - developer-track
+  - ets-ogcapi-features10
+  - ogc-feat-geo-json
+  - ogcapi-common
+  - ogcapi-features
+  - ogcapi-records
+  - ogcapi-routes
+  - ogcapi-styles
+  - ogcapi-tiles
+  - poi
+  - pubsub
+  - wfs3hackathon
+  repository_count: 15
+- github_id: jerstlouis
+  contributions: 1778
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - API-workflows-dp
+  - CDBV2-2023-Summer-Workshop
+  - GeoPose
+  - ISG-Sprint-Year-2
+  - OGC-ISG-Sprint-Sep-2020
+  - cartographic-symbology
+  - climate-resilience-dwg
+  - coverage-implementation-schema
+  - developer-events
+  - ogc-feat-geo-json
+  - ogcapi-3d-geovolumes
+  - ogcapi-common
+  - ogcapi-coverages
+  - ogcapi-discrete-global-grid-systems
+  - ogcapi-features
+  - ogcapi-maps
+  - ogcapi-movingfeatures
+  - ogcapi-org
+  - ogcapi-processes
+  - ogcapi-routes
+  - ogcapi-styles
+  - ogcapi-tiles
+  repository_count: 23
+- github_id: avillar
+  contributions: 1578
+  repositories:
+  - NamingAuthority
+  - aim-swg
+  - bblocks
+  - bblocks-postprocess
+  - bblocks-template
+  - climate-resilience-dwg
+  - geopose-bblocks
+  - geosciml-json-code-sprint
+  - ogc-na-tools
+  - ogcapi-connected-systems
+  - ogcapi-sosa
+  repository_count: 11
+- github_id: pvretano
+  contributions: 1529
+  repositories:
+  - developer-events
+  - developer-track
+  - ogc-feat-geo-json
+  - ogcapi-common
+  - ogcapi-features
+  - ogcapi-processes
+  - ogcapi-records
+  - ogcapi-styles
+  - pubsub
+  - wfs3hackathon
+  repository_count: 10
+- github_id: bermud
+  contributions: 1349
+  repositories:
+  - cite
+  - ets-19139
+  - ets-cat30
+  - ets-csw202
+  - ets-dgiwg
+  - ets-gml32
+  - ets-gmlcovrgrid10
+  - ets-gmljpx20
+  - ets-gpkg10
+  - ets-gpkg12
+  - ets-indoorgml10
+  - ets-kml22
+  - ets-ogcapi-features10
+  - ets-omxml20
+  - ets-osxeo10
+  - ets-sensorml10
+  - ets-sensorml20
+  - ets-sfs11
+  - ets-sfs12
+  - ets-sos10
+  - ets-sos20
+  - ets-sps20
+  - ets-sta10
+  - ets-waterml20
+  - ets-wcs10
+  - ets-wcs11
+  - ets-wcs20
+  - ets-wcseo10
+  - ets-wfs10
+  - ets-wfs11
+  - ets-wms-client13
+  - ets-wms-sld11
+  - ets-wms11
+  - ets-wms13
+  - ets-wms13-nsg
+  - ets-wmts10
+  - ets-wmts10-nsg10
+  - ets-wps10
+  - geoedge-plugfest
+  - ideas
+  - isg-plugfest
+  - md-vocab
+  - ogcapi-features
+  - ontologies
+  - ows11-ideas
+  - swe4citizenscience
+  - te-releases
+  - teamengine
+  - teamengine-docker
+  - teamengine-integration-testing
+  - teamengine-monitor
+  - teamengine-site
+  - test-standard
+  repository_count: 53
+- github_id: bpross-52n
+  contributions: 1233
+  repositories:
+  - cite-ogcapi-processes-demo
+  - developer-track
+  - ets-cat20-dgiwg10
+  - ets-cat30
+  - ets-cdb10
+  - ets-citygml30-part2
+  - ets-common
+  - ets-csw202
+  - ets-dgiwg-core
+  - ets-eo-geojson10
+  - ets-geopose10
+  - ets-georss10
+  - ets-geotiff11
+  - ets-gml32
+  - ets-gmljpx20
+  - ets-gpkg10
+  - ets-gpkg12
+  - ets-gpkg12-nsg
+  - ets-kml22
+  - ets-ogcapi-edr10
+  - ets-ogcapi-features10
+  - ets-ogcapi-processes10
+  - ets-ogcapi-tiles10
+  - ets-omxml20
+  - ets-sensorml10
+  - ets-sensorml20
+  - ets-sfs11
+  - ets-sfs12
+  - ets-sos10
+  - ets-sos20
+  - ets-sps20
+  - ets-sta10
+  - ets-swecommon20
+  - ets-wcs10
+  - ets-wcs11
+  - ets-wcs20
+  - ets-wfs10
+  - ets-wfs11
+  - ets-wfs20
+  - ets-wfs20-dgiwg
+  - ets-wfs20-nsg10
+  - ets-wms-client13
+  - ets-wms11
+  - ets-wms13
+  - ets-wms13-dgiwg
+  - ets-wms13-nsg
+  - ets-wmts10
+  - ets-wmts10-nsg10
+  - ets-wps20
+  - geomatics-geotk
+  - ogcapi-processes
+  - teamengine
+  - teamengine-bom
+  - teamengine-site
+  repository_count: 54
+- github_id: lgoltz
+  contributions: 1056
+  repositories:
+  - ets-19139
+  - ets-archetype-testng
+  - ets-cat20-dgiwg10
+  - ets-cat30
+  - ets-common
+  - ets-csw202
+  - ets-dgiwg
+  - ets-dgiwg-core
+  - ets-gml32
+  - ets-gmljpx20
+  - ets-gpkg10
+  - ets-gpkg12
+  - ets-gpkg12-nsg
+  - ets-kml2
+  - ets-kml22
+  - ets-ogcapi-features10
+  - ets-omxml20
+  - ets-owc10
+  - ets-security-client10
+  - ets-sensorml10
+  - ets-sensorml20
+  - ets-sfs11
+  - ets-sos10
+  - ets-sos20
+  - ets-sps20
+  - ets-swecommon20
+  - ets-wcs10
+  - ets-wcs11
+  - ets-wcs20
+  - ets-wfs10
+  - ets-wfs11
+  - ets-wfs20
+  - ets-wfs20-dgiwg
+  - ets-wfs20-nsg10
+  - ets-wms-client13
+  - ets-wms11
+  - ets-wms13
+  - ets-wms13-dgiwg
+  - ets-wms13-nsg
+  - ets-wmts10
+  - ets-wmts10-nsg10
+  - ets-wps10
+  - teamengine
+  - teamengine-docker
+  repository_count: 44
+- github_id: rjmartell
+  contributions: 1048
+  repositories:
+  - cite1-utils
+  - ets-19139
+  - ets-archetype-testng
+  - ets-cat30
+  - ets-common
+  - ets-csw202
+  - ets-dgiwg
+  - ets-dgiwg-core
+  - ets-gml32
+  - ets-gml32-data
+  - ets-gmljpx20
+  - ets-gpkg10
+  - ets-gpkg12
+  - ets-kml2
+  - ets-kml22
+  - ets-owc10
+  - ets-resources
+  - ets-sfs11
+  - ets-sta10
+  - ets-wcs10
+  - ets-wcs20
+  - ets-wfs10
+  - ets-wfs11
+  - ets-wfs20
+  - ets-wfs20-nsg10
+  - ets-wms-client13
+  - ets-wms11
+  - ets-wms13
+  - ets-wms13-dgiwg
+  - ets-wmts10
+  - ets-wmts10-nsg10
+  - geomatics-geotk
+  - schema-utils
+  - teamengine
+  - teamengine-integration-testing
+  repository_count: 35
+- github_id: cmheazel
+  contributions: 1043
+  repositories:
+  - CityGML-3.0CM
+  - CityGML-3.0Encodings
+  - CoverageProcessAnalytics
+  - Dynamic-Features
+  - GeoPoseGuides
+  - OGC-Web-API-Guidelines
+  - PubSub-Whitepaper
+  - Space-Standards-DWG
+  - Temporal-Abstract-Spec
+  - api_whitepaper
+  - coverage-implementation-schema
+  - ets-geotiff11
+  - geotiff
+  - ogc-modspec
+  - ogcapi-common
+  - ogcapi-coverages
+  - ogcapi-environmental-data-retrieval
+  - ogcapi-features
+  - ogcapi-maps
+  - ogcapi-records
+  - ogcapi-tiles
+  - poi
+  - pubsub
+  - teamengine
+  repository_count: 24
+- github_id: dblodgett-usgs
+  contributions: 934
+  repositories:
+  - CoverageProcessAnalytics
+  - ELFIE
+  - HY_Features
+  - NamingAuthority
+  - SELFIE
+  - hydro-dwg
+  - ogcapi-environmental-data-retrieval
+  - ogcapi-features
+  repository_count: 8
+- github_id: jyutzler
+  contributions: 788
+  repositories:
+  - GeoPoseGuides
+  - Weather-on-the-Web-ER
+  - cdb-vector-gpkg-ie
+  - er_template
+  - ets-gpkg12
+  - geopackage
+  - ogc-modspec
+  - templates
+  repository_count: 8
+- github_id: tomkralidis
+  contributions: 717
+  repositories:
+  - CoverageJSON
+  - CoverageProcessAnalytics
+  - MetOceanDWG
+  - QoSE-DWG
+  - Weather-on-the-Web-ER
+  - dev-ogc-org-sprint-landing-18
+  - developer-events
+  - ets-cat30
+  - ets-csw202
+  - ets-ogcapi-edr10
+  - metocean-common-profile-ogcapi
+  - metocean-ogcapi-environmental-data-retrieval-profile
+  - metocean-ogcapi-maps-profile
+  - ogc-csapi-website
+  - ogc-features-website
+  - ogc-records-website
+  - ogcapi-coverages
+  - ogcapi-environmental-data-retrieval
+  - ogcapi-features
+  - ogcapi-maps
+  - ogcapi-org
+  - ogcapi-processes
+  - ogcapi-records
+  - ogcapi-tiles
+  - ogcapi-workshop
+  - pubsub
+  - teamengine
+  - teamengine-monitor
+  - weather-on-the-web
+  - wfs3hackathon
+  repository_count: 30
+- github_id: joanma747
+  contributions: 610
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - BigTIFF
+  - CitSciIE
+  - CloudOptimizedGeoTIFF
+  - GONAR
+  - Geospatial-User-Feedback
+  - OGC-Web-API-Guidelines
+  - architecture-dwg
+  - developer-events
+  - developer-track
+  - draft-charters
+  - geotiff
+  - ogcapi-common
+  - ogcapi-coverages
+  - ogcapi-maps
+  - ogcapi-styles
+  - ogcapi-tiles
+  - owscontext
+  repository_count: 18
+- github_id: 3DXScape
+  contributions: 546
+  repositories:
+  - CityGML-3.0
+  - CityGML-3.0CM
+  - CityGML-3.0Encodings
+  - CityGML3.0-GML-Encoding
+  - GeoPose
+  - GeoPoseGuides
+  - GeoPoseWeb
+  - developer-track
+  - geopose-cm
+  repository_count: 9
+- github_id: m-burgoyne
+  contributions: 542
+  repositories:
+  - MetOceanDWG
+  - ogcapi-environmental-data-retrieval
+  - weather-on-the-web
+  repository_count: 3
+- github_id: rob-metalinkage
+  contributions: 530
+  repositories:
+  - Agriculture-DWG
+  - ELFIE
+  - GeoDCAT-SWG
+  - HY_Features
+  - NamingAuthority
+  - aim-swg
+  - bblocks
+  - bblocks-postprocess
+  - bblocks-template
+  - citizen_science
+  - conneg-by-crs
+  - developer-events
+  - geopose-bblocks
+  - geosemantics-dwg
+  - ogc-feat-geo-json
+  - ogc-na-tools
+  - ogcapi-sosa
+  - swe4citizenscience
+  repository_count: 18
+- github_id: openfirmware
+  contributions: 511
+  repositories:
+  - ets-cdb10
+  - ets-security-client10
+  repository_count: 2
+- github_id: ogcscotts
+  contributions: 466
+  repositories:
+  - Agriculture-DWG
+  - CBD-Volume-13-CDB-Rules-for-Encoding-CDB-Vector-Data-using-GeoPackage
+  - CRS-Deformation-Models
+  - CitSciIE
+  - CityGML3.0-GML-Encoding
+  - CloudOptimizedGeoTIFF
+  - CoverageJSON
+  - GeoDataSciWhitePaper
+  - GeoPose
+  - Geospatial-User-Feedback
+  - Geotech
+  - HY_Features
+  - ISG-Sprint-Year-2
+  - IndoorGML-SWG
+  - MetOceanDWG
+  - OGC-ISG-Sprint-Sep-2020
+  - OGC-Web-API-Guidelines
+  - Overture-Maps-GERS
+  - PubSub-Whitepaper
+  - Standards_Incubator
+  - Temporal-Abstract-Spec
+  - TrainingDML-AI_SWG
+  - WaterQualityIE
+  - cdb-volume-0
+  - cdb-volume-1
+  - cdb-volume-10
+  - cdb-volume-11
+  - cdb-volume-12
+  - cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion
+  - cdb-volume-2
+  - cdb-volume-3
+  - cdb-volume-4
+  - cdb-volume-5
+  - cdb-volume-6
+  - cdb-volume-7
+  - cdb-volume-8
+  - climate-resilience-dwg
+  - developer-events
+  - faster-directions
+  - geoedge-plugfest
+  - geopackage
+  - geosemantics-dwg
+  - geotiff
+  - mf-json
+  - netcdf-ld
+  - ogc-feat-geo-json
+  - ogc-i3s-community-standard
+  - ogc-modspec
+  - ogcapi-common
+  - ogcapi-connected-systems
+  - ogcapi-discrete-global-grid-systems
+  - ogcapi-environmental-data-retrieval
+  - ogcapi-features
+  - ogcapi-processes
+  - ogcapi-records
+  - om-swg
+  - poi
+  - policy
+  - templates
+  - unggim_standards_guide
+  - wfs3hackathon
+  repository_count: 61
+- github_id: alexrobin
+  contributions: 445
+  repositories:
+  - ogcapi-connected-systems
+  repository_count: 1
+- github_id: KathiSchleidt
+  contributions: 391
+  repositories:
+  - ELFIE
+  - SELFIE
+  - WaterQualityIE
+  - developer-track
+  - om-swg
+  - timeseriesML
+  repository_count: 6
+- github_id: cperey
+  contributions: 390
+  repositories:
+  - GeoPose
+  - GeoPoseFiles
+  - GeoPoseGuides
+  - GeoPoseSandbox
+  - GeoPoseWeb
+  - developer-track
+  - geopose-cm
+  - geopose-json-encoding
+  - poi
+  repository_count: 9
+- github_id: ilkkarinne
+  contributions: 382
+  repositories:
+  - NamingAuthority
+  - QoS-capabilities-extension
+  - QoSE-DWG
+  - developer-track
+  - ogcapi-features
+  - om-swg
+  - omsf-profile
+  repository_count: 7
+- github_id: TatjanaKutzner
+  contributions: 378
+  repositories:
+  - CityGML-3.0
+  - CityGML-3.0CM
+  - CityGML-3.0Encodings
+  - CityGML3.0-GML-Encoding
+  - developer-track
+  repository_count: 5
+- github_id: DavidFLOR
+  contributions: 341
+  repositories:
+  - CBD-Volume-13-CDB-Rules-for-Encoding-CDB-Vector-Data-using-GeoPackage
+  - CDBV2-2023-Summer-Workshop
+  - cdb-vector-gpkg-ie
+  - cdb-volume-0
+  - cdb-volume-1
+  - cdb-volume-10
+  - cdb-volume-11
+  - cdb-volume-12
+  - cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion
+  - cdb-volume-2
+  - cdb-volume-3
+  - cdb-volume-4
+  - cdb-volume-5
+  - cdb-volume-6
+  - cdb-volume-7
+  - cdb-volume-8
+  repository_count: 16
+- github_id: ccrook
+  contributions: 319
+  repositories:
+  - CRS-Deformation-Models
+  - CRS-Gridded-Geodetic-data-eXchange-Format
+  repository_count: 2
+- github_id: kettner
+  contributions: 299
+  repositories:
+  - climate-resilience-dwg
+  repository_count: 1
+- github_id: gfenoy
+  contributions: 293
+  repositories:
+  - developer-events
+  - developer-track
+  - ets-ogcapi-processes10
+  - ets-ogcapi-processes10-part2
+  - ogcapi-processes
+  repository_count: 5
+- github_id: IrinaDornblut
+  contributions: 252
+  repositories:
+  - HY_Features
+  repository_count: 1
+- github_id: jabhay
+  contributions: 234
+  repositories:
+  - conneg-by-crs
+  - crowdsourcing-vgi
+  - geosemantics-dwg
+  - ogc-geosparql
+  - ontology-crs
+  repository_count: 5
+- github_id: nicholascar
+  contributions: 228
+  repositories:
+  - NamingAuthority
+  - geosemantics-dwg
+  - geosemantics-semantic-resources
+  - geosparql3dwhitepaper
+  - ogc-geosparql
+  repository_count: 5
+- github_id: sgrellet
+  contributions: 225
+  repositories:
+  - ELFIE
+  - ForumOGCFrance
+  - GeoSciML
+  - HY_Features
+  - SELFIE
+  - WaterQualityIE
+  - boreholeie
+  - hydro-dwg
+  - om-swg
+  repository_count: 9
+- github_id: TaehoonK
+  contributions: 213
+  repositories:
+  - IndoorGML-SWG
+  - mf-json
+  - mf-swg
+  - ogcapi-movingfeatures
+  - www.indoorgml.net
+  repository_count: 5
+- github_id: ruixiang-liu
+  contributions: 205
+  repositories:
+  - TrainingDML-AI_SWG
+  repository_count: 1
+- github_id: joegc
+  contributions: 174
+  repositories:
+  - geopackage
+  - ghpages-template
+  - ogcapi-org
+  repository_count: 3
+- github_id: justb4
+  contributions: 174
+  repositories:
+  - teamengine-monitor
+  repository_count: 1
+- github_id: kstegemoller
+  contributions: 171
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - GeoPose
+  - NamingAuthority
+  - TrainingDML-AI_SWG
+  - bblocks
+  - developer-website
+  - ets-csw202
+  - ets-sos10
+  - ets-wcs10
+  - ets-wcs11
+  - ets-wfs10
+  - ets-wfs11
+  - ets-wms11
+  - ets-wms13
+  - geopackage
+  - hydro-dwg
+  - hydro-dwg-wiki-docs
+  - ogc-csapi-website
+  - ogc-features-website
+  - ogcapi-discrete-global-grid-systems
+  - ogcapi-features
+  - ogcapi-org
+  - ospd-ogc-org
+  - owscontext
+  - portrayal-dwg-ogc-org
+  - teamengine
+  - teamengine-docker
+  - teamengine-site
+  - www.indoorgml.net
+  repository_count: 29
+- github_id: FransKnibbe
+  contributions: 168
+  repositories:
+  - geosemantics-dwg
+  - geosparql3dwhitepaper
+  - ogc-geosparql
+  - ontology-crs
+  repository_count: 4
+- github_id: pzaborowski
+  contributions: 166
+  repositories:
+  - Agriculture-DWG
+  - NamingAuthority
+  - aim-swg
+  repository_count: 3
+- github_id: serich
+  contributions: 164
+  repositories:
+  - CitSciIE
+  - D040-Complex_Feature_Handling_Engineering_Report
+  - ESGF-Compute
+  - ISG-Sprint-Year-2
+  - OGC-ISG-Sprint-Sep-2020
+  - Weather-on-the-Web-ER
+  - cdb-vector-gpkg-ie
+  - er_template
+  - isg-plugfest
+  - muddi
+  - ogcapi-routes
+  - wfs3hackathon
+  repository_count: 12
+- github_id: cholmes
+  contributions: 160
+  repositories:
+  - geopackage
+  - geoparquet
+  - ogcapi-features
+  - ogcapi-records
+  - wfs3hackathon
+  - wkt
+  repository_count: 6
+- github_id: rockygis
+  contributions: 151
+  repositories:
+  - ets-omxml20
+  - ets-sensorml10
+  - ets-sensorml20
+  - ets-sos10
+  - ets-sos20
+  - ets-sps20
+  repository_count: 6
+- github_id: guyschumann
+  contributions: 149
+  repositories:
+  - climate-resilience-dwg
+  repository_count: 1
+- github_id: ronaldtse
+  contributions: 136
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - GeoPose
+  - Temporal-Abstract-Spec
+  - developer-track
+  - ogc-modspec
+  - ogcapi-processes
+  repository_count: 6
+- github_id: nilshempelmann
+  contributions: 134
+  repositories:
+  - GEOE3
+  - climate-resilience-dwg
+  - ogc-processes-website
+  repository_count: 3
+- github_id: lvdbrink
+  contributions: 133
+  repositories:
+  - CityGML-3.0
+  - CityGML-3.0CM
+  - geosemantics-dwg
+  - ogc-feat-geo-json
+  - ogc-geosparql
+  - ogcapi-features
+  - ogcapi-records
+  repository_count: 7
+- github_id: ccossec
+  contributions: 133
+  repositories:
+  - GEOE3
+  repository_count: 1
+- github_id: EmDevys
+  contributions: 133
+  repositories:
+  - geotiff
+  repository_count: 1
+- github_id: fmigneault
+  contributions: 131
+  repositories:
+  - ogcapi-common
+  - ogcapi-coverages
+  - ogcapi-processes
+  - ogcapi-records
+  repository_count: 4
+- github_id: denevers
+  contributions: 122
+  repositories:
+  - ELFIE
+  - GeoSciML
+  - SELFIE
+  - boreholeie
+  repository_count: 4
+- github_id: doublebyte1
+  contributions: 120
+  repositories:
+  - bblocks
+  - dev-ogc-org-sprint-landing-16
+  - dev-ogc-org-sprint-landing-18
+  - dev-ogc-org-sprint-landing-20
+  - dev-ogc-org-sprint-landing-21
+  - dev-ogc-org-sprint-landing-26
+  - developer-events
+  - developer-track
+  - developer-website
+  - ogc-csapi-website
+  - ogc-features-website
+  - ogc-records-website
+  - ogc-tiles-website
+  - ogcapi-code-sprint-2021-10
+  - ogcapi-org
+  - ogcapi-workshop
+  repository_count: 16
+- github_id: epicureanism
+  contributions: 111
+  repositories:
+  - ets-omxml20
+  - ets-sensorml10
+  - ets-sensorml20
+  - ets-sos10
+  - ets-sos20
+  - ets-swecommon20
+  repository_count: 6
+- github_id: martinechtner
+  contributions: 109
+  repositories:
+  - ets-cdb10
+  repository_count: 1
+- github_id: MikelSalazar
+  contributions: 107
+  repositories:
+  - GeoPose
+  - GeoPoseGuides
+  - GeoPoseSandbox
+  - GeoPoseWeb
+  - developer-events
+  repository_count: 5
+- github_id: manuelfuenmayor
+  contributions: 106
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - GeoPose
+  - ogc-modspec
+  - ogcapi-processes
+  repository_count: 4
+- github_id: taniakhalafbeigi
+  contributions: 105
+  repositories:
+  - PubSub-Whitepaper
+  - ets-sta10
+  repository_count: 2
+- github_id: liangsteve
+  contributions: 104
+  repositories:
+  - EmissionML
+  - sensorthings
+  repository_count: 2
+- github_id: Schpidi
+  contributions: 103
+  repositories:
+  - API-workflows-dp
+  - CoverageJSON
+  - CoverageProcessAnalytics
+  - cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion
+  - ets-wcs20
+  - ogcapi-coverages
+  - templates
+  repository_count: 7
+- github_id: lorebiga
+  contributions: 103
+  repositories:
+  - PubSub-Whitepaper
+  - ets-csw202
+  - teamengine
+  repository_count: 3
+- github_id: djutras2
+  contributions: 101
+  repositories:
+  - ets-geotiff11
+  repository_count: 1
+- github_id: abhritchie
+  contributions: 94
+  repositories:
+  - ELFIE
+  - SELFIE
+  - SoilDataIE
+  repository_count: 3
+- github_id: MichalaH
+  contributions: 92
+  repositories:
+  - OGC-ISG-Sprint-Sep-2020
+  - cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion
+  repository_count: 2
+- github_id: kalxas
+  contributions: 91
+  repositories:
+  - ets-cat30
+  - ogcapi-records
+  - ogcapi-workshop
+  - wfs3hackathon
+  repository_count: 4
+- github_id: RichCarne
+  contributions: 91
+  repositories:
+  - weather-on-the-web
+  repository_count: 1
+- github_id: bradh
+  contributions: 86
+  repositories:
+  - OGC-Web-API-Guidelines
+  - developer-events
+  - draft-charters
+  - ets-archetype-testng
+  - ets-gpkg10
+  - ets-gpkg12
+  - ets-ogcapi-coverages10
+  - ets-ogcapi-features10
+  - ets-wms11
+  - geopackage
+  - ogcapi-common
+  - ogcapi-coverages
+  - ogcapi-environmental-data-retrieval
+  - ogcapi-features
+  - ogcapi-maps
+  - ogcapi-movingfeatures
+  - ogcapi-processes
+  - ogcapi-records
+  - ogcapi-tiles
+  - teamengine
+  repository_count: 20
+- github_id: p3dr0
+  contributions: 84
+  repositories:
+  - ets-osxeo10
+  - ets-osxgeotime10
+  - owscontext
+  repository_count: 3
+- github_id: clausnagel
+  contributions: 83
+  repositories:
+  - CityGML-3.0
+  - CityGML-3.0CM
+  - CityGML-3.0Encodings
+  - CityGML3.0-GML-Encoding
+  repository_count: 4
+- github_id: Hanwen5Xu
+  contributions: 83
+  repositories:
+  - TrainingDML-AI_SWG
+  - climate-resilience-dwg
+  repository_count: 2
+- github_id: maxcollombin
+  contributions: 82
+  repositories:
+  - cartographic-symbology
+  - developer-events
+  repository_count: 2
+- github_id: ByronCinNZ
+  contributions: 81
+  repositories:
+  - ELFIE
+  - GeoDCAT-SWG
+  - developer-events
+  - ogcapi-records
+  repository_count: 4
+- github_id: mbuehler
+  contributions: 81
+  repositories:
+  - ogcapi-org
+  repository_count: 1
+- github_id: afeliachi
+  contributions: 77
+  repositories:
+  - ELFIE
+  - GeoSciML
+  - SELFIE
+  - WaterQualityIE
+  repository_count: 4
+- github_id: DRx3D
+  contributions: 73
+  repositories:
+  - ISG-Sprint-Year-2
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 2
+- github_id: autermann
+  contributions: 73
+  repositories:
+  - ogcapi-connected-systems
+  repository_count: 1
+- github_id: rouault
+  contributions: 72
+  repositories:
+  - API-workflows-dp
+  - CRS-Gridded-Geodetic-data-eXchange-Format
+  - CloudOptimizedGeoTIFF
+  - ets-gpkg12
+  - geoapi
+  - geopackage
+  - geoparquet
+  - geotiff
+  - ogc-feat-geo-json
+  - ogcapi-features
+  - wfs3hackathon
+  repository_count: 11
+- github_id: ogcportal
+  contributions: 72
+  repositories:
+  - CBD-Volume-13-CDB-Rules-for-Encoding-CDB-Vector-Data-using-GeoPackage
+  - D040-Complex_Feature_Handling_Engineering_Report
+  - GeoPoseWeb
+  - NamingAuthority
+  - OGC-SWIM-Discovery-Service-Workshop
+  - SELFIE
+  - T17-API-D175-Features_autogenerated
+  - Weather-on-the-Web-ER
+  - cdb-vector-gpkg-ie
+  - cite
+  - citizen_science
+  - coverage-implementation-schema
+  - er_template
+  - geoedge-plugfest
+  - geopackage
+  - geotiff
+  - ghpages-template
+  - ideas
+  - netcdf-ld
+  - ogc-geosparql-shapes
+  - ogcapi-common
+  - ogcapi-coverages
+  - ogcapi-features
+  - ogcapi-maps
+  - ogcapi-processes
+  - ogcapi-tiles
+  - ogcapi-workshop
+  - ospd-ogc-org
+  - teamengine-bom
+  repository_count: 29
+- github_id: deanhintz
+  contributions: 72
+  repositories:
+  - climate-resilience-dwg
+  - developer-events
+  - ogcapi-features
+  repository_count: 3
+- github_id: ghobona
+  contributions: 68
+  repositories:
+  - CoverageJSON
+  - D040-Complex_Feature_Handling_Engineering_Report
+  - ELFIE
+  - NamingAuthority
+  - Weather-on-the-Web-ER
+  - architecture-dwg
+  - cdb-vector-gpkg-ie
+  - cdb-volume-0
+  - cdb-volume-1
+  - cdb-volume-10
+  - cdb-volume-11
+  - cdb-volume-12
+  - cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion
+  - cdb-volume-2
+  - cdb-volume-3
+  - cdb-volume-4
+  - cdb-volume-5
+  - cdb-volume-6
+  - cdb-volume-7
+  - cdb-volume-8
+  - er_template
+  - geosciml-json-code-sprint
+  - geotiff
+  - templates
+  repository_count: 24
+- github_id: ImmaSerra
+  contributions: 68
+  repositories:
+  - ILAF
+  repository_count: 1
+- github_id: pebau
+  contributions: 67
+  repositories:
+  - API-workflows-dp
+  - CoverageProcessAnalytics
+  - coverage-implementation-schema
+  - ogcapi-coverages
+  repository_count: 4
+- github_id: sarasaeedi
+  contributions: 66
+  repositories:
+  - PubSub-Whitepaper
+  - cdb-volume-1
+  - cdb-volume-10
+  - cdb-volume-11
+  - ets-cdb10
+  repository_count: 5
+- github_id: arieslai
+  contributions: 66
+  repositories:
+  - ets-citygml20
+  - ets-omxml20
+  - ets-sensorml20
+  - ets-sos20
+  - ets-swecommon20
+  - ets-wps10
+  - ets-wps20
+  repository_count: 7
+- github_id: ldesousa
+  contributions: 66
+  repositories:
+  - geosparql3dwhitepaper
+  - ontology-crs
+  repository_count: 2
+- github_id: pixalytics
+  contributions: 65
+  repositories:
+  - T17-API-D168
+  - TrainingDML-AI_SWG
+  - climate-resilience-dwg
+  - developer-events
+  repository_count: 4
+- github_id: neilchadwick-arup
+  contributions: 64
+  repositories:
+  - Geotech
+  repository_count: 1
+- github_id: solson-nws
+  contributions: 63
+  repositories:
+  - MetOceanDWG
+  - PubSub-Whitepaper
+  - Weather-on-the-Web-ER
+  - ogcapi-environmental-data-retrieval
+  repository_count: 4
+- github_id: pepijnve
+  contributions: 59
+  repositories:
+  - geopackage
+  repository_count: 1
+- github_id: mbeaufils
+  contributions: 57
+  repositories:
+  - ForumOGCFrance
+  - Geotech
+  - boreholeie
+  repository_count: 3
+- github_id: latvap
+  contributions: 57
+  repositories:
+  - ogcapi-joins
+  repository_count: 1
+- github_id: ryanfranz
+  contributions: 56
+  repositories:
+  - CBD-Volume-13-CDB-Rules-for-Encoding-CDB-Vector-Data-using-GeoPackage
+  - CDBV2-2023-Summer-Workshop
+  - ISG-Sprint-Year-2
+  - cdb-volume-1
+  - cdb-volume-10
+  - cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion
+  repository_count: 6
+- github_id: kijouneli
+  contributions: 56
+  repositories:
+  - IndoorGML-SWG
+  repository_count: 1
+- github_id: AlpoTurunen
+  contributions: 54
+  repositories:
+  - GEOE3
+  repository_count: 1
+- github_id: skyNacho
+  contributions: 53
+  repositories:
+  - T17-API-D167
+  - T17-API-D175-EDR
+  - T17-API-D175-Features
+  - T17-API-D175-Features_autogenerated
+  - T17-API-D175-Routes
+  - developer-track
+  - ogcapi-routes
+  repository_count: 7
+- github_id: phersh2
+  contributions: 51
+  repositories:
+  - timeseriesML
+  repository_count: 1
+- github_id: ayoumans
+  contributions: 50
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - CloudOptimizedGeoTIFF
+  - ogcapi-maps
+  - ogcapi-routes
+  - poi
+  repository_count: 5
+- github_id: rphillips3
+  contributions: 50
+  repositories:
+  - ISG-Sprint-Year-2
+  - unggim_standards_guide
+  repository_count: 2
+- github_id: hylkevds
+  contributions: 49
+  repositories:
+  - ets-sta10
+  - om-swg
+  - sensorthings
+  repository_count: 3
+- github_id: RealismCloud
+  contributions: 49
+  repositories:
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 1
+- github_id: r4space
+  contributions: 48
+  repositories:
+  - LANDRS
+  repository_count: 1
+- github_id: GerdGroeger
+  contributions: 46
+  repositories:
+  - CityGML-3.0
+  - CityGML-3.0CM
+  repository_count: 2
+- github_id: marqh
+  contributions: 46
+  repositories:
+  - CoverageJSON
+  - NamingAuthority
+  - netcdf-ld
+  repository_count: 3
+- github_id: brunolorente
+  contributions: 46
+  repositories:
+  - T17-API-D167
+  - T17-API-D175-EDR
+  - T17-API-D175-Features
+  - T17-API-D175-Routes
+  repository_count: 4
+- github_id: havardf
+  contributions: 45
+  repositories:
+  - metocean-ogcapi-environmental-data-retrieval-profile
+  - ogcapi-environmental-data-retrieval
+  repository_count: 2
+- github_id: karriojala
+  contributions: 44
+  repositories:
+  - T17-API-D176
+  - T17-API-D176-dev
+  - ogcapi-code-sprint-2021-10
+  repository_count: 3
+- github_id: prestonrodrigues
+  contributions: 43
+  repositories:
+  - D040-Complex_Feature_Handling_Engineering_Report
+  repository_count: 1
+- github_id: volkercoors
+  contributions: 42
+  repositories:
+  - 3DPS
+  - D040-Complex_Feature_Handling_Engineering_Report
+  - ISG-Sprint-Year-2
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 4
+- github_id: jyucsiro
+  contributions: 41
+  repositories:
+  - ELFIE
+  - netcdf-ld
+  repository_count: 2
+- github_id: mo-marqh
+  contributions: 38
+  repositories:
+  - CoverageJSON
+  - NamingAuthority
+  - netcdf-ld
+  repository_count: 3
+- github_id: asprsstandardschair
+  contributions: 37
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: DiegoVinasco
+  contributions: 36
+  repositories:
+  - CityGML-3.0Encodings
+  - CityGML3.0-GML-Encoding
+  repository_count: 2
+- github_id: abrobia
+  contributions: 36
+  repositories:
+  - GONAR
+  repository_count: 1
+- github_id: tschaub
+  contributions: 34
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - developer-events
+  - geopackage
+  - geoparquet
+  - ogcapi-features
+  - ogcapi-tiles
+  repository_count: 6
+- github_id: securedimensions
+  contributions: 34
+  repositories:
+  - CitSciIE
+  - OGC-Web-API-Guidelines
+  - developer-events
+  - developer-track
+  - sensorthings
+  repository_count: 5
+- github_id: kanishk-chaturvedi
+  contributions: 34
+  repositories:
+  - CityGML-3.0
+  - CityGML-3.0CM
+  repository_count: 2
+- github_id: dazzasmith
+  contributions: 34
+  repositories:
+  - HY_Features
+  repository_count: 1
+- github_id: rapw3k
+  contributions: 33
+  repositories:
+  - Agriculture-DWG
+  - aim-swg
+  repository_count: 2
+- github_id: OGOGU
+  contributions: 33
+  repositories:
+  - Geospatial-User-Feedback
+  repository_count: 1
+- github_id: aolite
+  contributions: 33
+  repositories:
+  - HY_Features
+  repository_count: 1
+- github_id: akinori-asahara
+  contributions: 33
+  repositories:
+  - movingfeatures
+  repository_count: 1
+- github_id: rggibb
+  contributions: 32
+  repositories:
+  - developer-track
+  - dggs-4-axis-aligned
+  - ogcapi-discrete-global-grid-systems
+  repository_count: 3
+- github_id: rhaener
+  contributions: 31
+  repositories:
+  - boreholeie
+  repository_count: 1
+- github_id: ebocher
+  contributions: 31
+  repositories:
+  - cartographic-symbology
+  repository_count: 1
+- github_id: geofizzydrink
+  contributions: 31
+  repositories:
+  - ogcapi-discrete-global-grid-systems
+  - poi
+  repository_count: 2
+- github_id: howardtrickey
+  contributions: 31
+  repositories:
+  - poi
+  repository_count: 1
+- github_id: mahjahromi
+  contributions: 30
+  repositories:
+  - cdb-volume-1
+  repository_count: 1
+- github_id: JoeThunyathep
+  contributions: 30
+  repositories:
+  - ISG-Sprint-Year-2
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 2
+- github_id: melpham
+  contributions: 29
+  repositories:
+  - ets-geotiff11
+  repository_count: 1
+- github_id: Brook-B-Nigatu
+  contributions: 29
+  repositories:
+  - ets-wcps11
+  repository_count: 1
+- github_id: serene
+  contributions: 28
+  repositories:
+  - ets-cdb10
+  repository_count: 1
+- github_id: jdauble
+  contributions: 28
+  repositories:
+  - ISG-Sprint-Year-2
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 2
+- github_id: m-mohr
+  contributions: 27
+  repositories:
+  - developer-events
+  - geoparquet
+  - ogcapi-features
+  - ogcapi-processes
+  - ogcapi-records
+  repository_count: 5
+- github_id: julianzz98
+  contributions: 26
+  repositories:
+  - ets-cat30
+  - ets-eo-geojson10
+  - ets-geopose10
+  - ets-georss10
+  - ets-gml32
+  - ets-gpkg12
+  - ets-gpkg12-nsg
+  - ets-ogcapi-edr10
+  - ets-ogcapi-features10
+  - ets-ogcapi-processes10
+  - ets-ogcapi-tiles10
+  - ets-omxml20
+  - ets-sta10
+  - ets-wfs20
+  - ets-wms13
+  repository_count: 15
+- github_id: geopyue
+  contributions: 26
+  repositories:
+  - TrainingDML-AI_SWG
+  repository_count: 1
+- github_id: joebrumley
+  contributions: 25
+  repositories:
+  - geopackage
+  - ghpages-template
+  repository_count: 2
+- github_id: tedhabermann
+  contributions: 25
+  repositories:
+  - MetaCatDWG
+  - geotiff
+  repository_count: 2
+- github_id: samadammeek
+  contributions: 24
+  repositories:
+  - Bounding-Box-Abstract-Specification
+  - developer-events
+  - quantum
+  repository_count: 3
+- github_id: arnevogt
+  contributions: 24
+  repositories:
+  - T17-API-D165
+  repository_count: 1
+- github_id: anermina
+  contributions: 23
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - GeoPose
+  - ogc-modspec
+  repository_count: 3
+- github_id: RolfJonker
+  contributions: 23
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - geosparql3dwhitepaper
+  repository_count: 2
+- github_id: glennlaughlin
+  contributions: 23
+  repositories:
+  - climate-resilience-dwg
+  - marine_dwg
+  repository_count: 2
+- github_id: holly-black
+  contributions: 23
+  repositories:
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 1
+- github_id: jinsongdi123
+  contributions: 22
+  repositories:
+  - ets-eowcs10
+  - ets-wcs-int10
+  - ets-wcs-rsub10
+  - ets-wcs-scal10
+  - ets-wcs20
+  repository_count: 5
+- github_id: lieberjosh
+  contributions: 22
+  repositories:
+  - GeoPose
+  - PubSub-Whitepaper
+  - geosemantics-dwg
+  - muddi
+  repository_count: 4
+- github_id: SpeckiJ
+  contributions: 21
+  repositories:
+  - developer-events
+  - ogcapi-connected-systems
+  repository_count: 2
+- github_id: howardt
+  contributions: 21
+  repositories:
+  - poi
+  repository_count: 1
+- github_id: pcdion
+  contributions: 20
+  repositories:
+  - API-workflows-dp
+  - climate-resilience-dwg
+  repository_count: 2
+- github_id: dr-shorthair
+  contributions: 20
+  repositories:
+  - coverage-description-ontology
+  - geosemantics-semantic-resources
+  - ogcapi-sosa
+  repository_count: 3
+- github_id: heidivanparys
+  contributions: 20
+  repositories:
+  - Temporal-Abstract-Spec
+  - ets-gml32
+  - ets-gpkg12
+  - ets-ogcapi-features10
+  - geopackage
+  - ogc-modspec
+  - ogcapi-common
+  - ogcapi-features
+  repository_count: 8
+- github_id: gisfcu
+  contributions: 20
+  repositories:
+  - ets-sensorml20
+  repository_count: 1
+- github_id: bosborn
+  contributions: 19
+  repositories:
+  - ets-gpkg12
+  - geopackage
+  repository_count: 2
+- github_id: coim32
+  contributions: 19
+  repositories:
+  - ets-wcs20
+  repository_count: 1
+- github_id: jmorley
+  contributions: 19
+  repositories:
+  - GeoPoseGuides
+  repository_count: 1
+- github_id: jechterhoff
+  contributions: 18
+  repositories:
+  - CRS-JSON-Encoding
+  - developer-events
+  - geosciml-json-code-sprint
+  repository_count: 3
+- github_id: tonyboston-au
+  contributions: 18
+  repositories:
+  - ELFIE
+  repository_count: 1
+- github_id: sinakiaei
+  contributions: 17
+  repositories:
+  - cdb-volume-1
+  repository_count: 1
+- github_id: hkrimm
+  contributions: 17
+  repositories:
+  - climate-resilience-dwg
+  repository_count: 1
+- github_id: prushforth
+  contributions: 17
+  repositories:
+  - MapML-1
+  - developer-events
+  - geoapi
+  repository_count: 3
+- github_id: tanvi-shah
+  contributions: 17
+  repositories:
+  - ets-19139
+  - teamengine
+  repository_count: 2
+- github_id: upendra-sachan
+  contributions: 17
+  repositories:
+  - ets-19139
+  - teamengine
+  - teamengine-integration-testing
+  repository_count: 3
+- github_id: jorisvandenbossche
+  contributions: 17
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: j-weil
+  contributions: 17
+  repositories:
+  - Geotech
+  repository_count: 1
+- github_id: jakpwal
+  contributions: 16
+  repositories:
+  - climate-resilience-dwg
+  repository_count: 1
+- github_id: kevinmkelly
+  contributions: 16
+  repositories:
+  - CRS-Gridded-Geodetic-data-eXchange-Format
+  repository_count: 1
+- github_id: ajanett
+  contributions: 16
+  repositories:
+  - ets-common
+  - ets-gpkg12
+  - ets-gpkg12-nsg
+  - ets-wfs20
+  repository_count: 4
+- github_id: fhoubie
+  contributions: 16
+  repositories:
+  - MetaCatDWG
+  - geopackage
+  - ogcapi-records
+  repository_count: 3
+- github_id: ar-chad
+  contributions: 16
+  repositories:
+  - geosparql3dwhitepaper
+  - ogc-geosparql
+  repository_count: 2
+- github_id: keshavnangare
+  contributions: 15
+  repositories:
+  - ets-19139
+  - teamengine
+  - teamengine-integration-testing
+  repository_count: 3
+- github_id: LibbyShihh
+  contributions: 15
+  repositories:
+  - ets-ogcapi-maps10
+  repository_count: 1
+- github_id: aaime
+  contributions: 15
+  repositories:
+  - ets-wcs10
+  - ets-wfs20
+  - ideas
+  - ogcapi-code-sprint-2021-10
+  - ogcapi-features
+  - teamengine
+  - wfs3hackathon
+  repository_count: 7
+- github_id: RobertRicci
+  contributions: 14
+  repositories:
+  - cdb-volume-1
+  - cdb-volume-6
+  repository_count: 2
+- github_id: jraclarke
+  contributions: 14
+  repositories:
+  - GeoPose
+  - developer-events
+  repository_count: 2
+- github_id: jiann
+  contributions: 14
+  repositories:
+  - ets-citygml20
+  - ets-citygml30-part2
+  - ets-trainingdmlai10-part2
+  - ets-wps20
+  repository_count: 4
+- github_id: Sam-Bolling
+  contributions: 14
+  repositories:
+  - ogc-csapi-website
+  repository_count: 1
+- github_id: mhogeweg
+  contributions: 14
+  repositories:
+  - ogcapi-records
+  repository_count: 1
+- github_id: NuriaJulia
+  contributions: 13
+  repositories:
+  - developer-events
+  - geotiff
+  repository_count: 2
+- github_id: fterpstra
+  contributions: 13
+  repositories:
+  - OGC-Web-API-Guidelines
+  - developer-events
+  - ogc-feat-geo-json
+  repository_count: 3
+- github_id: kylebarron
+  contributions: 13
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: ksonda
+  contributions: 13
+  repositories:
+  - WaterQualityIE
+  - ogcapi-environmental-data-retrieval
+  - sensorthings
+  repository_count: 3
+- github_id: JivanAmara
+  contributions: 13
+  repositories:
+  - ogcapi-features
+  - wfs3hackathon
+  repository_count: 2
+- github_id: nfabadie
+  contributions: 13
+  repositories:
+  - ontology-crs
+  repository_count: 1
+- github_id: fabricebrito
+  contributions: 13
+  repositories:
+  - t16-dapa-terradue-sentinel-5p-NO2
+  repository_count: 1
+- github_id: rjksmith
+  contributions: 12
+  repositories:
+  - GeoPoseGuides
+  - developer-events
+  repository_count: 2
+- github_id: sivasankkar
+  contributions: 12
+  repositories:
+  - ELFIE
+  repository_count: 1
+- github_id: ajakobsson
+  contributions: 12
+  repositories:
+  - GEOE3
+  repository_count: 1
+- github_id: magnusromoen
+  contributions: 12
+  repositories:
+  - Geotech
+  repository_count: 1
+- github_id: lewismc
+  contributions: 12
+  repositories:
+  - LANDRS
+  repository_count: 1
+- github_id: jeffharrison
+  contributions: 12
+  repositories:
+  - ogcapi-3d-geovolumes
+  - ogcapi-routes
+  - ogcapi-styles
+  repository_count: 3
+- github_id: aecobley
+  contributions: 11
+  repositories:
+  - CitSciIE
+  repository_count: 1
+- github_id: jonblower
+  contributions: 11
+  repositories:
+  - CoverageJSON
+  repository_count: 1
+- github_id: mbrachman
+  contributions: 11
+  repositories:
+  - EDM-DWG
+  repository_count: 1
+- github_id: baothientran
+  contributions: 11
+  repositories:
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 1
+- github_id: kodebaets
+  contributions: 11
+  repositories:
+  - poi
+  repository_count: 1
+- github_id: YongyiMi
+  contributions: 11
+  repositories:
+  - TrainingDML-AI_SWG
+  repository_count: 1
+- github_id: skiaei
+  contributions: 10
+  repositories:
+  - cdb-volume-10
+  repository_count: 1
+- github_id: abdoulayediak
+  contributions: 10
+  repositories:
+  - IndoorGML-SWG
+  - poi
+  repository_count: 2
+- github_id: RyanAhola
+  contributions: 10
+  repositories:
+  - ogcapi-maps
+  - ogcapi-tiles
+  repository_count: 2
+- github_id: tdapper
+  contributions: 9
+  repositories:
+  - climate-resilience-dwg
+  repository_count: 1
+- github_id: srstsavage
+  contributions: 9
+  repositories:
+  - ets-sos10
+  - teamengine
+  repository_count: 2
+- github_id: jpoffen
+  contributions: 9
+  repositories:
+  - geopackage
+  repository_count: 1
+- github_id: smrgeoinfo
+  contributions: 9
+  repositories:
+  - geosciml-json-code-sprint
+  repository_count: 1
+- github_id: mathib
+  contributions: 9
+  repositories:
+  - geosemantics-dwg
+  - ogc-geosparql
+  repository_count: 2
+- github_id: adamml
+  contributions: 9
+  repositories:
+  - netcdf-ld
+  repository_count: 1
+- github_id: sweco-nlgemo
+  contributions: 9
+  repositories:
+  - ogc-feat-geo-json
+  repository_count: 1
+- github_id: ebeaufays
+  contributions: 9
+  repositories:
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 1
+- github_id: allixender
+  contributions: 9
+  repositories:
+  - ogcapi-code-sprint-2021-10
+  - ogcapi-discrete-global-grid-systems
+  repository_count: 2
+- github_id: kgrunenberg
+  contributions: 9
+  repositories:
+  - ogcapi-environmental-data-retrieval
+  repository_count: 1
+- github_id: mermereich
+  contributions: 9
+  repositories:
+  - unggim_standards_guide
+  repository_count: 1
+- github_id: IvanSanchez
+  contributions: 8
+  repositories:
+  - 2D-Tile-Matrix-Set
+  - developer-events
+  - ogcapi-features
+  - ogcapi-maps
+  repository_count: 4
+- github_id: nob140
+  contributions: 8
+  repositories:
+  - CityGML-3.0Encodings
+  - CityGML3.0-GML-Encoding
+  repository_count: 2
+- github_id: staghavikish
+  contributions: 8
+  repositories:
+  - climate-resilience-dwg
+  repository_count: 1
+- github_id: KRyden
+  contributions: 8
+  repositories:
+  - CRS-Deformation-Models
+  - CRS-JSON-Encoding
+  repository_count: 2
+- github_id: ShaneMill1
+  contributions: 8
+  repositories:
+  - MetOceanDWG
+  - developer-events
+  - ogcapi-environmental-data-retrieval
+  repository_count: 3
+- github_id: BrentWatsonNZ
+  contributions: 8
+  repositories:
+  - ELFIE
+  repository_count: 1
+- github_id: Joshua-Rentrope
+  contributions: 8
+  repositories:
+  - ISG-Sprint-Year-2
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 2
+- github_id: mikereynolds
+  contributions: 8
+  repositories:
+  - Java-OpenMobility
+  repository_count: 1
+- github_id: iandruska-ibl
+  contributions: 8
+  repositories:
+  - ogcapi-environmental-data-retrieval
+  repository_count: 1
+- github_id: adamajm
+  contributions: 8
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: gardengeek99
+  contributions: 8
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: krishnaglodha
+  contributions: 8
+  repositories:
+  - ogcapi-processes
+  - ogcapi-workshop
+  repository_count: 2
+- github_id: gcebelieu
+  contributions: 7
+  repositories:
+  - CloudOptimizedGeoTIFF
+  - ForumOGCFrance
+  repository_count: 2
+- github_id: jahow
+  contributions: 7
+  repositories:
+  - developer-events
+  - ogcapi-features
+  - ogcapi-records
+  repository_count: 3
+- github_id: dbyrns
+  contributions: 7
+  repositories:
+  - ESGF-Compute
+  repository_count: 1
+- github_id: adrilunasat
+  contributions: 7
+  repositories:
+  - ets-gmljpx20
+  repository_count: 1
+- github_id: moran0013
+  contributions: 7
+  repositories:
+  - ets-gpkg10
+  repository_count: 1
+- github_id: gramnation
+  contributions: 7
+  repositories:
+  - geoedge-plugfest
+  repository_count: 1
+- github_id: clixtec
+  contributions: 7
+  repositories:
+  - geopackager
+  repository_count: 1
+- github_id: KoalaGeo
+  contributions: 7
+  repositories:
+  - GeoSciML
+  - ogcapi-environmental-data-retrieval
+  - ogcapi-features
+  - sensorthings
+  repository_count: 4
+- github_id: AlaitzZabala
+  contributions: 7
+  repositories:
+  - Geospatial-User-Feedback
+  repository_count: 1
+- github_id: gajgeospatial
+  contributions: 7
+  repositories:
+  - ISG-Sprint-Year-2
+  repository_count: 1
+- github_id: breeze0512
+  contributions: 7
+  repositories:
+  - mf-swg
+  repository_count: 1
+- github_id: helyx-amcmillan
+  contributions: 7
+  repositories:
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 1
+- github_id: actions-user
+  contributions: 7
+  repositories:
+  - ogcapi-environmental-data-retrieval
+  repository_count: 1
+- github_id: jampukka
+  contributions: 7
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: eseglem
+  contributions: 7
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: BartDeLathouwer
+  contributions: 7
+  repositories:
+  - swe4citizenscience
+  repository_count: 1
+- github_id: tfr42
+  contributions: 7
+  repositories:
+  - teamengine
+  repository_count: 1
+- github_id: tlandryIntact
+  contributions: 6
+  repositories:
+  - climate-resilience-dwg
+  repository_count: 1
+- github_id: letmaik
+  contributions: 6
+  repositories:
+  - CoverageJSON
+  repository_count: 1
+- github_id: janerivi
+  contributions: 6
+  repositories:
+  - GeoPoseGuides
+  - developer-track
+  - geopose-cm
+  repository_count: 3
+- github_id: jsorel
+  contributions: 6
+  repositories:
+  - geoapi
+  repository_count: 1
+- github_id: nicolas-heigvd
+  contributions: 6
+  repositories:
+  - GeoPose
+  - GeoPoseWeb
+  repository_count: 2
+- github_id: an-rose
+  contributions: 6
+  repositories:
+  - Overture-Maps-GERS
+  repository_count: 1
+- github_id: Teng-99
+  contributions: 6
+  repositories:
+  - TrainingDML-AI_SWG
+  repository_count: 1
+- github_id: Relifest
+  contributions: 6
+  repositories:
+  - TrainingDML-AI_SWG
+  repository_count: 1
+- github_id: bsimons14
+  contributions: 5
+  repositories:
+  - SELFIE
+  - boreholeie
+  repository_count: 2
+- github_id: david-blasby
+  contributions: 5
+  repositories:
+  - developer-events
+  - ets-wcs11
+  - ets-wfs11
+  repository_count: 3
+- github_id: jkreft-usgs
+  contributions: 5
+  repositories:
+  - ELFIE
+  - sensorthings
+  repository_count: 2
+- github_id: FCU-GIS-Luke
+  contributions: 5
+  repositories:
+  - ets-ogcapi-maps10
+  repository_count: 1
+- github_id: cclark1984
+  contributions: 5
+  repositories:
+  - geopackage
+  repository_count: 1
+- github_id: sanjeetsuhag
+  contributions: 5
+  repositories:
+  - ISG-Sprint-Year-2
+  repository_count: 1
+- github_id: charlesvardeman
+  contributions: 5
+  repositories:
+  - LANDRS
+  repository_count: 1
+- github_id: mrauhala
+  contributions: 5
+  repositories:
+  - metocean-ogcapi-environmental-data-retrieval-profile
+  - ogcapi-environmental-data-retrieval
+  repository_count: 2
+- github_id: MichaelJendryke
+  contributions: 5
+  repositories:
+  - ogcapi-discrete-global-grid-systems
+  repository_count: 1
+- github_id: mkeller3
+  contributions: 5
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: joostfarla
+  contributions: 5
+  repositories:
+  - ogcapi-features
+  - ogcapi-records
+  repository_count: 2
+- github_id: ashleyha
+  contributions: 5
+  repositories:
+  - poi
+  repository_count: 1
+- github_id: jcocks
+  contributions: 4
+  repositories:
+  - climate-resilience-dwg
+  repository_count: 1
+- github_id: RogerLott
+  contributions: 4
+  repositories:
+  - CRS-Gridded-Geodetic-data-eXchange-Format
+  repository_count: 1
+- github_id: fgravin
+  contributions: 4
+  repositories:
+  - developer-events
+  - ogcapi-records
+  repository_count: 2
+- github_id: etj
+  contributions: 4
+  repositories:
+  - ets-cat20-dgiwg10
+  repository_count: 1
+- github_id: ThomasG77
+  contributions: 4
+  repositories:
+  - ets-ogcapi-features10
+  - ogcapi-features
+  repository_count: 2
+- github_id: johntisdale
+  contributions: 4
+  repositories:
+  - ets-pipelineml10
+  repository_count: 1
+- github_id: sfairgrieve
+  contributions: 4
+  repositories:
+  - ets-sos10
+  repository_count: 1
+- github_id: davidstrategicaci
+  contributions: 4
+  repositories:
+  - ets-wmts10-nsg10
+  - geopackage
+  repository_count: 2
+- github_id: kinow
+  contributions: 4
+  repositories:
+  - geoapi
+  repository_count: 1
+- github_id: wzy19840102
+  contributions: 4
+  repositories:
+  - IndoorGML-SWG
+  repository_count: 1
+- github_id: sebr72
+  contributions: 4
+  repositories:
+  - ogcapi-records
+  repository_count: 1
+- github_id: J-Christophe
+  contributions: 4
+  repositories:
+  - Planetary-DWG
+  repository_count: 1
+- github_id: pbaumard
+  contributions: 4
+  repositories:
+  - sensorthings
+  repository_count: 1
+- github_id: thijsbrentjens
+  contributions: 3
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: PascalLike
+  contributions: 3
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: pvgenuchten
+  contributions: 3
+  repositories:
+  - developer-events
+  - ogcapi-records
+  repository_count: 2
+- github_id: groldan
+  contributions: 3
+  repositories:
+  - ets-ogcapi-features10
+  repository_count: 1
+- github_id: spatialillusions
+  contributions: 3
+  repositories:
+  - OGC-Web-API-Guidelines
+  - ets-wmts10-nsg10
+  - ogcapi-common
+  repository_count: 3
+- github_id: alexismanin
+  contributions: 3
+  repositories:
+  - geoapi
+  repository_count: 1
+- github_id: alasarr
+  contributions: 3
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: Jesus89
+  contributions: 3
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: paleolimbot
+  contributions: 3
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: JakobMiksch
+  contributions: 3
+  repositories:
+  - geoparquet
+  - ogcapi-features
+  repository_count: 2
+- github_id: opoudjis
+  contributions: 3
+  repositories:
+  - GeoPose
+  - ogcapi-processes
+  repository_count: 2
+- github_id: lathoub
+  contributions: 3
+  repositories:
+  - geosemantics-dwg
+  repository_count: 1
+- github_id: aothms
+  contributions: 3
+  repositories:
+  - geosparql3dwhitepaper
+  repository_count: 1
+- github_id: terryidol
+  contributions: 3
+  repositories:
+  - isg-plugfest
+  repository_count: 1
+- github_id: geira
+  contributions: 3
+  repositories:
+  - metocean-ogcapi-environmental-data-retrieval-profile
+  repository_count: 1
+- github_id: paulc-dstl
+  contributions: 3
+  repositories:
+  - ogc-geosparql
+  repository_count: 1
+- github_id: mperry455
+  contributions: 3
+  repositories:
+  - ogc-geosparql
+  repository_count: 1
+- github_id: abrinton
+  contributions: 3
+  repositories:
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 1
+- github_id: dbalaHelyx
+  contributions: 3
+  repositories:
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 1
+- github_id: ways
+  contributions: 3
+  repositories:
+  - ogcapi-environmental-data-retrieval
+  repository_count: 1
+- github_id: murithigeo
+  contributions: 3
+  repositories:
+  - ogcapi-environmental-data-retrieval
+  repository_count: 1
+- github_id: boyi-shangguan
+  contributions: 3
+  repositories:
+  - TrainingDML-AI_SWG
+  - ogcapi-environmental-data-retrieval
+  repository_count: 2
+- github_id: hmassih
+  contributions: 3
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: haoliangyu
+  contributions: 3
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: mahmsakr
+  contributions: 3
+  repositories:
+  - ogcapi-movingfeatures
+  repository_count: 1
+- github_id: gatemezing
+  contributions: 3
+  repositories:
+  - ontology-crs
+  repository_count: 1
+- github_id: LesleyBrownLiberty
+  contributions: 3
+  repositories:
+  - teamengine
+  repository_count: 1
+- github_id: hwbllmnn
+  contributions: 3
+  repositories:
+  - teamengine
+  repository_count: 1
+- github_id: archaeogeek
+  contributions: 3
+  repositories:
+  - teamengine-monitor
+  repository_count: 1
+- github_id: yjacolin
+  contributions: 3
+  repositories:
+  - teamengine-monitor
+  repository_count: 1
+- github_id: JanHjelmager
+  contributions: 3
+  repositories:
+  - unggim_standards_guide
+  repository_count: 1
+- github_id: hbressan
+  contributions: 3
+  repositories:
+  - WaterQualityIE
+  repository_count: 1
+- github_id: oertz
+  contributions: 2
+  repositories:
+  - cartographic-symbology
+  - developer-events
+  repository_count: 2
+- github_id: kevinbentley
+  contributions: 2
+  repositories:
+  - cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion
+  - isg-plugfest
+  repository_count: 2
+- github_id: acobley
+  contributions: 2
+  repositories:
+  - CitSciIE
+  repository_count: 1
+- github_id: ValantisTsiakos
+  contributions: 2
+  repositories:
+  - CitSciIE
+  repository_count: 1
+- github_id: jjimenezshaw
+  contributions: 2
+  repositories:
+  - CloudOptimizedGeoTIFF
+  repository_count: 1
+- github_id: awarde96
+  contributions: 2
+  repositories:
+  - CoverageJSON
+  repository_count: 1
+- github_id: i2vana
+  contributions: 2
+  repositories:
+  - crowdsourcing-vgi
+  - developer-events
+  repository_count: 2
+- github_id: GeoCarsten
+  contributions: 2
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: rpcavaco
+  contributions: 2
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: dukesook
+  contributions: 2
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: aspinrebecca
+  contributions: 2
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: photonbit
+  contributions: 2
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: fxprunayre
+  contributions: 2
+  repositories:
+  - developer-events
+  - ogcapi-records
+  repository_count: 2
+- github_id: ingosimonis
+  contributions: 2
+  repositories:
+  - er_template
+  repository_count: 1
+- github_id: Koushikey4596
+  contributions: 2
+  repositories:
+  - ets-ogcapi-processes10
+  repository_count: 1
+- github_id: rippolz
+  contributions: 2
+  repositories:
+  - ets-wms13
+  repository_count: 1
+- github_id: das-g
+  contributions: 2
+  repositories:
+  - ets-wmts10
+  - ets-wmts10-nsg10
+  repository_count: 2
+- github_id: MarieLambois
+  contributions: 2
+  repositories:
+  - ForumOGCFrance
+  repository_count: 1
+- github_id: jiayuasu
+  contributions: 2
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: felixpalmer
+  contributions: 2
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: theareaorg
+  contributions: 2
+  repositories:
+  - GeoPoseGuides
+  repository_count: 1
+- github_id: gitter-badger
+  contributions: 2
+  repositories:
+  - ogc-feat-geo-json
+  - ogcapi-environmental-data-retrieval
+  repository_count: 2
+- github_id: andrea-perego
+  contributions: 2
+  repositories:
+  - ogc-geosparql
+  repository_count: 1
+- github_id: rwarren2
+  contributions: 2
+  repositories:
+  - ogc-geosparql
+  repository_count: 1
+- github_id: kjano
+  contributions: 2
+  repositories:
+  - ogc-geosparql
+  - poi
+  repository_count: 2
+- github_id: jratike80
+  contributions: 2
+  repositories:
+  - ogc-tiles-website
+  - ogcapi-features
+  repository_count: 2
+- github_id: matthijskooijman
+  contributions: 2
+  repositories:
+  - ogcapi-connected-systems
+  - sensorthings
+  repository_count: 2
+- github_id: sampov2
+  contributions: 2
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: armin11
+  contributions: 2
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: fmigneault-crim
+  contributions: 2
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: christophenoel
+  contributions: 2
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: psacra
+  contributions: 2
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: jkeifer
+  contributions: 2
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: adrianakbari
+  contributions: 2
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: matthewhanson
+  contributions: 2
+  repositories:
+  - ogcapi-processes
+  - wfs3hackathon
+  repository_count: 2
+- github_id: francbartoli
+  contributions: 2
+  repositories:
+  - ogcapi-processes
+  - wfs3hackathon
+  repository_count: 2
+- github_id: josegar74
+  contributions: 2
+  repositories:
+  - ogcapi-records
+  repository_count: 1
+- github_id: NielsHoffmann
+  contributions: 2
+  repositories:
+  - ogcapi-records
+  repository_count: 1
+- github_id: pomakis
+  contributions: 2
+  repositories:
+  - ogcapi-styles
+  - ogcapi-tiles
+  repository_count: 2
+- github_id: caldwellinva
+  contributions: 2
+  repositories:
+  - poi
+  repository_count: 1
+- github_id: amacleod-cerdi
+  contributions: 2
+  repositories:
+  - SELFIE
+  repository_count: 1
+- github_id: JLLeitschuh
+  contributions: 2
+  repositories:
+  - teamengine
+  repository_count: 1
+- github_id: hannesaddec
+  contributions: 2
+  repositories:
+  - teamengine-monitor
+  repository_count: 1
+- github_id: tonyboston-gm
+  contributions: 2
+  repositories:
+  - WaterQualityIE
+  repository_count: 1
+- github_id: tervo
+  contributions: 2
+  repositories:
+  - Weather-on-the-Web-ER
+  repository_count: 1
+- github_id: alcinnz
+  contributions: 1
+  repositories:
+  - bblocks-postprocess
+  repository_count: 1
+- github_id: PeterWarren
+  contributions: 1
+  repositories:
+  - boreholeie
+  repository_count: 1
+- github_id: bgsmase
+  contributions: 1
+  repositories:
+  - boreholeie
+  repository_count: 1
+- github_id: jansule
+  contributions: 1
+  repositories:
+  - cartographic-symbology
+  repository_count: 1
+- github_id: KaiVolland
+  contributions: 1
+  repositories:
+  - cartographic-symbology
+  repository_count: 1
+- github_id: j2rodrig
+  contributions: 1
+  repositories:
+  - cdb-vector-gpkg-ie
+  repository_count: 1
+- github_id: betzms
+  contributions: 1
+  repositories:
+  - CityGML-3.0Encodings
+  repository_count: 1
+- github_id: hlg
+  contributions: 1
+  repositories:
+  - CityGML-3.0Encodings
+  repository_count: 1
+- github_id: eejco
+  contributions: 1
+  repositories:
+  - climate-resilience-dwg
+  repository_count: 1
+- github_id: qscripter
+  contributions: 1
+  repositories:
+  - CloudOptimizedGeoTIFF
+  repository_count: 1
+- github_id: jodygarnett
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: mduckham
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: slecorne
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: tomcrauwels
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: yharby
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: davidblasby
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: ticheler
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: jbants
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: alexarobu
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: farindk
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: chrispopplestone
+  contributions: 1
+  repositories:
+  - developer-events
+  repository_count: 1
+- github_id: stegarcia
+  contributions: 1
+  repositories:
+  - ELFIE
+  repository_count: 1
+- github_id: valentinedwv
+  contributions: 1
+  repositories:
+  - ets-19139
+  repository_count: 1
+- github_id: csringhofer
+  contributions: 1
+  repositories:
+  - ets-geotiff11
+  repository_count: 1
+- github_id: AlbertoSN
+  contributions: 1
+  repositories:
+  - ets-gmljpx20
+  repository_count: 1
+- github_id: alunacob
+  contributions: 1
+  repositories:
+  - ets-gmljpx20
+  repository_count: 1
+- github_id: fsufitch
+  contributions: 1
+  repositories:
+  - ets-gpkg12
+  repository_count: 1
+- github_id: MikkelHJuul
+  contributions: 1
+  repositories:
+  - ets-ogcapi-features10
+  repository_count: 1
+- github_id: kad-korpem
+  contributions: 1
+  repositories:
+  - ets-ogcapi-tiles10
+  repository_count: 1
+- github_id: rkettelerij
+  contributions: 1
+  repositories:
+  - ets-ogcapi-tiles10
+  repository_count: 1
+- github_id: pramsey
+  contributions: 1
+  repositories:
+  - ets-sfs11
+  repository_count: 1
+- github_id: bertt
+  contributions: 1
+  repositories:
+  - ets-sta10
+  repository_count: 1
+- github_id: mbarto
+  contributions: 1
+  repositories:
+  - ets-wfs11
+  repository_count: 1
+- github_id: calhanson
+  contributions: 1
+  repositories:
+  - ets-wfs20
+  repository_count: 1
+- github_id: dmeaux
+  contributions: 1
+  repositories:
+  - geoapi
+  repository_count: 1
+- github_id: Laetitia-V
+  contributions: 1
+  repositories:
+  - geoapi
+  repository_count: 1
+- github_id: rmarechal
+  contributions: 1
+  repositories:
+  - geoapi
+  repository_count: 1
+- github_id: agiudiceandrea
+  contributions: 1
+  repositories:
+  - geopackage
+  repository_count: 1
+- github_id: danielbarela
+  contributions: 1
+  repositories:
+  - geopackage
+  repository_count: 1
+- github_id: peterstace
+  contributions: 1
+  repositories:
+  - geopackage
+  repository_count: 1
+- github_id: rcasscslt
+  contributions: 1
+  repositories:
+  - geopackage
+  repository_count: 1
+- github_id: ScottEvil
+  contributions: 1
+  repositories:
+  - geopackage
+  repository_count: 1
+- github_id: thomasneirynck
+  contributions: 1
+  repositories:
+  - geopackage
+  repository_count: 1
+- github_id: rfecher
+  contributions: 1
+  repositories:
+  - geopackage
+  repository_count: 1
+- github_id: xaviernogueira
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: msbarry
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: evetion
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: yeelauren
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: Jap8nted
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: jzb
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: jatorre
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: jwass
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: EwoutH
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: C-Loftus
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: cayetanobv
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: TheNeuralBit
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: brendan-ward
+  contributions: 1
+  repositories:
+  - geoparquet
+  repository_count: 1
+- github_id: michaelvogt
+  contributions: 1
+  repositories:
+  - GeoPose
+  repository_count: 1
+- github_id: jescriu
+  contributions: 1
+  repositories:
+  - geosemantics-dwg
+  repository_count: 1
+- github_id: neumarcx
+  contributions: 1
+  repositories:
+  - geosemantics-dwg
+  repository_count: 1
+- github_id: pipauwel
+  contributions: 1
+  repositories:
+  - geosparql3dwhitepaper
+  repository_count: 1
+- github_id: jdadams-usgs
+  contributions: 1
+  repositories:
+  - LANDRS
+  repository_count: 1
+- github_id: elf-pavlik
+  contributions: 1
+  repositories:
+  - MapML-1
+  repository_count: 1
+- github_id: ksookim
+  contributions: 1
+  repositories:
+  - mf-json
+  repository_count: 1
+- github_id: isotc211
+  contributions: 1
+  repositories:
+  - muddi
+  repository_count: 1
+- github_id: estubkjaer
+  contributions: 1
+  repositories:
+  - NamingAuthority
+  repository_count: 1
+- github_id: CMayNorris
+  contributions: 1
+  repositories:
+  - netcdf-ld
+  repository_count: 1
+- github_id: balazsdukai
+  contributions: 1
+  repositories:
+  - ogc-feat-geo-json
+  repository_count: 1
+- github_id: hugoledoux
+  contributions: 1
+  repositories:
+  - ogc-feat-geo-json
+  repository_count: 1
+- github_id: isedwards
+  contributions: 1
+  repositories:
+  - ogc-feat-geo-json
+  repository_count: 1
+- github_id: ajnelson-nist
+  contributions: 1
+  repositories:
+  - ogc-geosparql
+  repository_count: 1
+- github_id: ct-martin
+  contributions: 1
+  repositories:
+  - ogc-geosparql
+  repository_count: 1
+- github_id: recalcitrantsupplant
+  contributions: 1
+  repositories:
+  - ogc-geosparql
+  repository_count: 1
+- github_id: VladimirAlexiev
+  contributions: 1
+  repositories:
+  - ogc-geosparql
+  repository_count: 1
+- github_id: adamdavis2
+  contributions: 1
+  repositories:
+  - ogc-geosparql
+  repository_count: 1
+- github_id: Tamrat-B
+  contributions: 1
+  repositories:
+  - ogc-i3s-community-standard
+  repository_count: 1
+- github_id: jburnett114
+  contributions: 1
+  repositories:
+  - OGC-IPR-Review-2021
+  repository_count: 1
+- github_id: Josh-Rentrope
+  contributions: 1
+  repositories:
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 1
+- github_id: lilleyse
+  contributions: 1
+  repositories:
+  - OGC-ISG-Sprint-Sep-2020
+  repository_count: 1
+- github_id: joaocsmanuel
+  contributions: 1
+  repositories:
+  - ogcapi-discrete-global-grid-systems
+  repository_count: 1
+- github_id: crbunney
+  contributions: 1
+  repositories:
+  - ogcapi-environmental-data-retrieval
+  repository_count: 1
+- github_id: petergarnaes
+  contributions: 1
+  repositories:
+  - ogcapi-environmental-data-retrieval
+  repository_count: 1
+- github_id: r0w4n
+  contributions: 1
+  repositories:
+  - ogcapi-environmental-data-retrieval
+  repository_count: 1
+- github_id: geographika
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: vmx
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: sethfitz
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: sebastianfrey
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: richiecarmichael
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: Delawen
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: keul
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: kunlinyu
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: ischneider
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: constantinius
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: emmanuelmathot
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: springmeyer
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: joe-byounghern-kim
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: alexanderkotsev
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: elpaso
+  contributions: 1
+  repositories:
+  - ogcapi-features
+  repository_count: 1
+- github_id: tmiosmauli
+  contributions: 1
+  repositories:
+  - ogcapi-joins
+  repository_count: 1
+- github_id: FirePing32
+  contributions: 1
+  repositories:
+  - ogcapi-maps
+  repository_count: 1
+- github_id: sptillma
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: slawler
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: Prajwalita
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: NazihFino
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: MElHefnawy369
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: jonherrmann
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: idanmiara
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: chris-durbin
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: pandeazucar
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: anapinilla
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: xcomagent95
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: abunashir
+  contributions: 1
+  repositories:
+  - ogcapi-processes
+  repository_count: 1
+- github_id: joaomdsg
+  contributions: 1
+  repositories:
+  - ogcapi-records
+  repository_count: 1
+- github_id: balladaniel
+  contributions: 1
+  repositories:
+  - ogcapi-tiles
+  repository_count: 1
+- github_id: kad-jagtt
+  contributions: 1
+  repositories:
+  - ogcapi-tiles
+  repository_count: 1
+- github_id: vincentsarago
+  contributions: 1
+  repositories:
+  - ogcapi-tiles
+  repository_count: 1
+- github_id: TimVosch
+  contributions: 1
+  repositories:
+  - sensorthings
+  repository_count: 1
+- github_id: jondoig
+  contributions: 1
+  repositories:
+  - swe4citizenscience
+  repository_count: 1
+- github_id: nickelsong
+  contributions: 1
+  repositories:
+  - teamengine
+  repository_count: 1
+- github_id: snyk-bot
+  contributions: 1
+  repositories:
+  - teamengine
+  repository_count: 1
+- github_id: ragnvald
+  contributions: 1
+  repositories:
+  - teamengine-monitor
+  repository_count: 1
+- github_id: raymondnijssen
+  contributions: 1
+  repositories:
+  - teamengine-monitor
+  repository_count: 1
+- github_id: CAMOBAP
+  contributions: 1
+  repositories:
+  - Temporal-Abstract-Spec
+  repository_count: 1
+- github_id: bermudtest
+  contributions: 1
+  repositories:
+  - test-standard
+  repository_count: 1
+- github_id: WKX-w
+  contributions: 1
+  repositories:
+  - TrainingDML-AI_SWG
+  repository_count: 1
+- github_id: Sangki
+  contributions: 1
+  repositories:
+  - unggim_standards_guide
+  repository_count: 1
+- github_id: Shanecrossman
+  contributions: 1
+  repositories:
+  - unggim_standards_guide
+  repository_count: 1
+- github_id: psaile
+  contributions: 1
+  repositories:
+  - WaterQualityIE
+  repository_count: 1
+- github_id: PeterTrevelyan
+  contributions: 1
+  repositories:
+  - weather-on-the-web
+  repository_count: 1
+- github_id: yashrajbharti
+  contributions: 1
+  repositories:
+  - weather-on-the-web
+  repository_count: 1
+- github_id: ahmedOpeyemi
+  contributions: 1
+  repositories:
+  - wfs3hackathon
+  repository_count: 1
+- github_id: pduchesne
+  contributions: 1
+  repositories:
+  - wfs3hackathon
+  repository_count: 1
+- github_id: saicheems
+  contributions: 1
+  repositories:
+  - wfs3hackathon
+  repository_count: 1
+- github_id: s-chand
+  contributions: 1
+  repositories:
+  - wfs3hackathon
+  repository_count: 1
+- github_id: Samweli
+  contributions: 1
+  repositories:
+  - wfs3hackathon
+  repository_count: 1
+- github_id: tetriscode
+  contributions: 1
+  repositories:
+  - wfs3hackathon
+  repository_count: 1

@@ -1,0 +1,3445 @@
+generated: '2026-08-20'
+method: searched
+source: https://portal.ogc.org/services/srv_active_members_csv_new.php
+type: standards-companies
+note: The OGC active-member roster, published by OGC as a CSV and consumed by the OGC Member Directory ArcGIS dashboard
+  at ogc.org/ogc-member-directory. Individual (person) memberships are excluded here — this file is the ORGANIZATION
+  coalition. Unlike most standards rosters, OGC publishes each member's own URL, so in_network is settled by authoritative
+  domain match against the network index rather than by name guessing.
+summary:
+  organizations: 362
+  with_url: 341
+  in_network: 63
+  api_providers: 37
+  by_level:
+    Explorer: 265
+    Catalyst: 66
+    Principal: 12
+    Strategic: 10
+    Professional: 9
+  by_member_type:
+    Commercial: 139
+    Government: 84
+    Non-Profit: 75
+    University: 55
+    Emeritus Membership: 9
+  individual_members_excluded: 159
+  matched_by:
+    roster-url: 49
+    harvested-from-lead: 7
+    slug-exists: 6
+    derived-domain: 1
+companies:
+- name: European Space Agency (ESA)
+  key: european-space-agency-esa
+  level: Strategic
+  member_type: Government
+  country: Italy
+  url: http://www.esa.int
+  domain: esa.int
+  slug: esa
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: esa.int
+- name: General Authority for Survey and Geospatial Information (GEOSA)
+  key: general-authority-for-survey-and-geospatial-information-geosa
+  level: Strategic
+  member_type: Government
+  country: Saudi Arabia
+  url: https://www.gasgi.gov.sa/
+  domain: gasgi.gov.sa
+  in_network: false
+  is_api_provider: false
+- name: GeoConnections - Natural Resources Canada
+  key: geoconnections-natural-resources-canada
+  level: Strategic
+  member_type: Government
+  country: Canada
+  url: http://www.nrcan.gc.ca/
+  domain: nrcan.gc.ca
+  in_network: false
+  is_api_provider: false
+- name: Ordnance Survey
+  key: ordnance-survey
+  level: Strategic
+  member_type: Government
+  country: United Kingdom
+  url: http://www.ordnancesurvey.co.uk
+  domain: ordnancesurvey.co.uk
+  slug: ordnance-survey
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: ordnancesurvey.co.uk
+- name: United Kingdom Hydrographic Office (UKHO)
+  key: united-kingdom-hydrographic-office-ukho
+  level: Strategic
+  member_type: Government
+  country: United Kingdom
+  url: http://www.ukho.gov.uk
+  domain: ukho.gov.uk
+  in_network: false
+  is_api_provider: false
+- name: US Department of Homeland Security (DHS)
+  key: us-department-of-homeland-security-dhs
+  level: Strategic
+  member_type: Government
+  country: United States
+  url: http://www.dhs.gov/
+  domain: dhs.gov
+  slug: cbp
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: dhs.gov
+- name: US Geological Survey (USGS)
+  key: us-geological-survey-usgs
+  level: Strategic
+  member_type: Government
+  country: United States
+  url: http://www.usgs.gov/
+  domain: usgs.gov
+  slug: department-of-the-interior
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: usgs.gov
+- name: US National Aeronautics and Space Administration (NASA)
+  key: us-national-aeronautics-and-space-administration-nasa
+  level: Strategic
+  member_type: Government
+  country: United States
+  url: http://www.nasa.gov
+  domain: nasa.gov
+  slug: nasa
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: nasa.gov
+- name: US National Geospatial-Intelligence Agency (NGA)
+  key: us-national-geospatial-intelligence-agency-nga
+  level: Strategic
+  member_type: Government
+  country: United States
+  url: http://www.nga.mil/
+  domain: nga.mil
+  slug: national-geospatial-intelligence-agency
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: nga.mil
+- name: US National Oceanic and Atmospheric Administration (NOAA)
+  key: us-national-oceanic-and-atmospheric-administration-noaa
+  level: Strategic
+  member_type: Government
+  country: United States
+  url: http://www.noaa.gov/
+  domain: noaa.gov
+  slug: noaa
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: noaa.gov
+- name: Bentley Systems, Inc.
+  key: bentley-systems-inc
+  level: Principal
+  member_type: Commercial
+  country: United States
+  url: http://www.bentley.com
+  domain: bentley.com
+  slug: bentley-systems
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: bentley.com
+- name: Bureau National d'Etudes Techniques et de Developpement (BNETD)
+  key: bureau-national-d-etudes-techniques-et-de-developpement-bnetd
+  level: Principal
+  member_type: Government
+  country: Cote d'Ivoire
+  url: https://bnetd.ci
+  domain: bnetd.ci
+  in_network: false
+  is_api_provider: false
+- name: Department of Land Reform and Rural Development (DLRRD)
+  key: department-of-land-reform-and-rural-development-dlrrd
+  level: Principal
+  member_type: Government
+  country: South Africa
+  url: https://www.dalrrd.gov.za/
+  domain: dalrrd.gov.za
+  in_network: false
+  is_api_provider: false
+- name: Esri
+  key: esri
+  level: Principal
+  member_type: Commercial
+  country: United States
+  url: http://www.esri.com/
+  domain: esri.com
+  slug: esri
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: esri.com
+- name: Feng Chia University
+  key: feng-chia-university
+  level: Principal
+  member_type: University
+  country: Taiwan
+  url: http://www.gis.tw
+  domain: gis.tw
+  in_network: false
+  is_api_provider: false
+- name: Google
+  key: google
+  level: Principal
+  member_type: Commercial
+  country: United States
+  url: http://www.google.com
+  domain: google.com
+  in_network: true
+  is_api_provider: false
+  slug: google
+  matched_by: slug-exists
+  match_note: matched by existing all/ repo, not by the domain index — the index has no entry for this domain (e.g.
+    google.com is absent while all/google exists)
+- name: Hexagon
+  key: hexagon
+  level: Principal
+  member_type: Commercial
+  country: Switzerland
+  url: http://www.hexagon.com
+  domain: hexagon.com
+  slug: hexagon
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: hexagon.com
+- name: LeapThought
+  key: leapthought
+  level: Principal
+  member_type: Commercial
+  country: United States
+  url: https://www.leapthought.com/
+  domain: leapthought.com
+  in_network: false
+  is_api_provider: false
+- name: Octave
+  key: octave
+  level: Principal
+  member_type: Commercial
+  country: United States
+  url: https://www.octave.com
+  domain: octave.com
+  in_network: true
+  is_api_provider: false
+  slug: octave
+  matched_by: slug-exists
+  match_note: matched by existing all/ repo, not by the domain index — the index has no entry for this domain (e.g.
+    google.com is absent while all/google exists)
+- name: Oracle USA
+  key: oracle-usa
+  level: Principal
+  member_type: Commercial
+  country: United States
+  url: http://www.oracle.com/
+  domain: oracle.com
+  slug: oracle
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: oracle.com
+- name: Overture Maps Foundation
+  key: overture-maps-foundation
+  level: Principal
+  member_type: Non-Profit
+  country: United States
+  url: https://overturemaps.org
+  domain: overturemaps.org
+  slug: overture-maps-foundation
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: overturemaps.org
+- name: Trimble, Inc.
+  key: trimble-inc
+  level: Principal
+  member_type: Commercial
+  country: United States
+  url: http://www.trimble.com
+  domain: trimble.com
+  slug: trimble
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: trimble.com
+- name: ADG Military Survey (GSGS), Integrated HQ of MoD (Army)
+  key: adg-military-survey-gsgs-integrated-hq-of-mod-army
+  level: Catalyst
+  member_type: Government
+  country: India
+  in_network: false
+  is_api_provider: false
+- name: AdV (Working Committee of the Surveying Authorities of the Laender of the Federal Republic of Germany)
+  key: adv-working-committee-of-the-surveying-authorities-of-the-laender-of-the-federal-republic-of-germany
+  level: Catalyst
+  member_type: Government
+  country: Germany
+  url: https://www.adv-online.de/Home/
+  domain: adv-online.de
+  in_network: false
+  is_api_provider: false
+- name: Aechelon Technology
+  key: aechelon-technology
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: http://www.aechelon.com
+  domain: aechelon.com
+  in_network: false
+  is_api_provider: false
+- name: Airbus Defence & Space
+  key: airbus-defence-space
+  level: Catalyst
+  member_type: Commercial
+  country: France
+  url: http://www.astrium-geo.com
+  domain: astrium-geo.com
+  in_network: false
+  is_api_provider: false
+- name: Autodesk, Inc.
+  key: autodesk-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: http://www.autodesk.com/
+  domain: autodesk.com
+  slug: autodesk
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: autodesk.com
+- name: BAE Systems
+  key: bae-systems
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: http://www.baesystems.com
+  domain: baesystems.com
+  slug: bae-systems
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: baesystems.com
+- name: BRGM
+  key: brgm
+  level: Catalyst
+  member_type: Government
+  country: France
+  url: http://www.brgm.fr
+  domain: brgm.fr
+  in_network: false
+  is_api_provider: false
+- name: CAE Inc.
+  key: cae-inc
+  level: Catalyst
+  member_type: Commercial
+  country: Canada
+  url: http://www.cae.com
+  domain: cae.com
+  in_network: false
+  is_api_provider: false
+- name: Clark University
+  key: clark-university
+  level: Catalyst
+  member_type: University
+  country: United States
+  url: https://www.clarku.edu/
+  domain: clarku.edu
+  in_network: false
+  is_api_provider: false
+- name: Cubic Digital Intelligence (CDI)
+  key: cubic-digital-intelligence-cdi
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: https://www.cubic.com/
+  domain: cubic.com
+  slug: cubic
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: cubic.com
+- name: Defence Geospatial Information Working Group (DGIWG)
+  key: defence-geospatial-information-working-group-dgiwg
+  level: Catalyst
+  member_type: Non-Profit
+  country: United Kingdom
+  url: http://www.dgiwg.org
+  domain: dgiwg.org
+  in_network: false
+  is_api_provider: false
+- name: Defence Science & Technology Laboratories (Dstl)
+  key: defence-science-technology-laboratories-dstl
+  level: Catalyst
+  member_type: Government
+  country: United Kingdom
+  url: http://www.dstl.gov.uk
+  domain: dstl.gov.uk
+  in_network: false
+  is_api_provider: false
+- name: Department of Defence (Australia)
+  key: department-of-defence-australia
+  level: Catalyst
+  member_type: Government
+  country: Australia
+  in_network: false
+  is_api_provider: false
+- name: Department of Land Resources, Ministry of Rural Development, Government of India
+  key: department-of-land-resources-ministry-of-rural-development-government-of-india
+  level: Catalyst
+  member_type: Government
+  country: India
+  url: https://www.dolr.gov.in/
+  domain: dolr.gov.in
+  in_network: false
+  is_api_provider: false
+- name: Department of National Defense
+  key: department-of-national-defense
+  level: Catalyst
+  member_type: Government
+  country: Canada
+  url: https://www.canada.ca/en/department-national-defence.html
+  domain: canada.ca
+  slug: canada-energy-regulator
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: canada.ca
+- name: Deutscher Wetterdienst
+  key: deutscher-wetterdienst
+  level: Catalyst
+  member_type: Government
+  country: Germany
+  url: http://www.dwd.de
+  domain: dwd.de
+  in_network: true
+  is_api_provider: true
+  slug: deutscher-wetterdienst
+  matched_by: harvested-from-lead
+  match_note: profiled from this roster on 2026-08-20 after a live OGC surface was verified
+- name: Enterprise Products
+  key: enterprise-products
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: http://www.enterpriseproducts.com
+  domain: enterpriseproducts.com
+  slug: enterprise-products-partners
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: enterpriseproducts.com
+- name: Esri Canada
+  key: esri-canada
+  level: Catalyst
+  member_type: Commercial
+  country: Canada
+  url: http://www.esri.ca
+  domain: esri.ca
+  in_network: false
+  is_api_provider: false
+- name: EUMETSAT
+  key: eumetsat
+  level: Catalyst
+  member_type: Non-Profit
+  country: Germany
+  url: http://www.eumetsat.int/
+  domain: eumetsat.int
+  in_network: false
+  is_api_provider: false
+- name: Eurac Research
+  key: eurac-research
+  level: Catalyst
+  member_type: Non-Profit
+  country: Italy
+  url: http://www.eurac.edu/
+  domain: eurac.edu
+  in_network: true
+  is_api_provider: true
+  slug: eurac-research
+  matched_by: harvested-from-lead
+  match_note: profiled from this roster on 2026-08-20 after a live OGC surface was verified
+- name: European Centre for Medium-Range Weather Forecasts (ECMWF)
+  key: european-centre-for-medium-range-weather-forecasts-ecmwf
+  level: Catalyst
+  member_type: Government
+  country: United Kingdom
+  url: http://www.ecmwf.int
+  domain: ecmwf.int
+  in_network: false
+  is_api_provider: false
+- name: European Union Satellite Centre
+  key: european-union-satellite-centre
+  level: Catalyst
+  member_type: Government
+  country: Spain
+  url: http://www.eusc.europa.eu
+  domain: eusc.europa.eu
+  in_network: false
+  is_api_provider: false
+- name: FlightSafety International
+  key: flightsafety-international
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: http://www.flightsafety.com
+  domain: flightsafety.com
+  in_network: false
+  is_api_provider: false
+- name: Foundation for Ecological Security
+  key: foundation-for-ecological-security
+  level: Catalyst
+  member_type: Non-Profit
+  country: India
+  url: https://www.fes.org.in
+  domain: fes.org.in
+  in_network: false
+  is_api_provider: false
+- name: Fraunhofer-Gesellschaft
+  key: fraunhofer-gesellschaft
+  level: Catalyst
+  member_type: Non-Profit
+  country: Germany
+  url: http://www.fraunhofer.de
+  domain: fraunhofer.de
+  slug: energy-charts-api
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: fraunhofer.de
+- name: FRONTEX
+  key: frontex
+  level: Catalyst
+  member_type: Government
+  country: Poland
+  url: https://www.frontex.europa.eu/
+  domain: frontex.europa.eu
+  in_network: false
+  is_api_provider: false
+- name: Geonovum
+  key: geonovum
+  level: Catalyst
+  member_type: Non-Profit
+  country: Netherlands
+  url: http://www.geonovum.nl
+  domain: geonovum.nl
+  in_network: false
+  is_api_provider: false
+- name: GeoRobotix, Inc.
+  key: georobotix-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: https://georobotix.com/
+  domain: georobotix.com
+  in_network: false
+  is_api_provider: false
+- name: Geoscience Australia
+  key: geoscience-australia
+  level: Catalyst
+  member_type: Government
+  country: Australia
+  url: http://www.ga.gov.au/
+  domain: ga.gov.au
+  in_network: false
+  is_api_provider: false
+- name: German Aerospace Center - DLR
+  key: german-aerospace-center-dlr
+  level: Catalyst
+  member_type: Government
+  country: Germany
+  url: http://www.dlr.de
+  domain: dlr.de
+  slug: dlr
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: dlr.de
+- name: Haryana Space Applications Centre (HARSAC)
+  key: haryana-space-applications-centre-harsac
+  level: Catalyst
+  member_type: Government
+  country: India
+  url: https://hsac.org.in
+  domain: hsac.org.in
+  in_network: false
+  is_api_provider: false
+- name: HERE Global BV
+  key: here-global-bv
+  level: Catalyst
+  member_type: Commercial
+  country: Netherlands
+  url: https://www.here.com/
+  domain: here.com
+  slug: here
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: here.com
+- name: Hitachi, Ltd., Central Research Laboratory
+  key: hitachi-ltd-central-research-laboratory
+  level: Catalyst
+  member_type: Commercial
+  country: Japan
+  url: http://www.hitachi.com/rd/index.html
+  domain: hitachi.com
+  in_network: false
+  is_api_provider: false
+- name: Inframappa, Inc.
+  key: inframappa-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: https://inframappa.com/
+  domain: inframappa.com
+  in_network: false
+  is_api_provider: false
+- name: Institut National de l'information geographique et forestiere (IGN - France)
+  key: institut-national-de-l-information-geographique-et-forestiere-ign-france
+  level: Catalyst
+  member_type: Government
+  country: France
+  url: http://www.ign.fr
+  domain: ign.fr
+  in_network: false
+  is_api_provider: false
+- name: Instituto Nacional de Estadística y Geografía (INEGI)
+  key: instituto-nacional-de-estad-stica-y-geograf-a-inegi
+  level: Catalyst
+  member_type: Government
+  country: Mexico
+  url: http://www.inegi.org.mx
+  domain: inegi.org.mx
+  in_network: false
+  is_api_provider: false
+- name: Joint Research Centre (JRC)
+  key: joint-research-centre-jrc
+  level: Catalyst
+  member_type: Government
+  country: Italy
+  url: https://ec.europa.eu/jrc/
+  domain: ec.europa.eu
+  in_network: false
+  is_api_provider: false
+- name: Kongsberg Defence & Aerospace AS
+  key: kongsberg-defence-aerospace-as
+  level: Catalyst
+  member_type: Commercial
+  country: Norway
+  url: http://www.kongsberg.com
+  domain: kongsberg.com
+  in_network: false
+  is_api_provider: false
+- name: L3Harris
+  key: l3harris
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: http://www.harris.com/
+  domain: harris.com
+  in_network: true
+  is_api_provider: false
+  slug: exelis
+  matched_by: derived-domain
+  matched_domain: l3harris.com
+- name: Ministry of Land, Infrastructure & Transport-MOLIT
+  key: ministry-of-land-infrastructure-transport-molit
+  level: Catalyst
+  member_type: Government
+  country: Korea, Republic of
+  url: http://english.molit.go.kr/intro.do
+  domain: english.molit.go.kr
+  in_network: false
+  is_api_provider: false
+- name: National Land Survey of Finland
+  key: national-land-survey-of-finland
+  level: Catalyst
+  member_type: Government
+  country: Finland
+  url: http://www.nls.fi
+  domain: nls.fi
+  in_network: false
+  is_api_provider: false
+- name: National Remote Sensing Centre (NRSC)
+  key: national-remote-sensing-centre-nrsc
+  level: Catalyst
+  member_type: Government
+  country: India
+  url: http://www.nrsc.gov.in
+  domain: nrsc.gov.in
+  in_network: false
+  is_api_provider: false
+- name: NATO HQ SITCEN
+  key: nato-hq-sitcen
+  level: Catalyst
+  member_type: Government
+  country: Belgium
+  in_network: false
+  is_api_provider: false
+- name: NV5 Geospatial, Inc.
+  key: nv5-geospatial-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: https://www.nv5.com/
+  domain: nv5.com
+  in_network: false
+  is_api_provider: false
+- name: NYC Dept. of Information Technology & Telecommunications
+  key: nyc-dept-of-information-technology-telecommunications
+  level: Catalyst
+  member_type: Government
+  country: United States
+  url: https://www1.nyc.gov/site/doitt/index.page
+  domain: www1.nyc.gov
+  in_network: false
+  is_api_provider: false
+- name: OASIS
+  key: oasis
+  level: Catalyst
+  member_type: Non-Profit
+  country: United States
+  url: http://www.oasis-open.org
+  domain: oasis-open.org
+  slug: casdoor
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: oasis-open.org
+- name: Office of the Surveyor General of the Federation (OSGOF)
+  key: office-of-the-surveyor-general-of-the-federation-osgof
+  level: Catalyst
+  member_type: Government
+  country: Nigeria
+  url: https://osgof.gov.ng/
+  domain: osgof.gov.ng
+  in_network: false
+  is_api_provider: false
+- name: OPN USA, Inc.
+  key: opn-usa-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: https://www.OPNUSA.US
+  domain: opnusa.us
+  in_network: false
+  is_api_provider: false
+- name: Precisely Software Incorporated
+  key: precisely-software-incorporated
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: https://www.precisely.com/
+  domain: precisely.com
+  slug: precisely
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: precisely.com
+- name: Regrid
+  key: regrid
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: https://regrid.com
+  domain: regrid.com
+  slug: regrid
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: regrid.com
+- name: Safe Software, Inc.
+  key: safe-software-inc
+  level: Catalyst
+  member_type: Commercial
+  country: Canada
+  url: http://www.safe.com
+  domain: safe.com
+  in_network: false
+  is_api_provider: false
+- name: SGL Resources Limited
+  key: sgl-resources-limited
+  level: Catalyst
+  member_type: Commercial
+  country: India
+  url: https://www.sgligis.com/
+  domain: sgligis.com
+  in_network: false
+  is_api_provider: false
+- name: Singapore Land Authority
+  key: singapore-land-authority
+  level: Catalyst
+  member_type: Government
+  country: Singapore
+  url: http://www.sla.gov.sg
+  domain: sla.gov.sg
+  in_network: false
+  is_api_provider: false
+- name: Spatineo Oy
+  key: spatineo-oy
+  level: Catalyst
+  member_type: Commercial
+  country: Finland
+  url: http://www.spatineo.com
+  domain: spatineo.com
+  in_network: false
+  is_api_provider: false
+- name: Statens kartverk - Norwegian Mapping Authority
+  key: statens-kartverk-norwegian-mapping-authority
+  level: Catalyst
+  member_type: Government
+  country: Norway
+  url: https://www.kartverket.no/
+  domain: kartverket.no
+  in_network: false
+  is_api_provider: false
+- name: Survey of India (SoI)
+  key: survey-of-india-soi
+  level: Catalyst
+  member_type: Government
+  country: India
+  url: http://www.surveyofindia.gov.in
+  domain: surveyofindia.gov.in
+  in_network: false
+  is_api_provider: false
+- name: Teledyne Geospatial Caris and Optech
+  key: teledyne-geospatial-caris-and-optech
+  level: Catalyst
+  member_type: Commercial
+  country: Canada
+  url: http://www.caris.com
+  domain: caris.com
+  in_network: false
+  is_api_provider: false
+- name: Thales AVS France SAS
+  key: thales-avs-france-sas
+  level: Catalyst
+  member_type: Commercial
+  country: France
+  url: http://www.thalesgroup.com
+  domain: thalesgroup.com
+  slug: ciphertrust
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: thalesgroup.com
+- name: UK Met Office
+  key: uk-met-office
+  level: Catalyst
+  member_type: Government
+  country: United Kingdom
+  url: http://www.metoffice.gov.uk/
+  domain: metoffice.gov.uk
+  in_network: false
+  is_api_provider: false
+- name: University Corporation for Atmospheric Research (UCAR)
+  key: university-corporation-for-atmospheric-research-ucar
+  level: Catalyst
+  member_type: Non-Profit
+  country: United States
+  url: http://www.ucar.edu
+  domain: ucar.edu
+  in_network: false
+  is_api_provider: false
+- name: US Army Geospatial Center
+  key: us-army-geospatial-center
+  level: Catalyst
+  member_type: Government
+  country: United States
+  url: http://www.tec.army.mil/
+  domain: tec.army.mil
+  in_network: false
+  is_api_provider: false
+- name: US Census Bureau
+  key: us-census-bureau
+  level: Catalyst
+  member_type: Government
+  country: United States
+  url: http://www.census.gov/geo/www/tiger/
+  domain: census.gov
+  slug: census-gov
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: census.gov
+- name: US Dept. of Transportation (US DOT)
+  key: us-dept-of-transportation-us-dot
+  level: Catalyst
+  member_type: Government
+  country: United States
+  url: http://www.transportation.gov/
+  domain: transportation.gov
+  slug: department-of-transportation
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: transportation.gov
+- name: Vantor Inc.
+  key: vantor-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: https://vantor.com/
+  domain: vantor.com
+  slug: maxar-technologies
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: vantor.com
+- name: Woolpert, Inc.
+  key: woolpert-inc
+  level: Catalyst
+  member_type: Commercial
+  country: United States
+  url: http://www.aamgroup.com/
+  domain: aamgroup.com
+  in_network: false
+  is_api_provider: false
+- name: Wuhan University
+  key: wuhan-university
+  level: Catalyst
+  member_type: University
+  country: China
+  in_network: false
+  is_api_provider: false
+- name: Alameh, Nadine
+  key: alameh-nadine
+  level: Professional
+  member_type: Emeritus Membership
+  country: United States
+  in_network: false
+  is_api_provider: false
+- name: Brown, Nicholas
+  key: brown-nicholas
+  level: Professional
+  member_type: Emeritus Membership
+  country: Germany
+  in_network: false
+  is_api_provider: false
+- name: Colaiacomo, Lucio
+  key: colaiacomo-lucio
+  level: Professional
+  member_type: Emeritus Membership
+  country: Italy
+  in_network: false
+  is_api_provider: false
+- name: Hobona, Gobe
+  key: hobona-gobe
+  level: Professional
+  member_type: Emeritus Membership
+  country: United Kingdom
+  in_network: false
+  is_api_provider: false
+- name: Jones, Martin
+  key: jones-martin
+  level: Professional
+  member_type: Emeritus Membership
+  country: United Kingdom
+  url: https://www.linkedin.com/in/martin-jones-9a8a8047/
+  domain: linkedin.com
+  in_network: false
+  is_api_provider: false
+- name: McKenzie, Denise
+  key: mckenzie-denise
+  level: Professional
+  member_type: Emeritus Membership
+  country: United Kingdom
+  in_network: false
+  is_api_provider: false
+- name: Taylor, Trevor
+  key: taylor-trevor
+  level: Professional
+  member_type: Emeritus Membership
+  country: Canada
+  in_network: false
+  is_api_provider: false
+- name: Van den Berg, Eric
+  key: van-den-berg-eric
+  level: Professional
+  member_type: Emeritus Membership
+  country: Canada
+  in_network: false
+  is_api_provider: false
+- name: Voidrot, Marie-Françoise
+  key: voidrot-marie-fran-oise
+  level: Professional
+  member_type: Emeritus Membership
+  country: France
+  in_network: false
+  is_api_provider: false
+- name: 52°North Spatial Information Research GmbH
+  key: 52-north-spatial-information-research-gmbh
+  level: Explorer
+  member_type: Non-Profit
+  country: Germany
+  url: http://www.52north.org
+  domain: 52north.org
+  in_network: false
+  is_api_provider: false
+- name: Aerospace Information Research Institute, Chinese Academy of Sciences
+  key: aerospace-information-research-institute-chinese-academy-of-sciences
+  level: Explorer
+  member_type: Government
+  country: China
+  url: http://www.radi.ac.cn
+  domain: radi.ac.cn
+  in_network: false
+  is_api_provider: false
+- name: AfriGIS (Pty) Ltd
+  key: afrigis-pty-ltd
+  level: Explorer
+  member_type: Commercial
+  country: South Africa
+  url: http://www.afrigis.co.za
+  domain: afrigis.co.za
+  in_network: false
+  is_api_provider: false
+- name: AfroLeadership
+  key: afroleadership
+  level: Explorer
+  member_type: Non-Profit
+  country: Cameroon
+  url: https://afroleadership.org
+  domain: afroleadership.org
+  in_network: false
+  is_api_provider: false
+- name: Aganitha Space Technologies
+  key: aganitha-space-technologies
+  level: Explorer
+  member_type: Commercial
+  country: India
+  url: https://aganithaspace.com/
+  domain: aganithaspace.com
+  in_network: false
+  is_api_provider: false
+- name: Agency of Rural Development & Soil and Water Conservation (ARDSWC)
+  key: agency-of-rural-development-soil-and-water-conservation-ardswc
+  level: Explorer
+  member_type: Government
+  country: Taiwan
+  url: https://www.swcb.gov.tw/Home/eng/
+  domain: swcb.gov.tw
+  in_network: false
+  is_api_provider: false
+- name: AIT Austrian Institute of Technology GmbH
+  key: ait-austrian-institute-of-technology-gmbh
+  level: Explorer
+  member_type: Non-Profit
+  country: Austria
+  url: https://www.ait.ac.at
+  domain: ait.ac.at
+  in_network: false
+  is_api_provider: false
+- name: American Society for Photogrammetry & Remote Sensing (ASPRS)
+  key: american-society-for-photogrammetry-remote-sensing-asprs
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.asprs.org
+  domain: asprs.org
+  in_network: false
+  is_api_provider: false
+- name: Anyang University
+  key: anyang-university
+  level: Explorer
+  member_type: University
+  country: Korea, Republic of
+  url: https://www.anyang.ac.kr/main/index.do
+  domain: anyang.ac.kr
+  in_network: false
+  is_api_provider: false
+- name: AODN - Australian Ocean Data Network
+  key: aodn-australian-ocean-data-network
+  level: Explorer
+  member_type: Non-Profit
+  country: Australia
+  url: http://www.imos.org.au/aodn.html
+  domain: imos.org.au
+  in_network: false
+  is_api_provider: false
+- name: Asia Air Survey Co., Ltd.
+  key: asia-air-survey-co-ltd
+  level: Explorer
+  member_type: Commercial
+  country: Japan
+  url: http://www.ajiko.co.jp/
+  domain: ajiko.co.jp
+  in_network: false
+  is_api_provider: false
+- name: Association of Geospatial Industries (AGI)
+  key: association-of-geospatial-industries-agi
+  level: Explorer
+  member_type: Non-Profit
+  country: India
+  url: https://agiindia.com/
+  domain: agiindia.com
+  in_network: false
+  is_api_provider: false
+- name: Aston University
+  key: aston-university
+  level: Explorer
+  member_type: University
+  country: United Kingdom
+  url: http://www.aston.ac.uk/
+  domain: aston.ac.uk
+  in_network: false
+  is_api_provider: false
+- name: Atlas AI P.B.C.
+  key: atlas-ai-p-b-c
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.atlasai.co/
+  domain: atlasai.co
+  in_network: false
+  is_api_provider: false
+- name: Aveki AB
+  key: aveki-ab
+  level: Explorer
+  member_type: Commercial
+  country: Sweden
+  url: https://www.aveki.se
+  domain: aveki.se
+  in_network: false
+  is_api_provider: false
+- name: buildingSMART International Ltd.
+  key: buildingsmart-international-ltd
+  level: Explorer
+  member_type: Non-Profit
+  country: United Kingdom
+  url: http://www.buildingsmart.com
+  domain: buildingsmart.com
+  in_network: false
+  is_api_provider: false
+- name: ByteRoad, Sociedade Unipessoal Lda
+  key: byteroad-sociedade-unipessoal-lda
+  level: Explorer
+  member_type: Commercial
+  country: Portugal
+  url: https://byteroad.net/
+  domain: byteroad.net
+  in_network: false
+  is_api_provider: false
+- name: Cadcorp Limited
+  key: cadcorp-limited
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: http://www.cadcorp.com
+  domain: cadcorp.com
+  in_network: false
+  is_api_provider: false
+- name: Camptocamp SA
+  key: camptocamp-sa
+  level: Explorer
+  member_type: Commercial
+  country: Switzerland
+  url: http://www.camptocamp.com
+  domain: camptocamp.com
+  in_network: false
+  is_api_provider: false
+- name: Carmenta Geospatial Technologies AB
+  key: carmenta-geospatial-technologies-ab
+  level: Explorer
+  member_type: Commercial
+  country: Sweden
+  url: http://www.carmenta.se
+  domain: carmenta.se
+  in_network: false
+  is_api_provider: false
+- name: CartoDB Inc.
+  key: cartodb-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://carto.com/
+  domain: carto.com
+  slug: carto
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: carto.com
+- name: Center for Coastal and Ocean Mapping
+  key: center-for-coastal-and-ocean-mapping
+  level: Explorer
+  member_type: University
+  country: United States
+  url: https://ccom.unh.edu/
+  domain: ccom.unh.edu
+  in_network: false
+  is_api_provider: false
+- name: CEPT Research and Development Foundation (CRDF)
+  key: cept-research-and-development-foundation-crdf
+  level: Explorer
+  member_type: Non-Profit
+  country: India
+  url: https://crdf.org.in/
+  domain: crdf.org.in
+  in_network: false
+  is_api_provider: false
+- name: City Bureau, Ministry of Land, Infrastructure and Tourism (MLIT)
+  key: city-bureau-ministry-of-land-infrastructure-and-tourism-mlit
+  level: Explorer
+  member_type: Government
+  country: Japan
+  url: https://www.mlit.go.jp/plateau/
+  domain: mlit.go.jp
+  in_network: false
+  is_api_provider: false
+- name: City of Helsinki
+  key: city-of-helsinki
+  level: Explorer
+  member_type: Government
+  country: Finland
+  url: http://www.hel.fi/www/helsinki/en
+  domain: hel.fi
+  in_network: false
+  is_api_provider: false
+- name: City of Vienna
+  key: city-of-vienna
+  level: Explorer
+  member_type: Government
+  country: Austria
+  url: https://www.wien.gv.at/kontakte/ma01/index.html
+  domain: wien.gv.at
+  in_network: false
+  is_api_provider: false
+- name: Clairvoyint
+  key: clairvoyint
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.clairvoyint.ai/
+  domain: clairvoyint.ai
+  in_network: false
+  is_api_provider: false
+- name: Cloud Lake Technology, LLC
+  key: cloud-lake-technology-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  in_network: false
+  is_api_provider: false
+- name: CmWorld Co., Ltd.
+  key: cmworld-co-ltd
+  level: Explorer
+  member_type: Commercial
+  country: Korea, Republic of
+  url: https://www.cmworld.co.kr/
+  domain: cmworld.co.kr
+  in_network: false
+  is_api_provider: false
+- name: CNES
+  key: cnes
+  level: Explorer
+  member_type: Government
+  country: France
+  url: http://www.cnes.fr
+  domain: cnes.fr
+  in_network: false
+  is_api_provider: false
+- name: Collabora Ltd.
+  key: collabora-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: https://www.collabora.com/
+  domain: collabora.com
+  in_network: false
+  is_api_provider: false
+- name: Collateral Risk Network, Inc. (CRN)
+  key: collateral-risk-network-inc-crn
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://www.collateralrisk.org/
+  domain: collateralrisk.org
+  in_network: false
+  is_api_provider: false
+- name: Columbia University-CIESIN
+  key: columbia-university-ciesin
+  level: Explorer
+  member_type: University
+  country: United States
+  url: http://www.ciesin.columbia.edu
+  domain: ciesin.columbia.edu
+  in_network: false
+  is_api_provider: false
+- name: Compass, Inc.
+  key: compass-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: http://www.cmpsinc.com/
+  domain: cmpsinc.com
+  in_network: false
+  is_api_provider: false
+- name: Compusult Limited
+  key: compusult-limited
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  url: http://www.compusult.net
+  domain: compusult.net
+  in_network: false
+  is_api_provider: false
+- name: con terra GmbH
+  key: con-terra-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  url: http://www.conterra.de
+  domain: conterra.de
+  in_network: false
+  is_api_provider: false
+- name: Concordia University Montréal
+  key: concordia-university-montr-al
+  level: Explorer
+  member_type: University
+  country: Canada
+  url: https://www.concordia.ca/research/cities-institute.html
+  domain: concordia.ca
+  in_network: false
+  is_api_provider: false
+- name: Constructor University Bremen gGmbH
+  key: constructor-university-bremen-ggmbh
+  level: Explorer
+  member_type: University
+  country: Germany
+  url: http://www.jacobs-university.de/
+  domain: jacobs-university.de
+  in_network: false
+  is_api_provider: false
+- name: CS Group
+  key: cs-group
+  level: Explorer
+  member_type: Commercial
+  country: France
+  url: https://www.cs-soprasteria.com/en/
+  domain: cs-soprasteria.com
+  in_network: false
+  is_api_provider: false
+- name: CubeNexus Inc
+  key: cubenexus-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://cubenexus.xyz/
+  domain: cubenexus.xyz
+  in_network: false
+  is_api_provider: false
+- name: CubeWerx
+  key: cubewerx
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  url: http://www.cubewerx.com/
+  domain: cubewerx.com
+  in_network: false
+  is_api_provider: false
+- name: Curtin University
+  key: curtin-university
+  level: Explorer
+  member_type: University
+  country: Australia
+  url: http://curtin.edu.au
+  domain: curtin.edu.au
+  in_network: false
+  is_api_provider: false
+- name: CyberGIS Center for Advanced Digital & Spatial Studies
+  key: cybergis-center-for-advanced-digital-spatial-studies
+  level: Explorer
+  member_type: University
+  country: United States
+  url: http://cybergis.illinois.edu
+  domain: cybergis.illinois.edu
+  in_network: false
+  is_api_provider: false
+- name: DEIMOS Space S.L.U.
+  key: deimos-space-s-l-u
+  level: Explorer
+  member_type: Commercial
+  country: Spain
+  url: http://www.elecnor-deimos.com/
+  domain: elecnor-deimos.com
+  in_network: false
+  is_api_provider: false
+- name: Delft University of Technology
+  key: delft-university-of-technology
+  level: Explorer
+  member_type: University
+  country: Netherlands
+  url: http://www.gdmc.nl
+  domain: gdmc.nl
+  in_network: false
+  is_api_provider: false
+- name: Deloitte Tohmatsu LLC
+  key: deloitte-tohmatsu-llc
+  level: Explorer
+  member_type: Commercial
+  country: Japan
+  url: https://www.deloitte.com/jp/ja/about/group/deloitte-touche-tohmatsu-en.html
+  domain: deloitte.com
+  slug: deloitte
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: deloitte.com
+- name: DevDat.ai
+  key: devdat-ai
+  level: Explorer
+  member_type: Commercial
+  country: Singapore
+  url: https://www.devdat.ai
+  domain: devdat.ai
+  in_network: false
+  is_api_provider: false
+- name: Development Seed
+  key: development-seed
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: http://www.developmentseed.org
+  domain: developmentseed.org
+  in_network: false
+  is_api_provider: false
+- name: Digitaal Vlaanderen
+  key: digitaal-vlaanderen
+  level: Explorer
+  member_type: Government
+  country: Belgium
+  url: https://www.vlaanderen.be/digitaal-vlaanderen
+  domain: vlaanderen.be
+  in_network: false
+  is_api_provider: false
+- name: Digital Architecture Design Center(DADC), Information-technology Promotion Agency (IPA)
+  key: digital-architecture-design-center-dadc-information-technology-promotion-agency-ipa
+  level: Explorer
+  member_type: Government
+  country: Japan
+  url: https://www.ipa.go.jp/en/
+  domain: ipa.go.jp
+  in_network: false
+  is_api_provider: false
+- name: Diputació de Barcelona-Oficina Tècnica de Cartografia i Sig Local
+  key: diputaci-de-barcelona-oficina-t-cnica-de-cartografia-i-sig-local
+  level: Explorer
+  member_type: Government
+  country: Spain
+  url: http://www.diba.cat/idebarcelona
+  domain: diba.cat
+  in_network: false
+  is_api_provider: false
+- name: Dirk Farin - Algorithmic Research e.K.
+  key: dirk-farin-algorithmic-research-e-k
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  url: https://imagemeter.com/
+  domain: imagemeter.com
+  in_network: false
+  is_api_provider: false
+- name: Dr. Babasaheb Ambedkar Technological University (DBATU)
+  key: dr-babasaheb-ambedkar-technological-university-dbatu
+  level: Explorer
+  member_type: University
+  country: India
+  url: https://www.dbatu.ac.in
+  domain: dbatu.ac.in
+  in_network: false
+  is_api_provider: false
+- name: Earth Science Information Partners (ESIP)
+  key: earth-science-information-partners-esip
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.esipfed.org
+  domain: esipfed.org
+  in_network: false
+  is_api_provider: false
+- name: EarthScope Consortium, Inc.
+  key: earthscope-consortium-inc
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://www.earthscope.org/
+  domain: earthscope.org
+  in_network: false
+  is_api_provider: false
+- name: Ecere Corporation
+  key: ecere-corporation
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  url: http://ecere.ca
+  domain: ecere.ca
+  in_network: false
+  is_api_provider: false
+- name: EDM Council, Inc.
+  key: edm-council-inc
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://edmcouncil.org
+  domain: edmcouncil.org
+  slug: data-models
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: edmcouncil.org
+- name: Energistics
+  key: energistics
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.energistics.org
+  domain: energistics.org
+  in_network: false
+  is_api_provider: false
+- name: Environics Analytics Group
+  key: environics-analytics-group
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  url: https://environicsanalytics.com/
+  domain: environicsanalytics.com
+  in_network: false
+  is_api_provider: false
+- name: Environment and Climate Change Canada
+  key: environment-and-climate-change-canada
+  level: Explorer
+  member_type: Government
+  country: Canada
+  url: http://www.ec.gc.ca/
+  domain: ec.gc.ca
+  in_network: true
+  is_api_provider: true
+  slug: environment-and-climate-change-canada
+  matched_by: harvested-from-lead
+  match_note: profiled from this roster on 2026-08-20 after a live OGC surface was verified
+- name: Envitia Ltd.
+  key: envitia-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: http://www.envitia.com
+  domain: envitia.com
+  in_network: false
+  is_api_provider: false
+- name: EOX IT Services GmbH
+  key: eox-it-services-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Austria
+  url: http://www.eox.at
+  domain: eox.at
+  in_network: false
+  is_api_provider: false
+- name: Epic Games, Inc
+  key: epic-games-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.epicgames.com/
+  domain: epicgames.com
+  slug: epic-games
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: epicgames.com
+- name: Epsilon Italia srl
+  key: epsilon-italia-srl
+  level: Explorer
+  member_type: Commercial
+  country: Italy
+  url: http://www.epsilon-italia.it
+  domain: epsilon-italia.it
+  in_network: false
+  is_api_provider: false
+- name: Esri India
+  key: esri-india
+  level: Explorer
+  member_type: Commercial
+  country: India
+  url: http://www.esriindia.com
+  domain: esriindia.com
+  in_network: false
+  is_api_provider: false
+- name: Esri UK
+  key: esri-uk
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: https://www.esriuk.com
+  domain: esriuk.com
+  in_network: false
+  is_api_provider: false
+- name: ETRI (Electronics & Telecommunications Institute)
+  key: etri-electronics-telecommunications-institute
+  level: Explorer
+  member_type: Non-Profit
+  country: Korea, Republic of
+  url: http://www.etri.re.kr
+  domain: etri.re.kr
+  in_network: false
+  is_api_provider: false
+- name: Executive Office of Tech Services & Security Bureau of Geographic Info (MassGIS)
+  key: executive-office-of-tech-services-security-bureau-of-geographic-info-massgis
+  level: Explorer
+  member_type: Government
+  country: United States
+  url: https://www.mass.gov/orgs/massgis-bureau-of-geographic-information
+  domain: mass.gov
+  slug: mbta
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: mass.gov
+- name: Federation University Australia
+  key: federation-university-australia
+  level: Explorer
+  member_type: University
+  country: Australia
+  url: http://federation.edu.au
+  domain: federation.edu.au
+  in_network: false
+  is_api_provider: false
+- name: Finnish Meteorological Institute
+  key: finnish-meteorological-institute
+  level: Explorer
+  member_type: Government
+  country: Finland
+  url: http://www.fmi.fi/en
+  domain: fmi.fi
+  in_network: false
+  is_api_provider: false
+- name: Fisheries and Oceans Canada
+  key: fisheries-and-oceans-canada
+  level: Explorer
+  member_type: Government
+  country: Canada
+  url: http://www.charts.gc.ca/
+  domain: charts.gc.ca
+  in_network: false
+  is_api_provider: false
+- name: Flanders Marine Institute
+  key: flanders-marine-institute
+  level: Explorer
+  member_type: Non-Profit
+  country: Belgium
+  url: https://vliz.be/
+  domain: vliz.be
+  in_network: true
+  is_api_provider: true
+  slug: flanders-marine-institute
+  matched_by: harvested-from-lead
+  match_note: profiled from this roster on 2026-08-20 after a live OGC surface was verified
+- name: Food and Agriculture Organization of the United Nations (FAO)
+  key: food-and-agriculture-organization-of-the-united-nations-fao
+  level: Explorer
+  member_type: Government
+  country: Italy
+  url: http://www.fao.org
+  domain: fao.org
+  slug: unfao
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: fao.org
+- name: FPT IS Company Limited
+  key: fpt-is-company-limited
+  level: Explorer
+  member_type: Commercial
+  country: Viet Nam
+  url: https://fpt-is.com/en/
+  domain: fpt-is.com
+  in_network: false
+  is_api_provider: false
+- name: FrontierSI
+  key: frontiersi
+  level: Explorer
+  member_type: Non-Profit
+  country: Australia
+  url: https://frontiersi.com.au/
+  domain: frontiersi.com.au
+  in_network: false
+  is_api_provider: false
+- name: Fuzhou University
+  key: fuzhou-university
+  level: Explorer
+  member_type: University
+  country: China
+  url: http://www.fzu.edu.cn/html/EN/index.shtml
+  domain: fzu.edu.cn
+  in_network: false
+  is_api_provider: false
+- name: Gaia3D, Inc.
+  key: gaia3d-inc
+  level: Explorer
+  member_type: Commercial
+  country: Korea, Republic of
+  url: http://www.gaia3d.com
+  domain: gaia3d.com
+  in_network: false
+  is_api_provider: false
+- name: GarudaUAV Soft Solutions Private Limited
+  key: garudauav-soft-solutions-private-limited
+  level: Explorer
+  member_type: Commercial
+  country: India
+  url: https://garudauav.com/
+  domain: garudauav.com
+  in_network: false
+  is_api_provider: false
+- name: GatewayGeo
+  key: gatewaygeo
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  url: https://gatewaygeomatics.com/
+  domain: gatewaygeomatics.com
+  in_network: false
+  is_api_provider: false
+- name: GECOsistema srl
+  key: gecosistema-srl
+  level: Explorer
+  member_type: Commercial
+  country: Italy
+  url: https://gecosistema.com/
+  domain: gecosistema.com
+  in_network: false
+  is_api_provider: false
+- name: Gemeente Rotterdam
+  key: gemeente-rotterdam
+  level: Explorer
+  member_type: Government
+  country: Netherlands
+  in_network: false
+  is_api_provider: false
+- name: GEO Solutions
+  key: geo-solutions
+  level: Explorer
+  member_type: Commercial
+  country: Belgium
+  url: http://www.geosolutions.be
+  domain: geosolutions.be
+  in_network: false
+  is_api_provider: false
+- name: GeoCat bv
+  key: geocat-bv
+  level: Explorer
+  member_type: Commercial
+  country: Netherlands
+  url: http://www.geocat.net
+  domain: geocat.net
+  in_network: true
+  is_api_provider: true
+  slug: geocat
+  matched_by: harvested-from-lead
+  match_note: profiled from this roster on 2026-08-20 after a live OGC surface was verified
+- name: Geocento Limited
+  key: geocento-limited
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: https://www.geocento.com/
+  domain: geocento.com
+  in_network: false
+  is_api_provider: false
+- name: Geoforum
+  key: geoforum
+  level: Explorer
+  member_type: Non-Profit
+  country: Denmark
+  url: https://geoforum.dk
+  domain: geoforum.dk
+  in_network: false
+  is_api_provider: false
+- name: Geographic Knowledge Lab at RMIT University
+  key: geographic-knowledge-lab-at-rmit-university
+  level: Explorer
+  member_type: University
+  country: Australia
+  url: https://www.rmit.edu.au/
+  domain: rmit.edu.au
+  in_network: false
+  is_api_provider: false
+- name: GEOHuntsville
+  key: geohuntsville
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://www.geohuntsville.org/
+  domain: geohuntsville.org
+  in_network: false
+  is_api_provider: false
+- name: GeoInsight AG
+  key: geoinsight-ag
+  level: Explorer
+  member_type: Commercial
+  country: Switzerland
+  url: https://geoinsight.ai
+  domain: geoinsight.ai
+  in_network: false
+  is_api_provider: false
+- name: Geoknoesis LLC
+  key: geoknoesis-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  in_network: false
+  is_api_provider: false
+- name: GeoLabs
+  key: geolabs
+  level: Explorer
+  member_type: Commercial
+  country: France
+  url: http://www.geolabs.fr/
+  domain: geolabs.fr
+  in_network: false
+  is_api_provider: false
+- name: Geolynx
+  key: geolynx
+  level: Explorer
+  member_type: Commercial
+  country: Estonia
+  url: https://geolynx.ee
+  domain: geolynx.ee
+  in_network: false
+  is_api_provider: false
+- name: GEOMAR Helmholtz Centre for Ocean Research Kiel
+  key: geomar-helmholtz-centre-for-ocean-research-kiel
+  level: Explorer
+  member_type: Non-Profit
+  country: Germany
+  url: https://helmholtz-metadaten.de
+  domain: helmholtz-metadaten.de
+  in_network: false
+  is_api_provider: false
+- name: Geomatics & Cartographic Research Centre, Carleton University
+  key: geomatics-cartographic-research-centre-carleton-university
+  level: Explorer
+  member_type: University
+  country: Canada
+  in_network: false
+  is_api_provider: false
+- name: GEOMATYS
+  key: geomatys
+  level: Explorer
+  member_type: Commercial
+  country: France
+  url: http://www.geomatys.com
+  domain: geomatys.com
+  in_network: false
+  is_api_provider: false
+- name: George Mason University
+  key: george-mason-university
+  level: Explorer
+  member_type: University
+  country: United States
+  url: http://csiss.gmu.edu
+  domain: csiss.gmu.edu
+  in_network: false
+  is_api_provider: false
+- name: Geoscape
+  key: geoscape
+  level: Explorer
+  member_type: Commercial
+  country: Australia
+  url: https://geoscape.com.au/
+  domain: geoscape.com.au
+  in_network: false
+  is_api_provider: false
+- name: GeoSolutions di Giannecchini Simone & C. s.a.s.
+  key: geosolutions-di-giannecchini-simone-c-s-a-s
+  level: Explorer
+  member_type: Commercial
+  country: Italy
+  url: http://www.geo-solutions.it
+  domain: geo-solutions.it
+  in_network: true
+  is_api_provider: true
+  slug: geosolutions
+  matched_by: harvested-from-lead
+  match_note: profiled from this roster on 2026-08-20 after a live OGC surface was verified
+- name: Geospatial Media & Communications Pvt Ltd
+  key: geospatial-media-communications-pvt-ltd
+  level: Explorer
+  member_type: Commercial
+  country: India
+  url: http://www.geospatialmedia.net/
+  domain: geospatialmedia.net
+  in_network: false
+  is_api_provider: false
+- name: GFZ Potsdam
+  key: gfz-potsdam
+  level: Explorer
+  member_type: Non-Profit
+  country: Germany
+  url: http://www.gfz-potsdam.de
+  domain: gfz-potsdam.de
+  in_network: false
+  is_api_provider: false
+- name: GIS Centre, Lund University
+  key: gis-centre-lund-university
+  level: Explorer
+  member_type: University
+  country: Sweden
+  url: https://www.lu.se/
+  domain: lu.se
+  slug: lund
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: lu.se
+- name: Global Nomad GIS Services, LLC
+  key: global-nomad-gis-services-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.gn-gis.com
+  domain: gn-gis.com
+  in_network: false
+  is_api_provider: false
+- name: HARTIS Integrated Nautical Services
+  key: hartis-integrated-nautical-services
+  level: Explorer
+  member_type: Commercial
+  country: Greece
+  in_network: false
+  is_api_provider: false
+- name: Helmholtz Centre for Environmental Research - UFZ
+  key: helmholtz-centre-for-environmental-research-ufz
+  level: Explorer
+  member_type: Non-Profit
+  country: Germany
+  url: https://www.ufz.de/
+  domain: ufz.de
+  in_network: false
+  is_api_provider: false
+- name: Helyx secure information systems ltd
+  key: helyx-secure-information-systems-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: http://www.helyx.co.uk/
+  domain: helyx.co.uk
+  in_network: false
+  is_api_provider: false
+- name: HKSARG, Development Bureau
+  key: hksarg-development-bureau
+  level: Explorer
+  member_type: Government
+  country: Hong Kong SAR, China
+  url: https://www.devb.gov.hk/
+  domain: devb.gov.hk
+  in_network: false
+  is_api_provider: false
+- name: Hochschule für Technik Stuttgart
+  key: hochschule-f-r-technik-stuttgart
+  level: Explorer
+  member_type: University
+  country: Germany
+  url: http://www.hft-stuttgart.de
+  domain: hft-stuttgart.de
+  in_network: false
+  is_api_provider: false
+- name: HUB Ocean
+  key: hub-ocean
+  level: Explorer
+  member_type: Non-Profit
+  country: Norway
+  url: https://www.hubocean.earth/
+  domain: hubocean.earth
+  in_network: false
+  is_api_provider: false
+- name: Hubei Luojia Laboratory
+  key: hubei-luojia-laboratory
+  level: Explorer
+  member_type: Non-Profit
+  country: China
+  url: https://luojia.whu.edu.cn/
+  domain: luojia.whu.edu.cn
+  in_network: false
+  is_api_provider: false
+- name: i-bitz company limited
+  key: i-bitz-company-limited
+  level: Explorer
+  member_type: Commercial
+  country: Thailand
+  url: https://www.i-bitz.co.th
+  domain: i-bitz.co.th
+  in_network: false
+  is_api_provider: false
+- name: IBL Software Engineering
+  key: ibl-software-engineering
+  level: Explorer
+  member_type: Commercial
+  country: Slovakia
+  url: https://www.iblsoft.com
+  domain: iblsoft.com
+  in_network: false
+  is_api_provider: false
+- name: Idox Geospatial
+  key: idox-geospatial
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: https://idoxgeospatial.co.uk/
+  domain: idoxgeospatial.co.uk
+  in_network: false
+  is_api_provider: false
+- name: IEEE Geoscience & Remote Sensing Society
+  key: ieee-geoscience-remote-sensing-society
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.grss-ieee.org/
+  domain: grss-ieee.org
+  in_network: false
+  is_api_provider: false
+- name: IIT Tirupati Navavishkar I-Hub Foundation (IITTNiF)
+  key: iit-tirupati-navavishkar-i-hub-foundation-iittnif
+  level: Explorer
+  member_type: Non-Profit
+  country: India
+  url: https://iittnif.com/
+  domain: iittnif.com
+  in_network: false
+  is_api_provider: false
+- name: IJIS Institute
+  key: ijis-institute
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.ijis.org/
+  domain: ijis.org
+  in_network: false
+  is_api_provider: false
+- name: Indian Institute of Technology Bombay (IIT Bombay)
+  key: indian-institute-of-technology-bombay-iit-bombay
+  level: Explorer
+  member_type: University
+  country: India
+  url: http://www.cse.iitb.ac.in/gise
+  domain: cse.iitb.ac.in
+  in_network: false
+  is_api_provider: false
+- name: INESC TEC - Institute for Systems and Computer Engineering, Technology and Science
+  key: inesc-tec-institute-for-systems-and-computer-engineering-technology-and-science
+  level: Explorer
+  member_type: Non-Profit
+  country: Portugal
+  url: https://www.inesctec.pt/en
+  domain: inesctec.pt
+  in_network: false
+  is_api_provider: false
+- name: Institute of Bioorganic Chemistry of the Polish Academy of Sciences - Poznan Supercomputing and Networking
+    Center
+  key: institute-of-bioorganic-chemistry-of-the-polish-academy-of-sciences-poznan-supercomputing-and-networking-center
+  level: Explorer
+  member_type: Non-Profit
+  country: Poland
+  url: https://www.psnc.pl/
+  domain: psnc.pl
+  in_network: false
+  is_api_provider: false
+- name: Institute of Communication and Computer Systems (ICCS)
+  key: institute-of-communication-and-computer-systems-iccs
+  level: Explorer
+  member_type: Non-Profit
+  country: Greece
+  url: https://i-sense.iccs.gr/
+  domain: i-sense.iccs.gr
+  in_network: false
+  is_api_provider: false
+- name: Institute “Big Data for Smart Society” - GATE
+  key: institute-big-data-for-smart-society-gate
+  level: Explorer
+  member_type: University
+  country: Bulgaria
+  url: https://www.gate-ai.eu/
+  domain: gate-ai.eu
+  in_network: false
+  is_api_provider: false
+- name: Instituto Geográfico Nacional (IGN of Spain)
+  key: instituto-geogr-fico-nacional-ign-of-spain
+  level: Explorer
+  member_type: Government
+  country: Spain
+  url: http://www.ign.es
+  domain: ign.es
+  in_network: false
+  is_api_provider: false
+- name: Intact Financial Corporation
+  key: intact-financial-corporation
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  url: https://intactfc.com
+  domain: intactfc.com
+  slug: intact-financial
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: intactfc.com
+- name: interactive instruments GmbH
+  key: interactive-instruments-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  url: http://www.interactive-instruments.de
+  domain: interactive-instruments.de
+  in_network: false
+  is_api_provider: false
+- name: Interbilla LLC
+  key: interbilla-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.interbilla.com
+  domain: interbilla.com
+  in_network: false
+  is_api_provider: false
+- name: International Association of Oil & Gas Producers (IOGP)
+  key: international-association-of-oil-gas-producers-iogp
+  level: Explorer
+  member_type: Non-Profit
+  country: United Kingdom
+  url: http://www.iogp.org/
+  domain: iogp.org
+  in_network: false
+  is_api_provider: false
+- name: International Cartographic Association ICA
+  key: international-cartographic-association-ica
+  level: Explorer
+  member_type: Non-Profit
+  country: Switzerland
+  url: https://icaci.org/
+  domain: icaci.org
+  in_network: false
+  is_api_provider: false
+- name: International Institute of Information Technology Hyderabad (IIITH)
+  key: international-institute-of-information-technology-hyderabad-iiith
+  level: Explorer
+  member_type: University
+  country: India
+  url: https://lsi.iiit.ac.in/
+  domain: lsi.iiit.ac.in
+  in_network: false
+  is_api_provider: false
+- name: International Map Industry Association (IMIA)
+  key: international-map-industry-association-imia
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://imiamaps.org/
+  domain: imiamaps.org
+  in_network: false
+  is_api_provider: false
+- name: ISO/TC 204
+  key: iso-tc-204
+  level: Explorer
+  member_type: Non-Profit
+  country: Switzerland
+  in_network: false
+  is_api_provider: false
+- name: ISRIC - World Soil Information
+  key: isric-world-soil-information
+  level: Explorer
+  member_type: Non-Profit
+  country: Netherlands
+  url: http://www.isric.org
+  domain: isric.org
+  in_network: false
+  is_api_provider: false
+- name: Italian Hydrographic Institute
+  key: italian-hydrographic-institute
+  level: Explorer
+  member_type: Government
+  country: Italy
+  url: https://www.marina.difesa.it/noi-siamo-la-marina/pilastro-logistico/scientifici/
+  domain: marina.difesa.it
+  in_network: false
+  is_api_provider: false
+- name: ITC, University of Twente
+  key: itc-university-of-twente
+  level: Explorer
+  member_type: University
+  country: Netherlands
+  url: http://www.itc.nl/
+  domain: itc.nl
+  in_network: false
+  is_api_provider: false
+- name: Jawaharlal Nehru Technological University Hyderabad
+  key: jawaharlal-nehru-technological-university-hyderabad
+  level: Explorer
+  member_type: University
+  country: India
+  url: https://jntuh.ac.in/
+  domain: jntuh.ac.in
+  in_network: false
+  is_api_provider: false
+- name: Jio Platforms Limited
+  key: jio-platforms-limited
+  level: Explorer
+  member_type: Commercial
+  country: India
+  url: https://www.jio.com/platforms/
+  domain: jio.com
+  slug: reliance-jio
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: jio.com
+- name: JUNGDO UIT CO., LTD.
+  key: jungdo-uit-co-ltd
+  level: Explorer
+  member_type: Commercial
+  country: Korea, Republic of
+  url: http://uitgis.com/eng/
+  domain: uitgis.com
+  in_network: false
+  is_api_provider: false
+- name: Kadaster International
+  key: kadaster-international
+  level: Explorer
+  member_type: Government
+  country: Netherlands
+  url: http://www.kadaster.nl
+  domain: kadaster.nl
+  in_network: false
+  is_api_provider: false
+- name: Karlsruhe Institute of Technology (KIT)
+  key: karlsruhe-institute-of-technology-kit
+  level: Explorer
+  member_type: University
+  country: Germany
+  url: http://www.kit.edu
+  domain: kit.edu
+  slug: karlsruhe-institute-of-technology
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: kit.edu
+- name: Katholieke Universiteit Leuven, Spatial Applications Division
+  key: katholieke-universiteit-leuven-spatial-applications-division
+  level: Explorer
+  member_type: University
+  country: Belgium
+  url: http://www.sadl.kuleuven.be
+  domain: sadl.kuleuven.be
+  in_network: false
+  is_api_provider: false
+- name: KNMI Royal Netherlands Meteorological Institute
+  key: knmi-royal-netherlands-meteorological-institute
+  level: Explorer
+  member_type: Government
+  country: Netherlands
+  url: http://www.knmi.nl/
+  domain: knmi.nl
+  in_network: false
+  is_api_provider: false
+- name: Korea Land & Geospatial InformatiX Corporation
+  key: korea-land-geospatial-informatix-corporation
+  level: Explorer
+  member_type: Non-Profit
+  country: Korea, Republic of
+  url: https://www.lx.or.kr
+  domain: lx.or.kr
+  in_network: false
+  is_api_provider: false
+- name: KurrawongAI
+  key: kurrawongai
+  level: Explorer
+  member_type: Commercial
+  country: Australia
+  url: https://kurrawong.ai
+  domain: kurrawong.ai
+  in_network: false
+  is_api_provider: false
+- name: Lab-STICC CNRS UMR 6285
+  key: lab-sticc-cnrs-umr-6285
+  level: Explorer
+  member_type: Government
+  country: France
+  url: http://www.lab-sticc.fr/
+  domain: lab-sticc.fr
+  in_network: false
+  is_api_provider: false
+- name: Lampata LTD
+  key: lampata-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: https://www.lampata.eu/
+  domain: lampata.eu
+  in_network: false
+  is_api_provider: false
+- name: Land Information New Zealand (LINZ)
+  key: land-information-new-zealand-linz
+  level: Explorer
+  member_type: Government
+  country: New Zealand
+  url: http://www.linz.govt.nz
+  domain: linz.govt.nz
+  in_network: false
+  is_api_provider: false
+- name: Lands Department, Hong Kong SAR Government
+  key: lands-department-hong-kong-sar-government
+  level: Explorer
+  member_type: Government
+  country: Hong Kong SAR, China
+  url: http://landsd.gov.hk
+  domain: landsd.gov.hk
+  in_network: false
+  is_api_provider: false
+- name: Lantmäteriet
+  key: lantm-teriet
+  level: Explorer
+  member_type: Government
+  country: Sweden
+  url: http://www.lantmateriet.se/
+  domain: lantmateriet.se
+  in_network: false
+  is_api_provider: false
+- name: lat/lon GmbH
+  key: lat-lon-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  url: http://www.lat-lon.de
+  domain: lat-lon.de
+  in_network: false
+  is_api_provider: false
+- name: Lincoln Institute of Land Policy
+  key: lincoln-institute-of-land-policy
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://cgs.earth
+  domain: cgs.earth
+  in_network: false
+  is_api_provider: false
+- name: LiRiS
+  key: liris
+  level: Explorer
+  member_type: University
+  country: France
+  url: http://liris.cnrs.fr/
+  domain: liris.cnrs.fr
+  in_network: false
+  is_api_provider: false
+- name: Luqia Technologies
+  key: luqia-technologies
+  level: Explorer
+  member_type: Non-Profit
+  country: Canada
+  url: http://www.crim.ca
+  domain: crim.ca
+  in_network: false
+  is_api_provider: false
+- name: Luxembourg Institute of Science & Technology (LIST)
+  key: luxembourg-institute-of-science-technology-list
+  level: Explorer
+  member_type: Government
+  country: Luxembourg
+  url: https://www.list.lu/
+  domain: list.lu
+  in_network: false
+  is_api_provider: false
+- name: Malaysian Communications and Multimedia Commission (MCMC)
+  key: malaysian-communications-and-multimedia-commission-mcmc
+  level: Explorer
+  member_type: Government
+  country: Malaysia
+  url: https://www.mcmc.gov.my/en/home
+  domain: mcmc.gov.my
+  in_network: false
+  is_api_provider: false
+- name: MapmyIndia Mappls (C.E. Info Systems Ltd.)
+  key: mapmyindia-mappls-c-e-info-systems-ltd
+  level: Explorer
+  member_type: Commercial
+  country: India
+  url: https://www.mapmyindia.com
+  domain: mapmyindia.com
+  in_network: false
+  is_api_provider: false
+- name: Maryland Department of Assessments and Taxation
+  key: maryland-department-of-assessments-and-taxation
+  level: Explorer
+  member_type: Government
+  country: United States
+  url: https://dat.maryland.gov/Pages/default.aspx
+  domain: dat.maryland.gov
+  in_network: false
+  is_api_provider: false
+- name: MASV Inc.
+  key: masv-inc
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  url: https://massive.io/
+  domain: massive.io
+  in_network: false
+  is_api_provider: false
+- name: MINES ParisTech
+  key: mines-paristech
+  level: Explorer
+  member_type: University
+  country: France
+  url: http://www.mines-paristech.eu
+  domain: mines-paristech.eu
+  in_network: false
+  is_api_provider: false
+- name: Mitsubishi Electric Corporation
+  key: mitsubishi-electric-corporation
+  level: Explorer
+  member_type: Commercial
+  country: Japan
+  url: http://global.mitsubishielectric.com/
+  domain: global.mitsubishielectric.com
+  in_network: false
+  is_api_provider: false
+- name: Mohawk Council of Kahnawake
+  key: mohawk-council-of-kahnawake
+  level: Explorer
+  member_type: Government
+  country: Canada
+  url: http://www.kahnawake.com/
+  domain: kahnawake.com
+  in_network: false
+  is_api_provider: false
+- name: Mortgage Industry Standards Maintenance Organization (MISMO)
+  key: mortgage-industry-standards-maintenance-organization-mismo
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.mortgagebankers.org
+  domain: mortgagebankers.org
+  in_network: false
+  is_api_provider: false
+- name: National Center for High-performance Computing (NCHC)
+  key: national-center-for-high-performance-computing-nchc
+  level: Explorer
+  member_type: Non-Profit
+  country: Taiwan
+  url: http://www.nchc.org.tw/en/
+  domain: nchc.org.tw
+  in_network: false
+  is_api_provider: false
+- name: National Council of Geographic Information (CNIG)
+  key: national-council-of-geographic-information-cnig
+  level: Explorer
+  member_type: Government
+  country: Algeria
+  in_network: false
+  is_api_provider: false
+- name: National Geospatial Collaborative (NGC)
+  key: national-geospatial-collaborative-ngc
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://nationalgeospatialcollaborative.org/
+  domain: nationalgeospatialcollaborative.org
+  in_network: false
+  is_api_provider: false
+- name: National Institute of Advanced Industrial Science & Technology (AIST)
+  key: national-institute-of-advanced-industrial-science-technology-aist
+  level: Explorer
+  member_type: Non-Profit
+  country: Japan
+  url: http://www.aist.go.jp/index_en.html
+  domain: aist.go.jp
+  in_network: false
+  is_api_provider: false
+- name: National Institute of Building Sciences (NIBS)
+  key: national-institute-of-building-sciences-nibs
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.nibs.org
+  domain: nibs.org
+  in_network: false
+  is_api_provider: false
+- name: National Meteorological Administration
+  key: national-meteorological-administration
+  level: Explorer
+  member_type: Government
+  country: Romania
+  url: http://www.meteoromania.ro
+  domain: meteoromania.ro
+  in_network: false
+  is_api_provider: false
+- name: National States Geographic Information Council (NSGIC)
+  key: national-states-geographic-information-council-nsgic
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://www.nsgic.org/
+  domain: nsgic.org
+  in_network: false
+  is_api_provider: false
+- name: Navteca
+  key: navteca
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://navteca.com/
+  domain: navteca.com
+  in_network: false
+  is_api_provider: false
+- name: NETCAD YAZILIM A.S.
+  key: netcad-yazilim-a-s
+  level: Explorer
+  member_type: Commercial
+  country: Türkiye
+  url: http://www.netcad.com.tr
+  domain: netcad.com.tr
+  in_network: false
+  is_api_provider: false
+- name: New York City Geospatial Information System and Mapping Organization (GISMO)
+  key: new-york-city-geospatial-information-system-and-mapping-organization-gismo
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://www.gismonyc.org/
+  domain: gismonyc.org
+  in_network: false
+  is_api_provider: false
+- name: Norwegian Meteorological Institute
+  key: norwegian-meteorological-institute
+  level: Explorer
+  member_type: Government
+  country: Norway
+  url: https://met.no
+  domain: met.no
+  slug: meteorologisk-institutt
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: met.no
+- name: NVIDIA
+  key: nvidia
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.nvidia.com
+  domain: nvidia.com
+  slug: nvidia
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: nvidia.com
+- name: Oak Ridge National Laboratory
+  key: oak-ridge-national-laboratory
+  level: Explorer
+  member_type: University
+  country: United States
+  url: http://www.ornl.org
+  domain: ornl.org
+  in_network: true
+  is_api_provider: false
+  slug: oak-ridge-national-laboratory
+  matched_by: slug-exists
+  match_note: matched by existing all/ repo, not by the domain index — the index has no entry for this domain (e.g.
+    google.com is absent while all/google exists)
+- name: Object Management Group (OMG)
+  key: object-management-group-omg
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.omg.org
+  domain: omg.org
+  slug: data-modeling
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: omg.org
+- name: OceanWise Ltd
+  key: oceanwise-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: http://www.oceanwise.eu
+  domain: oceanwise.eu
+  in_network: false
+  is_api_provider: false
+- name: Office for Promotion of Regional Revitalization, Cabinet Office of Japan
+  key: office-for-promotion-of-regional-revitalization-cabinet-office-of-japan
+  level: Explorer
+  member_type: Government
+  country: Japan
+  url: https://www.kantei.go.jp/jp/singi/sousei/index.html
+  domain: kantei.go.jp
+  in_network: false
+  is_api_provider: false
+- name: Open & Agile Smart Cities
+  key: open-agile-smart-cities
+  level: Explorer
+  member_type: Non-Profit
+  country: Belgium
+  url: https://oascities.org/
+  domain: oascities.org
+  in_network: false
+  is_api_provider: false
+- name: Open AR Cloud Association
+  key: open-ar-cloud-association
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://www.openarcloud.org/
+  domain: openarcloud.org
+  in_network: false
+  is_api_provider: false
+- name: Open Design Alliance
+  key: open-design-alliance
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://www.opendesign.com/
+  domain: opendesign.com
+  in_network: false
+  is_api_provider: false
+- name: Open Site Plan
+  key: open-site-plan
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.opensiteplan.org
+  domain: opensiteplan.org
+  in_network: false
+  is_api_provider: false
+- name: Open Source Geospatial Foundation (OSGeo)
+  key: open-source-geospatial-foundation-osgeo
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://www.osgeo.org
+  domain: osgeo.org
+  in_network: false
+  is_api_provider: false
+- name: OPeNDAP
+  key: opendap
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.opendap.org
+  domain: opendap.org
+  in_network: false
+  is_api_provider: false
+- name: Pacific Spatial Solutions Inc.
+  key: pacific-spatial-solutions-inc
+  level: Explorer
+  member_type: Commercial
+  country: Japan
+  url: https://pacificspatial.com
+  domain: pacificspatial.com
+  in_network: false
+  is_api_provider: false
+- name: Pan American Institute of Geography and History (PAIGH)
+  key: pan-american-institute-of-geography-and-history-paigh
+  level: Explorer
+  member_type: Non-Profit
+  country: Mexico
+  url: https://www.ipgh.org
+  domain: ipgh.org
+  in_network: false
+  is_api_provider: false
+- name: Pangaea Innovations Pty. Ltd.
+  key: pangaea-innovations-pty-ltd
+  level: Explorer
+  member_type: Commercial
+  country: Australia
+  url: https://www.pangaeainnovations.com
+  domain: pangaeainnovations.com
+  in_network: false
+  is_api_provider: false
+- name: Peking University International Sci-Tech Innovation Center at Lin-gang Special Area, China (Shanghai) Pilot
+    Free Trade Zone (PKU-IICSH)
+  key: peking-university-international-sci-tech-innovation-center-at-lin-gang-special-area-china-shanghai-pilot-free-trade-zone-pku-iicsh
+  level: Explorer
+  member_type: University
+  country: China
+  url: https://iicsh.pku.edu.cn/
+  domain: iicsh.pku.edu.cn
+  in_network: false
+  is_api_provider: false
+- name: Penn State Applied Research Lab
+  key: penn-state-applied-research-lab
+  level: Explorer
+  member_type: University
+  country: United States
+  url: http://www.arl.psu.edu
+  domain: arl.psu.edu
+  in_network: false
+  is_api_provider: false
+- name: Pixalytics Ltd
+  key: pixalytics-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: https://www.pixalytics.com
+  domain: pixalytics.com
+  in_network: false
+  is_api_provider: false
+- name: Plan4All z.s.
+  key: plan4all-z-s
+  level: Explorer
+  member_type: Non-Profit
+  country: Czech Republic
+  url: https://www.plan4all.eu/
+  domain: plan4all.eu
+  in_network: false
+  is_api_provider: false
+- name: Polish Geological Institute - National Research Institute
+  key: polish-geological-institute-national-research-institute
+  level: Explorer
+  member_type: Government
+  country: Poland
+  url: http://www.pgi.gov.pl/
+  domain: pgi.gov.pl
+  in_network: false
+  is_api_provider: false
+- name: Pusan National University
+  key: pusan-national-university
+  level: Explorer
+  member_type: University
+  country: Korea, Republic of
+  url: http://www.cse.pusan.ac.kr
+  domain: cse.pusan.ac.kr
+  in_network: false
+  is_api_provider: false
+- name: PwC Consulting LLC (Japan)
+  key: pwc-consulting-llc-japan
+  level: Explorer
+  member_type: Commercial
+  country: Japan
+  url: https://www.pwc.com/jp/ja/
+  domain: pwc.com
+  slug: pwc
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: pwc.com
+- name: rapidlasso GmbH - LAStools LiDAR processing
+  key: rapidlasso-gmbh-lastools-lidar-processing
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  url: https://rapidlasso.de/
+  domain: rapidlasso.de
+  in_network: false
+  is_api_provider: false
+- name: Regional Centre for Mapping of Resources for Development (RCMRD)
+  key: regional-centre-for-mapping-of-resources-for-development-rcmrd
+  level: Explorer
+  member_type: Non-Profit
+  country: Kenya
+  url: http://www.rcmrd.org
+  domain: rcmrd.org
+  in_network: false
+  is_api_provider: false
+- name: Ribose Inc.
+  key: ribose-inc
+  level: Explorer
+  member_type: Commercial
+  country: Hong Kong SAR, China
+  url: http://www.ribose.com
+  domain: ribose.com
+  in_network: false
+  is_api_provider: false
+- name: Riverside Research
+  key: riverside-research
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.riversideresearch.org
+  domain: riversideresearch.org
+  in_network: false
+  is_api_provider: false
+- name: Romaeris Corporation
+  key: romaeris-corporation
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  url: https://romaeris.com/
+  domain: romaeris.com
+  in_network: false
+  is_api_provider: false
+- name: Rotten Grapes Private Limited
+  key: rotten-grapes-private-limited
+  level: Explorer
+  member_type: Commercial
+  country: India
+  url: https://rottengrapes.tech/
+  domain: rottengrapes.tech
+  in_network: false
+  is_api_provider: false
+- name: RSS-Hydro Sarl-S
+  key: rss-hydro-sarl-s
+  level: Explorer
+  member_type: Commercial
+  country: Luxembourg
+  url: http://clustermembers.luxinnovation.lu/space/members/rss-hydro-sarl-s/
+  domain: clustermembers.luxinnovation.lu
+  in_network: false
+  is_api_provider: false
+- name: RWTH Aachen University
+  key: rwth-aachen-university
+  level: Explorer
+  member_type: University
+  country: Germany
+  url: http://www.rwth-aachen.de
+  domain: rwth-aachen.de
+  slug: rwth-aachen-university
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: rwth-aachen.de
+- name: Saab AB
+  key: saab-ab
+  level: Explorer
+  member_type: Commercial
+  country: Sweden
+  url: http://www.saabgroup.com/
+  domain: saabgroup.com
+  in_network: false
+  is_api_provider: false
+- name: SAP SE
+  key: sap-se
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  url: http://www.sap.com
+  domain: sap.com
+  slug: sap
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: sap.com
+- name: SatSure Analytics India Private Limited
+  key: satsure-analytics-india-private-limited
+  level: Explorer
+  member_type: Commercial
+  country: India
+  url: https://satsure.co/
+  domain: satsure.co
+  in_network: false
+  is_api_provider: false
+- name: School of Engineering & Applied Science, Ahmedabad University
+  key: school-of-engineering-applied-science-ahmedabad-university
+  level: Explorer
+  member_type: University
+  country: India
+  url: http://iet.ahduni.edu.in/
+  domain: iet.ahduni.edu.in
+  in_network: false
+  is_api_provider: false
+- name: Secure Dimensions GmbH
+  key: secure-dimensions-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  url: http://www.secure-dimensions.de
+  domain: secure-dimensions.de
+  in_network: false
+  is_api_provider: false
+- name: SensorUp Inc.
+  key: sensorup-inc
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  url: http://www.sensorup.com
+  domain: sensorup.com
+  in_network: false
+  is_api_provider: false
+- name: Silvereye Technology
+  key: silvereye-technology
+  level: Explorer
+  member_type: Commercial
+  country: Australia
+  in_network: false
+  is_api_provider: false
+- name: Spacebel s.a.
+  key: spacebel-s-a
+  level: Explorer
+  member_type: Commercial
+  country: Belgium
+  url: http://www.spacebel.be
+  domain: spacebel.be
+  in_network: true
+  is_api_provider: true
+  slug: spacebel
+  matched_by: harvested-from-lead
+  match_note: profiled from this roster on 2026-08-20 after a live OGC surface was verified
+- name: Sparkgeo
+  key: sparkgeo
+  level: Explorer
+  member_type: Commercial
+  country: Canada
+  url: https://sparkgeo.com
+  domain: sparkgeo.com
+  in_network: false
+  is_api_provider: false
+- name: Sparx Systems
+  key: sparx-systems
+  level: Explorer
+  member_type: Commercial
+  country: Australia
+  url: http://www.sparxsystems.com
+  domain: sparxsystems.com
+  slug: sparx-enterprise-architect
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: sparxsystems.com
+- name: Starion Group
+  key: starion-group
+  level: Explorer
+  member_type: Commercial
+  country: Italy
+  url: https://www.stariongroup.eu/
+  domain: stariongroup.eu
+  in_network: false
+  is_api_provider: false
+- name: Starling Foundries LLC
+  key: starling-foundries-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://starlingfoundries.com/
+  domain: starlingfoundries.com
+  in_network: false
+  is_api_provider: false
+- name: State Authority for Geospatial Information (ASIG)
+  key: state-authority-for-geospatial-information-asig
+  level: Explorer
+  member_type: Government
+  country: Albania
+  url: https://asig.gov.al/
+  domain: asig.gov.al
+  in_network: false
+  is_api_provider: false
+- name: State Service of Ukraine for Geodesy, Cartography and Cadastre
+  key: state-service-of-ukraine-for-geodesy-cartography-and-cadastre
+  level: Explorer
+  member_type: Government
+  country: Ukraine
+  url: https://land.gov.ua/
+  domain: land.gov.ua
+  in_network: false
+  is_api_provider: false
+- name: Statistics Centre - Abu Dhabi
+  key: statistics-centre-abu-dhabi
+  level: Explorer
+  member_type: Government
+  country: United Arab Emirates
+  url: http://www.scad.ae
+  domain: scad.ae
+  in_network: false
+  is_api_provider: false
+- name: Sundosoft Co., Ltd.
+  key: sundosoft-co-ltd
+  level: Explorer
+  member_type: Commercial
+  country: Korea, Republic of
+  url: http://www.sundosoft.co.kr
+  domain: sundosoft.co.kr
+  in_network: false
+  is_api_provider: false
+- name: SuperMap Software Co., Ltd.
+  key: supermap-software-co-ltd
+  level: Explorer
+  member_type: Commercial
+  country: China
+  url: https://www.supermap.com/
+  domain: supermap.com
+  in_network: false
+  is_api_provider: false
+- name: Survey of Pakistan
+  key: survey-of-pakistan
+  level: Explorer
+  member_type: Government
+  country: Pakistan
+  url: https://www.surveyofpakistan.gov.pk/
+  domain: surveyofpakistan.gov.pk
+  in_network: false
+  is_api_provider: false
+- name: swisstopo
+  key: swisstopo
+  level: Explorer
+  member_type: Government
+  country: Switzerland
+  url: https://www.swisstopo.admin.ch/
+  domain: swisstopo.admin.ch
+  in_network: false
+  is_api_provider: false
+- name: T-Kartor USA Corporation
+  key: t-kartor-usa-corporation
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.t-kartor.com
+  domain: t-kartor.com
+  in_network: false
+  is_api_provider: false
+- name: Tata Advanced Systems Limited (TASL)
+  key: tata-advanced-systems-limited-tasl
+  level: Explorer
+  member_type: Commercial
+  country: India
+  url: https://www.tataadvancedsystems.com
+  domain: tataadvancedsystems.com
+  in_network: false
+  is_api_provider: false
+- name: TCarta Marine LLC
+  key: tcarta-marine-llc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.tcarta.com
+  domain: tcarta.com
+  in_network: false
+  is_api_provider: false
+- name: Technische Universität Dresden
+  key: technische-universit-t-dresden
+  level: Explorer
+  member_type: University
+  country: Germany
+  url: http://tu-dresden.de/fgh/geo/gis
+  domain: tu-dresden.de
+  slug: tu-dresden
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: tu-dresden.de
+- name: Technische Universität München - Runder Tisch GIS e.V.
+  key: technische-universit-t-m-nchen-runder-tisch-gis-e-v
+  level: Explorer
+  member_type: University
+  country: Germany
+  url: http://www.gis.bv.tum.de
+  domain: gis.bv.tum.de
+  in_network: false
+  is_api_provider: false
+- name: Teknicare, Inc.
+  key: teknicare-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.teknicare.com
+  domain: teknicare.com
+  in_network: false
+  is_api_provider: false
+- name: Telespazio VEGA UK Ltd
+  key: telespazio-vega-uk-ltd
+  level: Explorer
+  member_type: Commercial
+  country: United Kingdom
+  url: http://www.telespazio-vega.com/
+  domain: telespazio-vega.com
+  in_network: false
+  is_api_provider: false
+- name: Terradue Srl
+  key: terradue-srl
+  level: Explorer
+  member_type: Commercial
+  country: Italy
+  url: http://www.terradue.com
+  domain: terradue.com
+  in_network: false
+  is_api_provider: false
+- name: TerraFrame, Inc.
+  key: terraframe-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.terraframe.com
+  domain: terraframe.com
+  in_network: false
+  is_api_provider: false
+- name: Texas A&M University
+  key: texas-a-m-university
+  level: Explorer
+  member_type: University
+  country: United States
+  url: https://geography.tamu.edu
+  domain: geography.tamu.edu
+  in_network: true
+  is_api_provider: false
+  slug: texas-a-m-university
+  matched_by: slug-exists
+  match_note: matched by existing all/ repo, not by the domain index — the index has no entry for this domain (e.g.
+    google.com is absent while all/google exists)
+- name: The Aerospace Corporation
+  key: the-aerospace-corporation
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.aerospace.org
+  domain: aerospace.org
+  in_network: false
+  is_api_provider: false
+- name: The Danish Agency for Climate Data
+  key: the-danish-agency-for-climate-data
+  level: Explorer
+  member_type: Government
+  country: Denmark
+  url: https://eng.klimadatastyrelsen.dk/
+  domain: eng.klimadatastyrelsen.dk
+  in_network: false
+  is_api_provider: false
+- name: The GovLab (Governance Lab) at New York University
+  key: the-govlab-governance-lab-at-new-york-university
+  level: Explorer
+  member_type: University
+  country: United States
+  in_network: false
+  is_api_provider: false
+- name: The HDF Group
+  key: the-hdf-group
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.hdfgroup.org
+  domain: hdfgroup.org
+  in_network: false
+  is_api_provider: false
+- name: The Khronos Group, Inc.
+  key: the-khronos-group-inc
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://www.khronos.org/
+  domain: khronos.org
+  in_network: false
+  is_api_provider: false
+- name: Trafikverket, Swedish Transport Administration
+  key: trafikverket-swedish-transport-administration
+  level: Explorer
+  member_type: Government
+  country: Sweden
+  url: http://www.trafikverket.se/en/startpage/
+  domain: trafikverket.se
+  in_network: false
+  is_api_provider: false
+- name: Tuxuri Sdn Bhd
+  key: tuxuri-sdn-bhd
+  level: Explorer
+  member_type: Commercial
+  country: Malaysia
+  url: https://www.tuxuri.com
+  domain: tuxuri.com
+  in_network: false
+  is_api_provider: false
+- name: U.S. Geospatial Intelligence Foundation (USGIF)
+  key: u-s-geospatial-intelligence-foundation-usgif
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.usgif.org
+  domain: usgif.org
+  in_network: false
+  is_api_provider: false
+- name: UGIX Programme Unit, Foundation for Science and Development (FSID)
+  key: ugix-programme-unit-foundation-for-science-and-development-fsid
+  level: Explorer
+  member_type: Non-Profit
+  country: India
+  url: http://ugix.og.in
+  domain: ugix.og.in
+  in_network: false
+  is_api_provider: false
+- name: Universidad Politecnica de Madrid (Grupo Mercator)
+  key: universidad-politecnica-de-madrid-grupo-mercator
+  level: Explorer
+  member_type: University
+  country: Spain
+  url: http://www.latingeo.net
+  domain: latingeo.net
+  in_network: false
+  is_api_provider: false
+- name: Universitat Autònoma de Barcelona (CREAF)
+  key: universitat-aut-noma-de-barcelona-creaf
+  level: Explorer
+  member_type: University
+  country: Spain
+  url: https://www.creaf.cat/en/research/research-directory/gis-miramon
+  domain: creaf.cat
+  in_network: false
+  is_api_provider: false
+- name: University College London
+  key: university-college-london
+  level: Explorer
+  member_type: University
+  country: United Kingdom
+  url: http://www.ucl.ac.uk
+  domain: ucl.ac.uk
+  slug: ucl
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: ucl.ac.uk
+- name: University of Applied Sciences, Western Switzerland, School of Business & Engineering Vaud (HEIG-VD)
+  key: university-of-applied-sciences-western-switzerland-school-of-business-engineering-vaud-heig-vd
+  level: Explorer
+  member_type: University
+  country: Switzerland
+  url: http://www.heig-vd.ch
+  domain: heig-vd.ch
+  in_network: false
+  is_api_provider: false
+- name: University of Calgary
+  key: university-of-calgary
+  level: Explorer
+  member_type: University
+  country: Canada
+  url: http://sensorweb.geomatics.ucalgary.ca
+  domain: sensorweb.geomatics.ucalgary.ca
+  in_network: true
+  is_api_provider: false
+  slug: university-of-calgary
+  matched_by: slug-exists
+  match_note: matched by existing all/ repo, not by the domain index — the index has no entry for this domain (e.g.
+    google.com is absent while all/google exists)
+- name: University of Florida, Florida Institute for Built Environment Resilience
+  key: university-of-florida-florida-institute-for-built-environment-resilience
+  level: Explorer
+  member_type: University
+  country: United States
+  url: https://dcp.ufl.edu/fiber/
+  domain: dcp.ufl.edu
+  in_network: false
+  is_api_provider: false
+- name: University of Ljubljana, Faculty of Civil and Geodetic Engineering
+  key: university-of-ljubljana-faculty-of-civil-and-geodetic-engineering
+  level: Explorer
+  member_type: University
+  country: Slovenia
+  url: https://www.en.fgg.uni-lj.si/
+  domain: en.fgg.uni-lj.si
+  in_network: false
+  is_api_provider: false
+- name: University of Maryland Dept. of Geographical Sciences
+  key: university-of-maryland-dept-of-geographical-sciences
+  level: Explorer
+  member_type: University
+  country: United States
+  url: https://geog.umd.edu
+  domain: geog.umd.edu
+  in_network: false
+  is_api_provider: false
+- name: University of Minnesota
+  key: university-of-minnesota
+  level: Explorer
+  member_type: University
+  country: United States
+  url: http://uspatial.umn.edu/
+  domain: uspatial.umn.edu
+  in_network: true
+  is_api_provider: false
+  slug: university-of-minnesota
+  matched_by: slug-exists
+  match_note: matched by existing all/ repo, not by the domain index — the index has no entry for this domain (e.g.
+    google.com is absent while all/google exists)
+- name: University of Muenster - Institute for Geoinformatics
+  key: university-of-muenster-institute-for-geoinformatics
+  level: Explorer
+  member_type: University
+  country: Germany
+  url: http://ifgi.uni-muenster.de/
+  domain: ifgi.uni-muenster.de
+  in_network: false
+  is_api_provider: false
+- name: University of Salzburg
+  key: university-of-salzburg
+  level: Explorer
+  member_type: University
+  country: Austria
+  url: http://www.zgis.at
+  domain: zgis.at
+  in_network: false
+  is_api_provider: false
+- name: University of Tartu
+  key: university-of-tartu
+  level: Explorer
+  member_type: University
+  country: Estonia
+  url: https://www.geograafia ut.ee/en/department-geography
+  domain: geograafia ut.ee
+  in_network: false
+  is_api_provider: false
+- name: University of Vienna - Department of Geography and Regional Research
+  key: university-of-vienna-department-of-geography-and-regional-research
+  level: Explorer
+  member_type: University
+  country: Austria
+  url: https://carto.univie.ac.at
+  domain: carto.univie.ac.at
+  in_network: false
+  is_api_provider: false
+- name: Université Libre de Bruxelles (ULB)
+  key: universit-libre-de-bruxelles-ulb
+  level: Explorer
+  member_type: University
+  country: Belgium
+  url: http://cs.ulb.ac.be/members/esteban/http://cs.ulb.ac.be/members/esteban/
+  domain: cs.ulb.ac.be
+  in_network: false
+  is_api_provider: false
+- name: Urban Structure Visualization Promotion Organization
+  key: urban-structure-visualization-promotion-organization
+  level: Explorer
+  member_type: Non-Profit
+  country: Japan
+  url: https://kashika.or.jp/
+  domain: kashika.or.jp
+  in_network: false
+  is_api_provider: false
+- name: US Dept. of Defense/DISA
+  key: us-dept-of-defense-disa
+  level: Explorer
+  member_type: Government
+  country: United States
+  url: http://www.disa.mil/
+  domain: disa.mil
+  in_network: false
+  is_api_provider: false
+- name: Utility Engineering & Surveying Institute of ASCE
+  key: utility-engineering-surveying-institute-of-asce
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: https://www.asce.org/utility-engineering-and-surveying/utility-engineering-and-s
+  domain: asce.org
+  slug: asce-amplify
+  in_network: true
+  is_api_provider: false
+  matched_by: roster-url
+  matched_domain: asce.org
+- name: virtualcitySYSTEMS GmbH
+  key: virtualcitysystems-gmbh
+  level: Explorer
+  member_type: Commercial
+  country: Germany
+  url: https://vc.systems/en/
+  domain: vc.systems
+  in_network: false
+  is_api_provider: false
+- name: VITO (Flemish Institute for Technological Research)
+  key: vito-flemish-institute-for-technological-research
+  level: Explorer
+  member_type: Non-Profit
+  country: Belgium
+  url: http://www.vito.be
+  domain: vito.be
+  in_network: false
+  is_api_provider: false
+- name: Voyager Search
+  key: voyager-search
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: http://voyagersearch.com
+  domain: voyagersearch.com
+  in_network: false
+  is_api_provider: false
+- name: WAVUS
+  key: wavus
+  level: Explorer
+  member_type: Commercial
+  country: Korea, Republic of
+  url: http://wavus.co.kr
+  domain: wavus.co.kr
+  in_network: false
+  is_api_provider: false
+- name: Web3D Consortium, Inc.
+  key: web3d-consortium-inc
+  level: Explorer
+  member_type: Non-Profit
+  country: United States
+  url: http://www.web3d.org/
+  domain: web3d.org
+  in_network: false
+  is_api_provider: false
+- name: West University of Timisoara
+  key: west-university-of-timisoara
+  level: Explorer
+  member_type: University
+  country: Romania
+  url: http://www.uvt.ro/
+  domain: uvt.ro
+  in_network: false
+  is_api_provider: false
+- name: Wherobots Inc.
+  key: wherobots-inc
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: https://www.wherobots.ai/
+  domain: wherobots.ai
+  in_network: false
+  is_api_provider: false
+- name: World Geospatial Industry Council (WGIC)
+  key: world-geospatial-industry-council-wgic
+  level: Explorer
+  member_type: Non-Profit
+  country: Netherlands
+  url: https://wgicouncil.org/
+  domain: wgicouncil.org
+  in_network: false
+  is_api_provider: false
+- name: World Meteorological Organization (WMO)
+  key: world-meteorological-organization-wmo
+  level: Explorer
+  member_type: Non-Profit
+  country: Switzerland
+  url: http://www.wmo.int/
+  domain: wmo.int
+  slug: wmo
+  in_network: true
+  is_api_provider: true
+  matched_by: roster-url
+  matched_domain: wmo.int
+- name: Wupperverband
+  key: wupperverband
+  level: Explorer
+  member_type: Government
+  country: Germany
+  url: http://www.wupperverband.de
+  domain: wupperverband.de
+  in_network: false
+  is_api_provider: false
+- name: Xentity Corporation
+  key: xentity-corporation
+  level: Explorer
+  member_type: Commercial
+  country: United States
+  url: http://www.xentity.com
+  domain: xentity.com
+  in_network: false
+  is_api_provider: false
+- name: Yale Center for Geospatial Solutions
+  key: yale-center-for-geospatial-solutions
+  level: Explorer
+  member_type: University
+  country: United States
+  url: https://geospatial.yale.edu/
+  domain: geospatial.yale.edu
+  in_network: false
+  is_api_provider: false

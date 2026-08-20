@@ -1,0 +1,1112 @@
+generated: '2026-08-20'
+method: searched
+source: https://github.com/opengeospatial
+type: Releases
+organization: opengeospatial
+summary:
+  repositories_with_releases: 92
+  repositories_checked: 337
+  total_releases: 274
+releases:
+- repository: 2D-Tile-Matrix-Set
+  release_count: 1
+  latest:
+    tag: 2.0.0
+    name: 2.0.0
+    published: '2023-05-02'
+    prerelease: false
+    url: https://github.com/opengeospatial/2D-Tile-Matrix-Set/releases/tag/2.0.0
+  tags:
+  - 2.0.0
+- repository: architecture-dwg
+  release_count: 1
+  latest:
+    tag: v0.0.1
+    name: v0.0.1
+    published: '2024-10-04'
+    prerelease: true
+    url: https://github.com/opengeospatial/architecture-dwg/releases/tag/v0.0.1
+  tags:
+  - v0.0.1
+- repository: bblocks-postprocess
+  release_count: 8
+  latest:
+    tag: v1.0.8
+    name: v1.0.8
+    published: '2026-08-19'
+    prerelease: false
+    url: https://github.com/opengeospatial/bblocks-postprocess/releases/tag/v1.0.8
+  tags:
+  - v1.0.8
+  - v1.0.7
+  - v1.0.6
+  - v1.0.5
+  - v1.0.4
+  - v1.0.3
+  - v1.0.2
+  - v1.0.1
+- repository: cartographic-symbology
+  release_count: 1
+  latest:
+    tag: v1.0
+    name: SymCore 1.0
+    published: '2022-07-05'
+    prerelease: false
+    url: https://github.com/opengeospatial/cartographic-symbology/releases/tag/v1.0
+  tags:
+  - v1.0
+- repository: CBD-Volume-13-CDB-Rules-for-Encoding-CDB-Vector-Data-using-GeoPackage
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/CBD-Volume-13-CDB-Rules-for-Encoding-CDB-Vector-Data-using-GeoPackage/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: cdb-volume-0
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-0/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: cdb-volume-1
+  release_count: 3
+  latest:
+    tag: V1.2C
+    name: null
+    published: '2022-12-19'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-1/releases/tag/V1.2C
+  tags:
+  - V1.2C
+  - V1.2F
+  - v1.2
+- repository: cdb-volume-10
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-10/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: cdb-volume-11
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-11/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-14-CDB-Geopackage-Vector-Data-Conversion/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: cdb-volume-2
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-2/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: cdb-volume-3
+  release_count: 1
+  latest:
+    tag: v1.3
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-3/releases/tag/v1.3
+  tags:
+  - v1.3
+- repository: cdb-volume-4
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-4/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: cdb-volume-5
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-5/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: cdb-volume-6
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-6/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: cdb-volume-7
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-7/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: cdb-volume-8
+  release_count: 1
+  latest:
+    tag: v1.2
+    name: Adopted Minor Revision OGC CDB V1.2
+    published: '2021-02-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/cdb-volume-8/releases/tag/v1.2
+  tags:
+  - v1.2
+- repository: CDBV2-2023-Summer-Workshop
+  release_count: 1
+  latest:
+    tag: v0.1
+    name: 'CDB 2 GeoPackage Data Store 0.1 '
+    published: '2023-10-31'
+    prerelease: true
+    url: https://github.com/opengeospatial/CDBV2-2023-Summer-Workshop/releases/tag/v0.1
+  tags:
+  - v0.1
+- repository: CityGML-3.0CM
+  release_count: 7
+  latest:
+    tag: 3.0.0-final.2021.02.23
+    name: Approved Version 3.0 Conceptual Model
+    published: '2021-07-30'
+    prerelease: false
+    url: https://github.com/opengeospatial/CityGML-3.0CM/releases/tag/3.0.0-final.2021.02.23
+  tags:
+  - 3.0.0-final.2021.02.23
+  - 3.0.0-draft.2020.09.17.1
+  - 3.0.0-draft.2019.11.13.1
+  - 3.0.0-draft.2019.10.18.1
+  - 3.0.0-draft.2019.06.05.1
+  - 3.0.0-draft.2019.04.09.1
+  - 3.0.0-draft.2018.12.17.1
+- repository: CityGML-3.0Encodings
+  release_count: 7
+  latest:
+    tag: 3.0.0-draft.2021.12.01.1
+    name: '3.0.0-draft.2021.12.01.1 '
+    published: '2021-12-02'
+    prerelease: false
+    url: https://github.com/opengeospatial/CityGML-3.0Encodings/releases/tag/3.0.0-draft.2021.12.01.1
+  tags:
+  - 3.0.0-draft.2021.12.01.1
+  - 3.0.0-draft.2020.09.17.1
+  - 3.0.0-draft.2019.11.13.1
+  - 3.0.0-draft.2019.10.18.1
+  - 3.0.0-draft.2019.06.05.1
+  - 3.0.0-draft.2019.04.09.1
+  - 3.0.0-draft.2018.12.17.1
+- repository: climate-resilience-dwg
+  release_count: 1
+  latest:
+    tag: v0.2
+    name: v0.2
+    published: '2023-03-30'
+    prerelease: false
+    url: https://github.com/opengeospatial/climate-resilience-dwg/releases/tag/v0.2
+  tags:
+  - v0.2
+- repository: CoverageJSON
+  release_count: 3
+  latest:
+    tag: V1.0.0
+    name: Standard V1.0
+    published: '2024-12-03'
+    prerelease: false
+    url: https://github.com/opengeospatial/CoverageJSON/releases/tag/V1.0.0
+  tags:
+  - V1.0.0
+  - 1.0-draft_0.2.2
+  - 0.2.1-oab
+- repository: developer-events
+  release_count: 1
+  latest:
+    tag: '20231101'
+    name: null
+    published: '2023-11-01'
+    prerelease: true
+    url: https://github.com/opengeospatial/developer-events/releases/tag/20231101
+  tags:
+  - '20231101'
+- repository: developer-track
+  release_count: 4
+  latest:
+    tag: v1.0.2
+    name: December 2021 Developer Track - before the event
+    published: '2021-11-23'
+    prerelease: true
+    url: https://github.com/opengeospatial/developer-track/releases/tag/v1.0.2
+  tags:
+  - v1.0.2
+  - v1.0.1
+  - v1.0.0
+  - v0.1
+- repository: developer-website
+  release_count: 6
+  latest:
+    tag: v2.0
+    name: Website Refactoring
+    published: '2025-07-08'
+    prerelease: false
+    url: https://github.com/opengeospatial/developer-website/releases/tag/v2.0
+  tags:
+  - v2.0
+  - v1.1
+  - v1.0.0
+  - v0.0.4
+  - v0.0.2
+  - v0.0.1
+- repository: ELFIE
+  release_count: 1
+  latest:
+    tag: ELFIE-1
+    name: First Environmental Linked Feature Interoperability Experiment
+    published: '2019-11-22'
+    prerelease: false
+    url: https://github.com/opengeospatial/ELFIE/releases/tag/ELFIE-1
+  tags:
+  - ELFIE-1
+- repository: ets-archetype-testng
+  release_count: 3
+  latest:
+    tag: '2.6'
+    name: Release 2.6
+    published: '2016-07-07'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-archetype-testng/releases/tag/2.6
+  tags:
+  - '2.6'
+  - '2.5'
+  - '2.4'
+- repository: ets-cat30
+  release_count: 10
+  latest:
+    tag: '0.10'
+    name: Release 0.10
+    published: '2015-10-30'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-cat30/releases/tag/0.10
+  tags:
+  - '0.10'
+  - '0.9'
+  - '0.8'
+  - '0.7'
+  - '0.6'
+  - '0.5'
+  - '0.4'
+  - '0.3'
+  - '0.2'
+  - '1'
+- repository: ets-cdb10
+  release_count: 5
+  latest:
+    tag: v0.4.1
+    name: Version 0.4.1
+    published: '2020-11-05'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-cdb10/releases/tag/v0.4.1
+  tags:
+  - v0.4.1
+  - '0.4'
+  - '0.3'
+  - '0.2'
+  - '0.1'
+- repository: ets-common
+  release_count: 5
+  latest:
+    tag: '9'
+    name: Release 9
+    published: '2016-11-17'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-common/releases/tag/9
+  tags:
+  - '9'
+  - '7'
+  - '6'
+  - v5
+  - v4
+- repository: ets-dgiwg
+  release_count: 1
+  latest:
+    tag: '0.2'
+    name: Release 0.2
+    published: '2016-11-24'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-dgiwg/releases/tag/0.2
+  tags:
+  - '0.2'
+- repository: ets-gml32
+  release_count: 6
+  latest:
+    tag: '1.25'
+    name: Release 1.25
+    published: '2016-11-17'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-gml32/releases/tag/1.25
+  tags:
+  - '1.25'
+  - '1.24'
+  - '1.23'
+  - '1.22'
+  - '1.21'
+  - '1.20'
+- repository: ets-indoorgml10
+  release_count: 1
+  latest:
+    tag: v0.0.1-apha
+    name: Basic ETS - no IndoorGML specific code
+    published: '2020-02-18'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-indoorgml10/releases/tag/v0.0.1-apha
+  tags:
+  - v0.0.1-apha
+- repository: ets-kml2
+  release_count: 5
+  latest:
+    tag: '0.5'
+    name: Release 0.5
+    published: '2016-07-07'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-kml2/releases/tag/0.5
+  tags:
+  - '0.5'
+  - '0.4'
+  - '0.3'
+  - '0.2'
+  - '0.1'
+- repository: ets-kml22
+  release_count: 1
+  latest:
+    tag: '1.12'
+    name: Release 1.12
+    published: '2016-01-25'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-kml22/releases/tag/1.12
+  tags:
+  - '1.12'
+- repository: ets-ogcapi-edr10
+  release_count: 1
+  latest:
+    tag: v0.0.1
+    name: Initial code from EDR API Sprint 2
+    published: '2020-11-10'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-ogcapi-edr10/releases/tag/v0.0.1
+  tags:
+  - v0.0.1
+- repository: ets-ogcapi-processes10
+  release_count: 3
+  latest:
+    tag: v0.0.3
+    name: v0.0.3 - working draft
+    published: '2023-01-27'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-ogcapi-processes10/releases/tag/v0.0.3
+  tags:
+  - v0.0.3
+  - v0.0.2
+  - v0.0.1
+- repository: ets-ogcapi-tiles10
+  release_count: 3
+  latest:
+    tag: v0.0.3
+    name: v0.0.3 - working draft (from 2021-05 Code Sprint)
+    published: '2021-05-27'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-ogcapi-tiles10/releases/tag/v0.0.3
+  tags:
+  - v0.0.3
+  - v0.0.2
+  - v0.0.1
+- repository: ets-osxeo10
+  release_count: 3
+  latest:
+    tag: v1.0-r2
+    name: v1.0-r2
+    published: '2014-11-26'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-osxeo10/releases/tag/v1.0-r2
+  tags:
+  - v1.0-r2
+  - v1.0-r1
+  - v0.1-SNAPSHOT
+- repository: ets-osxgeotime10
+  release_count: 3
+  latest:
+    tag: v1.0-r2
+    name: v1.0-r2
+    published: '2014-11-26'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-osxgeotime10/releases/tag/v1.0-r2
+  tags:
+  - v1.0-r2
+  - v1.0-r1
+  - v0.1-SNAPSHOT
+- repository: ets-owc10
+  release_count: 1
+  latest:
+    tag: '0.1'
+    name: Release 0.1
+    published: '2016-02-17'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-owc10/releases/tag/0.1
+  tags:
+  - '0.1'
+- repository: ets-resources
+  release_count: 5
+  latest:
+    tag: 16.11.24
+    name: R16.11.24
+    published: '2016-11-24'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-resources/releases/tag/16.11.24
+  tags:
+  - 16.11.24
+  - 16.06.08
+  - 16.02.23
+  - 15.11.05
+  - 15.06.04
+- repository: ets-security-client10
+  release_count: 6
+  latest:
+    tag: '0.5'
+    name: Version 0.5
+    published: '2018-11-06'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-security-client10/releases/tag/0.5
+  tags:
+  - '0.5'
+  - 0.4.1
+  - '0.4'
+  - '0.3'
+  - '0.2'
+  - '0.1'
+- repository: ets-sos20
+  release_count: 1
+  latest:
+    tag: '1.11'
+    name: '1.11'
+    published: '2015-10-29'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-sos20/releases/tag/1.11
+  tags:
+  - '1.11'
+- repository: ets-wfs20
+  release_count: 8
+  latest:
+    tag: '1.26'
+    name: Release 1.26
+    published: '2016-11-23'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-wfs20/releases/tag/1.26
+  tags:
+  - '1.26'
+  - '1.25'
+  - '1.24'
+  - '1.23'
+  - '1.22'
+  - '1.21'
+  - '1.20'
+  - '1.19'
+- repository: ets-wfs20-dgiwg
+  release_count: 1
+  latest:
+    tag: '0.3'
+    name: Release 0.3
+    published: '2017-11-13'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-wfs20-dgiwg/releases/tag/0.3
+  tags:
+  - '0.3'
+- repository: ets-wms13
+  release_count: 1
+  latest:
+    tag: '1.19'
+    name: Release 1.19
+    published: '2016-11-18'
+    prerelease: false
+    url: https://github.com/opengeospatial/ets-wms13/releases/tag/1.19
+  tags:
+  - '1.19'
+- repository: ets-wms13-dgiwg
+  release_count: 1
+  latest:
+    tag: '0.3'
+    name: Release 0.3
+    published: '2016-12-14'
+    prerelease: true
+    url: https://github.com/opengeospatial/ets-wms13-dgiwg/releases/tag/0.3
+  tags:
+  - '0.3'
+- repository: geoapi
+  release_count: 4
+  latest:
+    tag: 3.0.2
+    name: GeoAPI 3.0.2
+    published: '2023-02-02'
+    prerelease: false
+    url: https://github.com/opengeospatial/geoapi/releases/tag/3.0.2
+  tags:
+  - 3.0.2
+  - 2.0.0
+  - 3.0.0
+  - 3.0.1
+- repository: geomatics-geotk
+  release_count: 7
+  latest:
+    tag: '1.14'
+    name: Release 1.14
+    published: '2016-11-16'
+    prerelease: false
+    url: https://github.com/opengeospatial/geomatics-geotk/releases/tag/1.14
+  tags:
+  - '1.14'
+  - '1.13'
+  - '1.12'
+  - '1.11'
+  - '1.10'
+  - '1.9'
+  - '1.8'
+- repository: geopackage
+  release_count: 9
+  latest:
+    tag: v1.4.0
+    name: GeoPackage 1.4.0
+    published: '2024-01-31'
+    prerelease: false
+    url: https://github.com/opengeospatial/geopackage/releases/tag/v1.4.0
+  tags:
+  - v1.4.0
+  - v1.3.1
+  - v1.3.0
+  - v1.2.1RC3
+  - v1.2.1RC1
+  - v1.2.0
+  - v1.0.1
+  - v1.1.0
+  - v1.0.2-a1
+- repository: geoparquet
+  release_count: 10
+  latest:
+    tag: v2.0.0-rc.1
+    name: v2.0.0-rc.1
+    published: '2026-07-19'
+    prerelease: false
+    url: https://github.com/opengeospatial/geoparquet/releases/tag/v2.0.0-rc.1
+  tags:
+  - v2.0.0-rc.1
+  - v1.1.0+p1
+  - v1.1.0
+  - v1.0.0
+  - v1.0.0-rc.1
+  - v1.0.0-beta.1
+  - v0.4.0
+  - v0.3.0
+  - v0.2.0
+  - v0.1.0
+- repository: GeoPose
+  release_count: 1
+  latest:
+    tag: 1.0.0-rc_asciidoctor
+    name: 1.0.0 draft release candidate (in asciidoctor asciidoc)
+    published: '2022-08-11'
+    prerelease: true
+    url: https://github.com/opengeospatial/GeoPose/releases/tag/1.0.0-rc_asciidoctor
+  tags:
+  - 1.0.0-rc_asciidoctor
+- repository: geopose-cm
+  release_count: 1
+  latest:
+    tag: v1.0.0-draft1
+    name: v1.0.0 draft 1 snapshot on 2025-04-22
+    published: '2026-01-05'
+    prerelease: true
+    url: https://github.com/opengeospatial/geopose-cm/releases/tag/v1.0.0-draft1
+  tags:
+  - v1.0.0-draft1
+- repository: geosciml-json-code-sprint
+  release_count: 1
+  latest:
+    tag: v0.0.1-draft.20260616
+    name: Draft on 2026-06-16
+    published: '2026-06-16'
+    prerelease: true
+    url: https://github.com/opengeospatial/geosciml-json-code-sprint/releases/tag/v0.0.1-draft.20260616
+  tags:
+  - v0.0.1-draft.20260616
+- repository: geotiff
+  release_count: 1
+  latest:
+    tag: '1.1'
+    name: Approved Release 1.1 and 1.0
+    published: '2021-07-26'
+    prerelease: false
+    url: https://github.com/opengeospatial/geotiff/releases/tag/1.1
+  tags:
+  - '1.1'
+- repository: HY_Features
+  release_count: 1
+  latest:
+    tag: v1
+    name: Version 1.0 to capture ttl released through OGC-NA
+    published: '2022-03-01'
+    prerelease: false
+    url: https://github.com/opengeospatial/HY_Features/releases/tag/v1
+  tags:
+  - v1
+- repository: muddi
+  release_count: 1
+  latest:
+    tag: 1.0.0-draft1
+    name: This is a snapshot at the end of the initial prototype in 2021
+    published: '2023-09-06'
+    prerelease: true
+    url: https://github.com/opengeospatial/muddi/releases/tag/1.0.0-draft1
+  tags:
+  - 1.0.0-draft1
+- repository: NamingAuthority
+  release_count: 1
+  latest:
+    tag: v0.1
+    name: Initial
+    published: '2019-04-04'
+    prerelease: true
+    url: https://github.com/opengeospatial/NamingAuthority/releases/tag/v0.1
+  tags:
+  - v0.1
+- repository: netcdf-ld
+  release_count: 5
+  latest:
+    tag: v0.5
+    name: null
+    published: '2022-04-21'
+    prerelease: false
+    url: https://github.com/opengeospatial/netcdf-ld/releases/tag/v0.5
+  tags:
+  - v0.5
+  - v0.4
+  - v0.3
+  - v0.2
+  - v0.1
+- repository: ogc-feat-geo-json
+  release_count: 7
+  latest:
+    tag: v1.0.0
+    name: JSON-FG 1.0.0
+    published: '2026-04-30'
+    prerelease: false
+    url: https://github.com/opengeospatial/ogc-feat-geo-json/releases/tag/v1.0.0
+  tags:
+  - v1.0.0
+  - v0.3.0
+  - v0.2.2
+  - v0.2.1
+  - v0.2.0
+  - v0.1.1
+  - v0.1.0
+- repository: ogc-geosparql
+  release_count: 1
+  latest:
+    tag: 1.1.0-ghpages
+    name: 1.1.0 release of turtle and html files on GitHub Pages
+    published: '2023-09-15'
+    prerelease: false
+    url: https://github.com/opengeospatial/ogc-geosparql/releases/tag/1.1.0-ghpages
+  tags:
+  - 1.1.0-ghpages
+- repository: ogc-i3s-community-standard
+  release_count: 1
+  latest:
+    tag: 1.4-draft1
+    name: null
+    published: '2023-07-11'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogc-i3s-community-standard/releases/tag/1.4-draft1
+  tags:
+  - 1.4-draft1
+- repository: ogc-modspec
+  release_count: 1
+  latest:
+    tag: v2.0-draft1
+    name: Draft 1 of v2.0
+    published: '2024-12-11'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogc-modspec/releases/tag/v2.0-draft1
+  tags:
+  - v2.0-draft1
+- repository: ogc-na-tools
+  release_count: 8
+  latest:
+    tag: v0.2.0
+    name: null
+    published: '2023-05-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/ogc-na-tools/releases/tag/v0.2.0
+  tags:
+  - v0.2.0
+  - v0.1.6
+  - v0.1.5
+  - v0.1.4
+  - v0.1.3
+  - v0.1.2
+  - v0.1.1
+  - v0.1
+- repository: OGC-Web-API-Guidelines
+  release_count: 1
+  latest:
+    tag: V1.0
+    name: OGC Web-API Guidelines v1.0
+    published: '2021-02-19'
+    prerelease: false
+    url: https://github.com/opengeospatial/OGC-Web-API-Guidelines/releases/tag/V1.0
+  tags:
+  - V1.0
+- repository: ogcapi-3d-geovolumes
+  release_count: 1
+  latest:
+    tag: v0.0.1
+    name: Initial draft spec (in docx)
+    published: '2022-07-13'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-3d-geovolumes/releases/tag/v0.0.1
+  tags:
+  - v0.0.1
+- repository: ogcapi-common
+  release_count: 7
+  latest:
+    tag: part4-1.0.0rc2
+    name: Part 4 1.0.0rc2
+    published: '2026-07-01'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-common/releases/tag/part4-1.0.0rc2
+  tags:
+  - part4-1.0.0rc2
+  - part4-1.0.0-rc1
+  - Part2-1.0.0rc1
+  - P2V0.9.1
+  - P2V0.9
+  - v1.0-tc-vote
+  - v0.1
+- repository: ogcapi-connected-systems
+  release_count: 3
+  latest:
+    tag: v1.0.0
+    name: v1.0.0-published
+    published: '2026-04-08'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-connected-systems/releases/tag/v1.0.0
+  tags:
+  - v1.0.0
+  - v1.0-schemabundle
+  - v1.0_draft
+- repository: ogcapi-coverages
+  release_count: 3
+  latest:
+    tag: 1.0.0-rc3
+    name: 1.0.0 Release Candidate 3
+    published: '2026-08-15'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-coverages/releases/tag/1.0.0-rc3
+  tags:
+  - 1.0.0-rc3
+  - 1.0.0-rc2
+  - 1.0.0-rc1
+- repository: ogcapi-discrete-global-grid-systems
+  release_count: 4
+  latest:
+    tag: 1.0.0-rc4
+    name: 1.0.0-rc4
+    published: '2025-02-13'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-discrete-global-grid-systems/releases/tag/1.0.0-rc4
+  tags:
+  - 1.0.0-rc4
+  - 1.0.0-rc3
+  - 1.0.0-rc2
+  - 1.0.0-rc1
+- repository: ogcapi-environmental-data-retrieval
+  release_count: 6
+  latest:
+    tag: 1.1.0-final
+    name: OGC API - Environmental Data Retrieval, Version 1.1.0 Final
+    published: '2023-08-25'
+    prerelease: false
+    url: https://github.com/opengeospatial/ogcapi-environmental-data-retrieval/releases/tag/1.1.0-final
+  tags:
+  - 1.1.0-final
+  - 1.1.0-draft2
+  - 1.1.0-draft1
+  - 1.0.1-final
+  - 1.0.0
+  - 1.0.0-draft.1
+- repository: ogcapi-features
+  release_count: 14
+  latest:
+    tag: cql2-1.0.0
+    name: Common Query Language (CQL2), Version 1.0.0
+    published: '2024-08-12'
+    prerelease: false
+    url: https://github.com/opengeospatial/ogcapi-features/releases/tag/cql2-1.0.0
+  tags:
+  - cql2-1.0.0
+  - part3-1.0.0
+  - part5-1.0.0-draft.1
+  - part4-1.0.0-draft.1
+  - cql2-1.0.0-rc.1
+  - part3-1.0.0-rc.1
+  - 1.0.1
+  - part3-1.0.0-draft.2
+  - part3-1.0.0-draft.1
+  - part2-1.0.1
+  - 1.0.0
+  - 1.0.0-draft.2
+  - 1.0.0-draft.1
+  - 3.0.0-draft.1
+- repository: ogcapi-maps
+  release_count: 3
+  latest:
+    tag: v1.0.0
+    name: 'OGC API - Maps - Part 1: Core v1.0.0'
+    published: '2024-12-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/ogcapi-maps/releases/tag/v1.0.0
+  tags:
+  - v1.0.0
+  - 1.0.0rc2
+  - 1.0.0rc1
+- repository: ogcapi-movingfeatures
+  release_count: 1
+  latest:
+    tag: '0.02'
+    name: 1.0.draft before conversion to metanorma asciidoc
+    published: '2023-12-04'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-movingfeatures/releases/tag/0.02
+  tags:
+  - '0.02'
+- repository: ogcapi-org
+  release_count: 1
+  latest:
+    tag: 2022-12
+    name: 2022-12
+    published: '2023-01-05'
+    prerelease: false
+    url: https://github.com/opengeospatial/ogcapi-org/releases/tag/2022-12
+  tags:
+  - 2022-12
+- repository: ogcapi-processes
+  release_count: 3
+  latest:
+    tag: Sep2023SprintDraft
+    name: Draft of new version or September 2023 Code Sprint
+    published: '2023-09-18'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-processes/releases/tag/Sep2023SprintDraft
+  tags:
+  - Sep2023SprintDraft
+  - 1.0-draft.6.metanorma
+  - 1.0-draft.6.asciidoctor
+- repository: ogcapi-records
+  release_count: 2
+  latest:
+    tag: 1.0.0-pre-metanorma
+    name: Snapshot on 2025-02-04 prior to converting to metanorma asciidoc
+    published: '2025-02-04'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-records/releases/tag/1.0.0-pre-metanorma
+  tags:
+  - 1.0.0-pre-metanorma
+  - 1.0.0
+- repository: ogcapi-routes
+  release_count: 1
+  latest:
+    tag: v1.0.0-draft.1
+    name: Version 1.0.0-draft.1
+    published: '2022-03-24'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-routes/releases/tag/v1.0.0-draft.1
+  tags:
+  - v1.0.0-draft.1
+- repository: ogcapi-styles
+  release_count: 1
+  latest:
+    tag: part1-1.0.0-draft.1
+    name: 'Part 1: Core, 1.0.0-draft.1'
+    published: '2021-05-19'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-styles/releases/tag/part1-1.0.0-draft.1
+  tags:
+  - part1-1.0.0-draft.1
+- repository: ogcapi-tiles
+  release_count: 1
+  latest:
+    tag: 1.0.0-draft_tc
+    name: 1.0.0-draft (after TC approval - in asciidoctor asciidoc)
+    published: '2022-08-12'
+    prerelease: true
+    url: https://github.com/opengeospatial/ogcapi-tiles/releases/tag/1.0.0-draft_tc
+  tags:
+  - 1.0.0-draft_tc
+- repository: ogcapi-workshop
+  release_count: 1
+  latest:
+    tag: 1.0.0
+    name: 1.0.0
+    published: '2023-12-19'
+    prerelease: false
+    url: https://github.com/opengeospatial/ogcapi-workshop/releases/tag/1.0.0
+  tags:
+  - 1.0.0
+- repository: omsf-profile
+  release_count: 1
+  latest:
+    tag: v1.0
+    name: Freezed version for INSPIIRE Alternative Encodings work
+    published: '2019-04-01'
+    prerelease: false
+    url: https://github.com/opengeospatial/omsf-profile/releases/tag/v1.0
+  tags:
+  - v1.0
+- repository: poi
+  release_count: 1
+  latest:
+    tag: v0.0.1
+    name: Snapshot of the repository on 2024-10-02
+    published: '2024-10-02'
+    prerelease: true
+    url: https://github.com/opengeospatial/poi/releases/tag/v0.0.1
+  tags:
+  - v0.0.1
+- repository: schema-utils
+  release_count: 3
+  latest:
+    tag: '1.8'
+    name: Release 1.8
+    published: '2016-09-16'
+    prerelease: false
+    url: https://github.com/opengeospatial/schema-utils/releases/tag/1.8
+  tags:
+  - '1.8'
+  - '1.7'
+  - '1.6'
+- repository: sensorthings
+  release_count: 1
+  latest:
+    tag: v1.1
+    name: STAplus v1.1 Draft
+    published: '2023-06-26'
+    prerelease: true
+    url: https://github.com/opengeospatial/sensorthings/releases/tag/v1.1
+  tags:
+  - v1.1
+- repository: t16-dapa-terradue-sentinel-5p-NO2
+  release_count: 1
+  latest:
+    tag: v0.1
+    name: null
+    published: '2020-07-26'
+    prerelease: true
+    url: https://github.com/opengeospatial/t16-dapa-terradue-sentinel-5p-NO2/releases/tag/v0.1
+  tags:
+  - v0.1
+- repository: teamengine
+  release_count: 19
+  latest:
+    tag: '5.7'
+    name: Release 5.7
+    published: '2024-01-29'
+    prerelease: false
+    url: https://github.com/opengeospatial/teamengine/releases/tag/5.7
+  tags:
+  - '5.7'
+  - 5.6.1
+  - '5.6'
+  - 5.5.2
+  - 5.5.1
+  - '5.5'
+  - 5.4.1
+  - '5.4'
+  - '5.0'
+  - '4.10'
+  - '4.9'
+  - 4.8.1
+  - '4.8'
+  - 4.7.1
+  - '4.7'
+  - '4.6'
+  - '4.5'
+  - '4.4'
+  - '4.3'
+- repository: teamengine-site
+  release_count: 1
+  latest:
+    tag: v0.20210610
+    name: null
+    published: '2021-06-10'
+    prerelease: false
+    url: https://github.com/opengeospatial/teamengine-site/releases/tag/v0.20210610
+  tags:
+  - v0.20210610
+- repository: templates
+  release_count: 1
+  latest:
+    tag: v1.0.0
+    name: OGC templates created for Asciidoctor Asciidoc
+    published: '2022-03-28'
+    prerelease: false
+    url: https://github.com/opengeospatial/templates/releases/tag/v1.0.0
+  tags:
+  - v1.0.0
+- repository: Temporal-Abstract-Spec
+  release_count: 1
+  latest:
+    tag: 1.0.0-draft.1
+    name: Topic 25 - Abstract Conceptual Model for Time, 1.0.0 Draft 1 -  Public Comment Issues Resolved
+    published: '2024-02-23'
+    prerelease: true
+    url: https://github.com/opengeospatial/Temporal-Abstract-Spec/releases/tag/1.0.0-draft.1
+  tags:
+  - 1.0.0-draft.1
+- repository: timeseriesML
+  release_count: 1
+  latest:
+    tag: v1.3
+    name: Version 1.3
+    published: '2021-02-01'
+    prerelease: false
+    url: https://github.com/opengeospatial/timeseriesML/releases/tag/v1.3
+  tags:
+  - v1.3

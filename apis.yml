@@ -1,0 +1,254 @@
+aid: ogc
+name: Open Geospatial Consortium (OGC)
+x-type: standards-body
+x-category: Consortium
+x-host: null
+type: Index
+specificationVersion: '0.23'
+created: '2026-08-20'
+modified: '2026-08-20'
+url: https://raw.githubusercontent.com/api-evangelist/ogc/refs/heads/main/apis.yml
+description: 'The Open Geospatial Consortium is the standards body for geospatial interoperability — a member-funded
+  consortium founded in 1994 and headquartered in the United States, with 362 member organizations plus 159 individual
+  members across government, commercial, academic and non-profit sectors. OGC wrote the web-mapping layer the public
+  sector has run on for two decades — WMS, WFS, WCS, WMTS and CSW, the OWS suite — and is now replacing it with
+  the OGC API family: a set of resource-oriented, OpenAPI-described standards sharing a common core, of which eleven
+  are approved (Features, Common, EDR, Tiles, Processes, Maps, Moving Features, Records, Connected Systems, DGGS
+  and SensorThings) and seven more are in draft. Its API posture is genuinely open where it counts and closed where
+  most standards bodies are: every adopted standard is a free download, the schemas and OpenAPI documents are served
+  anonymously from schemas.opengis.net, and drafting happens in public on GitHub across 361 repositories — while
+  portal.ogc.org, where Technical Committee documents, votes and delegate rosters live, returns HTTP 401 to the
+  public. OGC runs a compliance and certification programme (CITE) and publishes its active member roster as a CSV,
+  which is unusual and makes the coalition measurable. The distinction this repo keeps is that OGC publishes SPECIFICATIONS,
+  not services: the contracts here have templated servers and describe what a conformant implementation must offer,
+  so they must never be read as a callable API.'
+tags:
+- OGC
+- OGC API
+- Geospatial
+- GIS
+- Standards
+- Specification
+- Interoperability
+- WMS
+- WFS
+- WMTS
+- SensorThings
+- Earth Observation
+- Consortium
+common:
+- type: Website
+  url: https://www.ogc.org/
+- type: Specification
+  url: https://schemas.opengis.net/ogcapi/
+- type: Standards
+  url: https://www.ogc.org/standards/
+- type: GitHubOrganization
+  url: https://github.com/opengeospatial
+- type: Governance
+  url: https://www.ogc.org/about/governance/
+- type: Policies
+  url: https://www.ogc.org/about/policies/
+- type: Membership
+  url: https://www.ogc.org/membership/
+- type: Participants
+  url: https://www.ogc.org/ogc-member-directory/
+- type: Certification
+  url: https://www.ogc.org/compliance/
+- type: WorkingGroups
+  url: working-groups/ogc-working-groups.yml
+- type: Companies
+  url: companies/ogc-companies.yml
+- type: Leads
+  url: leads/ogc-new-company-leads.yml
+- type: Taxonomy
+  url: taxonomy/ogc-taxonomy.yml
+- type: Repositories
+  url: repositories/ogc-repositories.yml
+- type: Contributors
+  url: contributors/ogc-contributors.yml
+- type: Releases
+  url: releases/ogc-releases.yml
+- type: People
+  url: people/ogc-people.yml
+apis:
+- aid: ogc:ogc-api-common
+  name: OGC API - Common
+  description: The approved standard OpenAPI description OGC itself publishes for OGC API - Common. This is the
+    STANDARD'S contract, not any one deployment of it — the servers block is a template, so it describes what a
+    conformant implementation must offer rather than a callable host.
+  humanURL: https://ogcapi.ogc.org/common/
+  tags:
+  - OGC
+  - OGC API
+  - OGC API Common
+  - Geospatial
+  - Specification
+  x-maturity: Approved Standard
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/ogc-common-part1-1-0-openapi-3-0-api-common-part-1-1-0.yaml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-api-connected-systems
+  name: OGC API - Connected Systems
+  description: The approved standard OpenAPI description OGC itself publishes for OGC API - Connected Systems. This
+    is the STANDARD'S contract, not any one deployment of it — the servers block is a template, so it describes
+    what a conformant implementation must offer rather than a callable host.
+  humanURL: https://ogcapi.ogc.org/connectedsystems/
+  tags:
+  - OGC
+  - OGC API
+  - OGC API Connected Systems
+  - Geospatial
+  - Specification
+  x-maturity: Approved Standard
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/ogc-connected-systems-part1-1-0-openapi-openapi-connectedsystems-1.yaml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-api-dggs
+  name: OGC API - DGGS
+  description: The approved standard OpenAPI description OGC itself publishes for OGC API - DGGS. This is the STANDARD'S
+    contract, not any one deployment of it — the servers block is a template, so it describes what a conformant
+    implementation must offer rather than a callable host.
+  humanURL: https://ogcapi.ogc.org/dggs/
+  tags:
+  - OGC
+  - OGC API
+  - OGC API DGGS
+  - Geospatial
+  - Specification
+  x-maturity: Approved Standard
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-api-edr
+  name: OGC API - EDR
+  description: The approved standard OpenAPI description OGC itself publishes for OGC API - EDR. This is the STANDARD'S
+    contract, not any one deployment of it — the servers block is a template, so it describes what a conformant
+    implementation must offer rather than a callable host.
+  humanURL: https://ogcapi.ogc.org/edr/
+  tags:
+  - OGC
+  - OGC API
+  - OGC API EDR
+  - Geospatial
+  - Specification
+  x-maturity: Approved Standard
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/ogc-edr-1-1-openapi-ogcapi-environmental-data-retrieval-1-bundled.json
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-api-features
+  name: OGC API - Features
+  description: The approved standard OpenAPI description OGC itself publishes for OGC API - Features. This is the
+    STANDARD'S contract, not any one deployment of it — the servers block is a template, so it describes what a
+    conformant implementation must offer rather than a callable host.
+  humanURL: https://ogcapi.ogc.org/features/
+  tags:
+  - OGC
+  - OGC API
+  - OGC API Features
+  - Geospatial
+  - Specification
+  x-maturity: Approved Standard
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/ogc-features-part1-1-0-openapi-ogcapi-features-1.yaml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-api-maps
+  name: OGC API - Maps
+  description: The approved standard OpenAPI description OGC itself publishes for OGC API - Maps. This is the STANDARD'S
+    contract, not any one deployment of it — the servers block is a template, so it describes what a conformant
+    implementation must offer rather than a callable host.
+  humanURL: https://ogcapi.ogc.org/maps/
+  tags:
+  - OGC
+  - OGC API
+  - OGC API Maps
+  - Geospatial
+  - Specification
+  x-maturity: Approved Standard
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-api-moving-features
+  name: OGC API - Moving Features
+  description: The approved standard OpenAPI description OGC itself publishes for OGC API - Moving Features. This
+    is the STANDARD'S contract, not any one deployment of it — the servers block is a template, so it describes
+    what a conformant implementation must offer rather than a callable host.
+  humanURL: https://ogcapi.ogc.org/movingfeatures/
+  tags:
+  - OGC
+  - OGC API
+  - OGC API Moving Features
+  - Geospatial
+  - Specification
+  x-maturity: Approved Standard
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-api-processes
+  name: OGC API - Processes
+  description: The approved standard OpenAPI description OGC itself publishes for OGC API - Processes. This is the
+    STANDARD'S contract, not any one deployment of it — the servers block is a template, so it describes what a
+    conformant implementation must offer rather than a callable host.
+  humanURL: https://ogcapi.ogc.org/processes/
+  tags:
+  - OGC
+  - OGC API
+  - OGC API Processes
+  - Geospatial
+  - Specification
+  x-maturity: Approved Standard
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/ogc-processes-part1-1-0-openapi-ogcapi-processes-1.yaml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-api-records
+  name: OGC API - Records
+  description: The approved standard OpenAPI description OGC itself publishes for OGC API - Records. This is the
+    STANDARD'S contract, not any one deployment of it — the servers block is a template, so it describes what a
+    conformant implementation must offer rather than a callable host.
+  humanURL: https://ogcapi.ogc.org/records/
+  tags:
+  - OGC
+  - OGC API
+  - OGC API Records
+  - Geospatial
+  - Specification
+  x-maturity: Approved Standard
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-api-tiles
+  name: OGC API - Tiles
+  description: The approved standard OpenAPI description OGC itself publishes for OGC API - Tiles. This is the STANDARD'S
+    contract, not any one deployment of it — the servers block is a template, so it describes what a conformant
+    implementation must offer rather than a callable host.
+  humanURL: https://ogcapi.ogc.org/tiles/
+  tags:
+  - OGC
+  - OGC API
+  - OGC API Tiles
+  - Geospatial
+  - Specification
+  x-maturity: Approved Standard
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/

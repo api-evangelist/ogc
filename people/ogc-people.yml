@@ -1,0 +1,307 @@
+generated: '2026-08-20'
+method: searched
+source: https://www.ogc.org/wp-json/wp/v2/our-team
+type: standards-people
+note: OGC STAFF, not the member coalition. These are the people OGC employs to run the process — the Technical Committee
+  and Architecture Board seats are held by member-organization delegates and OGC does not publish that roster publicly,
+  so it is deliberately absent here rather than guessed at. The organizations are in companies/ogc-companies.yml.
+summary:
+  people: 37
+  coverage: OGC staff only; member delegates not published
+people:
+- name: Alejandro Villar Fernandez
+  url: https://www.ogc.org/our-team/alejandro-villar-fernandez/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/alejandro-villar-fernandez/
+    method: searched
+- name: Christopher Keefe
+  url: https://www.ogc.org/our-team/christopher-keefe/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/christopher-keefe/
+    method: searched
+- name: Christy Monaco
+  url: https://www.ogc.org/our-team/christy-monaco/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/christy-monaco/
+    method: searched
+- name: Deborah Davis
+  url: https://www.ogc.org/our-team/deborah-davis/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/deborah-davis/
+    method: searched
+- name: Dhananjayan K Jagadeesh
+  url: https://www.ogc.org/our-team/dhananjayan-k-jagadeesh/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/dhananjayan-k-jagadeesh/
+    method: searched
+- name: Dr. Markus Wilhelm Jahn
+  url: https://www.ogc.org/our-team/dr-markus-wilhelm-jahn/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/dr-markus-wilhelm-jahn/
+    method: searched
+- name: Ed Parsons
+  url: https://www.ogc.org/our-team/ed-parsons/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/ed-parsons/
+    method: searched
+- name: Faraz Ravi
+  url: https://www.ogc.org/our-team/faraz-ravi/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/faraz-ravi/
+    method: searched
+- name: Francesca Noardo, Ph.D
+  url: https://www.ogc.org/our-team/francesca-noardo-ph-d/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/francesca-noardo-ph-d/
+    method: searched
+- name: Frank Pichel
+  url: https://www.ogc.org/our-team/frank-pichel/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/frank-pichel/
+    method: searched
+- name: Frank Suykens
+  url: https://www.ogc.org/our-team/frank-suykens/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/frank-suykens/
+    method: searched
+- name: Friso Penninga
+  url: https://www.ogc.org/our-team/friso-penninga/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/friso-penninga/
+    method: searched
+- name: Greg Buehler
+  url: https://www.ogc.org/our-team/greg-buehler/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/greg-buehler/
+    method: searched
+- name: Harsha Vardhan Madiraju
+  url: https://www.ogc.org/our-team/harsha-vardhan-madiraju/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/harsha-vardhan-madiraju/
+    method: searched
+- name: Ingo Simonis, Ph.D
+  url: https://www.ogc.org/our-team/ingo-simonis-ph-d/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/ingo-simonis-ph-d/
+    method: searched
+- name: Javier de la Torre
+  url: https://www.ogc.org/our-team/javier-de-la-torre/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/javier-de-la-torre/
+    method: searched
+- name: Jeff Harris
+  url: https://www.ogc.org/our-team/jeff-harris/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/jeff-harris/
+    method: searched
+- name: Joana Simoes, Ph.D
+  url: https://www.ogc.org/our-team/joana-simoes-ph-d/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/joana-simoes-ph-d/
+    method: searched
+- name: Kumar Navulur
+  url: https://www.ogc.org/our-team/kumar-navulur-2/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/kumar-navulur-2/
+    method: searched
+- name: Kumar Navulur
+  url: https://www.ogc.org/our-team/kumar-navulur/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/kumar-navulur/
+    method: searched
+- name: Martin Klopfer
+  url: https://www.ogc.org/our-team/martin-klopfer/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/martin-klopfer/
+    method: searched
+- name: Mayte Toscano
+  url: https://www.ogc.org/our-team/mayte-toscano/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/mayte-toscano/
+    method: searched
+- name: Muthu Kumar
+  url: https://www.ogc.org/our-team/muthu-kumar/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/muthu-kumar/
+    method: searched
+- name: Nigel Edmead
+  url: https://www.ogc.org/our-team/nigel-edmead/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/nigel-edmead/
+    method: searched
+- name: Patty Mims
+  url: https://www.ogc.org/our-team/patty-mims/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/patty-mims/
+    method: searched
+- name: Peter Rabley
+  url: https://www.ogc.org/our-team/peter-rabley/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/peter-rabley/
+    method: searched
+- name: Piotr Zaborowski
+  url: https://www.ogc.org/our-team/piotr-zaborowski/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/piotr-zaborowski/
+    method: searched
+- name: Prashant J. Shukle
+  url: https://www.ogc.org/our-team/prashant-j-shukle/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/prashant-j-shukle/
+    method: searched
+- name: Raghavendra N M
+  url: https://www.ogc.org/our-team/raghavendra-nm/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/raghavendra-nm/
+    method: searched
+- name: Richard Estephan
+  url: https://www.ogc.org/our-team/richard-estephan/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/richard-estephan/
+    method: searched
+- name: Rob Atkinson
+  url: https://www.ogc.org/our-team/rob-atkinson/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/rob-atkinson/
+    method: searched
+- name: Rosie Chen
+  url: https://www.ogc.org/our-team/rosie-chen/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/rosie-chen/
+    method: searched
+- name: Scott Simmons
+  url: https://www.ogc.org/our-team/scott-simmons/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/scott-simmons/
+    method: searched
+- name: Sina Taghavikish, Ph.D
+  url: https://www.ogc.org/our-team/sina-taghavikish-ph-d/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/sina-taghavikish-ph-d/
+    method: searched
+- name: Tonya Wilkerson
+  url: https://www.ogc.org/our-team/tonya-wilkerson/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/tonya-wilkerson/
+    method: searched
+- name: Velu Sinha
+  url: https://www.ogc.org/our-team/velu-sinha/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/velu-sinha/
+    method: searched
+- name: Zaffar Mohamed-Ghouse
+  url: https://www.ogc.org/our-team/zaffar-mohamed-ghouse/
+  organization: Open Geospatial Consortium
+  role_source: ogc.org/our-team
+  sources:
+  - type: staff-page
+    url: https://www.ogc.org/our-team/zaffar-mohamed-ghouse/
+    method: searched

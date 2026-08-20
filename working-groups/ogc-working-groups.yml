@@ -1,0 +1,463 @@
+generated: '2026-08-20'
+method: searched
+source: https://www.ogc.org/wp-json/wp/v2/
+type: standards-working-groups
+note: OGC splits its technical work in two. A Standards Working Group (SWG) is chartered to write or revise ONE
+  standard and dissolves when it is done; a Domain Working Group (DWG) is a standing forum for a subject area that
+  identifies the need and hands requirements to an SWG. Both sit under the Technical Committee. Harvested from OGC's
+  own WordPress REST API, which publishes these as first-class content types.
+summary:
+  standards_working_groups: 62
+  domain_working_groups: 35
+  total: 97
+working_groups:
+- name: 3D GeoVolumes SWG
+  abbreviation: 3DGeoVol SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/3d-geovolumes-swg-3dgeovol-swg/
+  slug: 3d-geovolumes-swg-3dgeovol-swg
+- name: 3D Portrayal SWG
+  abbreviation: 3DP SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/3d-portrayal-swg-3dp-swg/
+  slug: 3d-portrayal-swg-3dp-swg
+- name: Agriculture Information Model SWG
+  abbreviation: AIM.SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/agriculture-information-model-swg-aim-swg/
+  slug: agriculture-information-model-swg-aim-swg
+- name: Analysis Ready Data SWG
+  abbreviation: ARD SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/analysis-ready-data-swg-ard-swg/
+  slug: analysis-ready-data-swg-ard-swg
+- name: CDB SWG
+  abbreviation: CDB SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/cdb-swg-cdb-swg/
+  slug: cdb-swg-cdb-swg
+- name: CityGML SWG
+  abbreviation: CityGML SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/citygml-swg-citygml-swg/
+  slug: citygml-swg-citygml-swg
+- name: Connected Systems SWG
+  abbreviation: CONSYS SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/connected-systems-swg-consys-swg/
+  slug: connected-systems-swg-consys-swg
+- name: Coverages SWG
+  abbreviation: CoveragesSWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/coverages-swg-coveragesswg/
+  slug: coverages-swg-coveragesswg
+- name: CRS SWG
+  abbreviation: CRS SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/crs-swg-crs-swg/
+  slug: crs-swg-crs-swg
+- name: CRS Well Known Text SWG
+  abbreviation: CRS WKT SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/crs-well-known-text-swg-crs-wkt-swg/
+  slug: crs-well-known-text-swg-crs-wkt-swg
+- name: Discrete Global Grid Systems SWG
+  abbreviation: DGGS SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/discrete-global-grid-systems-swg-dggs-swg/
+  slug: discrete-global-grid-systems-swg-dggs-swg
+- name: Environmental Data Retrieval API SWG
+  abbreviation: EDR-API SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/environmental-data-retrieval-api-swg-edr-api-swg/
+  slug: environmental-data-retrieval-api-swg-edr-api-swg
+- name: EO Product Metadata and OpenSearch SWG
+  abbreviation: EO PMOS SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/eo-product-metadata-and-opensearch-swg-eo-pmos-swg/
+  slug: eo-product-metadata-and-opensearch-swg-eo-pmos-swg
+- name: Features and Geometries JSON SWG
+  abbreviation: FeatGeoJSON SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/features-and-geometries-json-swg-featgeojson-swg/
+  slug: features-and-geometries-json-swg-featgeojson-swg
+- name: Features API SWG
+  abbreviation: FeatAPI SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/features-api-swg-featapi-swg/
+  slug: features-api-swg-featapi-swg
+- name: GeoAPI SWG
+  abbreviation: GeoAPI SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geoapi-swg-geoapi-swg/
+  slug: geoapi-swg-geoapi-swg
+- name: Geocoding API SWG
+  abbreviation: GeocodeAPISWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geocoding-api-swg-geocodeapiswg/
+  slug: geocoding-api-swg-geocodeapiswg
+- name: GeoDataCube SWG
+  abbreviation: GeoDataCube.SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geodatacube-swg-geodatacube-swg/
+  slug: geodatacube-swg-geodatacube-swg
+- name: GeoDCAT SWG
+  abbreviation: GeoDCAT.SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geodcat-swg-geodcat-swg/
+  slug: geodcat-swg-geodcat-swg
+- name: GeoPackage SWG
+  abbreviation: GeoPackage SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geopackage-swg-geopackage-swg/
+  slug: geopackage-swg-geopackage-swg
+- name: GeoParquet SWG
+  abbreviation: GeoParquet SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geoparquet-swg-geoparquet-swg/
+  slug: geoparquet-swg-geoparquet-swg
+- name: GeoPose SWG
+  abbreviation: GeoPose SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geopose-swg-geopose-swg/
+  slug: geopose-swg-geopose-swg
+- name: GeoSciML SWG
+  abbreviation: GeoSciML SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geosciml-swg-geosciml-swg/
+  slug: geosciml-swg-geosciml-swg
+- name: GeoSPARQL SWG
+  abbreviation: GeoSPARQL SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geosparql-swg-geosparql-swg/
+  slug: geosparql-swg-geosparql-swg
+- name: Geospatial Reporting Indicators SWG
+  abbreviation: GRI SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geospatial-reporting-indicators-swg-gri-swg/
+  slug: geospatial-reporting-indicators-swg-gri-swg
+- name: Geospatial User Feedback SWG
+  abbreviation: GUFswg
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geospatial-user-feedback-swg-gufswg/
+  slug: geospatial-user-feedback-swg-gufswg
+- name: GeoSynchronization 1.0 SWG
+  abbreviation: Geosync SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geosynchronization-1-0-swg-geosync-swg/
+  slug: geosynchronization-1-0-swg-geosync-swg
+- name: GeoTIFF SWG
+  abbreviation: GeoTIFF SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geotiff-swg-geotiff-swg/
+  slug: geotiff-swg-geotiff-swg
+- name: GeoXACML SWG
+  abbreviation: GeoXACML SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geoxacml-swg-geoxacml-swg/
+  slug: geoxacml-swg-geoxacml-swg
+- name: GeoZarr SWG
+  abbreviation: GeoZarr SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/geozarr-swg-geozarr-swg/
+  slug: geozarr-swg-geozarr-swg
+- name: GML 3.3 SWG
+  abbreviation: GML 3.3 SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/gml-3-3-swg-gml-3-3-swg/
+  slug: gml-3-3-swg-gml-3-3-swg
+- name: GMLJP2 SWG
+  abbreviation: GMLJP2-SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/gmljp2-swg-gmljp2-swg/
+  slug: gmljp2-swg-gmljp2-swg
+- name: Groundwater SWG
+  abbreviation: GroundwaterSWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/groundwater-swg-groundwaterswg/
+  slug: groundwater-swg-groundwaterswg
+- name: HDF SWG
+  abbreviation: HDF SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/hdf-swg-hdf-swg/
+  slug: hdf-swg-hdf-swg
+- name: Hydrologic Features SWG
+  abbreviation: HydroFeat SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/hydrologic-features-swg-hydrofeat-swg/
+  slug: hydrologic-features-swg-hydrofeat-swg
+- name: IndoorGML SWG
+  abbreviation: IndoorGML SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/indoorgml-swg-indoorgml-swg/
+  slug: indoorgml-swg-indoorgml-swg
+- name: KML 2.3 SWG
+  abbreviation: KML SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/kml-2-3-swg-kml-swg/
+  slug: kml-2-3-swg-kml-swg
+- name: Land Admin Domain Model SWG
+  abbreviation: LADM SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/land-admin-domain-model-swg-ladm-swg/
+  slug: land-admin-domain-model-swg-ladm-swg
+- name: Land and Infrastructure SWG
+  abbreviation: LandInfraSWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/land-and-infrastructure-swg-landinfraswg/
+  slug: land-and-infrastructure-swg-landinfraswg
+- name: Moving Features SWG
+  abbreviation: MovFeat SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/moving-features-swg-movfeat-swg/
+  slug: moving-features-swg-movfeat-swg
+- name: MUDDI SWG
+  abbreviation: MUDDI SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/muddi-swg-muddi-swg/
+  slug: muddi-swg-muddi-swg
+- name: NetCDF SWG
+  abbreviation: NetCDFSWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/netcdf-swg-netcdfswg/
+  slug: netcdf-swg-netcdfswg
+- name: Observations, Measurements, and Samples SWG
+  abbreviation: OMS SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/observations-measurements-and-samples-swg-oms-swg/
+  slug: observations-measurements-and-samples-swg-oms-swg
+- name: OGC API – Common SWG
+  abbreviation: OGC API-Common
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/ogc-api-common-swg-ogc-api-common/
+  slug: ogc-api-common-swg-ogc-api-common
+- name: OGC API – Joins SWG
+  abbreviation: TJS
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/ogc-api-joins-swg-tjs/
+  slug: ogc-api-joins-swg-tjs
+- name: OGC API – Maps SWG
+  abbreviation: OGC API – Maps
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/ogc-api-maps-swg-ogc-api-maps/
+  slug: ogc-api-maps-swg-ogc-api-maps
+- name: OGC API – Processes SWG
+  abbreviation: OAPIProc SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/ogc-api-processes-swg-oapiproc-swg/
+  slug: ogc-api-processes-swg-oapiproc-swg
+- name: OGC API – Records SWG
+  abbreviation: API Records SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/ogc-api-records-swg-api-records-swg/
+  slug: ogc-api-records-swg-api-records-swg
+- name: OGC API – Styles SWG
+  abbreviation: Styles API SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/ogc-api-styles-swg-styles-api-swg/
+  slug: ogc-api-styles-swg-styles-api-swg
+- name: OGC API – Tiles SWG
+  abbreviation: OAPITileSWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/ogc-api-tiles-swg-oapitileswg/
+  slug: ogc-api-tiles-swg-oapitileswg
+- name: OWS Common – Security SWG
+  abbreviation: ComSecuritySWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/ows-common-security-swg-comsecurityswg/
+  slug: ows-common-security-swg-comsecurityswg
+- name: OWS Context SWG
+  abbreviation: OWScontextSWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/ows-context-swg-owscontextswg/
+  slug: ows-context-swg-owscontextswg
+- name: PipelineML SWG
+  abbreviation: PipeML SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/pipelineml-swg-pipeml-swg/
+  slug: pipelineml-swg-pipeml-swg
+- name: Points of Interest SWG
+  abbreviation: PoI SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/points-of-interest-swg-poi-swg/
+  slug: points-of-interest-swg-poi-swg
+- name: PubSub SWG
+  abbreviation: PubSub SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/pubsub-swg-pubsub-swg/
+  slug: pubsub-swg-pubsub-swg
+- name: Routing SWG
+  abbreviation: Routing SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/routing-swg-routing-swg/
+  slug: routing-swg-routing-swg
+- name: SensorThings SWG
+  abbreviation: SensorThings
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/sensorthings-swg-sensorthings/
+  slug: sensorthings-swg-sensorthings
+- name: Simple Features SWG
+  abbreviation: SF SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/simple-features-swg-sf-swg/
+  slug: simple-features-swg-sf-swg
+- name: Styles and Symbology Encoding SWG
+  abbreviation: Styles SE SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/styles-and-symbology-encoding-swg-styles-se-swg/
+  slug: styles-and-symbology-encoding-swg-styles-se-swg
+- name: Temporal WKT for Calendars SWG
+  abbreviation: TemporalWKT
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/temporal-wkt-for-calendars-swg-temporalwkt/
+  slug: temporal-wkt-for-calendars-swg-temporalwkt
+- name: TimeSeriesML SWG
+  abbreviation: TimeSeriesML
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/timeseriesml-swg-timeseriesml/
+  slug: timeseriesml-swg-timeseriesml
+- name: Training Data Markup Language for AI SWG
+  abbreviation: TrainingDML SWG
+  kind: Standards Working Group
+  url: https://www.ogc.org/standards-working-gr/training-data-markup-language-for-ai-swg-trainingdml-swg/
+  slug: training-data-markup-language-for-ai-swg-trainingdml-swg
+- name: 3D Information Management Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/3d-information-management-domain-working-group/
+  slug: 3d-information-management-domain-working-group
+- name: Agriculture Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/agriculture-domain-working-group-2/
+  slug: agriculture-domain-working-group-2
+- name: Big Data Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/big-data-domain-working-group/
+  slug: big-data-domain-working-group
+- name: Blockchain and Distributed Ledger Technologies Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/blockchain-and-distributed-ledger-technologies-domain-working-group/
+  slug: blockchain-and-distributed-ledger-technologies-domain-working-group
+- name: Citizen Science Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/citizen-science-domain-working-group/
+  slug: citizen-science-domain-working-group
+- name: Climate Resilience Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/climate-resilience-domain-working-group/
+  slug: climate-resilience-domain-working-group
+- name: Coverages Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/coverages-domain-working-group/
+  slug: coverages-domain-working-group
+- name: Data Quality Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/data-quality-domain-working-group/
+  slug: data-quality-domain-working-group
+- name: Defense and Intelligence Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/defense-and-intelligence-domain-working-group/
+  slug: defense-and-intelligence-domain-working-group
+- name: Discrete Global Grid Systems Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/discrete-global-grid-systems-domain-working-group/
+  slug: discrete-global-grid-systems-domain-working-group
+- name: Earth Observation Exploitation Platform Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/earth-observation-exploitation-platform-domain-working-group/
+  slug: earth-observation-exploitation-platform-domain-working-group
+- name: Emergency and Disaster Management Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/emergency-and-disaster-management-domain-working-group-2/
+  slug: emergency-and-disaster-management-domain-working-group-2
+- name: Geo for Metaverse Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/geo-for-metaverse-domain-working-group/
+  slug: geo-for-metaverse-domain-working-group
+- name: Geoscience Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/geoscience-domain-working-group/
+  slug: geoscience-domain-working-group
+- name: Geosemantics Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/geosemantics-domain-working-group/
+  slug: geosemantics-domain-working-group
+- name: Health Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/health-domain-working-group/
+  slug: health-domain-working-group
+- name: Hydrology Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/hydrology-domain-working-group/
+  slug: hydrology-domain-working-group
+- name: Interoperable Simulation and Gaming Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/interoperable-simulation-and-gaming-domain-working-group/
+  slug: interoperable-simulation-and-gaming-domain-working-group
+- name: Land Administration Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/land-administration-domain-working-group/
+  slug: land-administration-domain-working-group
+- name: Marine Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/marine-domain-working-group-4/
+  slug: marine-domain-working-group-4
+- name: Metadata and Catalog Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/metadata-and-catalog-domain-working-group/
+  slug: metadata-and-catalog-domain-working-group
+- name: Meteorology and Oceanography Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/meteorology-oceanography-domain-working-group/
+  slug: meteorology-oceanography-domain-working-group
+- name: Mobile Location Services Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/mobile-location-services-domain-working-group/
+  slug: mobile-location-services-domain-working-group
+- name: Planetary Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/planetary-domain-working-group/
+  slug: planetary-domain-working-group
+- name: Point Cloud Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/point-cloud-domain-working-group/
+  slug: point-cloud-domain-working-group
+- name: Portrayal Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/portrayal-domain-working-group/
+  slug: portrayal-domain-working-group
+- name: Security Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/security-domain-working-group/
+  slug: security-domain-working-group
+- name: Statistical Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/statistical-domain-working-group/
+  slug: statistical-domain-working-group
+- name: Temporal Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/temporal-domain-working-group/
+  slug: temporal-domain-working-group
+- name: The Artificial Intelligence in Geoinformatics Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/the-artificial-intelligence-in-geoinformatics-domain-working-group/
+  slug: the-artificial-intelligence-in-geoinformatics-domain-working-group
+- name: The Autonomy, Sensors, Things, Robots and Observations Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/the-autonomy-sensors-things-robots-and-observations-domain-working-group/
+  slug: the-autonomy-sensors-things-robots-and-observations-domain-working-group
+- name: Uninhabited Systems Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/uninhabited-systems-domain-working-group/
+  slug: uninhabited-systems-domain-working-group
+- name: University Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/university-domain-working-group/
+  slug: university-domain-working-group
+- name: Urban Digital Twins Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/urban-digital-twins-domain-working-group/
+  slug: urban-digital-twins-domain-working-group
+- name: Workflow Domain Working Group
+  kind: Domain Working Group
+  url: https://www.ogc.org/groups/workflow-domain-working-group/
+  slug: workflow-domain-working-group
