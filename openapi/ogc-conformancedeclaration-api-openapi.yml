@@ -1,0 +1,56 @@
+openapi: 3.2.0
+info:
+  title: 'A sample API conforming to the standard OGC API - Processes - Part 1 : Core Conformance Declaration API'
+  version: 1.0.0
+  description: This document is an API definition document provided alongside the OGC API - Processes standard. The OGC API - Processes Standard specifies a processing interface to communicate over a RESTful protocol using JavaScript Object Notation (JSON) encodings. The specification allows for the wrapping of computational tasks into executable processes that can be offered by a server and be invoked by a client application.
+  contact:
+    name: Open Geospatial Consortium (OGC)
+    email: standards-team@ogc.org
+    url: https://www.ogc.org/contacts
+  license:
+    name: OGC license
+    url: http://www.ogc.org/legal/
+servers:
+- description: Example server
+  url: http://example.org/ogcapi
+tags:
+- name: ConformanceDeclaration
+paths:
+  /conformance:
+    get:
+      summary: information about standards that this API conforms to
+      description: 'A list of all conformance classes, specified in a standard, that the server conforms to.
+
+
+        | Conformance class | URI |
+
+        |-----------|-------|
+
+        |Core|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core|
+
+        |OGC Process Description|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description|
+
+        |JSON|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json|
+
+        |HTML|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html|
+
+        |OpenAPI Specification 3.0|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30|
+
+        |Job list|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list|
+
+        |Callback|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback|
+
+        |Dismiss|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss|
+
+
+        For more information, see [Section 7.4](https://docs.ogc.org/is/18-062/18-062.html#sc_conformance_classes).
+
+        '
+      operationId: getConformanceClasses
+      tags:
+      - ConformanceDeclaration
+      responses:
+        200:
+          $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/responses/ConformanceDeclaration.yaml
+        500:
+          $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/responses/ServerError.yaml

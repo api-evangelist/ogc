@@ -1,0 +1,39 @@
+openapi: 3.2.0
+info:
+  title: 'A sample API conforming to the standard OGC API - Processes - Part 1 : Core Dismiss API'
+  version: 1.0.0
+  description: This document is an API definition document provided alongside the OGC API - Processes standard. The OGC API - Processes Standard specifies a processing interface to communicate over a RESTful protocol using JavaScript Object Notation (JSON) encodings. The specification allows for the wrapping of computational tasks into executable processes that can be offered by a server and be invoked by a client application.
+  contact:
+    name: Open Geospatial Consortium (OGC)
+    email: standards-team@ogc.org
+    url: https://www.ogc.org/contacts
+  license:
+    name: OGC license
+    url: http://www.ogc.org/legal/
+servers:
+- description: Example server
+  url: http://example.org/ogcapi
+tags:
+- name: Dismiss
+paths:
+  /jobs/{jobId}:
+    delete:
+      summary: cancel a job execution, remove a finished job
+      description: 'Cancel a job execution and remove it from the jobs list.
+
+
+        For more information, see [Section 13](https://docs.ogc.org/is/18-062/18-062.html#Dismiss).
+
+        '
+      operationId: dismiss
+      tags:
+      - Dismiss
+      parameters:
+      - $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/parameters/jobId.yaml
+      responses:
+        200:
+          $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/responses/Status.yaml
+        404:
+          $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/responses/NotFound.yaml
+        500:
+          $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/responses/ServerError.yaml

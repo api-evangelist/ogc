@@ -1,0 +1,33 @@
+openapi: 3.2.0
+info:
+  title: 'A sample API conforming to the standard OGC API - Processes - Part 1 : Core Process List API'
+  version: 1.0.0
+  description: This document is an API definition document provided alongside the OGC API - Processes standard. The OGC API - Processes Standard specifies a processing interface to communicate over a RESTful protocol using JavaScript Object Notation (JSON) encodings. The specification allows for the wrapping of computational tasks into executable processes that can be offered by a server and be invoked by a client application.
+  contact:
+    name: Open Geospatial Consortium (OGC)
+    email: standards-team@ogc.org
+    url: https://www.ogc.org/contacts
+  license:
+    name: OGC license
+    url: http://www.ogc.org/legal/
+servers:
+- description: Example server
+  url: http://example.org/ogcapi
+tags:
+- name: ProcessList
+paths:
+  /processes:
+    get:
+      summary: retrieve the list of available processes
+      description: 'The list of processes contains a summary of each process the OGC API - Processes offers, including the link to a more detailed description of the process.
+
+
+        For more information, see [Section 7.9](https://docs.ogc.org/is/18-062/18-062.html#sc_process_list).
+
+        '
+      operationId: getProcesses
+      tags:
+      - ProcessList
+      responses:
+        200:
+          $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/responses/ProcessList.yaml

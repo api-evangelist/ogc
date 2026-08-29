@@ -1,0 +1,308 @@
+openapi: 3.2.0
+info:
+  title: Ogc Temporal Geometry Query API
+  version: 1.0.0
+  contact:
+    name: Open Geospatial Consortium
+    email: info@ogc.org
+  license:
+    name: OGC License
+    url: https://www.ogc.org/legal/
+  x-logo:
+    url: https://www.ogc.org/pub/www/files/OGC_Logo_2D_Blue_x_0_0.png
+  description: 'Operations tagged TemporalGeometryQuery across 3 of this provider''s published API definitions: ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json, ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml, ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml. Each path carries the servers of the definition it was published in.'
+tags:
+- name: TemporalGeometryQuery
+  description: Queryable resources for the temporal primitive geometry.
+paths:
+  /collections/{collectionId}/items/{mFeatureId}/tgsequence/{tGeometryId}/distance:
+    get:
+      operationId: getDistanceOfTemporalPrimitiveGeometry
+      summary: Get a time-to-distance curve of a temporal primitive geometry
+      description: 'A user can get time-to-distance curve of a temporal primitive geometry with id `tGeometryId`.
+
+        '
+      tags:
+      - TemporalGeometryQuery
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/mFeatureId'
+      - $ref: '#/components/parameters/tGeometryId'
+      - $ref: '#/components/parameters/datetime'
+      - $ref: '#/components/parameters/leaf'
+      - $ref: '#/components/parameters/subtemporalvalue'
+      responses:
+        '200':
+          $ref: '#/components/responses/DistanceQuery'
+        '400':
+          description: A query parameter was not validly used.
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /collections/{collectionId}/items/{mFeatureId}/tgsequence/{tGeometryId}/velocity:
+    get:
+      operationId: getVelocityOfTemporalPrimitiveGeometry
+      summary: Get a time-to-velocity curve of a temporal primitive geometry
+      description: 'A user can get time-to-velocity curve of a temporal primitive geometry with id `tGeometryId`.
+
+        '
+      tags:
+      - TemporalGeometryQuery
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/mFeatureId'
+      - $ref: '#/components/parameters/tGeometryId'
+      - $ref: '#/components/parameters/datetime'
+      - $ref: '#/components/parameters/leaf'
+      - $ref: '#/components/parameters/subtemporalvalue'
+      responses:
+        '200':
+          $ref: '#/components/responses/VelocityQuery'
+        '400':
+          description: A query parameter was not validly used.
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /collections/{collectionId}/items/{mFeatureId}/tgsequence/{tGeometryId}/acceleration:
+    get:
+      operationId: getAccelerationOfTemporalPrimitiveGeometry
+      summary: Get a time-to-acceleration curve of a temporal primitive geometry
+      description: 'A user can get time-to-acceleration curve of a temporal primitive geometry with id `tGeometryId`.
+
+        '
+      tags:
+      - TemporalGeometryQuery
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/mFeatureId'
+      - $ref: '#/components/parameters/tGeometryId'
+      - $ref: '#/components/parameters/datetime'
+      - $ref: '#/components/parameters/leaf'
+      - $ref: '#/components/parameters/subtemporalvalue'
+      responses:
+        '200':
+          $ref: '#/components/responses/AccelerationQuery'
+        '400':
+          description: A query parameter was not validly used.
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  parameters:
+    subtemporalvalue:
+      name: subTemporalValue
+      in: query
+      required: false
+      description: "The `subTemporalValue` parameter is a boolean value used with the `datetime` parameter.\nIf the `subTemporalValue` is \"true\", \n\n* the `datetime` must be a bounded interval, not half-bounded intervals or a date-time. \n* the `datetime` represents a specified time interval (new start time and new end time)\n* only features with a temporal property intersecting the given time interval will return.\n* it returns only the subsequence of temporal property value within a time interval contained in the `subTemporalValue` parameter, using an interpolated time-to-value curve of temporal property according to the `interpolation` property.\n\nThe `subTemporalValue` parameter must not be used with the `leaf` parameter. \nOnly one of these parameters can be used in the HTTP GET operation."
+      schema:
+        type: boolean
+      style: form
+      explode: false
+    datetime:
+      name: datetime
+      in: query
+      description: "Either a date-time or an interval. Date and time expressions adhere to RFC 3339. \nIntervals may be bounded or half-bounded (double-dots at start or end).\n\nExamples:\n\n* A date-time: \"2018-02-12T23:20:50Z\"\n* A bounded interval: \"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z\"\n* Half-bounded intervals: \"2018-02-12T00:00:00Z/..\" or \"../2018-03-18T12:31:12Z\"\n\nOnly features that have temporal information that intersects the value of `datetime` are selected.\n\nIf a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties."
+      required: true
+      schema:
+        type: string
+      style: form
+      explode: false
+    leaf:
+      name: leaf
+      in: query
+      required: false
+      description: "The `leaf` is provided as a sequence of monotonic increasing instants with date-time strings.\nOnly features that have a temporal geometry and property that intersects the given date-time are selected.\n\nThe `leaf` operation implements *_pointAtTime_* operation which defined in the OGC Moving Feature Access.\nThis operation returns only temporal geometry coordinates (or temporal property values) \nat each date-time included in the `leaf` parameter, using interpolated trajectory according to the `interpolation` property.\n\nIf the `leaf` parameter is provided with a `bbox` or (and) a `datetime` parameter, \nit will only apply to resources that intersect with a `bbox` or (and) a `datetime` parameter. \n\nThe `leaf` parameter shall not be used with the `subTrajectory` and `subTemporalValue` parameter. \nOnly one of those parameters can be used in the HTTP GET operation."
+      schema:
+        type: array
+        uniqueItems: true
+        minItems: 1
+        items:
+          type: string
+          format: date-time
+      style: form
+      explode: false
+    tGeometryId:
+      name: tGeometryId
+      in: path
+      description: local identifier of a temporal primitive geometry
+      required: true
+      schema:
+        type: string
+    mFeatureId:
+      name: mFeatureId
+      in: path
+      description: local identifier of a moving feature
+      required: true
+      schema:
+        type: string
+    collectionId:
+      name: collectionId
+      in: path
+      description: local identifier of a collection
+      required: true
+      schema:
+        type: string
+  schemas:
+    exception:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+    temporalPrimitiveValue:
+      type: object
+      required:
+      - datetimes
+      - values
+      - interpolation
+      properties:
+        datetimes:
+          type: array
+          uniqueItems: true
+          minItems: 2
+          items:
+            type: string
+            format: date-time
+        values:
+          oneOf:
+          - type: number
+          - type: string
+          - type: boolean
+        interpolation:
+          type: string
+          enum:
+          - Discrete
+          - Step
+          - Linear
+          - Regression
+    link:
+      type: object
+      required:
+      - href
+      - rel
+      properties:
+        href:
+          type: string
+          example: http://data.example.com/buildings/123
+        rel:
+          type: string
+          example: alternate
+        type:
+          type: string
+          example: application/geo+json
+        hreflang:
+          type: string
+          example: en
+        title:
+          type: string
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
+    temporalProperty:
+      type: object
+      required:
+      - name
+      - type
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - TBoolean
+          - TText
+          - TInteger
+          - TReal
+          - TImage
+        form:
+          oneOf:
+          - type: string
+            format: uri
+          - type: string
+            minLength: 3
+            maxLength: 3
+        valueSequence:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/temporalPrimitiveValue'
+        description:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+  responses:
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+          example:
+            code: '500'
+            description: Server Internal Error
+    AccelerationQuery:
+      description: A temporal property data that represents a time-to-acceleration curve of specified temporal primitive geometry.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/temporalProperty'
+          example:
+            name: acceleration
+            type: TReal
+            form: KMH
+            valueSequence:
+            - datetimes:
+              - '2011-07-15T08:00:00Z'
+              - '2011-07-15T08:00:01Z'
+              - '2011-07-15T08:00:02Z'
+              values:
+              - 0
+              - 10
+              - 20
+              interpolation: Linear
+    DistanceQuery:
+      description: A temporal property data that represents a time-to-distance curve of specified temporal primitive geometry.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/temporalProperty'
+          example:
+            name: distance
+            type: TReal
+            form: MTR
+            valueSequence:
+            - datetimes:
+              - '2011-07-15T08:00:00Z'
+              - '2011-07-15T08:00:01Z'
+              - '2011-07-15T08:00:02Z'
+              values:
+              - 0
+              - 10
+              - 20
+              interpolation: Linear
+    VelocityQuery:
+      description: A temporal property data that represents a time-to-velocity curve of specified temporal primitive geometry.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/temporalProperty'
+          example:
+            name: velocity
+            type: TReal
+            form: KMH
+            valueSequence:
+            - datetimes:
+              - '2011-07-15T08:00:00Z'
+              - '2011-07-15T08:00:01Z'
+              - '2011-07-15T08:00:02Z'
+              values:
+              - 0
+              - 10
+              - 20
+              interpolation: Linear
+x-refined-from:
+- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json
+- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml
+- ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml

@@ -1,0 +1,630 @@
+openapi: 3.2.0
+info:
+  title: Ogc Temporal Property API
+  version: 1.0.0
+  contact:
+    name: Open Geospatial Consortium
+    email: info@ogc.org
+  license:
+    name: OGC License
+    url: https://www.ogc.org/legal/
+  x-logo:
+    url: https://www.ogc.org/pub/www/files/OGC_Logo_2D_Blue_x_0_0.png
+  description: 'Operations tagged TemporalProperty across 3 of this provider''s published API definitions: ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json, ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml, ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml. Each path carries the servers of the definition it was published in.'
+tags:
+- name: TemporalProperty
+  description: The thematic change over time (temporal property), representing the variation of the value of any descriptive characteristic of a feature.
+paths:
+  /collections/{collectionId}/items/{mFeatureId}/tproperties:
+    get:
+      operationId: retrieveTemporalProperties
+      summary: Retrieve a set of the temporal property data
+      description: "A user can retrieve the static information of the temporal property data that included a single moving feature with id `mFeatureId`.\n\nThe static data of a temporal property is not included temporal values (property `valueSequence`).\n\nAlso a user can retrieve the sub sequence of the temporal information of the temporal property data for the specified time interval with `subTemporalValue` query parameter. \nIn this case, `temporalProperties` property schema SHALL follows the [TemporalProperties object](https://docs.ogc.org/is/19-045r3/19-045r3.html#tproperties) in the OGC MF-JSON.\n"
+      tags:
+      - TemporalProperty
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/mFeatureId'
+      - $ref: '#/components/parameters/datetime'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/subtemporalvalue'
+      responses:
+        '200':
+          $ref: '#/components/responses/TemporalProperties'
+        '400':
+          description: A query parameter was not validly used.
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      operationId: insertTemporalProperty
+      summary: Add temporal property data
+      description: 'A user SHOULD add new temporal property data into a moving feature with id `mFeatureId`.
+
+
+        The request body schema SHALL follows the [TemporalProperties object](https://docs.opengeospatial.org/is/19-045r3/19-045r3.html#tproperties) in the OGC MF-JSON.
+
+        '
+      tags:
+      - TemporalProperty
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/mFeatureId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/temporalProperties-mfjson'
+            example:
+            - datetimes:
+              - '2011-07-14T22:01:01.450Z'
+              - '2011-07-14T23:01:01.450Z'
+              - '2011-07-15T00:01:01.450Z'
+              length:
+                type: Measure
+                form: http://qudt.org/vocab/quantitykind/Length
+                values:
+                - 1
+                - 2.4
+                - 1
+                interpolation: Linear
+              discharge:
+                type: Measure
+                form: MQS
+                values:
+                - 3
+                - 4
+                - 5
+                interpolation: Step
+            - datetimes:
+              - '2011-07-14T22:01:01.450Z'
+              - '2011-07-14T23:01:01.450Z'
+              camera:
+                type: Image
+                values:
+                - http://www.opengis.net/spec/movingfeatures/json/1.0/prism/example/image1
+                - iVBORw0KGgoAAAANSUhEU......
+                interpolation: Discrete
+              labels:
+                type: Text
+                values:
+                - car
+                - human
+                interpolation: Discrete
+      responses:
+        '201':
+          description: 'Successful add more temporal property into a specified moving feature.
+
+            '
+          headers:
+            Locations:
+              description: A list of URI of the newly added resources
+              schema:
+                type: array
+                items:
+                  type: string
+                example:
+                - https://data.example.org/collections/mfc-1/items/mf-1/tproperties/length
+                - https://data.example.org/collections/mfc-1/items/mf-1/tproperties/discharge
+                - https://data.example.org/collections/mfc-1/items/mf-1/tproperties/camera
+                - https://data.example.org/collections/mfc-1/items/mf-1/tproperties/labels
+        '404':
+          description: '- A collection with the specified id was not found.
+
+            - Or a moving feature with the specified id was not found.
+
+            '
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /collections/{collectionId}/items/{mFeatureId}/tproperties/{tPropertyName}:
+    get:
+      operationId: retrieveTemporalProperty
+      summary: Retrieve a temporal property
+      description: 'A user can retrieve only the temporal values with a specified name `tPropertyName` of temporal property.
+
+        '
+      tags:
+      - TemporalProperty
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/mFeatureId'
+      - $ref: '#/components/parameters/tPropertyName'
+      - $ref: '#/components/parameters/datetime'
+      - $ref: '#/components/parameters/leaf'
+      - $ref: '#/components/parameters/subtemporalvalue'
+      responses:
+        '200':
+          $ref: '#/components/responses/TemporalProperty'
+        '400':
+          description: A query parameter was not validly used.
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      operationId: insertTemporalPrimitiveValue
+      summary: Add temporal primitive value data
+      description: 'A user SHOULD add more temporal primitive value data into a temporal property with id `tPropertyName`.
+
+        '
+      tags:
+      - TemporalProperty
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/mFeatureId'
+      - $ref: '#/components/parameters/tPropertyName'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/temporalPrimitiveValue'
+            example:
+              datetimes:
+              - '2011-07-15T08:00:00Z'
+              - '2011-07-15T08:00:01Z'
+              - '2011-07-15T08:00:02Z'
+              values:
+              - 0
+              - 20
+              - 50
+              interpolation: Linear
+      responses:
+        '201':
+          description: 'Successful add more temporal primitive value data into a specified temporal property.
+
+            '
+          headers:
+            Location:
+              description: A URI of the newly added resource
+              schema:
+                type: string
+                example: https://data.example.org/collections/mfc-1/items/mf-1/tproperties/tvalue/tpv-1
+        '404':
+          description: '- A collection with the specified id was not found.
+
+            - Or a moving feature with the specified id was not found.
+
+            - Or a temporal property with the specified id was not found.
+
+            '
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      operationId: deleteTemporalProperty
+      summary: Delete a specified temporal property
+      description: 'The temporal property with id `tPropertyName` SHOULD be deleted.
+
+        '
+      tags:
+      - TemporalProperty
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/mFeatureId'
+      - $ref: '#/components/parameters/tPropertyName'
+      responses:
+        '204':
+          description: Successfully deleted.
+        '404':
+          description: '- A collection with the specified id was not found.
+
+            - Or a moving feature with the specified id was not found.
+
+            - Or a temporal property with the specified id was not found.
+
+            '
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /collections/{collectionId}/items/{mFeatureId}/tproperties/{tPropertyName}/{tValueId}:
+    delete:
+      operationId: deleteTemporalPrimitiveValue
+      summary: Delete a singe temporal primitive value
+      description: 'The temporal primitive value with id `tValueId` SHOULD be deleted.
+
+        '
+      tags:
+      - TemporalProperty
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/mFeatureId'
+      - $ref: '#/components/parameters/tPropertyName'
+      - $ref: '#/components/parameters/tValueId'
+      responses:
+        '204':
+          description: Successfully deleted.
+        '404':
+          description: '- A collection with the specified id was not found.
+
+            - Or a moving feature with the specified id was not found.
+
+            - Or a temporal property with the specified id was not found.
+
+            - Or a temporal primitive primitive with the specified id was not found.
+
+            '
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  schemas:
+    exception:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+    temporalPrimitiveValue:
+      type: object
+      required:
+      - datetimes
+      - values
+      - interpolation
+      properties:
+        datetimes:
+          type: array
+          uniqueItems: true
+          minItems: 2
+          items:
+            type: string
+            format: date-time
+        values:
+          oneOf:
+          - type: number
+          - type: string
+          - type: boolean
+        interpolation:
+          type: string
+          enum:
+          - Discrete
+          - Step
+          - Linear
+          - Regression
+    temporalProperty:
+      type: object
+      required:
+      - name
+      - type
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - TBoolean
+          - TText
+          - TInteger
+          - TReal
+          - TImage
+        form:
+          oneOf:
+          - type: string
+            format: uri
+          - type: string
+            minLength: 3
+            maxLength: 3
+        valueSequence:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/temporalPrimitiveValue'
+        description:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    temporalProperties:
+      type: object
+      required:
+      - temporalProperties
+      properties:
+        temporalProperties:
+          oneOf:
+          - $ref: '#/components/schemas/temporalProperties-mfjson'
+          - type: array
+            items:
+              $ref: '#/components/schemas/temporalProperty'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        timeStamp:
+          type: string
+          format: date-time
+        numberMatched:
+          type: integer
+          minimum: 0
+        numberReturned:
+          type: integer
+          minimum: 0
+    link:
+      type: object
+      required:
+      - href
+      - rel
+      properties:
+        href:
+          type: string
+          example: http://data.example.com/buildings/123
+        rel:
+          type: string
+          example: alternate
+        type:
+          type: string
+          example: application/geo+json
+        hreflang:
+          type: string
+          example: en
+        title:
+          type: string
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
+    temporalProperties-mfjson:
+      description: MF-JSON Prism encoding TemporalProperties Object
+      title: MF-JSON TemporalProperties
+      type:
+      - array
+      - 'null'
+      items:
+        $ref: '#/components/schemas/parametricValues'
+    parametricValues:
+      description: MF-JSON Prism encoding ParametricValues Object
+      title: MF-JSON ParametricValues
+      type: object
+      required:
+      - datetimes
+      properties:
+        datetimes:
+          type: array
+          uniqueItems: true
+          minItems: 2
+          items:
+            type: string
+            format: date-time
+      additionalProperties:
+        oneOf:
+        - type: object
+          required:
+          - type
+          - values
+          properties:
+            type:
+              type: string
+              enum:
+              - Measure
+            values:
+              type:
+              - array
+              - 'null'
+              items:
+                type: number
+            interpolation:
+              oneOf:
+              - type: string
+                enum:
+                - Discrete
+                - Step
+                - Linear
+                - Regression
+                default: Linear
+              - type: string
+                format: uri
+            description:
+              type: string
+            form:
+              oneOf:
+              - type: string
+                minLength: 3
+                maxLength: 3
+              - type: string
+                format: uri
+        - type: object
+          required:
+          - type
+          - values
+          properties:
+            type:
+              type: string
+              enum:
+              - Text
+            values:
+              type:
+              - array
+              - 'null'
+              items:
+                oneOf:
+                - type: string
+                - type: boolean
+            interpolation:
+              oneOf:
+              - type: string
+                enum:
+                - Discrete
+                - Step
+                - Linear
+                - Regression
+                default: Linear
+              - type: string
+                format: uri
+            description:
+              type: string
+        - type: object
+          required:
+          - type
+          - values
+          properties:
+            type:
+              type: string
+              enum:
+              - Image
+            values:
+              type:
+              - array
+              - 'null'
+              items:
+                type: string
+            interpolation:
+              oneOf:
+              - type: string
+                enum:
+                - Discrete
+                - Step
+                - Linear
+                - Regression
+                default: Linear
+              - type: string
+                format: uri
+            description:
+              type: string
+  parameters:
+    tValueId:
+      name: tValueId
+      in: path
+      description: local identifier of a temporal primitive value
+      required: true
+      schema:
+        type: string
+    tPropertyName:
+      name: tPropertyName
+      in: path
+      description: local identifier of a temporal property
+      required: true
+      schema:
+        type: string
+    datetime:
+      name: datetime
+      in: query
+      description: "Either a date-time or an interval. Date and time expressions adhere to RFC 3339. \nIntervals may be bounded or half-bounded (double-dots at start or end).\n\nExamples:\n\n* A date-time: \"2018-02-12T23:20:50Z\"\n* A bounded interval: \"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z\"\n* Half-bounded intervals: \"2018-02-12T00:00:00Z/..\" or \"../2018-03-18T12:31:12Z\"\n\nOnly features that have temporal information that intersects the value of `datetime` are selected.\n\nIf a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties."
+      required: true
+      schema:
+        type: string
+      style: form
+      explode: false
+    leaf:
+      name: leaf
+      in: query
+      required: false
+      description: "The `leaf` is provided as a sequence of monotonic increasing instants with date-time strings.\nOnly features that have a temporal geometry and property that intersects the given date-time are selected.\n\nThe `leaf` operation implements *_pointAtTime_* operation which defined in the OGC Moving Feature Access.\nThis operation returns only temporal geometry coordinates (or temporal property values) \nat each date-time included in the `leaf` parameter, using interpolated trajectory according to the `interpolation` property.\n\nIf the `leaf` parameter is provided with a `bbox` or (and) a `datetime` parameter, \nit will only apply to resources that intersect with a `bbox` or (and) a `datetime` parameter. \n\nThe `leaf` parameter shall not be used with the `subTrajectory` and `subTemporalValue` parameter. \nOnly one of those parameters can be used in the HTTP GET operation."
+      schema:
+        type: array
+        uniqueItems: true
+        minItems: 1
+        items:
+          type: string
+          format: date-time
+      style: form
+      explode: false
+    mFeatureId:
+      name: mFeatureId
+      in: path
+      description: local identifier of a moving feature
+      required: true
+      schema:
+        type: string
+    subtemporalvalue:
+      name: subTemporalValue
+      in: query
+      required: false
+      description: "The `subTemporalValue` parameter is a boolean value used with the `datetime` parameter.\nIf the `subTemporalValue` is \"true\", \n\n* the `datetime` must be a bounded interval, not half-bounded intervals or a date-time. \n* the `datetime` represents a specified time interval (new start time and new end time)\n* only features with a temporal property intersecting the given time interval will return.\n* it returns only the subsequence of temporal property value within a time interval contained in the `subTemporalValue` parameter, using an interpolated time-to-value curve of temporal property according to the `interpolation` property.\n\nThe `subTemporalValue` parameter must not be used with the `leaf` parameter. \nOnly one of these parameters can be used in the HTTP GET operation."
+      schema:
+        type: boolean
+      style: form
+      explode: false
+    collectionId:
+      name: collectionId
+      in: path
+      description: local identifier of a collection
+      required: true
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: 'The optional limit parameter limits the number of items that are presented in the response document.
+
+
+        Only items are counted that are on the first level of the collection in the response document.
+
+        Nested objects contained within the explicitly requested items shall not be counted.
+
+
+        Minimum = 1. Maximum = 10000. Default = 10.'
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 10000
+        default: 10
+      style: form
+      explode: false
+  responses:
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+          example:
+            code: '500'
+            description: Server Internal Error
+    TemporalProperty:
+      description: A (subsequence of) the temporal property data.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/temporalProperty'
+          example:
+            name: speed
+            type: TReal
+            form: KMH
+            valueSequence:
+            - datetimes:
+              - '2011-07-15T08:00:00Z'
+              - '2011-07-15T08:00:01Z'
+              - '2011-07-15T08:00:02Z'
+              values:
+              - 0
+              - 20
+              - 50
+              interpolation: Linear
+    TemporalProperties:
+      description: A list of static (or temporal) data of TemporalProperty.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/temporalProperties'
+          example:
+            temporalProperties:
+            - datetimes:
+              - '2011-07-14T22:01:06.000Z'
+              - '2011-07-14T22:01:07.000Z'
+              - '2011-07-14T22:01:08.000Z'
+              length:
+                type: Measure
+                form: http://qudt.org/vocab/quantitykind/Length
+                values:
+                - 1
+                - 2.4
+                - 1
+                interpolation: Linear
+              speed:
+                type: Measure
+                form: KMH
+                values:
+                - 65
+                - 70
+                - 80
+                interpolation: Linear
+            links:
+            - href: https://data.example.org/collections/mfc-1/items/mf-1/tproperties
+              rel: self
+              type: application/json
+            - href: https://data.example.org/collections/mfc-1/items/mf-1/tproperties&offset=2&limit=2
+              rel: next
+              type: application/json
+            timeStamp: '2021-09-01T12:00:00Z'
+            numberMatched: 10
+            numberReturned: 2
+x-refined-from:
+- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json
+- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml
+- ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml

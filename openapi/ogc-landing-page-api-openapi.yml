@@ -1,0 +1,320 @@
+openapi: 3.2.0
+info:
+  title: Ogc Landing Page API
+  version: '1.0'
+  contact:
+    name: Open Geospatial Consortium
+    email: info@ogc.org
+  license:
+    name: OGC License
+    url: http://www.opengeospatial.org/legal/
+  description: 'Operations tagged Landing Page across 3 of this provider''s published API definitions: ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json, ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json, ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json. Each path carries the servers of the definition it was published in.'
+servers:
+- description: Example OGC API - DGGS server
+  url: https://maps.gnosis.earth/ogcapi
+- description: Example OGC API - Tiles server
+  url: https://maps.ecere.com/ogcapi
+tags:
+- name: Landing Page
+paths:
+  /:
+    get:
+      tags:
+      - Landing Page
+      operationId: getLandingPage
+      summary: Retrieve the OGC API landing page for this service.
+      parameters:
+      - $ref: '#/components/parameters/f-metadata'
+      responses:
+        '200':
+          $ref: '#/components/responses/LandingPage'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    servers:
+    - description: Example OGC API - DGGS server
+      url: https://maps.gnosis.earth/ogcapi
+components:
+  schemas:
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+    link:
+      type: object
+      required:
+      - href
+      - rel
+      properties:
+        href:
+          type: string
+          description: Supplies the URI to a remote resource (or resource fragment).
+          example: http://data.example.com/buildings/123
+        rel:
+          type: string
+          description: The type or semantics of the relation.
+          example: alternate
+        type:
+          type: string
+          description: A hint indicating what the media type of the result of dereferencing the link should be.
+          example: application/geo+json
+        hreflang:
+          type: string
+          description: A hint indicating what the language of the result of dereferencing the link should be.
+          example: en
+        title:
+          type: string
+          description: Used to label the destination of a link such that it can be used as a human-readable identifier.
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
+    landingPage:
+      type: object
+      required:
+      - links
+      properties:
+        title:
+          type: string
+          title: The title of the API.
+          description: While a title is not required, implementors are strongly advised to include one.
+          example: Buildings in Bonn
+        description:
+          type: string
+          example: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API Common specification.
+        attribution:
+          type: string
+          title: attribution for the API
+          description: The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    link_2:
+      type: object
+      required:
+      - href
+      - rel
+      properties:
+        href:
+          type: string
+          description: Supplies the URI to a remote resource (or resource fragment).
+          example: http://data.example.com/buildings/123
+        rel:
+          type: string
+          description: The type or semantics of the relation.
+          example: alternate
+        type:
+          type: string
+          description: A hint indicating what the media type of the result of dereferencing the link should be.
+          example: application/geo+json
+        templated:
+          type: boolean
+          description: This flag set to true if the link is a URL template.
+        varBase:
+          description: A base path to retrieve semantic information about the variables used in URL template.
+          type: string
+          example: /ogcapi/vars/
+        hreflang:
+          type: string
+          description: A hint indicating what the language of the result of dereferencing the link should be.
+          example: en
+        title:
+          type: string
+          description: Used to label the destination of a link such that it can be used as a human-readable identifier.
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
+    link_3:
+      type: object
+      required:
+      - href
+      - rel
+      properties:
+        href:
+          type: string
+          description: Supplies the URI to a remote resource (or resource fragment).
+          example: http://data.example.com/buildings/123
+        rel:
+          type: string
+          description: The type or semantics of the relation.
+          example: alternate
+        type:
+          type: string
+          description: A hint indicating what the media type of the result of dereferencing the link should be.
+          example: application/geo+json
+        templated:
+          type: boolean
+          description: This flag set to true if the link is a URL template.
+        varBase:
+          description: A base path to retrieve semantic information about the variables used in URL template.
+          type: string
+          example: /ogcapi/vars/
+        hreflang:
+          type: string
+          description: A hint indicating what the language of the result of dereferencing the link should be.
+          example: en
+        title:
+          type: string
+          description: Used to label the destination of a link such that it can be used as a human-readable identifier.
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
+  responses:
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    LandingPage:
+      description: 'The landing page provides links to the API definition (link relation `service-desc`, in this case path `/api`),
+
+        to the Conformance declaration (path `/conformance`, link relation `conformance`), and to the Collections of geospatial data (path `/collections`, link relation `data`).'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/landingPage'
+          example:
+            title: Buildings in Bonn
+            description: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API - DGGS specification.
+            links:
+            - href: http://data.example.org/
+              rel: self
+              type: application/json
+              title: this document
+            - href: http://data.example.org/api
+              rel: service-desc
+              type: application/vnd.oai.openapi+json;version=3.0
+              title: the API definition
+            - href: http://data.example.org/api.html
+              rel: service-doc
+              type: text/html
+              title: the API documentation
+            - href: http://data.example.org/conformance
+              rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
+              type: application/json
+              title: OGC API conformance classes implemented by this service
+            - href: http://data.example.org/collections
+              rel: http://www.opengis.net/def/rel/ogc/1.0/data
+              type: application/json
+              title: Information about the collections
+            - href: http://data.example.org/dggs
+              rel: http://www.opengis.net/def/rel/ogc/1.0/dggs-list
+              type: application/json
+              title: List of DGGS implemented by this service
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    LandingPage_2:
+      description: 'The landing page provides links to the API definition (link relation `service-desc`, in this case path `/api`),
+
+        to the Conformance declaration (path `/conformance`, link relation `conformance`), and to the Collections of geospatial data (path `/collections`, link relation `data`).'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/landingPage'
+          example:
+            title: Buildings in Bonn
+            description: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API - Maps specification.
+            links:
+            - href: http://data.example.org/
+              rel: self
+              type: application/json
+              title: this document
+            - href: http://data.example.org/api
+              rel: service-desc
+              type: application/vnd.oai.openapi+json;version=3.0
+              title: the API definition
+            - href: http://data.example.org/api.html
+              rel: service-doc
+              type: text/html
+              title: the API documentation
+            - href: http://data.example.org/conformance
+              rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
+              type: application/json
+              title: OGC API conformance classes implemented by this service
+            - href: http://data.example.org/collections
+              rel: http://www.opengis.net/def/rel/ogc/1.0/data
+              type: application/json
+              title: Information about the collections
+        text/html:
+          schema:
+            type: string
+    LandingPage_3:
+      description: 'The landing page provides links to the API definition (link relation `service-desc`, in this case path `/api`),
+
+        to the Conformance declaration (path `/conformance`, link relation `conformance`), and to the Collections of geospatial data (path `/collections`, link relation `data`).'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/landingPage'
+          example:
+            title: Buildings in Bonn
+            description: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API Tiles specification.
+            links:
+            - href: http://data.example.org/
+              rel: self
+              type: application/json
+              title: this document
+            - href: http://data.example.org/api
+              rel: service-desc
+              type: application/vnd.oai.openapi+json;version=3.0
+              title: the API definition
+            - href: http://data.example.org/api.html
+              rel: service-doc
+              type: text/html
+              title: the API documentation
+            - href: http://data.example.org/conformance
+              rel: conformance
+              type: application/json
+              title: OGC API conformance classes implemented by this service
+            - href: http://data.example.org/collections
+              rel: data
+              type: application/json
+              title: Information about the collections
+        text/html:
+          schema:
+            type: string
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
+x-refined-from:
+- ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json
+- ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json
+- ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json

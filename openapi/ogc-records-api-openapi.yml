@@ -1,0 +1,1156 @@
+openapi: 3.2.0
+info:
+  title: Ogc Records API
+  version: 1.0.0
+  contact:
+    name: CubeWerx Inc.
+    email: pvretano@cubewerx.com
+    url: https://www.cubewerx.com
+  license:
+    name: CC-BY 4.0 license
+    url: https://creativecommons.org/licenses/by/4.0/
+  description: 'Operations tagged Records across 3 of this provider''s published API definitions: ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-buildingblocks-bundle.yaml, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://example.org/data
+  description: Production server
+- url: https://example.org/data-dev
+  description: Development server
+security:
+- openIdConnect: []
+tags:
+- name: Records
+  description: access to records
+paths:
+  /collections/{catalogId}/items:
+    get:
+      tags:
+      - Records
+      summary: fetch records
+      description: 'Fetch records from the record collection with id `catalogId`.
+
+
+        Every record in a dataset belongs to a collection. A dataset may
+
+        consist of multiple record collections. A record collection is often a
+
+        collection of records of a similar type, based on a common schema.
+
+
+        Use content negotiation to request HTML or GeoJSON.'
+      operationId: getRecords
+      parameters:
+      - $ref: '#/components/parameters/catalogId'
+      - $ref: '#/components/parameters/bbox'
+      - $ref: '#/components/parameters/datetime'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/q'
+      - $ref: '#/components/parameters/type'
+      - $ref: '#/components/parameters/externalIds'
+      - $ref: '#/components/parameters/ids'
+      - $ref: '#/components/parameters/sortby'
+      - $ref: '#/components/parameters/language'
+      - $ref: '#/components/parameters/profile'
+      responses:
+        '200':
+          $ref: '#/components/responses/Records'
+        4XX:
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        5XX:
+          $ref: '#/components/responses/ServerError'
+    servers:
+    - url: https://example.org/data
+      description: Production server
+    - url: https://example.org/data-dev
+      description: Development server
+components:
+  parameters:
+    sortby:
+      name: sortby
+      in: query
+      description: 'Specifies a comma-separated list of property names by which the
+
+        response shall be sorted.  If the property name is preceded by a
+
+        plus (+) sign it indicates an ascending sort for that property.
+
+        If the property name is preceded by a minus (-) sign it indicates a
+
+        descending sort for that property.  If the property is not preceded
+
+        by a plus or minus, then the default sort order implied is
+
+        ascending (+).'
+      required: false
+      schema:
+        type: array
+        minItems: 1
+        items:
+          type: string
+          pattern: '[+|-]?[A-Za-z_].*'
+      explode: false
+      style: form
+    language:
+      name: language
+      in: query
+      description: 'Optional way to query for specific languages for environments that can''t
+
+        send HTTP headers in a simple way (e.g. a Web Browser).
+
+        The parameter accepts a comma-separated list of language identifiers,
+
+        optionally with priority per language.
+
+        This parameter value follows the specification of the `Accept-Language`
+
+        HTTP header.'
+      schema:
+        type: array
+        items:
+          type: string
+          description: 'The language tag as per RFC 5646, with optional priority parameter
+
+            `q` (0 - 1).'
+          pattern: ^((?:(en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))|((?:([A-Za-z]{2,3}(-(?:[A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-(?:[A-Za-z]{4}))?(-(?:[A-Za-z]{2}|[0-9]{3}))?(-(?:[A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-(?:[0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(?:x(-[A-Za-z0-9]{1,8})+))?)|(?:x(-[A-Za-z0-9]{1,8})+))(?:;q=(?:1|1\.0+|0|0\.[0-9]+))?$
+      explode: false
+      style: form
+    datetime:
+      description: "Imported from OGC API - Features - Part 1: Core\nSee: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/datetime.yaml\n\nEither a date-time or an interval. Date and time expressions adhere to\nRFC 3339.  Intervals may be bounded or half-bounded (double-dots at\nstart or end).\n\nExamples:\n\n* A date-time: \"2018-02-12T23:20:50Z\"\n* A bounded interval: \"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z\"\n* Half-bounded intervals: \"2018-02-12T00:00:00Z/..\" or\n  \"../2018-03-18T12:31:12Z\"\n\nOnly features that have a temporal property that intersects the value\nof `datetime` are selected.\n\nIf a feature has multiple temporal properties, it is the decision of the\nserver whether only a single temporal property is used to determine\nthe extent or all relevant temporal properties."
+      name: datetime
+      in: query
+      required: false
+      schema:
+        type: string
+      style: form
+      explode: false
+    ids:
+      name: ids
+      in: query
+      description: The optional ids parameter allows a specific list of records, identified by their identifiers, to be fetched from a catalog.  Only records whose identifier matches one of the values listed for this parameter shall appear in the response.
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
+    externalIds:
+      name: externalIds
+      in: query
+      description: 'The optional externalIds parameter allows a specific list of records,
+
+        identified by their external identifiers, to be fetched from a catalog.
+
+        Only records where one of their associated external identifiers equals
+
+        one of the values listed for this parameter shall appear in the
+
+        response.'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          pattern: ([^:]+:)?[^:]+
+      explode: false
+      style: form
+    q:
+      name: q
+      in: query
+      description: 'The optional q parameter supports keyword searching.  Only records
+
+        whose text fields contain one or more of the specified search terms
+
+        are selected.  The specific set of text keys/fields/properties of a
+
+        record to which the q operator is applied is up to the discretion
+
+        of the server.   Implementations should, however, apply the q
+
+        operator to the title, description and keywords keys/fields/properties.'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
+    profile:
+      name: profile
+      in: query
+      description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
+    type:
+      name: type
+      in: query
+      description: 'The optional type parameter allows a specific list of records,
+
+        identified by their resource type, to be fetched from a catalog.
+
+        Only records whose resource type matches one of the values listed
+
+        for this parameter shall appear in the response.'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
+    catalogId:
+      name: catalogId
+      in: path
+      description: local identifier of a catalog
+      required: true
+      schema:
+        type: string
+    bbox:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/bbox.yaml''
+
+
+        Only features that have a geometry that intersects the bounding box are
+
+        selected.  The bounding box is provided as four or six numbers,
+
+        depending on whether the coordinate reference system includes a
+
+        vertical axis (height or depth):
+
+
+        * Lower left corner, coordinate axis 1
+
+        * Lower left corner, coordinate axis 2
+
+        * Minimum value, coordinate axis 3 (optional)
+
+        * Upper right corner, coordinate axis 1
+
+        * Upper right corner, coordinate axis 2
+
+        * Maximum value, coordinate axis 3 (optional)
+
+
+        If the value consists of four numbers, the coordinate reference system
+
+        is WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/
+
+        CRS84) unless a different coordinate reference system is specified in
+
+        the parameter `bbox-crs`.
+
+
+        If the value consists of six numbers, the coordinate reference system
+
+        is WGS 84 longitude/latitude/ellipsoidal height (http://www.opengis.
+
+        net/def/crs/OGC/0/CRS84h) unless a different coordinate reference
+
+        system is specified in the parameter `bbox-crs`.
+
+
+        The query parameter `bbox-crs` is specified in
+
+        OGC API - Features - Part 2: Coordinate Reference Systems by Reference.
+
+
+        For WGS 84 longitude/latitude the values are in most cases the sequence
+
+        of minimum longitude, minimum latitude, maximum longitude and maximum
+
+        latitude.  However, in cases where the box spans the antimeridian the
+
+        first value (west-most box edge) is larger than the third value
+
+        (east-most box edge).
+
+
+        If the vertical axis is included, the third and the sixth number are the
+
+        bottom and the top of the 3-dimensional bounding box.
+
+
+        If a feature has multiple spatial geometry properties, it is the
+
+        decision of the server whether only a single spatial geometry property
+
+        is used to determine the extent or all relevant geometries.'
+      name: bbox
+      in: query
+      required: false
+      schema:
+        type: array
+        oneOf:
+        - minItems: 4
+          maxItems: 4
+        - minItems: 6
+          maxItems: 6
+        items:
+          type: number
+      style: form
+      explode: false
+    limit:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/limit.yaml
+
+
+        The optional limit parameter limits the number of items that are
+
+        presented in the response document.
+
+
+        Only items are counted that are on the first level of the collection
+
+        in the response document.
+
+        Nested objects contained within the explicitly requested items shall
+
+        not be counted.
+
+
+        Minimum = 1. Maximum = 10000. Default = 10.'
+      name: limit
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 10000
+        default: 10
+      style: form
+      explode: false
+  schemas:
+    multipolygonGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/multipolygonGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - MultiPolygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              minItems: 4
+              items:
+                type: array
+                minItems: 2
+                items:
+                  type: number
+    featureCollectionGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/featureGeoJSON'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        timeStamp:
+          type: string
+          format: date-time
+        numberMatched:
+          type: integer
+          minimum: 0
+        numberReturned:
+          type: integer
+          minimum: 0
+    multilinestringGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/multilinestringGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - MultiLineString
+        coordinates:
+          type: array
+          items:
+            type: array
+            minItems: 2
+            items:
+              type: array
+              minItems: 2
+              items:
+                type: number
+    linkBase:
+      type: object
+      properties:
+        rel:
+          type: string
+          description: The type or semantics of the relation.
+        type:
+          type: string
+          description: 'A hint indicating what the media type of the
+
+            result of dereferencing the link should be.'
+        hreflang:
+          type: string
+          description: 'A hint indicating what the language of the
+
+            result of dereferencing the link should be.'
+        title:
+          type: string
+          description: 'Used to label the destination of a link
+
+            such that it can be used as a human-readable
+
+            identifier.'
+        length:
+          type: integer
+        profile:
+          type: array
+          description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
+          items:
+            type: string
+        created:
+          type: string
+          description: 'Date of creation of the resource pointed to
+
+            by the link.'
+          format: date-time
+        updated:
+          type: string
+          description: 'Most recent date on which the resource pointed
+
+            to by the link was changed.'
+          format: date-time
+    geometryGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml'
+      oneOf:
+      - $ref: '#/components/schemas/pointGeoJSON'
+      - $ref: '#/components/schemas/multipointGeoJSON'
+      - $ref: '#/components/schemas/linestringGeoJSON'
+      - $ref: '#/components/schemas/multilinestringGeoJSON'
+      - $ref: '#/components/schemas/polygonGeoJSON'
+      - $ref: '#/components/schemas/multipolygonGeoJSON'
+      - $ref: '#/components/schemas/geometrycollectionGeoJSON'
+    multipointGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/multipointGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - MultiPoint
+        coordinates:
+          type: array
+          items:
+            type: array
+            minItems: 2
+            items:
+              type: number
+    linestringGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/linestringGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - LineString
+        coordinates:
+          type: array
+          minItems: 2
+          items:
+            type: array
+            minItems: 2
+            items:
+              type: number
+    pointGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/pointGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - Point
+        coordinates:
+          type: array
+          minItems: 2
+          items:
+            type: number
+    roles:
+      description: 'The list of duties, job functions or permissions assigned by the system
+
+        and associated with the context of this member.'
+      type: array
+      minItems: 1
+      items:
+        type: string
+    linkTemplate:
+      allOf:
+      - $ref: '#/components/schemas/linkBase'
+      - type: object
+        required:
+        - uriTemplate
+        properties:
+          uriTemplate:
+            type: string
+            description: 'Supplies a resolvable URI to a remote resource
+
+              (or resource fragment).'
+          varBase:
+            type: string
+            description: 'The base URI to which the variable name can be
+
+              appended to retrieve the definition of the
+
+              variable as a JSON Schema fragment.'
+            format: uri-reference
+          variables:
+            type: object
+            description: 'This object contains one key per substitution
+
+              variable in the templated URL.  Each key defines
+
+              the schema of one substitution variable using a
+
+              JSON Schema fragment and can thus include things
+
+              like the data type of the variable, enumerations,
+
+              minimum values, maximum values, etc.'
+    recordCollectionGeoJSON:
+      allOf:
+      - $ref: '#/components/schemas/featureCollectionGeoJSON'
+      - type: object
+        properties:
+          features:
+            type: array
+            items:
+              $ref: '#/components/schemas/recordGeoJSON'
+          linkTemplates:
+            type: array
+            items:
+              $ref: '#/components/schemas/linkTemplate'
+    language:
+      type: object
+      description: The language used for textual values in this record.
+      required:
+      - code
+      properties:
+        code:
+          type: string
+          description: The language tag as per RFC-5646.
+        name:
+          type: string
+          minLength: 1
+          description: The untranslated name of the language.
+        alternate:
+          type: string
+          description: 'The name of the language in another well-understood language,
+
+            usually English.'
+        dir:
+          type: string
+          description: 'The direction for text in this language. The default, `ltr`
+
+            (left-to-right), represents the most common situation.
+
+            However, care should be taken to set the value of `dir`
+
+            appropriately if the language direction is not `ltr`.
+
+            Other values supported are `rtl` (right-to-left), `ttb`
+
+            (top-to-bottom), and `btt` (bottom-to-top).'
+          enum:
+          - ltr
+          - rtl
+          - ttb
+          - btt
+          default: ltr
+    license:
+      type: string
+      description: 'A legal document under which the resource is made available.
+
+        If the resource is being made available under a common license
+
+        then use an SPDX license id (https://spdx.org/licenses/).
+
+        If the resource is being made available under multiple common
+
+        licenses then use an SPDX license expression v2.3 string
+
+        (https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/)
+
+        If the resource is being made available under one or more licenses
+
+        that haven''t been assigned an SPDX identifier or one or more custom
+
+        licenses then use a string value of ''other'' and include one or more
+
+        links (rel="license") in the `link` section of the record to the
+
+        file(s) that contains the text of the license(s).
+
+        There is also the case of a resource that is private or unpublished
+
+        and is thus unlicensed; in this case do not register such a resource
+
+        in the catalog in the first place since there is no point in making
+
+        such a resource discoverable.'
+    exception:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+    featureGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - geometry
+      - properties
+      properties:
+        type:
+          type: string
+          enum:
+          - Feature
+        geometry:
+          $ref: '#/components/schemas/geometryGeoJSON'
+        properties:
+          type:
+          - object
+          - 'null'
+        id:
+          oneOf:
+          - type: string
+          - type: integer
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    geometrycollectionGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometrycollectionGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - geometries
+      properties:
+        type:
+          type: string
+          enum:
+          - GeometryCollection
+        geometries:
+          type: array
+          items:
+            $ref: '#/components/schemas/geometryGeoJSON'
+    link:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/linkBase'
+      - type: object
+        required:
+        - href
+        properties:
+          href:
+            type: string
+            format: uri
+    contact:
+      type: object
+      description: 'Identification of, and means of communication with, person responsible
+
+        for the resource.'
+      anyOf:
+      - required:
+        - name
+      - required:
+        - organization
+      properties:
+        identifier:
+          type: string
+          description: A value uniquely identifying a contact.
+        name:
+          type: string
+          description: The name of the responsible person.
+        position:
+          type: string
+          description: 'The name of the role or position of the responsible person taken
+
+            from the organization''s formal organizational hierarchy or chart.'
+        organization:
+          type: string
+          description: Organization/affiliation of the contact.
+        logo:
+          description: 'Graphic identifying a contact. The link relation should be `icon`
+
+            and the media type should be an image media type.'
+          allOf:
+          - $ref: '#/components/schemas/link'
+          - type: object
+            required:
+            - rel
+            - type
+            properties:
+              rel:
+                enum:
+                - icon
+        phones:
+          type: array
+          description: Telephone numbers at which contact can be made.
+          items:
+            type: object
+            required:
+            - value
+            properties:
+              value:
+                type: string
+                description: The value is the phone number itself.
+                pattern: ^\+[1-9]{1}[0-9]{3,14}$
+              roles:
+                $ref: '#/components/schemas/roles'
+        emails:
+          type: array
+          description: Email addresses at which contact can be made.
+          items:
+            type: object
+            required:
+            - value
+            properties:
+              value:
+                type: string
+                description: The value is the email number itself.
+                format: email
+              roles:
+                $ref: '#/components/schemas/roles'
+        addresses:
+          type: array
+          description: Physical location at which contact can be made.
+          items:
+            type: object
+            properties:
+              deliveryPoint:
+                type: array
+                description: Address lines for the location.
+                items:
+                  type: string
+              city:
+                type: string
+                description: City for the location.
+              administrativeArea:
+                type: string
+                description: State or province of the location.
+              postalCode:
+                type: string
+                description: ZIP or other postal code.
+              country:
+                type: string
+                description: Country of the physical address.  ISO 3166-1 is recommended.
+              roles:
+                $ref: '#/components/schemas/roles'
+        links:
+          type: array
+          description: On-line information about the contact.
+          items:
+            allOf:
+            - $ref: '#/components/schemas/link'
+            - type: object
+              required:
+              - type
+        hoursOfService:
+          type: string
+          description: Time period when the contact can be contacted.
+        contactInstructions:
+          type: string
+          description: 'Supplemental instructions on how or when to contact the
+
+            responsible party.'
+        roles:
+          $ref: '#/components/schemas/roles'
+    recordCommonProperties:
+      type: object
+      properties:
+        created:
+          type: string
+          description: The date this record was created in the server.
+          format: date-time
+        updated:
+          type: string
+          description: The most recent date on which the record was changed.
+          format: date-time
+        type:
+          type: string
+          description: 'The nature or genre of the resource. The value
+
+            should be a code, convenient for filtering
+
+            records. Where available, a link to the canonical
+
+            URI of the record type resource will be added to
+
+            the ''links'' property.'
+        title:
+          type: string
+          description: A human-readable name given to the resource.
+        description:
+          type: string
+          description: A free-text account of the resource.
+        keywords:
+          type: array
+          description: 'The topic or topics of the resource. Typically
+
+            represented using free-form keywords, tags, key
+
+            phrases, or classification codes.'
+          items:
+            type: string
+        themes:
+          type: array
+          description: 'A knowledge organization system used to classify
+
+            the resource.'
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/theme'
+        language:
+          $ref: '#/components/schemas/language'
+        languages:
+          type: array
+          description: 'This list of languages in which this record is
+
+            available.'
+          items:
+            $ref: '#/components/schemas/language'
+        resourceLanguages:
+          type: array
+          description: 'The list of languages in which the resource
+
+            described by this record is available.'
+          items:
+            $ref: '#/components/schemas/language'
+        externalIds:
+          type: array
+          description: 'An identifier for the resource assigned by an
+
+            external (to the catalog) entity.'
+          items:
+            type: object
+            properties:
+              scheme:
+                type: string
+                description: 'A reference to an authority or identifier
+
+                  for a knowledge organization system from
+
+                  which the external identifier was obtained.
+
+                  It is recommended that the identifier be a
+
+                  resolvable URI.'
+              value:
+                type: string
+                description: The value of the identifier.
+            required:
+            - value
+        formats:
+          type: array
+          description: A list of available distributions of the resource.
+          items:
+            $ref: '#/components/schemas/format'
+        contacts:
+          type: array
+          description: 'A list of contacts qualified by their role(s) in
+
+            association to the record or the resource described
+
+            by the record.'
+          items:
+            $ref: '#/components/schemas/contact'
+        license:
+          $ref: '#/components/schemas/license'
+        rights:
+          type: string
+          description: 'A statement that concerns all rights not addressed
+
+            by the license such as a copyright statement.'
+    polygonGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - Polygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            minItems: 4
+            items:
+              type: array
+              minItems: 2
+              items:
+                type: number
+    recordGeoJSON:
+      type: object
+      required:
+      - id
+      - type
+      - geometry
+      - properties
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: integer
+          description: A unique identifier of the catalog record.
+        type:
+          type: string
+          enum:
+          - Feature
+        time:
+          oneOf:
+          - type:
+            - object
+            - 'null'
+          - $ref: '#/components/schemas/time'
+        geometry:
+          oneOf:
+          - type:
+            - object
+            - 'null'
+          - $ref: '#/components/schemas/geometryGeoJSON'
+        conformsTo:
+          type: array
+          description: The extensions/conformance classes used in this record.
+          items:
+            type: string
+        properties:
+          oneOf:
+          - type:
+            - object
+            - 'null'
+          - allOf:
+            - type: object
+            - $ref: '#/components/schemas/recordCommonProperties'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        linkTemplates:
+          type: array
+          items:
+            $ref: '#/components/schemas/linkTemplate'
+    format:
+      type: object
+      anyOf:
+      - required:
+        - name
+      - required:
+        - mediaType
+      properties:
+        name:
+          type: string
+        mediaType:
+          type: string
+    time:
+      type: object
+      properties:
+        date:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        timestamp:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$
+        interval:
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            oneOf:
+            - type: string
+              pattern: ^\d{4}-\d{2}-\d{2}$
+            - type: string
+              pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$
+            - type: string
+              enum:
+              - ..
+        resolution:
+          type: string
+          description: 'Minimum time period resolvable in the dataset, as an ISO 8601
+
+            duration'
+    theme:
+      type: object
+      required:
+      - concepts
+      - scheme
+      properties:
+        concepts:
+          type: array
+          description: 'One or more entity/concept identifiers from this knowledge
+
+            system. it is recommended that a resolvable URI be used for
+
+            each entity/concept identifier.'
+          minItems: 1
+          items:
+            type: object
+            required:
+            - id
+            properties:
+              id:
+                type: string
+                description: An identifier for the concept.
+              title:
+                type: string
+                description: A human readable title for the concept.
+              description:
+                type: string
+                description: A human readable description for the concept.
+              url:
+                type: string
+                format: uri
+                description: A URI providing further description of the concept.
+        scheme:
+          type: string
+          description: 'An identifier for the knowledge organization system used
+
+            to classify the resource.  It is recommended that the
+
+            identifier be a resolvable URI.  The list of schemes used
+
+            in a searchable catalog can be determined by inspecting
+
+            the server''s OpenAPI document or, if the server implements
+
+            CQL2, by exposing a queryable (e.g. named `scheme`) and
+
+            enumerating the list of schemes in the queryable''s schema
+
+            definition.'
+  responses:
+    NotFound:
+      description: 'The requested resource does not exist on the server. For example,
+
+        a path parameter had an incorrect value.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description: 'Content negotiation failed. For example, the `Accept` header submitted
+
+        in the request did not support any of the media types supported by the
+
+        server for the requested resource.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    BadRequest:
+      description: A client error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    Records:
+      description: 'The response is a document consisting of records in the collection. The records included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloading the client, the API supports paged access with links to the next page, if more records are selected that the page size.
+
+        The `bbox` and `datetime` parameter can be used to select only a subset of the records in the collection (the records that are in the bounding box or time interval). The `bbox` parameter matches all records in the collection that are not associated with a location, too. The `datetime` parameter matches all records in the collection that are not associated with a time stamp or interval, too.
+
+        The `limit` parameter may be used to control the subset of the selected records that should be returned in the response, the page size. Each page may include information about the number of selected and returned records (`numberMatched` and `numberReturned`) as well as links to support paging (link relation `next`).'
+      content:
+        application/geo+json:
+          schema:
+            $ref: '#/components/schemas/recordCollectionGeoJSON'
+        text/html:
+          schema:
+            type: string
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://accounts.google.com/.well-known/openid-configuration
+x-refined-from:
+- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml
+- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-buildingblocks-bundle.yaml
+- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml

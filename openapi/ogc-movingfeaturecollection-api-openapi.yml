@@ -1,0 +1,442 @@
+openapi: 3.2.0
+info:
+  title: Ogc Moving Feature Collection API
+  version: 1.0.0
+  contact:
+    name: Open Geospatial Consortium
+    email: info@ogc.org
+  license:
+    name: OGC License
+    url: https://www.ogc.org/legal/
+  x-logo:
+    url: https://www.ogc.org/pub/www/files/OGC_Logo_2D_Blue_x_0_0.png
+  description: 'Operations tagged MovingFeatureCollection across 3 of this provider''s published API definitions: ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json, ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml, ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml. Each path carries the servers of the definition it was published in.'
+tags:
+- name: MovingFeatureCollection
+  description: Collections of moving features to be logically managed by a user.
+paths:
+  /collections:
+    post:
+      operationId: registerMetadata
+      summary: Register metadata about a collection of moving features
+      description: 'A user SHOULD register metadata about a collection of moving features into the system.
+
+        '
+      tags:
+      - MovingFeatureCollection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/collection-body'
+            example:
+              title: moving_feature_collection_sample
+              updateFrequency: 1000
+              description: example
+              itemType: movingfeature
+      responses:
+        '201':
+          description: Successful create a collection to manage moving features.
+          headers:
+            Location:
+              description: A URI of the newly added resource
+              schema:
+                type: string
+                example: https://data.example.org/collections/mfc-1
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /collections/{collectionId}:
+    get:
+      operationId: accessMetadata
+      summary: Access metadata about the collection
+      description: 'A user can access metadata with id `collectionId`.
+
+        '
+      tags:
+      - MovingFeatureCollection
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+        '404':
+          description: A collection with the specified id was not found.
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      operationId: deleteCollection
+      summary: Delete the collection
+      description: 'The collection catalog with id `collectionId` and including metadata and moving features SHOULD be deleted.
+
+        '
+      tags:
+      - MovingFeatureCollection
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      responses:
+        '204':
+          description: Successfully deleted.
+        '404':
+          description: A collection with the specified name was not found.
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      operationId: replaceMetadata
+      summary: Replace metadata about the collection
+      description: "A user SHOULD replace metadata with id `collectionId`.\n\nThe request body schema is the same the POST's one. \n\nHowever, `updateFrequency` property is NOT updated.\n"
+      tags:
+      - MovingFeatureCollection
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/collection-body'
+            example:
+              title: moving_feature_collection_sample
+              updateFrequency: 1000
+              description: example
+              itemType: movingfeature
+      responses:
+        '204':
+          description: Successfully replaced.
+        '404':
+          description: A collection with the specified name was not found.
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  schemas:
+    collection:
+      type: object
+      required:
+      - id
+      - links
+      - itemType
+      properties:
+        id:
+          description: identifier of the collection used, for example, in URIs
+          type: string
+          example: address
+        title:
+          description: human readable title of the collection
+          type: string
+          example: address
+        description:
+          description: a description of the features in the collection
+          type: string
+          example: An address.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+          example:
+          - href: https://data.example.com/buildings
+            rel: item
+          - href: https://example.com/concepts/buildings.html
+            rel: describedby
+            type: text/html
+        extent:
+          $ref: '#/components/schemas/extent'
+        itemType:
+          description: indicator about the type of the items in the collection
+          type: string
+          default: movingfeature
+        crs:
+          description: the list of coordinate reference systems supported by the service
+          type: array
+          items:
+            type: string
+          default:
+          - https://www.opengis.net/def/crs/OGC/1.3/CRS84
+          example:
+          - https://www.opengis.net/def/crs/OGC/1.3/CRS84
+          - https://www.opengis.net/def/crs/EPSG/0/4326
+        updateFrequency:
+          description: a time interval of sampling location. The unit is millisecond.
+          type: number
+    exception:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+    extent:
+      description: 'The extent of the features in the collection. In the Core only spatial and temporal
+
+        extents are specified. Extensions may add additional members to represent other
+
+        extents, for example, thermal or pressure ranges.
+
+
+        An array of extents is provided for each extent type (spatial, temporal). The first item
+
+        in the array describes the overall extent of the data. All subsequent items describe more
+
+        precise extents, e.g., to identify clusters of data. Clients only interested in the
+
+        overall extent will only need to access the first extent in the array.'
+      type: object
+      properties:
+        spatial:
+          description: The spatial extent of the features in the collection.
+          type: object
+          properties:
+            bbox:
+              description: 'One or more bounding boxes that describe the spatial extent of the dataset.
+
+                In the Core only a single bounding box is supported.
+
+
+                Extensions may support additional areas.
+
+                The first bounding box describes the overall spatial
+
+                extent of the data. All subsequent bounding boxes describe
+
+                more precise bounding boxes, e.g., to identify clusters of data.
+
+                Clients only interested in the overall spatial extent will
+
+                only need to access the first bounding box in the array.'
+              type: array
+              minItems: 1
+              items:
+                description: 'Each bounding box is provided as four or six numbers, depending on
+
+                  whether the coordinate reference system includes a vertical axis
+
+                  (height or depth):
+
+
+                  * Lower left corner, coordinate axis 1
+
+                  * Lower left corner, coordinate axis 2
+
+                  * Minimum value, coordinate axis 3 (optional)
+
+                  * Upper right corner, coordinate axis 1
+
+                  * Upper right corner, coordinate axis 2
+
+                  * Maximum value, coordinate axis 3 (optional)
+
+
+                  If the value consists of four numbers, the coordinate reference system is
+
+                  WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
+
+                  unless a different coordinate reference system is specified in `crs`.
+
+
+                  If the value consists of six numbers, the coordinate reference system is WGS 84
+
+                  longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h)
+
+                  unless a different coordinate reference system is specified in `crs`.
+
+
+                  For WGS 84 longitude/latitude the values are in most cases the sequence of
+
+                  minimum longitude, minimum latitude, maximum longitude and maximum latitude.
+
+                  However, in cases where the box spans the antimeridian the first value
+
+                  (west-most box edge) is larger than the third value (east-most box edge).
+
+
+                  If the vertical axis is included, the third and the sixth number are
+
+                  the bottom and the top of the 3-dimensional bounding box.
+
+
+                  If a feature has multiple spatial geometry properties, it is the decision of the
+
+                  server whether only a single spatial geometry property is used to determine
+
+                  the extent or all relevant geometries.'
+                type: array
+                oneOf:
+                - minItems: 4
+                  maxItems: 4
+                - minItems: 6
+                  maxItems: 6
+                items:
+                  type: number
+                example:
+                - -180
+                - -90
+                - 180
+                - 90
+            crs:
+              description: 'Coordinate reference system of the coordinates in the spatial extent
+
+                (property `bbox`). The default reference system is WGS 84 longitude/latitude.
+
+                In the Core the only other supported coordinate reference system is
+
+                WGS 84 longitude/latitude/ellipsoidal height for coordinates with height.
+
+                Extensions may support additional coordinate reference systems and add
+
+                additional enum values.'
+              type: string
+              enum:
+              - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+              - http://www.opengis.net/def/crs/OGC/0/CRS84h
+              default: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+        temporal:
+          description: The temporal extent of the features in the collection.
+          type: object
+          properties:
+            interval:
+              description: 'One or more time intervals that describe the temporal extent of the dataset.
+
+                In the Core only a single time interval is supported.
+
+
+                Extensions may support multiple intervals.
+
+                The first time interval describes the overall
+
+                temporal extent of the data. All subsequent time intervals describe
+
+                more precise time intervals, e.g., to identify clusters of data.
+
+                Clients only interested in the overall temporal extent will only need
+
+                to access the first time interval in the array (a pair of lower and upper
+
+                bound instants).'
+              type: array
+              minItems: 1
+              items:
+                description: 'Begin and end times of the time interval. The timestamps are in the
+
+                  temporal coordinate reference system specified in `trs`. By default
+
+                  this is the Gregorian calendar.
+
+
+                  The value `null` at start or end is supported and indicates a half-bounded interval.'
+                type: array
+                minItems: 2
+                maxItems: 2
+                items:
+                  type:
+                  - string
+                  - 'null'
+                  format: date-time
+                example:
+                - '2011-11-11T12:22:11Z'
+                - null
+            trs:
+              description: 'Coordinate reference system of the coordinates in the temporal extent
+
+                (property `interval`). The default reference system is the Gregorian calendar.
+
+                In the Core this is the only supported temporal coordinate reference system.
+
+                Extensions may support additional temporal coordinate reference systems and add
+
+                additional enum values.'
+              type: string
+              enum:
+              - http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
+              default: http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
+    collection-body:
+      type: object
+      required:
+      - itemType
+      properties:
+        title:
+          description: human readable title of the collection
+          type: string
+        updateFrequency:
+          description: a time interval of sampling location. The unit is millisecond.
+          type: number
+        description:
+          description: any description
+          type: string
+        itemType:
+          description: indicator about the type of the items in the moving features collection (the default value is 'movingfeature').
+          type: string
+          default: movingfeature
+    link:
+      type: object
+      required:
+      - href
+      - rel
+      properties:
+        href:
+          type: string
+          example: http://data.example.com/buildings/123
+        rel:
+          type: string
+          example: alternate
+        type:
+          type: string
+          example: application/geo+json
+        hreflang:
+          type: string
+          example: en
+        title:
+          type: string
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
+  responses:
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+          example:
+            code: '500'
+            description: Server Internal Error
+    Collection:
+      description: The metadata being returned.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/collection'
+          example:
+            id: mfc-1
+            title: moving_feature_collection_sample
+            itemType: movingfeature
+            updateFrequency: 1000
+            extent:
+              spatial:
+                bbox:
+                - -180
+                - -90
+                - 190
+                - 90
+                crs:
+                - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+              temporal:
+                interval:
+                - '2011-11-11T12:22:11Z'
+                - '2012-11-24T12:32:43Z'
+                trs:
+                - http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
+            links:
+            - href: https://data.example.org/collections/mfc-1
+              rel: self
+              type: application/json
+  parameters:
+    collectionId:
+      name: collectionId
+      in: path
+      description: local identifier of a collection
+      required: true
+      schema:
+        type: string
+x-refined-from:
+- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json
+- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml
+- ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml

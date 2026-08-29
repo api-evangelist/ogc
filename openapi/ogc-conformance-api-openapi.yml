@@ -1,0 +1,263 @@
+openapi: 3.2.0
+info:
+  title: Ogc Conformance API
+  version: '1.0'
+  description: 'Operations tagged Conformance across 6 of this provider''s published API definitions: ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json, ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-buildingblocks-bundle.yaml, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml, ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json. Each path carries the servers of the definition it was published in.'
+servers:
+- description: Example OGC API - DGGS server
+  url: https://maps.gnosis.earth/ogcapi
+- url: https://example.org/data
+  description: Production server
+- url: https://example.org/data-dev
+  description: Development server
+- description: Example OGC API - Tiles server
+  url: https://maps.ecere.com/ogcapi
+tags:
+- name: Conformance
+paths:
+  /conformance:
+    get:
+      tags:
+      - Conformance
+      operationId: getConformance
+      summary: Retrieve the set of OGC API conformance classes that are supported by this service.
+      parameters:
+      - $ref: '#/components/parameters/f-metadata'
+      responses:
+        '200':
+          $ref: '#/components/responses/Conformance'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    servers:
+    - description: Example OGC API - DGGS server
+      url: https://maps.gnosis.earth/ogcapi
+components:
+  schemas:
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+    confClasses:
+      type: object
+      required:
+      - conformsTo
+      properties:
+        conformsTo:
+          type: array
+          items:
+            type: string
+    exception_2:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+    confClasses_2:
+      type: object
+      required:
+      - conformsTo
+      properties:
+        conformsTo:
+          type: array
+          items:
+            type: string
+            example: http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/core
+  responses:
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    Conformance:
+      description: The URIs of all conformance classes supported by the server
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '#/components/schemas/confClasses'
+            example:
+              conformsTo:
+              - https://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
+              - https://www.opengis.net/spec/ogcapi-common-1/1.0/conf/landing-page
+              - https://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json
+              - https://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html
+              - https://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30
+              - https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/core
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-retrieval
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-query
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-subsetting
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-custom-depths
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-cql2-filter
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-query-cql2-filter
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/root-dggs
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/collection-dggs
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/operation-ids
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-json
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-ubjson
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-dggs-fgjson
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-dggs-fgubjson
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-geojson
+              - https://www.opengis.net/spec/json-fg-1/0.2/conf/core
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-tiff
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-netcdf
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-coveragejson
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-zarr
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-jpegxl
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/data-png
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-html
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-uint64
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-geojson
+              - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-tiff
+    Conformance_2:
+      description: The URIs of all conformance classes supported by the server
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '#/components/schemas/confClasses'
+            example:
+              conformsTo:
+              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
+              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/landing-page
+              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json
+              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html
+              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30
+              - http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/core
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/tilesets
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/background
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/collections-selection
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/scaling
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/display-resolution
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/spatial-subsetting
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/datetime
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/general-subsetting
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/crs
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/orientation
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/projection
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/collection-map
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/dataset-map
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/styled-map
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/png
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/jpeg
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/jpegxl
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/tiff
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/svg
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/html
+              - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/api-operations
+    ConformanceDeclaration:
+      description: The URIs of all conformance classes supported by the server.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/confClasses_2'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable_2:
+      description: 'Content negotiation failed. For example, the `Accept` header submitted
+
+        in the request did not support any of the media types supported by the
+
+        server for the requested resource.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception_2'
+        text/html:
+          schema:
+            type: string
+    BadRequest:
+      description: A client error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception_2'
+        text/html:
+          schema:
+            type: string
+    Conformance_3:
+      description: The URIs of all conformance classes supported by the server
+      content:
+        application/json:
+          schema:
+            allOf:
+            - $ref: '#/components/schemas/confClasses'
+            example:
+              conformsTo:
+              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
+              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json
+              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html
+              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30
+              - http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/core
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tileset
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tilesets-list
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-tilesets
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/dataset-tilesets
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-selection
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/jpeg
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/png
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/mvt
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geojson
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tiff
+              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/netcdf
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      openIdConnectUrl: https://accounts.google.com/.well-known/openid-configuration
+x-refined-from:
+- ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json
+- ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json
+- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml
+- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-buildingblocks-bundle.yaml
+- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml
+- ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json
