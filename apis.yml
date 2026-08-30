@@ -87,7 +87,8 @@ apis:
   name: Open Geospatial Consortium (OGC) API
   description: The API API from Open Geospatial Consortium (OGC) — 7 operation(s) for api.
   humanURL: https://ogcapi.ogc.org/common/
-  tags:
+  tags: []
+  tags_raw:
   - API
   properties:
   - type: OpenAPI
@@ -144,6 +145,8 @@ apis:
     The Collections API from Open Geospatial Consortium (OGC) — 2 operation(s) for collections.
   humanURL: https://ogcapi.ogc.org/common/
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -514,6 +517,8 @@ apis:
   description: The server API from Open Geospatial Consortium (OGC) — 3 operation(s) for server.
   humanURL: https://ogcapi.ogc.org/common/
   tags:
+  - Server
+  tags_raw:
   - server
   properties:
   - type: OpenAPI
