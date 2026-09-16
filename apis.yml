@@ -512,14 +512,3 @@ apis:
     url: openapi/ogc-vector-tiles-api-openapi.yml
   - type: Specification
     url: https://schemas.opengis.net/ogcapi/
-- aid: ogc:ogc-server-api
-  name: Open Geospatial Consortium (OGC) Server API
-  description: The server API from Open Geospatial Consortium (OGC) — 3 operation(s) for server.
-  humanURL: https://ogcapi.ogc.org/common/
-  tags:
-  - Server
-  tags_raw:
-  - server
-  properties:
-  - type: OpenAPI
-    url: openapi/ogc-server-api-openapi.yml
