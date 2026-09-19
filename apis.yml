@@ -322,6 +322,8 @@ apis:
     The Landing Page API from Open Geospatial Consortium (OGC) — 1 operation(s) for landing page.
   humanURL: https://ogcapi.ogc.org/common/
   tags:
+  - Landing Pages
+  tags_raw:
   - Landing Page
   properties:
   - type: OpenAPI
