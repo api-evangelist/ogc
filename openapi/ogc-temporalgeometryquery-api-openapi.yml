@@ -1,7 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Ogc Temporal Geometry Query API
+  title: Building Blocks specified in OGC API - Moving Features…
   version: 1.0.0
+  description: 'This is the OpenAPI definition of the OGC API - Moving Features - Part 1: Core Standard. The API also implements the OGC Moving Features Encoding Extension - JSON Standard.'
   contact:
     name: Open Geospatial Consortium
     email: info@ogc.org
@@ -10,7 +11,6 @@ info:
     url: https://www.ogc.org/legal/
   x-logo:
     url: https://www.ogc.org/pub/www/files/OGC_Logo_2D_Blue_x_0_0.png
-  description: 'Operations tagged TemporalGeometryQuery across 3 of this provider''s published API definitions: ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json, ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml, ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: TemporalGeometryQuery
   description: Queryable resources for the temporal primitive geometry.
@@ -19,9 +19,7 @@ paths:
     get:
       operationId: getDistanceOfTemporalPrimitiveGeometry
       summary: Get a time-to-distance curve of a temporal primitive geometry
-      description: 'A user can get time-to-distance curve of a temporal primitive geometry with id `tGeometryId`.
-
-        '
+      description: A user can get time-to-distance curve of a temporal primitive geometry with id `tGeometryId`.
       tags:
       - TemporalGeometryQuery
       parameters:
@@ -42,9 +40,7 @@ paths:
     get:
       operationId: getVelocityOfTemporalPrimitiveGeometry
       summary: Get a time-to-velocity curve of a temporal primitive geometry
-      description: 'A user can get time-to-velocity curve of a temporal primitive geometry with id `tGeometryId`.
-
-        '
+      description: A user can get time-to-velocity curve of a temporal primitive geometry with id `tGeometryId`.
       tags:
       - TemporalGeometryQuery
       parameters:
@@ -65,9 +61,7 @@ paths:
     get:
       operationId: getAccelerationOfTemporalPrimitiveGeometry
       summary: Get a time-to-acceleration curve of a temporal primitive geometry
-      description: 'A user can get time-to-acceleration curve of a temporal primitive geometry with id `tGeometryId`.
-
-        '
+      description: A user can get time-to-acceleration curve of a temporal primitive geometry with id `tGeometryId`.
       tags:
       - TemporalGeometryQuery
       parameters:
@@ -86,15 +80,20 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   parameters:
-    subtemporalvalue:
-      name: subTemporalValue
-      in: query
-      required: false
-      description: "The `subTemporalValue` parameter is a boolean value used with the `datetime` parameter.\nIf the `subTemporalValue` is \"true\", \n\n* the `datetime` must be a bounded interval, not half-bounded intervals or a date-time. \n* the `datetime` represents a specified time interval (new start time and new end time)\n* only features with a temporal property intersecting the given time interval will return.\n* it returns only the subsequence of temporal property value within a time interval contained in the `subTemporalValue` parameter, using an interpolated time-to-value curve of temporal property according to the `interpolation` property.\n\nThe `subTemporalValue` parameter must not be used with the `leaf` parameter. \nOnly one of these parameters can be used in the HTTP GET operation."
+    tGeometryId:
+      name: tGeometryId
+      in: path
+      description: local identifier of a temporal primitive geometry
+      required: true
       schema:
-        type: boolean
-      style: form
-      explode: false
+        type: string
+    mFeatureId:
+      name: mFeatureId
+      in: path
+      description: local identifier of a moving feature
+      required: true
+      schema:
+        type: string
     datetime:
       name: datetime
       in: query
@@ -102,6 +101,22 @@ components:
       required: true
       schema:
         type: string
+      style: form
+      explode: false
+    collectionId:
+      name: collectionId
+      in: path
+      description: local identifier of a collection
+      required: true
+      schema:
+        type: string
+    subtemporalvalue:
+      name: subTemporalValue
+      in: query
+      required: false
+      description: "The `subTemporalValue` parameter is a boolean value used with the `datetime` parameter.\nIf the `subTemporalValue` is \"true\", \n\n* the `datetime` must be a bounded interval, not half-bounded intervals or a date-time. \n* the `datetime` represents a specified time interval (new start time and new end time)\n* only features with a temporal property intersecting the given time interval will return.\n* it returns only the subsequence of temporal property value within a time interval contained in the `subTemporalValue` parameter, using an interpolated time-to-value curve of temporal property according to the `interpolation` property.\n\nThe `subTemporalValue` parameter must not be used with the `leaf` parameter. \nOnly one of these parameters can be used in the HTTP GET operation."
+      schema:
+        type: boolean
       style: form
       explode: false
     leaf:
@@ -118,37 +133,7 @@ components:
           format: date-time
       style: form
       explode: false
-    tGeometryId:
-      name: tGeometryId
-      in: path
-      description: local identifier of a temporal primitive geometry
-      required: true
-      schema:
-        type: string
-    mFeatureId:
-      name: mFeatureId
-      in: path
-      description: local identifier of a moving feature
-      required: true
-      schema:
-        type: string
-    collectionId:
-      name: collectionId
-      in: path
-      description: local identifier of a collection
-      required: true
-      schema:
-        type: string
   schemas:
-    exception:
-      type: object
-      required:
-      - code
-      properties:
-        code:
-          type: string
-        description:
-          type: string
     temporalPrimitiveValue:
       type: object
       required:
@@ -232,7 +217,36 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
+    exception:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
   responses:
+    DistanceQuery:
+      description: A temporal property data that represents a time-to-distance curve of specified temporal primitive geometry.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/temporalProperty'
+          example:
+            name: distance
+            type: TReal
+            form: MTR
+            valueSequence:
+            - datetimes:
+              - '2011-07-15T08:00:00Z'
+              - '2011-07-15T08:00:01Z'
+              - '2011-07-15T08:00:02Z'
+              values:
+              - 0
+              - 10
+              - 20
+              interpolation: Linear
     ServerError:
       description: A server error occurred.
       content:
@@ -252,26 +266,6 @@ components:
             name: acceleration
             type: TReal
             form: KMH
-            valueSequence:
-            - datetimes:
-              - '2011-07-15T08:00:00Z'
-              - '2011-07-15T08:00:01Z'
-              - '2011-07-15T08:00:02Z'
-              values:
-              - 0
-              - 10
-              - 20
-              interpolation: Linear
-    DistanceQuery:
-      description: A temporal property data that represents a time-to-distance curve of specified temporal primitive geometry.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/temporalProperty'
-          example:
-            name: distance
-            type: TReal
-            form: MTR
             valueSequence:
             - datetimes:
               - '2011-07-15T08:00:00Z'
@@ -302,7 +296,3 @@ components:
               - 10
               - 20
               interpolation: Linear
-x-refined-from:
-- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json
-- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml
-- ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml

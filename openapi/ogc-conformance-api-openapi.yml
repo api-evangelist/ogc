@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Ogc Conformance API
   version: '1.0'
-  description: 'Operations tagged Conformance across 6 of this provider''s published API definitions: ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json, ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-buildingblocks-bundle.yaml, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml, ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Conformance across 4 of this provider''s published API definitions: ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json, ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml, ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json. Each path carries the servers of the definition it was published in.'
 servers:
 - description: Example OGC API - DGGS server
   url: https://maps.gnosis.earth/ogcapi
@@ -20,7 +20,7 @@ paths:
       tags:
       - Conformance
       operationId: getConformance
-      summary: Retrieve the set of OGC API conformance classes that are supported by this service.
+      summary: Retrieve the set of OGC API conformance classes that are supported by this…
       parameters:
       - $ref: '#/components/parameters/f-metadata'
       responses:
@@ -34,7 +34,29 @@ paths:
     - description: Example OGC API - DGGS server
       url: https://maps.gnosis.earth/ogcapi
 components:
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
   schemas:
+    confClasses:
+      type: object
+      required:
+      - conformsTo
+      properties:
+        conformsTo:
+          type: array
+          items:
+            type: string
     exception:
       title: Exception Schema
       description: JSON schema for exceptions based on RFC 7807
@@ -52,7 +74,7 @@ components:
           type: string
         instance:
           type: string
-    confClasses:
+    confClasses_2:
       type: object
       required:
       - conformsTo
@@ -61,6 +83,7 @@ components:
           type: array
           items:
             type: string
+            example: http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/core
     exception_2:
       description: 'Imported from OGC API - Features - Part 1: Core
 
@@ -73,28 +96,9 @@ components:
           type: string
         description:
           type: string
-    confClasses_2:
-      type: object
-      required:
-      - conformsTo
-      properties:
-        conformsTo:
-          type: array
-          items:
-            type: string
-            example: http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/core
   responses:
     ServerError:
       description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
       content:
         application/json:
           schema:
@@ -143,6 +147,15 @@ components:
               - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-uint64
               - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-geojson
               - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-tiff
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
     Conformance_2:
       description: The URIs of all conformance classes supported by the server
       content:
@@ -180,12 +193,12 @@ components:
               - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/svg
               - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/html
               - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/api-operations
-    ConformanceDeclaration:
-      description: The URIs of all conformance classes supported by the server.
+    BadRequest:
+      description: A client error occurred.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/confClasses_2'
+            $ref: '#/components/schemas/exception_2'
         text/html:
           schema:
             type: string
@@ -202,12 +215,12 @@ components:
         text/html:
           schema:
             type: string
-    BadRequest:
-      description: A client error occurred.
+    ConformanceDeclaration:
+      description: The URIs of all conformance classes supported by the server.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/exception_2'
+            $ref: '#/components/schemas/confClasses_2'
         text/html:
           schema:
             type: string
@@ -237,19 +250,6 @@ components:
               - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geojson
               - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tiff
               - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/netcdf
-  parameters:
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - html
-      style: form
-      explode: false
   securitySchemes:
     openIdConnect:
       type: openIdConnect
@@ -258,6 +258,4 @@ x-refined-from:
 - ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json
 - ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json
 - ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml
-- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-buildingblocks-bundle.yaml
-- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml
 - ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json

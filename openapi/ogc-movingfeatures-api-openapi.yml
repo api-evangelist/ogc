@@ -1,7 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Ogc Moving Features API
+  title: 'Building Blocks specified in OGC API - - Part 1: Core…'
   version: 1.0.0
+  description: 'This is the OpenAPI definition of the OGC API - Moving Features - Part 1: Core Standard. The API also implements the OGC Moving Features Encoding Extension - JSON Standard.'
   contact:
     name: Open Geospatial Consortium
     email: info@ogc.org
@@ -10,7 +11,6 @@ info:
     url: https://www.ogc.org/legal/
   x-logo:
     url: https://www.ogc.org/pub/www/files/OGC_Logo_2D_Blue_x_0_0.png
-  description: 'Operations tagged MovingFeatures across 3 of this provider''s published API definitions: ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json, ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml, ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: MovingFeatures
   description: Moving feature data, including the temporal geometry, temporal properties, etc.
@@ -22,9 +22,7 @@ paths:
       description: 'A user can retrieve moving feature collection to access the static information of the moving feature by simple filtering and a limit.
 
 
-        Specifically, if the `subTrajectory` parameter is "true", it will return the temporal geometry within the time interval specified by `datetime` parameter.
-
-        '
+        Specifically, if the `subTrajectory` parameter is "true", it will return the temporal geometry within the time interval specified by `datetime` parameter.'
       tags:
       - MovingFeatures
       parameters:
@@ -43,7 +41,12 @@ paths:
     post:
       operationId: insertMovingFeatures
       summary: Insert moving features
-      description: "A user SHOULD insert a set of moving features or a moving feature into a collection with id `collectionId`.\n\nThe request body schema SHALL follows the [MovingFeature object](https://docs.opengeospatial.org/is/19-045r3/19-045r3.html#mfeature) or \n[MovingFeatureCollection object](https://docs.opengeospatial.org/is/19-045r3/19-045r3.html#mfeaturecollection) in the OGC MF-JSON.\n"
+      description: 'A user SHOULD insert a set of moving features or a moving feature into a collection with id `collectionId`.
+
+
+        The request body schema SHALL follows the MovingFeature object or
+
+        MovingFeatureCollection object in the OGC MF-JSON.'
       tags:
       - MovingFeatures
       parameters:
@@ -232,9 +235,7 @@ paths:
       description: 'A user can access a static data of a moving feature with id `mFeatureId`.
 
 
-        The static data of a moving feature is not included temporal geometries and temporal properties.
-
-        '
+        The static data of a moving feature is not included temporal geometries and temporal properties.'
       tags:
       - MovingFeatures
       parameters:
@@ -254,9 +255,7 @@ paths:
     delete:
       operationId: deleteMovingFeature
       summary: Delete a single moving feature
-      description: 'The moving feature with id `mFeatureId` and including temporal geometries and properties SHOULD be deleted.
-
-        '
+      description: The moving feature with id `mFeatureId` and including temporal geometries and properties SHOULD be deleted.
       tags:
       - MovingFeatures
       parameters:
@@ -275,43 +274,49 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   schemas:
-    movingFeature:
+    temporalComplexGeometry:
+      description: MF-JSON Prism encoding TemporalComplexGeometry Object
+      title: MF-JSON TemporalComplexGeometry
       type: object
       required:
-      - id
       - type
+      - prisms
       properties:
         type:
           type: string
-          enum:
-          - Feature
-        temporalGeometry:
-          $ref: '#/components/schemas/temporalGeometry'
-        temporalProperties:
-          $ref: '#/components/schemas/temporalProperties-mfjson'
+          default: MovingGeometryCollection
+        prisms:
+          type: array
+          items:
+            $ref: '#/components/schemas/temporalPrimitiveGeometry'
         crs:
           $ref: '#/components/schemas/crs'
         trs:
           $ref: '#/components/schemas/trs'
-        bbox:
-          $ref: '#/components/schemas/bbox'
-        time:
-          $ref: '#/components/schemas/lifeSpan'
-        geometry:
-          $ref: '#/components/schemas/geometryGeoJSON'
-        properties:
-          type:
-          - object
-          - 'null'
-        id:
-          description: An identifier for the feature
-          oneOf:
-          - type: string
-          - type: integer
-        links:
+    crs:
+      description: MF-JSON Prism encoding CoordinateReferenceSystem Object
+      title: MF-JSON CRS
+      oneOf:
+      - $ref: '#/components/schemas/namedCRS'
+      - $ref: '#/components/schemas/linkedCRS'
+    linestringGeoJSON:
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - LineString
+        coordinates:
           type: array
+          minItems: 2
           items:
-            $ref: '#/components/schemas/link'
+            type: array
+            minItems: 2
+            items:
+              type: number
     movingFeatureCollection:
       description: MF-JSON Prism encoding MovingFeatureCollection Object
       title: MF-JSON MovingFeatureCollection
@@ -341,154 +346,14 @@ components:
           type:
           - string
           - 'null'
-    trs:
-      description: The "trs" member in MovingFeature object
-      title: MF-JSON TRS
-      oneOf:
-      - $ref: '#/components/schemas/linkedCRS'
-      - type:
-        - object
-        - 'null'
-        required:
-        - type
-        - properties
-        properties:
-          type:
-            type: string
-            enum:
-            - Name
-          properties:
-            type: object
-            additionalProperties: false
-            required:
-            - name
-            properties:
-              name:
-                type: string
-                default: urn:ogc:data:time:iso8601
-    multipolygonGeoJSON:
-      type: object
-      required:
-      - type
-      - coordinates
-      properties:
-        type:
-          type: string
-          enum:
-          - MultiPolygon
-        coordinates:
-          type: array
-          items:
-            type: array
-            items:
-              type: array
-              minItems: 4
-              items:
-                type: array
-                minItems: 2
-                items:
-                  type: number
-    multilinestringGeoJSON:
-      type: object
-      required:
-      - type
-      - coordinates
-      properties:
-        type:
-          type: string
-          enum:
-          - MultiLineString
-        coordinates:
-          type: array
-          items:
-            type: array
-            minItems: 2
-            items:
-              type: array
-              minItems: 2
-              items:
-                type: number
-    geometryGeoJSON:
-      oneOf:
-      - $ref: '#/components/schemas/pointGeoJSON'
-      - $ref: '#/components/schemas/multipointGeoJSON'
-      - $ref: '#/components/schemas/linestringGeoJSON'
-      - $ref: '#/components/schemas/multilinestringGeoJSON'
-      - $ref: '#/components/schemas/polygonGeoJSON'
-      - $ref: '#/components/schemas/multipolygonGeoJSON'
-      - $ref: '#/components/schemas/geometrycollectionGeoJSON'
-    movingFeatures:
-      type: object
-      required:
-      - type
-      - features
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/movingFeature'
-        crs:
-          $ref: '#/components/schemas/crs'
-        trs:
-          $ref: '#/components/schemas/trs'
-        bbox:
-          $ref: '#/components/schemas/bbox'
-        time:
-          $ref: '#/components/schemas/lifeSpan'
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/link'
-        timeStamp:
-          type: string
-          format: date-time
-        numberMatched:
-          type: integer
-          minimum: 0
-        numberReturned:
-          type: integer
-          minimum: 0
-    multipointGeoJSON:
-      type: object
-      required:
-      - type
-      - coordinates
-      properties:
-        type:
-          type: string
-          enum:
-          - MultiPoint
-        coordinates:
-          type: array
-          items:
-            type: array
-            minItems: 2
-            items:
-              type: number
-    linestringGeoJSON:
-      type: object
-      required:
-      - type
-      - coordinates
-      properties:
-        type:
-          type: string
-          enum:
-          - LineString
-        coordinates:
-          type: array
-          minItems: 2
-          items:
-            type: array
-            minItems: 2
-            items:
-              type: number
+    temporalProperties-mfjson:
+      description: MF-JSON Prism encoding TemporalProperties Object
+      title: MF-JSON TemporalProperties
+      type:
+      - array
+      - 'null'
+      items:
+        $ref: '#/components/schemas/parametricValues'
     pointGeoJSON:
       type: object
       required:
@@ -504,167 +369,6 @@ components:
           minItems: 2
           items:
             type: number
-    motionCurve:
-      description: MF-JSON Prism encoding MotionCurve Object
-      title: MF-JSON MotionCurve
-      oneOf:
-      - type: string
-        enum:
-        - Discrete
-        - Step
-        - Linear
-        - Quadratic
-        - Cubic
-        default: Linear
-      - type: string
-        format: uri
-    bbox:
-      description: MF-JSON Prism encoding BoundingBox Object
-      title: MF-JSON BoundingBox
-      type:
-      - array
-      - 'null'
-      minItems: 4
-      items:
-        type: number
-    temporalPrimitiveGeometry:
-      description: MF-JSON Prism encoding TemporalPrimitiveGeometry Object
-      title: MF-JSON TemporalPrimitiveGeometry
-      type: object
-      required:
-      - type
-      - coordinates
-      - datetimes
-      properties:
-        type:
-          type: string
-          enum:
-          - MovingPoint
-          - MovingLineString
-          - MovingPolygon
-          - MovingPointCloud
-        coordinates:
-          type: array
-          minItems: 2
-          items:
-            oneOf:
-            - title: pointGeoJSON coordinates
-              type: array
-              minItems: 2
-              items:
-                type: number
-            - title: linestringGeoJSON coordinates
-              type: array
-              minItems: 2
-              items:
-                type: array
-                minItems: 2
-                items:
-                  type: number
-            - title: polygonGeoJSON coordinates
-              type: array
-              items:
-                type: array
-                minItems: 4
-                items:
-                  type: array
-                  minItems: 2
-                  items:
-                    type: number
-            - title: multipointGeoJSON coordinates
-              type: array
-              items:
-                type: array
-                minItems: 2
-                items:
-                  type: number
-        datetimes:
-          type: array
-          uniqueItems: true
-          minItems: 2
-          items:
-            type: string
-        interpolation:
-          $ref: '#/components/schemas/motionCurve'
-        base:
-          type:
-          - object
-          - 'null'
-          required:
-          - href
-          - type
-          properties:
-            href:
-              type: string
-              format: uri
-            type:
-              type: string
-        orientations:
-          type:
-          - array
-          - 'null'
-          items:
-            type: object
-            required:
-            - scales
-            - angles
-            properties:
-              scales:
-                type: array
-                oneOf:
-                - minItems: 2
-                  maxItems: 2
-                - minItems: 3
-                  maxItems: 3
-                items:
-                  type: number
-              angles:
-                type: array
-                oneOf:
-                - minItems: 2
-                  maxItems: 2
-                - minItems: 3
-                  maxItems: 3
-                items:
-                  type: number
-        crs:
-          $ref: '#/components/schemas/crs'
-        trs:
-          $ref: '#/components/schemas/trs'
-    lifeSpan:
-      description: MF-JSON Prism encoding LifeSpan Object
-      title: MF-JSON LifeSpan
-      type: array
-      minItems: 2
-      maxItems: 2
-      uniqueItems: true
-      items:
-        type:
-        - string
-        - 'null'
-    namedCRS:
-      description: MF-JSON Prism encoding NamedCRS Object
-      title: MF-JSON NamedCRS
-      type:
-      - object
-      - 'null'
-      required:
-      - type
-      - properties
-      properties:
-        type:
-          type: string
-          enum:
-          - Name
-        properties:
-          type: object
-          additionalProperties: false
-          required:
-          - name
-          properties:
-            name:
-              type: string
-              default: urn:ogc:def:crs:OGC:1.3:CRS84
     exception:
       type: object
       required:
@@ -674,97 +378,26 @@ components:
           type: string
         description:
           type: string
-    temporalComplexGeometry:
-      description: MF-JSON Prism encoding TemporalComplexGeometry Object
-      title: MF-JSON TemporalComplexGeometry
+    polygonGeoJSON:
       type: object
       required:
       - type
-      - prisms
-      properties:
-        type:
-          type: string
-          default: MovingGeometryCollection
-        prisms:
-          type: array
-          items:
-            $ref: '#/components/schemas/temporalPrimitiveGeometry'
-        crs:
-          $ref: '#/components/schemas/crs'
-        trs:
-          $ref: '#/components/schemas/trs'
-    geometrycollectionGeoJSON:
-      type: object
-      required:
-      - type
-      - geometries
+      - coordinates
       properties:
         type:
           type: string
           enum:
-          - GeometryCollection
-        geometries:
+          - Polygon
+        coordinates:
           type: array
           items:
-            $ref: '#/components/schemas/geometryGeoJSON'
-    link:
-      type: object
-      required:
-      - href
-      - rel
-      properties:
-        href:
-          type: string
-          example: http://data.example.com/buildings/123
-        rel:
-          type: string
-          example: alternate
-        type:
-          type: string
-          example: application/geo+json
-        hreflang:
-          type: string
-          example: en
-        title:
-          type: string
-          example: Trierer Strasse 70, 53115 Bonn
-        length:
-          type: integer
-    movingFeature-mfjson:
-      description: MF-JSON Prism encoding MovingFeature Object
-      title: MF-JSON MovingFeature
-      type: object
-      required:
-      - type
-      - temporalGeometry
-      properties:
-        type:
-          type: string
-          enum:
-          - Feature
-        temporalGeometry:
-          $ref: '#/components/schemas/temporalGeometry'
-        temporalProperties:
-          $ref: '#/components/schemas/temporalProperties-mfjson'
-        crs:
-          $ref: '#/components/schemas/crs'
-        trs:
-          $ref: '#/components/schemas/trs'
-        bbox:
-          $ref: '#/components/schemas/bbox'
-        time:
-          $ref: '#/components/schemas/lifeSpan'
-        geometry:
-          $ref: '#/components/schemas/geometryGeoJSON'
-        properties:
-          type:
-          - object
-          - 'null'
-        id:
-          description: An identifier for the feature
-          oneOf:
-          - type: string
-          - type: integer
+            type: array
+            minItems: 4
+            items:
+              type: array
+              minItems: 2
+              items:
+                type: number
     parametricValues:
       description: MF-JSON Prism encoding ParametricValues Object
       title: MF-JSON ParametricValues
@@ -874,6 +507,269 @@ components:
                 format: uri
             description:
               type: string
+    multipolygonGeoJSON:
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - MultiPolygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              minItems: 4
+              items:
+                type: array
+                minItems: 2
+                items:
+                  type: number
+    namedCRS:
+      description: MF-JSON Prism encoding NamedCRS Object
+      title: MF-JSON NamedCRS
+      type:
+      - object
+      - 'null'
+      required:
+      - type
+      - properties
+      properties:
+        type:
+          type: string
+          enum:
+          - Name
+        properties:
+          type: object
+          additionalProperties: false
+          required:
+          - name
+          properties:
+            name:
+              type: string
+              default: urn:ogc:def:crs:OGC:1.3:CRS84
+    multipointGeoJSON:
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - MultiPoint
+        coordinates:
+          type: array
+          items:
+            type: array
+            minItems: 2
+            items:
+              type: number
+    lifeSpan:
+      description: MF-JSON Prism encoding LifeSpan Object
+      title: MF-JSON LifeSpan
+      type: array
+      minItems: 2
+      maxItems: 2
+      uniqueItems: true
+      items:
+        type:
+        - string
+        - 'null'
+    movingFeature-mfjson:
+      description: MF-JSON Prism encoding MovingFeature Object
+      title: MF-JSON MovingFeature
+      type: object
+      required:
+      - type
+      - temporalGeometry
+      properties:
+        type:
+          type: string
+          enum:
+          - Feature
+        temporalGeometry:
+          $ref: '#/components/schemas/temporalGeometry'
+        temporalProperties:
+          $ref: '#/components/schemas/temporalProperties-mfjson'
+        crs:
+          $ref: '#/components/schemas/crs'
+        trs:
+          $ref: '#/components/schemas/trs'
+        bbox:
+          $ref: '#/components/schemas/bbox'
+        time:
+          $ref: '#/components/schemas/lifeSpan'
+        geometry:
+          $ref: '#/components/schemas/geometryGeoJSON'
+        properties:
+          type:
+          - object
+          - 'null'
+        id:
+          description: An identifier for the feature
+          oneOf:
+          - type: string
+          - type: integer
+    temporalPrimitiveGeometry:
+      description: MF-JSON Prism encoding TemporalPrimitiveGeometry Object
+      title: MF-JSON TemporalPrimitiveGeometry
+      type: object
+      required:
+      - type
+      - coordinates
+      - datetimes
+      properties:
+        type:
+          type: string
+          enum:
+          - MovingPoint
+          - MovingLineString
+          - MovingPolygon
+          - MovingPointCloud
+        coordinates:
+          type: array
+          minItems: 2
+          items:
+            oneOf:
+            - title: pointGeoJSON coordinates
+              type: array
+              minItems: 2
+              items:
+                type: number
+            - title: linestringGeoJSON coordinates
+              type: array
+              minItems: 2
+              items:
+                type: array
+                minItems: 2
+                items:
+                  type: number
+            - title: polygonGeoJSON coordinates
+              type: array
+              items:
+                type: array
+                minItems: 4
+                items:
+                  type: array
+                  minItems: 2
+                  items:
+                    type: number
+            - title: multipointGeoJSON coordinates
+              type: array
+              items:
+                type: array
+                minItems: 2
+                items:
+                  type: number
+        datetimes:
+          type: array
+          uniqueItems: true
+          minItems: 2
+          items:
+            type: string
+        interpolation:
+          $ref: '#/components/schemas/motionCurve'
+        base:
+          type:
+          - object
+          - 'null'
+          required:
+          - href
+          - type
+          properties:
+            href:
+              type: string
+              format: uri
+            type:
+              type: string
+        orientations:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            required:
+            - scales
+            - angles
+            properties:
+              scales:
+                type: array
+                oneOf:
+                - minItems: 2
+                  maxItems: 2
+                - minItems: 3
+                  maxItems: 3
+                items:
+                  type: number
+              angles:
+                type: array
+                oneOf:
+                - minItems: 2
+                  maxItems: 2
+                - minItems: 3
+                  maxItems: 3
+                items:
+                  type: number
+        crs:
+          $ref: '#/components/schemas/crs'
+        trs:
+          $ref: '#/components/schemas/trs'
+    movingFeatures:
+      type: object
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/movingFeature'
+        crs:
+          $ref: '#/components/schemas/crs'
+        trs:
+          $ref: '#/components/schemas/trs'
+        bbox:
+          $ref: '#/components/schemas/bbox'
+        time:
+          $ref: '#/components/schemas/lifeSpan'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        timeStamp:
+          type: string
+          format: date-time
+        numberMatched:
+          type: integer
+          minimum: 0
+        numberReturned:
+          type: integer
+          minimum: 0
+    geometrycollectionGeoJSON:
+      type: object
+      required:
+      - type
+      - geometries
+      properties:
+        type:
+          type: string
+          enum:
+          - GeometryCollection
+        geometries:
+          type: array
+          items:
+            $ref: '#/components/schemas/geometryGeoJSON'
     linkedCRS:
       description: MF-JSON Prism encoding LinkedCRS Object
       title: MF-JSON LinkedCRS
@@ -899,7 +795,22 @@ components:
               format: uri
             type:
               type: string
-    polygonGeoJSON:
+    bbox:
+      description: MF-JSON Prism encoding BoundingBox Object
+      title: MF-JSON BoundingBox
+      type:
+      - array
+      - 'null'
+      minItems: 4
+      items:
+        type: number
+    temporalGeometry:
+      description: MF-JSON Prism encoding TemporalGeometry Object
+      title: MF-JSON TemporalGeometry
+      oneOf:
+      - $ref: '#/components/schemas/temporalPrimitiveGeometry'
+      - $ref: '#/components/schemas/temporalComplexGeometry'
+    multilinestringGeoJSON:
       type: object
       required:
       - type
@@ -908,42 +819,130 @@ components:
         type:
           type: string
           enum:
-          - Polygon
+          - MultiLineString
         coordinates:
           type: array
           items:
             type: array
-            minItems: 4
+            minItems: 2
             items:
               type: array
               minItems: 2
               items:
                 type: number
-    crs:
-      description: MF-JSON Prism encoding CoordinateReferenceSystem Object
-      title: MF-JSON CRS
+    trs:
+      description: The "trs" member in MovingFeature object
+      title: MF-JSON TRS
       oneOf:
-      - $ref: '#/components/schemas/namedCRS'
       - $ref: '#/components/schemas/linkedCRS'
-    temporalProperties-mfjson:
-      description: MF-JSON Prism encoding TemporalProperties Object
-      title: MF-JSON TemporalProperties
-      type:
-      - array
-      - 'null'
-      items:
-        $ref: '#/components/schemas/parametricValues'
-    temporalGeometry:
-      description: MF-JSON Prism encoding TemporalGeometry Object
-      title: MF-JSON TemporalGeometry
+      - type:
+        - object
+        - 'null'
+        required:
+        - type
+        - properties
+        properties:
+          type:
+            type: string
+            enum:
+            - Name
+          properties:
+            type: object
+            additionalProperties: false
+            required:
+            - name
+            properties:
+              name:
+                type: string
+                default: urn:ogc:data:time:iso8601
+    link:
+      type: object
+      required:
+      - href
+      - rel
+      properties:
+        href:
+          type: string
+          example: http://data.example.com/buildings/123
+        rel:
+          type: string
+          example: alternate
+        type:
+          type: string
+          example: application/geo+json
+        hreflang:
+          type: string
+          example: en
+        title:
+          type: string
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
+    geometryGeoJSON:
       oneOf:
-      - $ref: '#/components/schemas/temporalPrimitiveGeometry'
-      - $ref: '#/components/schemas/temporalComplexGeometry'
+      - $ref: '#/components/schemas/pointGeoJSON'
+      - $ref: '#/components/schemas/multipointGeoJSON'
+      - $ref: '#/components/schemas/linestringGeoJSON'
+      - $ref: '#/components/schemas/multilinestringGeoJSON'
+      - $ref: '#/components/schemas/polygonGeoJSON'
+      - $ref: '#/components/schemas/multipolygonGeoJSON'
+      - $ref: '#/components/schemas/geometrycollectionGeoJSON'
+    movingFeature:
+      type: object
+      required:
+      - id
+      - type
+      properties:
+        type:
+          type: string
+          enum:
+          - Feature
+        temporalGeometry:
+          $ref: '#/components/schemas/temporalGeometry'
+        temporalProperties:
+          $ref: '#/components/schemas/temporalProperties-mfjson'
+        crs:
+          $ref: '#/components/schemas/crs'
+        trs:
+          $ref: '#/components/schemas/trs'
+        bbox:
+          $ref: '#/components/schemas/bbox'
+        time:
+          $ref: '#/components/schemas/lifeSpan'
+        geometry:
+          $ref: '#/components/schemas/geometryGeoJSON'
+        properties:
+          type:
+          - object
+          - 'null'
+        id:
+          description: An identifier for the feature
+          oneOf:
+          - type: string
+          - type: integer
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    motionCurve:
+      description: MF-JSON Prism encoding MotionCurve Object
+      title: MF-JSON MotionCurve
+      oneOf:
+      - type: string
+        enum:
+        - Discrete
+        - Step
+        - Linear
+        - Quadratic
+        - Cubic
+        default: Linear
+      - type: string
+        format: uri
   parameters:
-    mFeatureId:
-      name: mFeatureId
+    collectionId:
+      name: collectionId
       in: path
-      description: local identifier of a moving feature
+      description: local identifier of a collection
       required: true
       schema:
         type: string
@@ -956,6 +955,22 @@ components:
         type: string
       style: form
       explode: false
+    bbox:
+      name: bbox
+      in: query
+      description: "Only features that have a geometry that intersects the bounding box are selected.\nThe bounding box is provided as four or six numbers, depending on whether the\ncoordinate reference system includes a vertical axis (height or depth):\n\n* Lower left corner, coordinate axis 1\n* Lower left corner, coordinate axis 2\n* Minimum value, coordinate axis 3 (optional)\n* Upper right corner, coordinate axis 1\n* Upper right corner, coordinate axis 2\n* Maximum value, coordinate axis 3 (optional)\n\nIf the value consists of four numbers, the coordinate reference system is\nWGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)\nunless a different coordinate reference system is specified in the parameter `bbox-crs`.\n\nIf the value consists of six numbers, the coordinate reference system is WGS 84 \nlongitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h)\nunless a different coordinate reference system is specified in the parameter `bbox-crs`.\n\nThe query parameter `bbox-crs` is specified in OGC API - Features - Part 2: Coordinate \nReference Systems by Reference.\n\nFor WGS 84 longitude/latitude the values are in most cases the sequence of\nminimum longitude, minimum latitude, maximum longitude and maximum latitude.\nHowever, in cases where the box spans the antimeridian the first value\n(west-most box edge) is larger than the third value (east-most box edge).\n\nIf the vertical axis is included, the third and the sixth number are the\nbottom and the top of the 3-dimensional bounding box.\n\nIf a feature has multiple spatial geometry properties, it is the decision of the\nserver whether only a single spatial geometry property is used to determine\nthe extent or all relevant geometries."
+      required: false
+      schema:
+        type: array
+        oneOf:
+        - minItems: 4
+          maxItems: 4
+        - minItems: 6
+          maxItems: 6
+        items:
+          type: number
+      style: form
+      explode: false
     subtrajectory:
       name: subTrajectory
       in: query
@@ -965,10 +980,10 @@ components:
         type: boolean
       style: form
       explode: false
-    collectionId:
-      name: collectionId
+    mFeatureId:
+      name: mFeatureId
       in: path
-      description: local identifier of a collection
+      description: local identifier of a moving feature
       required: true
       schema:
         type: string
@@ -992,79 +1007,7 @@ components:
         default: 10
       style: form
       explode: false
-    bbox:
-      name: bbox
-      in: query
-      description: "Only features that have a geometry that intersects the bounding box are selected.\nThe bounding box is provided as four or six numbers, depending on whether the\ncoordinate reference system includes a vertical axis (height or depth):\n\n* Lower left corner, coordinate axis 1\n* Lower left corner, coordinate axis 2\n* Minimum value, coordinate axis 3 (optional)\n* Upper right corner, coordinate axis 1\n* Upper right corner, coordinate axis 2\n* Maximum value, coordinate axis 3 (optional)\n\nIf the value consists of four numbers, the coordinate reference system is\nWGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)\nunless a different coordinate reference system is specified in the parameter `bbox-crs`.\n\nIf the value consists of six numbers, the coordinate reference system is WGS 84 \nlongitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h)\nunless a different coordinate reference system is specified in the parameter `bbox-crs`.\n\nThe query parameter `bbox-crs` is specified in OGC API - Features - Part 2: Coordinate \nReference Systems by Reference.\n\nFor WGS 84 longitude/latitude the values are in most cases the sequence of\nminimum longitude, minimum latitude, maximum longitude and maximum latitude.\nHowever, in cases where the box spans the antimeridian the first value\n(west-most box edge) is larger than the third value (east-most box edge).\n\nIf the vertical axis is included, the third and the sixth number are the\nbottom and the top of the 3-dimensional bounding box.\n\nIf a feature has multiple spatial geometry properties, it is the decision of the\nserver whether only a single spatial geometry property is used to determine\nthe extent or all relevant geometries."
-      required: false
-      schema:
-        type: array
-        oneOf:
-        - minItems: 4
-          maxItems: 4
-        - minItems: 6
-          maxItems: 6
-        items:
-          type: number
-      style: form
-      explode: false
   responses:
-    MovingFeature:
-      description: A moving feature static data.
-      content:
-        application/geo+json:
-          schema:
-            $ref: '#/components/schemas/movingFeature'
-          example:
-            id: mf-1
-            type: Feature
-            geometry:
-              type: LineString
-              coordinates:
-              - - 139.757083
-                - 35.627701
-                - 0.5
-              - - 139.757399
-                - 35.627701
-                - 2
-              - - 139.757555
-                - 35.627688
-                - 4
-              - - 139.757651
-                - 35.627596
-                - 4
-              - - 139.757716
-                - 35.627483
-                - 4
-            properties:
-              name: car1
-              state: test1
-              video: http://www.opengis.net/spec/movingfeatures/json/1.0/prism/example/video.mpeg
-            bbox:
-            - 139.757083
-            - 35.627483
-            - 0
-            - 139.757716
-            - 35.627701
-            - 4.5
-            time:
-            - '2011-07-14T22:01:01Z'
-            - '2011-07-15T01:11:22Z'
-            crs:
-              type: Name
-              properties: urn:ogc:def:crs:OGC:1.3:CRS84
-            trs:
-              type: Name
-              properties: urn:ogc:data:time:iso8601
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-          example:
-            code: '500'
-            description: Server Internal Error
     MovingFeatures:
       description: A list of static data of moving feature.
       content:
@@ -1130,7 +1073,59 @@ components:
             timeStamp: '2020-01-01T12:00:00Z'
             numberMatched: 100
             numberReturned: 1
-x-refined-from:
-- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json
-- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml
-- ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml
+    MovingFeature:
+      description: A moving feature static data.
+      content:
+        application/geo+json:
+          schema:
+            $ref: '#/components/schemas/movingFeature'
+          example:
+            id: mf-1
+            type: Feature
+            geometry:
+              type: LineString
+              coordinates:
+              - - 139.757083
+                - 35.627701
+                - 0.5
+              - - 139.757399
+                - 35.627701
+                - 2
+              - - 139.757555
+                - 35.627688
+                - 4
+              - - 139.757651
+                - 35.627596
+                - 4
+              - - 139.757716
+                - 35.627483
+                - 4
+            properties:
+              name: car1
+              state: test1
+              video: http://www.opengis.net/spec/movingfeatures/json/1.0/prism/example/video.mpeg
+            bbox:
+            - 139.757083
+            - 35.627483
+            - 0
+            - 139.757716
+            - 35.627701
+            - 4.5
+            time:
+            - '2011-07-14T22:01:01Z'
+            - '2011-07-15T01:11:22Z'
+            crs:
+              type: Name
+              properties: urn:ogc:def:crs:OGC:1.3:CRS84
+            trs:
+              type: Name
+              properties: urn:ogc:data:time:iso8601
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+          example:
+            code: '500'
+            description: Server Internal Error

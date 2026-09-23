@@ -36,7 +36,7 @@ paths:
     get:
       tags:
       - Vector Tiles
-      summary: Retrieve the vector tileset metadata for the whole dataset and the specified tiling scheme (tile matrix set)
+      summary: Retrieve the vector tileset metadata for the whole dataset and the specified…
       operationId: .dataset.vector.getTileSet
       parameters:
       - $ref: '#/components/parameters/collections'
@@ -55,7 +55,7 @@ paths:
     get:
       tags:
       - Vector Tiles
-      summary: Retrieve a vector tile including one or more collections from the dataset.
+      summary: Retrieve a vector tile including one or more collections from the dataset
       operationId: .dataset.vector.getTile
       parameters:
       - $ref: '#/components/parameters/tileMatrix'
@@ -83,7 +83,7 @@ paths:
     get:
       tags:
       - Vector Tiles
-      summary: Retrieve the list of vector tilesets intended for use with a specified style for the whole dataset
+      summary: Retrieve the list of vector tilesets intended for use with a specified style…
       operationId: .dataset.style.vector.getTileSetsList
       parameters:
       - $ref: '#/components/parameters/styleId'
@@ -101,7 +101,7 @@ paths:
     get:
       tags:
       - Vector Tiles
-      summary: Retrieve a vector tileset intended for use with a specified style of the whole dataset for the specified tiling scheme (tile matrix set)
+      summary: Retrieve a vector tileset intended for use with a specified style of the whole…
       operationId: .dataset.style.vector.getTileSet
       parameters:
       - $ref: '#/components/parameters/styleId'
@@ -150,7 +150,7 @@ paths:
     get:
       tags:
       - Vector Tiles
-      summary: Retrieve a list of available vector tilesets for the specified collection.
+      summary: Retrieve a list of available vector tilesets for the specified collection
       operationId: .collection.vector.getTileSetsList
       parameters:
       - $ref: '#/components/parameters/collectionId-vectorTiles'
@@ -168,7 +168,7 @@ paths:
     get:
       tags:
       - Vector Tiles
-      summary: Retrieve the vector tileset metadata for the specified collection and tiling scheme (tile matrix set)
+      summary: Retrieve the vector tileset metadata for the specified collection and tiling…
       operationId: .collection.vector.getTileSet
       parameters:
       - $ref: '#/components/parameters/collectionId-vectorTiles'
@@ -188,7 +188,7 @@ paths:
     get:
       tags:
       - Vector Tiles
-      summary: Retrieve a vector tile from a collection.
+      summary: Retrieve a vector tile from a collection
       operationId: .collection.vector.getTile
       parameters:
       - $ref: '#/components/parameters/tileMatrix'
@@ -217,7 +217,7 @@ paths:
     get:
       tags:
       - Vector Tiles
-      summary: Retrieve a list of vector tilesets for the specified collection intended for use with a specified style
+      summary: Retrieve a list of vector tilesets for the specified collection intended for…
       operationId: .collection.style.vector.getTileSetsList
       parameters:
       - $ref: '#/components/parameters/collectionId-vectorTiles'
@@ -236,7 +236,7 @@ paths:
     get:
       tags:
       - Vector Tiles
-      summary: Retrieve the vector tileset metadata for the specified collection, style and tiling scheme (tile matrix set).
+      summary: Retrieve the vector tileset metadata for the specified collection, style and…
       operationId: .collection.style.vector.getTileSet
       parameters:
       - $ref: '#/components/parameters/collectionId-vectorTiles'
@@ -257,7 +257,7 @@ paths:
     get:
       tags:
       - Vector Tiles
-      summary: Retrieve vector tiles for a specified collection, intended for use with a specified style
+      summary: Retrieve vector tiles for a specified collection, intended for use with a…
       operationId: .collection.style.vector.getTile
       parameters:
       - $ref: '#/components/parameters/tileMatrix'
@@ -287,24 +287,28 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   parameters:
-    tileMatrixSetId:
-      name: tileMatrixSetId
-      in: path
-      description: Identifier for a supported TileMatrixSet
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/tileMatrixSets'
-    transparent:
-      name: transparent
+    collections-vectorTiles:
+      name: collections
       in: query
-      description: Background transparency of map (default=true).
-      required: false
       style: form
+      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
+      required: false
       explode: false
       schema:
-        type: boolean
-        default: true
+        type: array
+        items:
+          $ref: '#/components/schemas/vectorTiles-collections'
+    collections:
+      name: collections
+      in: query
+      style: form
+      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
+      required: false
+      explode: false
+      schema:
+        type: array
+        items:
+          $ref: '#/components/schemas/all-collections'
     styleId-collection:
       name: styleId
       in: path
@@ -321,16 +325,15 @@ components:
       allowEmptyValue: false
       schema:
         $ref: '#/components/schemas/styles'
-    bgcolor:
-      name: bgcolor
-      in: query
-      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the background color (default to 0x9C9C9C gray). If alpha is not specified, full opacity is assumed.
-      required: false
-      style: form
-      explode: false
+    tileCol:
+      name: tileCol
+      in: path
+      description: Column index of the tile on the selected TileMatrix. It cannot exceed the MatrixHeight-1 for the selected TileMatrix. For example, Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.
+      required: true
       schema:
-        type: string
-        default: '0xFFFFFF'
+        minimum: 0
+        type: integer
+      example: 15
     datetime:
       name: datetime
       in: query
@@ -364,39 +367,6 @@ components:
         type: string
       style: form
       explode: false
-    subset:
-      name: subset
-      in: query
-      description: "Retrieve only part of the data by slicing or trimming along one or more axis\nFor trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)\n   An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.\nFor slicing:  {axisAbbrev}({value})      (reduces dimensionality)\n"
-      style: form
-      explode: false
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-    collections-vectorTiles:
-      name: collections
-      in: query
-      style: form
-      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
-      required: false
-      explode: false
-      schema:
-        type: array
-        items:
-          $ref: '#/components/schemas/vectorTiles-collections'
-    collections:
-      name: collections
-      in: query
-      style: form
-      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
-      required: false
-      explode: false
-      schema:
-        type: array
-        items:
-          $ref: '#/components/schemas/all-collections'
     tileRow:
       name: tileRow
       in: path
@@ -406,36 +376,26 @@ components:
         minimum: 0
         type: integer
       example: 10
-    tileCol:
-      name: tileCol
+    tileMatrix:
+      name: tileMatrix
       in: path
-      description: Column index of the tile on the selected TileMatrix. It cannot exceed the MatrixHeight-1 for the selected TileMatrix. For example, Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.
+      description: 'Identifier selecting one of the scales defined in the TileMatrixSet and representing the scaleDenominator the tile. For example,
+
+        Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.'
       required: true
       schema:
-        minimum: 0
-        type: integer
-      example: 15
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
         type: string
-        enum:
-        - json
-        - html
+      example: '5'
+    bgcolor:
+      name: bgcolor
+      in: query
+      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the background color (default to 0x9C9C9C gray). If alpha is not specified, full opacity is assumed.
+      required: false
       style: form
       explode: false
-    subset-crs:
-      name: subset-crs
-      in: query
-      description: crs for the specified subset
-      required: false
-      style: form
-      explode: true
       schema:
         type: string
+        default: '0xFFFFFF'
     f-vectorTile:
       name: f
       in: query
@@ -448,6 +408,64 @@ components:
         - json
       style: form
       explode: false
+    subset-crs:
+      name: subset-crs
+      in: query
+      description: crs for the specified subset
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    transparent:
+      name: transparent
+      in: query
+      description: Background transparency of map (default=true).
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: boolean
+        default: true
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
+    subset:
+      name: subset
+      in: query
+      description: "Retrieve only part of the data by slicing or trimming along one or more axis\nFor trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)\n   An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.\nFor slicing:  {axisAbbrev}({value})      (reduces dimensionality)\n"
+      style: form
+      explode: false
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+    tileMatrixSetId:
+      name: tileMatrixSetId
+      in: path
+      description: Identifier for a supported TileMatrixSet
+      required: true
+      allowEmptyValue: false
+      schema:
+        $ref: '#/components/schemas/tileMatrixSets'
+    collectionId-vectorTiles:
+      name: collectionId
+      in: path
+      description: Local identifier of a vector tile collection
+      required: true
+      allowEmptyValue: false
+      schema:
+        $ref: '#/components/schemas/vectorTiles-collections'
     crs:
       name: crs
       in: query
@@ -457,25 +475,242 @@ components:
       explode: true
       schema:
         type: string
-    collectionId-vectorTiles:
-      name: collectionId
-      in: path
-      description: Local identifier of a vector tile collection
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/vectorTiles-collections'
-    tileMatrix:
-      name: tileMatrix
-      in: path
-      description: 'Identifier selecting one of the scales defined in the TileMatrixSet and representing the scaleDenominator the tile. For example,
-
-        Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.'
-      required: true
-      schema:
-        type: string
-      example: '5'
   schemas:
+    vectorTiles-collections:
+      type: string
+      enum:
+      - NaturalEarth:cultural:ne_10m_admin_0_countries
+      - NaturalEarth:physical:bathymetry
+    FeatureCollection:
+      title: GeoJSON FeatureCollection
+      type: object
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            title: GeoJSON Feature
+            type: object
+            required:
+            - type
+            - properties
+            - geometry
+            properties:
+              type:
+                type: string
+                enum:
+                - Feature
+              id:
+                oneOf:
+                - type: number
+                - type: string
+              properties:
+                type:
+                - object
+                - 'null'
+              geometry:
+                oneOf:
+                - title: GeoJSON Point
+                  type:
+                  - object
+                  - 'null'
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - Point
+                    coordinates:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON LineString
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - LineString
+                    coordinates:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON Polygon
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - Polygon
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        minItems: 4
+                        items:
+                          type: array
+                          minItems: 2
+                          items:
+                            type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON MultiPoint
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - MultiPoint
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON MultiLineString
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - MultiLineString
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: array
+                          minItems: 2
+                          items:
+                            type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON MultiPolygon
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - MultiPolygon
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        items:
+                          type: array
+                          minItems: 4
+                          items:
+                            type: array
+                            minItems: 2
+                            items:
+                              type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+              bbox:
+                type: array
+                minItems: 4
+                items:
+                  type: number
+        bbox:
+          type: array
+          minItems: 4
+          items:
+            type: number
+    crs:
+      title: CRS
+      oneOf:
+      - description: Simplification of the object into a url if the other properties are not present
+        type: string
+      - type: object
+        oneOf:
+        - required:
+          - uri
+          properties:
+            uri:
+              description: Reference to one coordinate reference system (CRS)
+              type: string
+              format: uri
+        - required:
+          - wkt
+          properties:
+            wkt:
+              allOf:
+              - description: An object defining the CRS using the JSON encoding for Well-known text representation of coordinate reference systems 2.0
+              - type: object
+        - required:
+          - referenceSystem
+          properties:
+            referenceSystem:
+              description: A reference system data structure as defined in the MD_ReferenceSystem of the ISO 19115
+              type: object
+    tileMatrixSets:
+      type: string
+      enum:
+      - WebMercatorQuad
+      - WorldCRS84Quad
+      - GNOSISGlobalGrid
+      - WorldMercatorWGS84Quad
+    2DPoint:
+      description: A 2D Point in the CRS indicated elsewhere
+      type: array
+      minItems: 2
+      maxItems: 2
+      items:
+        type: number
     tileSet-item:
       title: Tile Set Metadata item
       description: A minimal tileset element for use within a list of tilesets linking to full description of those tilesets.
@@ -505,42 +740,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
     styles:
       type: string
       enum:
       - default
-    tileMatrixLimits:
-      title: TileMatrixLimits
-      description: The limits for an individual tile matrix of a TileSet's TileMatrixSet, as defined in the OGC 2D TileMatrixSet and TileSet Metadata Standard
-      type: object
-      required:
-      - tileMatrix
-      - minTileRow
-      - maxTileRow
-      - minTileCol
-      - maxTileCol
-      properties:
-        tileMatrix:
-          type: string
-        minTileRow:
-          type: integer
-          minimum: 0
-        maxTileRow:
-          type: integer
-          minimum: 0
-        minTileCol:
-          type: integer
-          minimum: 0
-        maxTileCol:
-          type: integer
-          minimum: 0
-    tileMatrixSets:
+    timeStamp:
+      description: This property indicates the time and date when the response was generated using RFC 3339 notation.
+      type: string
+      format: date-time
+      example: '2017-08-17T08:05:32Z'
+    all-collections:
       type: string
       enum:
-      - WebMercatorQuad
-      - WorldCRS84Quad
-      - GNOSISGlobalGrid
-      - WorldMercatorWGS84Quad
+      - blueMarble
+      - NaturalEarth:raster:HYP_HR_SR_OB_DR
+      - NaturalEarth:cultural:ne_10m_admin_0_countries
+      - NaturalEarth:physical:bathymetry
+      - SRTM_ViewFinderPanorama
+      - HRDEM-Ottawa
+      - HRDEM-RedRiver
     tileSet:
       title: Tile Set Metadata
       description: A resource describing a tileset based on the OGC TileSet Metadata Standard. At least one of the 'TileMatrixSet',  or a link with 'rel' http://www.opengis.net/def/rel/ogc/1.0/tiling-scheme
@@ -865,232 +1100,31 @@ components:
           type: array
           items:
             type: string
-    timeStamp:
-      description: This property indicates the time and date when the response was generated using RFC 3339 notation.
-      type: string
-      format: date-time
-      example: '2017-08-17T08:05:32Z'
-    exception:
-      title: Exception Schema
-      description: JSON schema for exceptions based on RFC 7807
+    tileMatrixLimits:
+      title: TileMatrixLimits
+      description: The limits for an individual tile matrix of a TileSet's TileMatrixSet, as defined in the OGC 2D TileMatrixSet and TileSet Metadata Standard
       type: object
       required:
-      - type
+      - tileMatrix
+      - minTileRow
+      - maxTileRow
+      - minTileCol
+      - maxTileCol
       properties:
-        type:
+        tileMatrix:
           type: string
-        title:
-          type: string
-        status:
+        minTileRow:
           type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-    2DPoint:
-      description: A 2D Point in the CRS indicated elsewhere
-      type: array
-      minItems: 2
-      maxItems: 2
-      items:
-        type: number
-    dataType:
-      anyOf:
-      - type: string
-      - type: string
-        enum:
-        - map
-        - vector
-        - coverage
-    FeatureCollection:
-      title: GeoJSON FeatureCollection
-      type: object
-      required:
-      - type
-      - features
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type: array
-          items:
-            title: GeoJSON Feature
-            type: object
-            required:
-            - type
-            - properties
-            - geometry
-            properties:
-              type:
-                type: string
-                enum:
-                - Feature
-              id:
-                oneOf:
-                - type: number
-                - type: string
-              properties:
-                type:
-                - object
-                - 'null'
-              geometry:
-                oneOf:
-                - title: GeoJSON Point
-                  type:
-                  - object
-                  - 'null'
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - Point
-                    coordinates:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON LineString
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - LineString
-                    coordinates:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: array
-                        minItems: 2
-                        items:
-                          type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON Polygon
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - Polygon
-                    coordinates:
-                      type: array
-                      items:
-                        type: array
-                        minItems: 4
-                        items:
-                          type: array
-                          minItems: 2
-                          items:
-                            type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON MultiPoint
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - MultiPoint
-                    coordinates:
-                      type: array
-                      items:
-                        type: array
-                        minItems: 2
-                        items:
-                          type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON MultiLineString
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - MultiLineString
-                    coordinates:
-                      type: array
-                      items:
-                        type: array
-                        minItems: 2
-                        items:
-                          type: array
-                          minItems: 2
-                          items:
-                            type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON MultiPolygon
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - MultiPolygon
-                    coordinates:
-                      type: array
-                      items:
-                        type: array
-                        items:
-                          type: array
-                          minItems: 4
-                          items:
-                            type: array
-                            minItems: 2
-                            items:
-                              type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-              bbox:
-                type: array
-                minItems: 4
-                items:
-                  type: number
-        bbox:
-          type: array
-          minItems: 4
-          items:
-            type: number
+          minimum: 0
+        maxTileRow:
+          type: integer
+          minimum: 0
+        minTileCol:
+          type: integer
+          minimum: 0
+        maxTileCol:
+          type: integer
+          minimum: 0
     link:
       type: object
       required:
@@ -1126,48 +1160,6 @@ components:
           example: Trierer Strasse 70, 53115 Bonn
         length:
           type: integer
-    all-collections:
-      type: string
-      enum:
-      - blueMarble
-      - NaturalEarth:raster:HYP_HR_SR_OB_DR
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - NaturalEarth:physical:bathymetry
-      - SRTM_ViewFinderPanorama
-      - HRDEM-Ottawa
-      - HRDEM-RedRiver
-    vectorTiles-collections:
-      type: string
-      enum:
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - NaturalEarth:physical:bathymetry
-    crs:
-      title: CRS
-      oneOf:
-      - description: Simplification of the object into a url if the other properties are not present
-        type: string
-      - type: object
-        oneOf:
-        - required:
-          - uri
-          properties:
-            uri:
-              description: Reference to one coordinate reference system (CRS)
-              type: string
-              format: uri
-        - required:
-          - wkt
-          properties:
-            wkt:
-              allOf:
-              - description: An object defining the CRS using the JSON encoding for Well-known text representation of coordinate reference systems 2.0
-              - type: object
-        - required:
-          - referenceSystem
-          properties:
-            referenceSystem:
-              description: A reference system data structure as defined in the MD_ReferenceSystem of the ISO 19115
-              type: object
     2DBoundingBox:
       description: Minimum bounding rectangle surrounding a 2D resource in the CRS indicated elsewhere
       type: object
@@ -1187,6 +1179,14 @@ components:
           maxItems: 2
           items:
             type: string
+    dataType:
+      anyOf:
+      - type: string
+      - type: string
+        enum:
+        - map
+        - vector
+        - coverage
   responses:
     TileSet:
       description: Description of the tileset
@@ -1194,47 +1194,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/tileSet'
-        text/html:
-          schema:
-            type: string
-    EmptyTile:
-      description: No data available for this tile.
-    NotFound:
-      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    VectorTile:
-      description: A vector tile returned as a response.
-      content:
-        application/vnd.mapbox-vector-tile:
-          schema:
-            type: string
-            format: binary
-        application/geo+json:
-          schema:
-            allOf:
-            - format: geojson-feature-collection
-            - $ref: '#/components/schemas/FeatureCollection'
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
         text/html:
           schema:
             type: string
@@ -1258,3 +1217,44 @@ components:
         text/html:
           schema:
             type: string
+    NotFound:
+      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    VectorTile:
+      description: A vector tile returned as a response.
+      content:
+        application/vnd.mapbox-vector-tile:
+          schema:
+            type: string
+            format: binary
+        application/geo+json:
+          schema:
+            allOf:
+            - format: geojson-feature-collection
+            - $ref: '#/components/schemas/FeatureCollection'
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    EmptyTile:
+      description: No data available for this tile.

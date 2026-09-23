@@ -1,7 +1,28 @@
 openapi: 3.2.0
 info:
-  title: Ogc Record API
+  title: 'OGC API - Records - Part 1: Core Record API'
   version: 1.0.0
+  description: 'This is a sample OpenAPI definition that conforms to the conformance
+
+    classes of the "OGC API - Records - Part 1: Core" standard:
+
+
+    * Searchable Catalog
+
+    * Searchable Catalog - Sorting
+
+    * Local Resources Catalog
+
+    * Local Resources Catalog - Query Parameters
+
+    * Local Resources Catalog - Sorting
+
+    * OpenAPI 3.0
+
+
+    This example is a generic definition that uses path parameters to
+
+    describe all catalogs and records.'
   contact:
     name: CubeWerx Inc.
     email: pvretano@cubewerx.com
@@ -9,7 +30,6 @@ info:
   license:
     name: CC-BY 4.0 license
     url: https://creativecommons.org/licenses/by/4.0/
-  description: 'Operations tagged Record across 3 of this provider''s published API definitions: ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-buildingblocks-bundle.yaml, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://example.org/data
   description: Production server
@@ -49,17 +69,12 @@ paths:
           $ref: '#/components/responses/NotAcceptable'
         5XX:
           $ref: '#/components/responses/ServerError'
-    servers:
-    - url: https://example.org/data
-      description: Production server
-    - url: https://example.org/data-dev
-      description: Development server
 components:
   schemas:
-    multipolygonGeoJSON:
+    linestringGeoJSON:
       description: 'Imported from OGC API - Features - Part 1: Core
 
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/multipolygonGeoJSON.yaml'
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/linestringGeoJSON.yaml'
       type: object
       required:
       - type
@@ -68,42 +83,45 @@ components:
         type:
           type: string
           enum:
-          - MultiPolygon
+          - LineString
         coordinates:
           type: array
-          items:
-            type: array
-            items:
-              type: array
-              minItems: 4
-              items:
-                type: array
-                minItems: 2
-                items:
-                  type: number
-    multilinestringGeoJSON:
-      description: 'Imported from OGC API - Features - Part 1: Core
-
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/multilinestringGeoJSON.yaml'
-      type: object
-      required:
-      - type
-      - coordinates
-      properties:
-        type:
-          type: string
-          enum:
-          - MultiLineString
-        coordinates:
-          type: array
+          minItems: 2
           items:
             type: array
             minItems: 2
             items:
-              type: array
-              minItems: 2
-              items:
-                type: number
+              type: number
+    exception:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+    pointGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/pointGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - Point
+        coordinates:
+          type: array
+          minItems: 2
+          items:
+            type: number
     linkBase:
       type: object
       properties:
@@ -146,18 +164,54 @@ components:
 
             to by the link was changed.'
           format: date-time
-    geometryGeoJSON:
+    polygonGeoJSON:
       description: 'Imported from OGC API - Features - Part 1: Core
 
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml'
-      oneOf:
-      - $ref: '#/components/schemas/pointGeoJSON'
-      - $ref: '#/components/schemas/multipointGeoJSON'
-      - $ref: '#/components/schemas/linestringGeoJSON'
-      - $ref: '#/components/schemas/multilinestringGeoJSON'
-      - $ref: '#/components/schemas/polygonGeoJSON'
-      - $ref: '#/components/schemas/multipolygonGeoJSON'
-      - $ref: '#/components/schemas/geometrycollectionGeoJSON'
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - Polygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            minItems: 4
+            items:
+              type: array
+              minItems: 2
+              items:
+                type: number
+    multipolygonGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/multipolygonGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - MultiPolygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              minItems: 4
+              items:
+                type: array
+                minItems: 2
+                items:
+                  type: number
     multipointGeoJSON:
       description: 'Imported from OGC API - Features - Part 1: Core
 
@@ -178,45 +232,6 @@ components:
             minItems: 2
             items:
               type: number
-    linestringGeoJSON:
-      description: 'Imported from OGC API - Features - Part 1: Core
-
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/linestringGeoJSON.yaml'
-      type: object
-      required:
-      - type
-      - coordinates
-      properties:
-        type:
-          type: string
-          enum:
-          - LineString
-        coordinates:
-          type: array
-          minItems: 2
-          items:
-            type: array
-            minItems: 2
-            items:
-              type: number
-    pointGeoJSON:
-      description: 'Imported from OGC API - Features - Part 1: Core
-
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/pointGeoJSON.yaml'
-      type: object
-      required:
-      - type
-      - coordinates
-      properties:
-        type:
-          type: string
-          enum:
-          - Point
-        coordinates:
-          type: array
-          minItems: 2
-          items:
-            type: number
     roles:
       description: 'The list of duties, job functions or permissions assigned by the system
 
@@ -225,6 +240,134 @@ components:
       minItems: 1
       items:
         type: string
+    recordGeoJSON:
+      type: object
+      required:
+      - id
+      - type
+      - geometry
+      - properties
+      properties:
+        id:
+          oneOf:
+          - type: string
+          - type: integer
+          description: A unique identifier of the catalog record.
+        type:
+          type: string
+          enum:
+          - Feature
+        time:
+          oneOf:
+          - type:
+            - object
+            - 'null'
+          - $ref: '#/components/schemas/time'
+        geometry:
+          oneOf:
+          - type:
+            - object
+            - 'null'
+          - $ref: '#/components/schemas/geometryGeoJSON'
+        conformsTo:
+          type: array
+          description: The extensions/conformance classes used in this record.
+          items:
+            type: string
+        properties:
+          oneOf:
+          - type:
+            - object
+            - 'null'
+          - allOf:
+            - type: object
+            - $ref: '#/components/schemas/recordCommonProperties'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        linkTemplates:
+          type: array
+          items:
+            $ref: '#/components/schemas/linkTemplate'
+    theme:
+      type: object
+      required:
+      - concepts
+      - scheme
+      properties:
+        concepts:
+          type: array
+          description: 'One or more entity/concept identifiers from this knowledge
+
+            system. it is recommended that a resolvable URI be used for
+
+            each entity/concept identifier.'
+          minItems: 1
+          items:
+            type: object
+            required:
+            - id
+            properties:
+              id:
+                type: string
+                description: An identifier for the concept.
+              title:
+                type: string
+                description: A human readable title for the concept.
+              description:
+                type: string
+                description: A human readable description for the concept.
+              url:
+                type: string
+                format: uri
+                description: A URI providing further description of the concept.
+        scheme:
+          type: string
+          description: 'An identifier for the knowledge organization system used
+
+            to classify the resource.  It is recommended that the
+
+            identifier be a resolvable URI.  The list of schemes used
+
+            in a searchable catalog can be determined by inspecting
+
+            the server''s OpenAPI document or, if the server implements
+
+            CQL2, by exposing a queryable (e.g. named `scheme`) and
+
+            enumerating the list of schemes in the queryable''s schema
+
+            definition.'
+    format:
+      type: object
+      anyOf:
+      - required:
+        - name
+      - required:
+        - mediaType
+      properties:
+        name:
+          type: string
+        mediaType:
+          type: string
+    geometrycollectionGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometrycollectionGeoJSON.yaml'
+      type: object
+      required:
+      - type
+      - geometries
+      properties:
+        type:
+          type: string
+          enum:
+          - GeometryCollection
+        geometries:
+          type: array
+          items:
+            $ref: '#/components/schemas/geometryGeoJSON'
     linkTemplate:
       allOf:
       - $ref: '#/components/schemas/linkBase'
@@ -295,66 +438,29 @@ components:
           - ttb
           - btt
           default: ltr
-    license:
-      type: string
-      description: 'A legal document under which the resource is made available.
-
-        If the resource is being made available under a common license
-
-        then use an SPDX license id (https://spdx.org/licenses/).
-
-        If the resource is being made available under multiple common
-
-        licenses then use an SPDX license expression v2.3 string
-
-        (https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/)
-
-        If the resource is being made available under one or more licenses
-
-        that haven''t been assigned an SPDX identifier or one or more custom
-
-        licenses then use a string value of ''other'' and include one or more
-
-        links (rel="license") in the `link` section of the record to the
-
-        file(s) that contains the text of the license(s).
-
-        There is also the case of a resource that is private or unpublished
-
-        and is thus unlicensed; in this case do not register such a resource
-
-        in the catalog in the first place since there is no point in making
-
-        such a resource discoverable.'
-    exception:
+    multilinestringGeoJSON:
       description: 'Imported from OGC API - Features - Part 1: Core
 
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
-      type: object
-      required:
-      - code
-      properties:
-        code:
-          type: string
-        description:
-          type: string
-    geometrycollectionGeoJSON:
-      description: 'Imported from OGC API - Features - Part 1: Core
-
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometrycollectionGeoJSON.yaml'
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/multilinestringGeoJSON.yaml'
       type: object
       required:
       - type
-      - geometries
+      - coordinates
       properties:
         type:
           type: string
           enum:
-          - GeometryCollection
-        geometries:
+          - MultiLineString
+        coordinates:
           type: array
           items:
-            $ref: '#/components/schemas/geometryGeoJSON'
+            type: array
+            minItems: 2
+            items:
+              type: array
+              minItems: 2
+              items:
+                type: number
     link:
       type: object
       allOf:
@@ -366,6 +472,18 @@ components:
           href:
             type: string
             format: uri
+    geometryGeoJSON:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml'
+      oneOf:
+      - $ref: '#/components/schemas/pointGeoJSON'
+      - $ref: '#/components/schemas/multipointGeoJSON'
+      - $ref: '#/components/schemas/linestringGeoJSON'
+      - $ref: '#/components/schemas/multilinestringGeoJSON'
+      - $ref: '#/components/schemas/polygonGeoJSON'
+      - $ref: '#/components/schemas/multipolygonGeoJSON'
+      - $ref: '#/components/schemas/geometrycollectionGeoJSON'
     contact:
       type: object
       description: 'Identification of, and means of communication with, person responsible
@@ -583,91 +701,37 @@ components:
           description: 'A statement that concerns all rights not addressed
 
             by the license such as a copyright statement.'
-    polygonGeoJSON:
-      description: 'Imported from OGC API - Features - Part 1: Core
+    license:
+      type: string
+      description: 'A legal document under which the resource is made available.
 
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml'
-      type: object
-      required:
-      - type
-      - coordinates
-      properties:
-        type:
-          type: string
-          enum:
-          - Polygon
-        coordinates:
-          type: array
-          items:
-            type: array
-            minItems: 4
-            items:
-              type: array
-              minItems: 2
-              items:
-                type: number
-    recordGeoJSON:
-      type: object
-      required:
-      - id
-      - type
-      - geometry
-      - properties
-      properties:
-        id:
-          oneOf:
-          - type: string
-          - type: integer
-          description: A unique identifier of the catalog record.
-        type:
-          type: string
-          enum:
-          - Feature
-        time:
-          oneOf:
-          - type:
-            - object
-            - 'null'
-          - $ref: '#/components/schemas/time'
-        geometry:
-          oneOf:
-          - type:
-            - object
-            - 'null'
-          - $ref: '#/components/schemas/geometryGeoJSON'
-        conformsTo:
-          type: array
-          description: The extensions/conformance classes used in this record.
-          items:
-            type: string
-        properties:
-          oneOf:
-          - type:
-            - object
-            - 'null'
-          - allOf:
-            - type: object
-            - $ref: '#/components/schemas/recordCommonProperties'
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/link'
-        linkTemplates:
-          type: array
-          items:
-            $ref: '#/components/schemas/linkTemplate'
-    format:
-      type: object
-      anyOf:
-      - required:
-        - name
-      - required:
-        - mediaType
-      properties:
-        name:
-          type: string
-        mediaType:
-          type: string
+        If the resource is being made available under a common license
+
+        then use an SPDX license id (https://spdx.org/licenses/).
+
+        If the resource is being made available under multiple common
+
+        licenses then use an SPDX license expression v2.3 string
+
+        (https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/)
+
+        If the resource is being made available under one or more licenses
+
+        that haven''t been assigned an SPDX identifier or one or more custom
+
+        licenses then use a string value of ''other'' and include one or more
+
+        links (rel="license") in the `link` section of the record to the
+
+        file(s) that contains the text of the license(s).
+
+        There is also the case of a resource that is private or unpublished
+
+        and is thus unlicensed; in this case do not register such a resource
+
+        in the catalog in the first place since there is no point in making
+
+        such a resource discoverable.'
     time:
       type: object
       properties:
@@ -695,56 +759,68 @@ components:
           description: 'Minimum time period resolvable in the dataset, as an ISO 8601
 
             duration'
-    theme:
-      type: object
-      required:
-      - concepts
-      - scheme
-      properties:
-        concepts:
-          type: array
-          description: 'One or more entity/concept identifiers from this knowledge
+  responses:
+    BadRequest:
+      description: A client error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotFound:
+      description: 'The requested resource does not exist on the server. For example,
 
-            system. it is recommended that a resolvable URI be used for
+        a path parameter had an incorrect value.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description: 'Content negotiation failed. For example, the `Accept` header submitted
 
-            each entity/concept identifier.'
-          minItems: 1
-          items:
-            type: object
-            required:
-            - id
-            properties:
-              id:
-                type: string
-                description: An identifier for the concept.
-              title:
-                type: string
-                description: A human readable title for the concept.
-              description:
-                type: string
-                description: A human readable description for the concept.
-              url:
-                type: string
-                format: uri
-                description: A URI providing further description of the concept.
-        scheme:
-          type: string
-          description: 'An identifier for the knowledge organization system used
+        in the request did not support any of the media types supported by the
 
-            to classify the resource.  It is recommended that the
+        server for the requested resource.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    Record:
+      description: 'Fetch the record with id `recordId` in the record collection
 
-            identifier be a resolvable URI.  The list of schemes used
-
-            in a searchable catalog can be determined by inspecting
-
-            the server''s OpenAPI document or, if the server implements
-
-            CQL2, by exposing a queryable (e.g. named `scheme`) and
-
-            enumerating the list of schemes in the queryable''s schema
-
-            definition.'
+        with id `collectionId`'
+      content:
+        application/geo+json:
+          schema:
+            $ref: '#/components/schemas/recordGeoJSON'
+        text/html:
+          schema:
+            type: string
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
   parameters:
+    catalogId:
+      name: catalogId
+      in: path
+      description: local identifier of a catalog
+      required: true
+      schema:
+        type: string
     language:
       name: language
       in: query
@@ -787,72 +863,7 @@ components:
           type: string
       explode: false
       style: form
-    catalogId:
-      name: catalogId
-      in: path
-      description: local identifier of a catalog
-      required: true
-      schema:
-        type: string
-  responses:
-    Record:
-      description: 'Fetch the record with id `recordId` in the record collection
-
-        with id `collectionId`'
-      content:
-        application/geo+json:
-          schema:
-            $ref: '#/components/schemas/recordGeoJSON'
-        text/html:
-          schema:
-            type: string
-    NotFound:
-      description: 'The requested resource does not exist on the server. For example,
-
-        a path parameter had an incorrect value.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: 'Content negotiation failed. For example, the `Accept` header submitted
-
-        in the request did not support any of the media types supported by the
-
-        server for the requested resource.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    BadRequest:
-      description: A client error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
   securitySchemes:
     openIdConnect:
       type: openIdConnect
       openIdConnectUrl: https://accounts.google.com/.well-known/openid-configuration
-x-refined-from:
-- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml
-- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-buildingblocks-bundle.yaml
-- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml

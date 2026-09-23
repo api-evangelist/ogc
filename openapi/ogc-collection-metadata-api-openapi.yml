@@ -1,14 +1,12 @@
 openapi: 3.2.0
 info:
-  title: Ogc Collection metadata API
+  title: OGC API - Environmental Data Retrieval Standard Collection…
+  description: Example of OGC API - Environmental Data Retrieval Standard OpenAPI document
+  version: 1.1.0
   license:
     name: OGC License
     url: https://www.ogc.org/legal
-  version: '1.0'
-  description: 'Operations tagged Collection metadata across 2 of this provider''s published API definitions: ogc-edr-1-0-openapi-ogcapi-environmental-data-retrieval-1-bundled.json, ogc-edr-1-1-openapi-ogcapi-environmental-data-retrieval-1-bundled.json. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://www.example.org/edr
-  description: Example OGC API - Environmental Data Retrieval server
 - url: https://example.org/edr
   description: Example OGC API - Environmental Data Retrieval server
 tags:
@@ -61,7 +59,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -80,32 +78,32 @@ paths:
                           description: defines if the link href value is a template with values requiring replacement
                           type: boolean
                     example:
-                    - href: https://wwww.example.org/service/description.html
+                    - href: https://example.org/service/description.html
                       hreflang: en
                       rel: service-doc
                       type: text/html
                       title: ''
-                    - href: https://www.example.org/service/licence.html
+                    - href: https://example.org/service/licence.html
                       hreflang: en
                       rel: licence
                       type: text/html
                       title: ''
-                    - href: https://www.example.org/service/terms-and-conditions.html
+                    - href: https://example.org/service/terms-and-conditions.html
                       hreflang: en
                       rel: restrictions
                       type: text/html
                       title: ''
-                    - href: http://www.example.org/edr/collections/the_collection_id/
+                    - href: https://example.org/edr/collections/the_collection_id/
                       hreflang: en
                       rel: collection
                       type: collection
                       title: Collection
-                    - href: http://www.example.org/edr/collections/the_collection_id/position
+                    - href: https://example.org/edr/collections/the_collection_id/position
                       hreflang: en
                       rel: data
                       type: position
                       title: Position
-                    - href: http://www.example.org/edr/collections/the_collection_id/area
+                    - href: https://example.org/edr/collections/the_collection_id/area
                       hreflang: en
                       rel: data
                       type: area
@@ -201,14 +199,14 @@ paths:
                                 the extent or all relevant geometries.'
                               oneOf:
                               - items:
-                                  minItems: 4
-                                  maxItems: 4
                                   type: number
+                                minItems: 4
+                                maxItems: 4
                                 type: array
                               - items:
-                                  minItems: 6
-                                  maxItems: 6
                                   type: number
+                                minItems: 6
+                                maxItems: 6
                                 type: array
                             example:
                             - -180
@@ -329,7 +327,7 @@ paths:
                               - - '2'
                                 - '100'
                           values:
-                            description: "Vertical level intervals that data in the collection is available at \nthese can be defined as follows:\nmin level / max level (e.g. \"2/100\") or \nas number of repeatitions / min level / interval (e.g.\"R5/100/50\") \nor a list of vertical levels (e.g. \"2\",10,\"80\",\"100\"}\nThe value `null` is supported and indicates an open vertical interval."
+                            description: "Vertical level intervals that data in the collection is available at \nthese can be defined as follows:\nmin level / max level (e.g. \"2/100\") or \nas number of repetitions / start level / interval (e.g.\"R5/100/50\") \nor a list of vertical levels (e.g. \"2\",10,\"80\",\"100\"}\nThe value `null` is supported and indicates an open vertical interval."
                             type: array
                             minItems: 1
                             items:
@@ -338,7 +336,7 @@ paths:
                               - 'null'
                               example:
                               - - 2/100
-                              - - R50/1000/-50
+                              - - R20/1000/-50
                               - - '2'
                                 - '10'
                                 - '80'
@@ -369,7 +367,7 @@ paths:
                               properties:
                                 href:
                                   type: string
-                                  example: http://data.example.com/collections/monitoringsites/locations/1234
+                                  example: https://example.com/collections/monitoringsites/locations/1234
                                 rel:
                                   type: string
                                   example: alternate
@@ -390,7 +388,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/position
+                                example: https://example.com/collections/monitoringsites/position
                               variables:
                                 description: Property to contain any extra metadata information that is specific to an individual data queries
                                 type: object
@@ -451,7 +449,7 @@ paths:
                               properties:
                                 href:
                                   type: string
-                                  example: http://data.example.com/collections/monitoringsites/locations/1234
+                                  example: https://example.com/collections/monitoringsites/locations/1234
                                 rel:
                                   type: string
                                   example: alternate
@@ -472,7 +470,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/radius
+                                example: https://example.com/collections/monitoringsites/radius
                               variables:
                                 description: Property to contain any extra metadata information that is specific to an individual data queries
                                 type: object
@@ -541,7 +539,7 @@ paths:
                               properties:
                                 href:
                                   type: string
-                                  example: http://data.example.com/collections/monitoringsites/locations/1234
+                                  example: https://example.com/collections/monitoringsites/locations/1234
                                 rel:
                                   type: string
                                   example: alternate
@@ -562,7 +560,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/area
+                                example: https://example.com/collections/monitoringsites/area
                               variables:
                                 description: Property to contain any extra metadata information that is specific to an individual data queries
                                 type: object
@@ -623,7 +621,7 @@ paths:
                               properties:
                                 href:
                                   type: string
-                                  example: http://data.example.com/collections/monitoringsites/locations/1234
+                                  example: https://example.com/collections/monitoringsites/locations/1234
                                 rel:
                                   type: string
                                   example: alternate
@@ -644,7 +642,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/cube
+                                example: https://example.com/collections/monitoringsites/cube
                               variables:
                                 description: Property to contain any extra metadata information that is specific to an individual data queries
                                 type: object
@@ -713,7 +711,7 @@ paths:
                               properties:
                                 href:
                                   type: string
-                                  example: http://data.example.com/collections/monitoringsites/locations/1234
+                                  example: https://example.com/collections/monitoringsites/locations/1234
                                 rel:
                                   type: string
                                   example: alternate
@@ -734,7 +732,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/trajectory
+                                example: https://example.com/collections/monitoringsites/trajectory
                               variables:
                                 description: Property to contain any extra metadata information that is specific to an individual data queries
                                 type: object
@@ -795,7 +793,7 @@ paths:
                               properties:
                                 href:
                                   type: string
-                                  example: http://data.example.com/collections/monitoringsites/locations/1234
+                                  example: https://example.com/collections/monitoringsites/locations/1234
                                 rel:
                                   type: string
                                   example: alternate
@@ -816,7 +814,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/corridor
+                                example: https://example.com/collections/monitoringsites/corridor
                               variables:
                                 description: Property to contain any extra metadata information that is specific to an individual data queries
                                 type: object
@@ -893,7 +891,7 @@ paths:
                               properties:
                                 href:
                                   type: string
-                                  example: http://data.example.com/collections/monitoringsites/locations/1234
+                                  example: https://example.com/collections/monitoringsites/locations/1234
                                 rel:
                                   type: string
                                   example: alternate
@@ -914,7 +912,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations
+                                example: https://example.com/collections/monitoringsites/locations
                               variables:
                                 description: Property to contain any extra metadata information that is specific to an individual data queries
                                 type: object
@@ -975,7 +973,7 @@ paths:
                               properties:
                                 href:
                                   type: string
-                                  example: http://data.example.com/collections/monitoringsites/locations/1234
+                                  example: https://example.com/collections/monitoringsites/locations/1234
                                 rel:
                                   type: string
                                   example: alternate
@@ -996,7 +994,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/items
+                                example: https://example.com/collections/monitoringsites/items
                               variables:
                                 description: Property to contain any extra metadata information that is specific to an individual data queries
                                 type: object
@@ -1052,6 +1050,7 @@ paths:
                             type: string
                           data-type:
                             description: Data type of returned parameter
+                            type: string
                             enum:
                             - integer
                             - float
@@ -1229,14 +1228,14 @@ paths:
                                         the extent or all relevant geometries.'
                                       oneOf:
                                       - items:
-                                          minItems: 4
-                                          maxItems: 4
                                           type: number
+                                        minItems: 4
+                                        maxItems: 4
                                         type: array
                                       - items:
-                                          minItems: 6
-                                          maxItems: 6
                                           type: number
+                                        minItems: 6
+                                        maxItems: 6
                                         type: array
                                     example:
                                     - -180
@@ -1357,7 +1356,7 @@ paths:
                                       - - '2'
                                         - '100'
                                   values:
-                                    description: "Vertical level intervals that data in the collection is available at \nthese can be defined as follows:\nmin level / max level (e.g. \"2/100\") or \nas number of repeatitions / min level / interval (e.g.\"R5/100/50\") \nor a list of vertical levels (e.g. \"2\",10,\"80\",\"100\"}\nThe value `null` is supported and indicates an open vertical interval."
+                                    description: "Vertical level intervals that data in the collection is available at \nthese can be defined as follows:\nmin level / max level (e.g. \"2/100\") or \nas number of repetitions / start level / interval (e.g.\"R5/100/50\") \nor a list of vertical levels (e.g. \"2\",10,\"80\",\"100\"}\nThe value `null` is supported and indicates an open vertical interval."
                                     type: array
                                     minItems: 1
                                     items:
@@ -1366,7 +1365,7 @@ paths:
                                       - 'null'
                                       example:
                                       - - 2/100
-                                      - - R50/1000/-50
+                                      - - R20/1000/-50
                                       - - '2'
                                         - '10'
                                         - '80'
@@ -1430,9 +1429,3 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
-x-refined-from:
-- ogc-edr-1-0-openapi-ogcapi-environmental-data-retrieval-1-bundled.json
-- ogc-edr-1-1-openapi-ogcapi-environmental-data-retrieval-1-bundled.json

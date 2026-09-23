@@ -1,0 +1,1055 @@
+generated: '2026-08-31'
+method: read
+source: https://github.com/opengeospatial
+type: Conformance
+organization: opengeospatial
+programme:
+  name: CITE — Compliance & Interoperability Test & Evaluation
+  note: OGC runs the oldest formal certification programme of any body profiled, and publishes Executable
+    Test Suites as `ets-*` repositories. Neither the programme nor its suites contain the word 'conformance'
+    in their names, which is why a generic keyword sweep reported zero for OGC.
+summary:
+  suites_published: 91
+  suites_read: 87
+  suites_declaring_conformance_classes: 48
+  suites_naming_the_standard_tested: 54
+  distinct_conformance_class_uris: 26
+  distinct_specifications_covered: 11
+vocabularies:
+  note: Three forms, one concept, and a reader that knows only the first sees the newer generation and
+    reports the rest as zero. The OGC API suites name a conformance class by canonical URI; the CTL-era
+    suites name it by the capability token a server advertises (ImplementsBasicWFS, KVPEncoding); some
+    declare neither in code and carry it only in the TEAM Engine descriptor.
+  uri: http://www.opengis.net/spec/{spec}/{version}/conf/{class} — OGC API generation
+  capability_token: ImplementsBasicWFS, KVPEncoding — CTL-era ConformanceClass enums
+  teamengine_descriptor: <conformanceClass> in src/main/config/teamengine/config.xml
+why_this_matters: 'The conformance class URIs are the same strings an OGC API server returns from its
+  own /conformance endpoint. This is therefore not a description of a test suite but the vocabulary against
+  which a live implementation''s claim can be checked. IT IS NOT ITSELF A CONFORMANCE MEASUREMENT: it
+  records what each suite declares it tests. Whether any provider passes needs the provider''s endpoint
+  and a run of the suite.'
+specifications_covered:
+- specification: http://www.opengis.net/spec/ogcapi-features-1/1.0
+  conformance_classes: 6
+- specification: http://www.opengis.net/spec/ogcapi-Maps-1/1.0
+  conformance_classes: 6
+- specification: http://www.opengis.net/spec/ogcapi-tiles-1/1.0
+  conformance_classes: 4
+- specification: http://www.opengis.net/spec/GeoTIFF/1.1
+  conformance_classes: 2
+- specification: http://www.opengis.net/spec/ogcapi-edr-1/1.0
+  conformance_classes: 2
+- specification: http://www.opengis.net/spec/GMLJP2/2.0
+  conformance_classes: 1
+- specification: http://www.opengis.net/spec/ogcapi-features-2/1.0
+  conformance_classes: 1
+- specification: http://www.opengis.net/spec/ogcapi-processes-1/1.0
+  conformance_classes: 1
+- specification: http://www.opengis.net/spec/ogcapi-coverages-1/1.0
+  conformance_classes: 1
+- specification: http://www.opengis.net/spec/ogcapi-processes-2/1.0
+  conformance_classes: 1
+- specification: http://www.opengis.net/spec/ogcapi-Maps-2/1.0
+  conformance_classes: 1
+suites:
+- name: ets-csw202
+  url: https://github.com/opengeospatial/ets-csw202
+  description: Executable Test Suite  for CSW 2.0.2
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-19139
+  url: https://github.com/opengeospatial/ets-19139
+  description: ets-19139
+  archived: false
+  standard: ISO 19139
+  standard_version: '1.0'
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wmts10
+  url: https://github.com/opengeospatial/ets-wmts10
+  description: WMTS Test suite
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-kml22
+  url: https://github.com/opengeospatial/ets-kml22
+  description: Executable Test Suite for KML 2.2
+  archived: false
+  standard: OGC KML
+  standard_version: '2.2'
+  conformance_classes: []
+  conformance_tokens:
+  - Conformance Level 1
+  status: read
+- name: ets-wfs20
+  url: https://github.com/opengeospatial/ets-wfs20
+  description: Executable Test Suite for WFS 2.0
+  archived: false
+  standard: Web Feature Service (WFS)
+  standard_version: '2.0'
+  conformance_classes: []
+  conformance_tokens:
+  - All GML application schemas
+  - GML application schemas defining features
+  - ImplementsBasicWFS
+  - ImplementsLockingWFS
+  - ImplementsSimpleWFS
+  - ImplementsSpatialJoins
+  - ImplementsTransactionalWFS
+  - KVPEncoding
+  - Preconditions
+  - SOAPEncoding
+  - Simple WFS
+  - XMLEncoding
+  status: read
+- name: ets-gml32
+  url: https://github.com/opengeospatial/ets-gml32
+  description: Executable Test Suite for GML 3.2
+  archived: false
+  standard: Geography Markup Language (GML)
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - All GML application schemas
+  - GML Documents
+  - GML application schemas defining features and feature collections
+  status: read
+- name: ets-cat30
+  url: https://github.com/opengeospatial/ets-cat30
+  description: OGC Catalogue 3.0 Conformance Test Suite
+  archived: false
+  standard: Catalogue Service - Web (CSW)
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Basic-Catalogue
+  status: read
+- name: ets-archetype-testng
+  url: https://github.com/opengeospatial/ets-archetype-testng
+  description: A Maven archetype (template) for seeding a new test suite based on the TestNG framework.
+  archived: false
+  standard: ${ets-title}
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-common
+  url: https://github.com/opengeospatial/ets-common
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-owc10
+  url: https://github.com/opengeospatial/ets-owc10
+  description: null
+  archived: false
+  standard: OWS Context
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Atom Core
+  status: read
+- name: ets-resources
+  url: https://github.com/opengeospatial/ets-resources
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-osxgeotime10
+  url: https://github.com/opengeospatial/ets-osxgeotime10
+  description: Execuable Test Suite for OGC OpenSearch Geo and Time Extensions (OGC 10-032r8)
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wms13
+  url: https://github.com/opengeospatial/ets-wms13
+  description: Repository for the Exectutable Test Suite for WMS 1.3.0
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-osxeo10
+  url: https://github.com/opengeospatial/ets-osxeo10
+  description: Executable Test Suite for the  OpenSearch EO (Earth Observation) Extension
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wms-client13
+  url: https://github.com/opengeospatial/ets-wms-client13
+  description: Repository for the Exectutable Test Suite for WMS Client 1.3.X
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wfs10
+  url: https://github.com/opengeospatial/ets-wfs10
+  description: Executable Test Suite for WFS 1.0
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wfs11
+  url: https://github.com/opengeospatial/ets-wfs11
+  description: Executable Test Suite for WFS 1.1
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wms11
+  url: https://github.com/opengeospatial/ets-wms11
+  description: Executable Test Suite for WMS 1.1.X
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wms-sld11
+  url: https://github.com/opengeospatial/ets-wms-sld11
+  description: Executable Test Suite for WMS SLD 1.1.0
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wps10
+  url: https://github.com/opengeospatial/ets-wps10
+  description: Executable Test Suite for WPS 1.1.0
+  archived: false
+  standard: Web Processing Service 1.0
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-wcs10
+  url: https://github.com/opengeospatial/ets-wcs10
+  description: Executable Test Suite for WCS 1.0.0
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wcs11
+  url: https://github.com/opengeospatial/ets-wcs11
+  description: Executable Test Suite for WCS 1.1.0
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wcs20
+  url: https://github.com/opengeospatial/ets-wcs20
+  description: Executable Test Suite for WCS 2.0.1
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wcseo10
+  url: https://github.com/opengeospatial/ets-wcseo10
+  description: Executable Test Suite for OGC Web Coverage Service - Earth Observation Profile 1.0
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-sensorml10
+  url: https://github.com/opengeospatial/ets-sensorml10
+  description: Executable Test Suite for OGC Sensor Model Language 1.0.1
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-sensorml20
+  url: https://github.com/opengeospatial/ets-sensorml20
+  description: Executable Test Suite for OGC Sensor Model Language 2.0
+  archived: false
+  standard: Sensor Model Language (SensorML)
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Conformance Level 1
+  status: read
+- name: ets-sos10
+  url: https://github.com/opengeospatial/ets-sos10
+  description: Executable Test Suite for OGC Sensor Observation Service 1.0
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-sos20
+  url: https://github.com/opengeospatial/ets-sos20
+  description: Executable Test Suite for OGC Sensor Observation Service 2.0
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-sps10
+  url: https://github.com/opengeospatial/ets-sps10
+  description: Executable Test Suite for OGC Sensor Planning Service 1.0
+  archived: true
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-sps20
+  url: https://github.com/opengeospatial/ets-sps20
+  description: Executable Test Suite for OGC Sensor Planning Service 2.0
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-sfs11
+  url: https://github.com/opengeospatial/ets-sfs11
+  description: Executable Test Suite for Simple Feature Access - SQL (SFS) 1.1
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-sfs12
+  url: https://github.com/opengeospatial/ets-sfs12
+  description: Executable Test Suite for Simple Feature Access - SQL (SFS) 1.2
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-waterml20
+  url: https://github.com/opengeospatial/ets-waterml20
+  description: Executable Test Suite for  OGC WaterML 2.0.1
+  archived: false
+  standard: WaterML 2.0 Executable Test Suite
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-omxml20
+  url: https://github.com/opengeospatial/ets-omxml20
+  description: Executable Test Suite for Observations and Measurements - XML Implementation (OMXML)
+  archived: false
+  standard: Observations and Measurements - XML Implementation (OMXML)
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - ArrayObservation
+  - CategoryObservation
+  - ComplexObservation
+  - CountObservation
+  - GenericObservationData
+  - GeometryObservation
+  - MeasurementData
+  - SamplingCurveObservation
+  - SamplingFeatureObservation
+  - SamplingPointObservation
+  - SamplingSolidObservation
+  - SamplingSurfaceObservation
+  - ScalarObservation
+  - SpatialObservation
+  - SpatialSamplingFeatureValidation
+  - SpecimenObservation
+  - TemporalObservation
+  - TruthObservation
+  status: read
+- name: ets-kml2
+  url: https://github.com/opengeospatial/ets-kml2
+  description: OGC KML 2.x Conformance Test Suite
+  archived: false
+  standard: OGC KML 2.x
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - CL1
+  status: read
+- name: ets-wcs-rsub10
+  url: https://github.com/opengeospatial/ets-wcs-rsub10
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wcs-proc20
+  url: https://github.com/opengeospatial/ets-wcs-proc20
+  description: null
+  archived: true
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wcs-scal10
+  url: https://github.com/opengeospatial/ets-wcs-scal10
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wcs-int10
+  url: https://github.com/opengeospatial/ets-wcs-int10
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-eowcs10
+  url: https://github.com/opengeospatial/ets-eowcs10
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-indoorgml10
+  url: https://github.com/opengeospatial/ets-indoorgml10
+  description: Executable Test Suite for Indoor GML 1.0
+  archived: false
+  standard: IndoorGML 1.0
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Annex A.1 Test Cases for mandatory conformance requirements
+  status: read
+- name: ets-gmljpx20
+  url: https://github.com/opengeospatial/ets-gmljpx20
+  description: Conformance Test Suite - GML in JPEG 2000
+  archived: false
+  standard: GML in JPEG 2000 (GMLJP2)
+  standard_version: ${spec-version}
+  conformance_classes:
+  - http://www.opengis.net/spec/GMLJP2/2.0/conf/core
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-sta10
+  url: https://github.com/opengeospatial/ets-sta10
+  description: Repository for the Executable Test Suite for OGC Sensor Things API
+  archived: false
+  standard: SensorThings API
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Conformance Level 1
+  - Conformance Level 2
+  - Conformance Level 3
+  status: read
+- name: ets-gpkg10
+  url: https://github.com/opengeospatial/ets-gpkg10
+  description: GeoPackage 1.0 Conformance Test Suite
+  archived: false
+  standard: GeoPackage
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-dgiwg
+  url: https://github.com/opengeospatial/ets-dgiwg
+  description: DGIWG Profiles
+  archived: false
+  standard: DGIWG Web Feature Service (DGIWG WFS)
+  standard_version: '2.0'
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-gml32-data
+  url: https://github.com/opengeospatial/ets-gml32-data
+  description: Test suite for validating GML 3.2 data instances
+  archived: false
+  standard: Geography Markup Language (GML) - Documents
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-wfs20-dgiwg
+  url: https://github.com/opengeospatial/ets-wfs20-dgiwg
+  description: null
+  archived: false
+  standard: DGIWG Web Feature Service (DGIWG WFS)
+  standard_version: '2.0'
+  conformance_classes: []
+  conformance_tokens:
+  - All GML application schemas
+  - DGIWG Basic WFS
+  - DGIWG Locking (transactional) WFS
+  - GML application schemas defining features
+  - Preconditions
+  status: read
+- name: ets-wms13-dgiwg
+  url: https://github.com/opengeospatial/ets-wms13-dgiwg
+  description: null
+  archived: false
+  standard: DGIWG Web Map Service (DGIWG WMS)
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - DGIWG WMS
+  - Preconditions
+  - WMS Basic
+  - WMS Queryable
+  status: read
+- name: ets-dgiwg-core
+  url: https://github.com/opengeospatial/ets-dgiwg-core
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-sta-client10
+  url: https://github.com/opengeospatial/ets-sta-client10
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-gpkg12
+  url: https://github.com/opengeospatial/ets-gpkg12
+  description: GeoPackage 1.2 Executable Test Suite
+  archived: false
+  standard: GeoPackage
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Attributes
+  - Core
+  - Extension Mechanism
+  - Features
+  - Metadata
+  - Non-Linear Geometry Types
+  - RTree Spatial Indexes
+  - Schema
+  - Tiled Gridded Coverage Data
+  - Tiles
+  - Tiles Encoding WebP
+  - WKT for Coordinate Reference Systems
+  status: read
+- name: ets-wms13-nsg
+  url: https://github.com/opengeospatial/ets-wms13-nsg
+  description: null
+  archived: false
+  standard: NSG WMS 1.3 Profile
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - NSG WMS
+  - Preconditions
+  - WMS Basic
+  - WMS Queryable
+  status: read
+- name: ets-wfs20-nsg10
+  url: https://github.com/opengeospatial/ets-wfs20-nsg10
+  description: NSG WFS 2.0 Profile
+  archived: false
+  standard: NSG WFS 2.0 Profile
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - All GML application schemas
+  - Enhanced Paging
+  - GML application schemas defining features
+  - NSG Basic WFS Conformance Class
+  - NSG Locking WFS
+  - NSG Manage Stored Queries
+  - Preconditions
+  - Remote Resolve
+  status: read
+- name: ets-wmts10-nsg10
+  url: https://github.com/opengeospatial/ets-wmts10-nsg10
+  description: NSG WMTS 1.0 Profile
+  archived: false
+  standard: NSG WMTS 1.0 Profile
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - NSG Test A.3 - Server Test Module;  Requirement 10
+  - NSG Test A.3 - Server Test Module;  Requirement 11
+  - NSG Test A.3 - Server Test Module;  Requirement 12
+  - NSG Test A.3 - Server Test Module;  Requirement 13
+  - NSG Test A.3 - Server Test Module;  Requirement 14
+  - NSG Test A.3 - Server Test Module;  Requirement 15
+  - NSG Test A.3 - Server Test Module;  Requirement 16
+  - NSG Test A.3 - Server Test Module;  Requirement 17
+  - NSG Test A.3 - Server Test Module;  Requirement 19
+  - NSG Test A.3 - Server Test Module;  Requirement 2
+  - NSG Test A.3 - Server Test Module;  Requirement 20
+  - NSG Test A.3 - Server Test Module;  Requirement 3
+  - NSG Test A.3 - Server Test Module;  Requirement 4
+  - NSG Test A.3 - Server Test Module;  Requirement 5
+  - NSG Test A.3 - Server Test Module;  Requirement 6
+  - NSG Test A.3 - Server Test Module;  Requirement 7
+  - NSG Test A.3 - Server Test Module;  Requirement 8
+  - NSG Test A.3 - Server Test Module;  Requirement 9
+  - NSG Test A.3 - Server Test Module;  Service Metadata Content Test (Requirements 4,7)
+  - Preconditions
+  status: read
+- name: ets-swecommon20
+  url: https://github.com/opengeospatial/ets-swecommon20
+  description: null
+  archived: false
+  standard: SWE Common Data Model Encoding Standard
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - AdvancedEncodings
+  - BlockComponents
+  - ChoiceComponents
+  - Core
+  - GeneralEncodingRules
+  - RecordComponents
+  - SimpleComponents
+  - SimpleEncodings
+  status: read
+- name: ets-gpkg12-nsg
+  url: https://github.com/opengeospatial/ets-gpkg12-nsg
+  description: null
+  archived: false
+  standard: NSG GeoPackage 1.1 Profile
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Attributes
+  - Core
+  - Extension Mechanism
+  - Features
+  - Metadata
+  - NSG
+  - Non-Linear Geometry Types
+  - RTree Spatial Indexes
+  - Schema
+  - Tiled Gridded Coverage Data
+  - Tiles
+  - Tiles Encoding WebP
+  - WKT for Coordinate Reference Systems
+  status: read
+- name: ets-cdb10
+  url: https://github.com/opengeospatial/ets-cdb10
+  description: CITE - ETS for CDB
+  archived: false
+  standard: OGC CDB
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - CDB Structure
+  status: read
+- name: ets-cat20-dgiwg10
+  url: https://github.com/opengeospatial/ets-cat20-dgiwg10
+  description: Public Repo for DGIWG CAT 2.0.2 Tests
+  archived: false
+  standard: DGIWG Catalogue Service for the Web 2.0 (DGIWG CSW)
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - DGIWG_Basic_CSW
+  - Preconditions
+  status: read
+- name: ets-security-client10
+  url: https://github.com/opengeospatial/ets-security-client10
+  description: Public Repo for D112 Secure Client Tests
+  archived: false
+  standard: OGC Web Service Security Client
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-ogcapi-features10
+  url: https://github.com/opengeospatial/ets-ogcapi-features10
+  description: Public Repository for the OGC API - Features Compliance Test Suite
+  archived: false
+  standard: OGC API - Features
+  standard_version: ${spec-version}
+  conformance_classes:
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf0
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf2
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30
+  - http://www.opengis.net/spec/ogcapi-features-2/1.0/conf/crs
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-gmlcovrgrid10
+  url: https://github.com/opengeospatial/ets-gmlcovrgrid10
+  description: Test for OGC Coverage Implementation Schema - ReferenceableGridCoverage Extension
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-dggs10
+  url: https://github.com/opengeospatial/ets-dggs10
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-infragml10
+  url: https://github.com/opengeospatial/ets-infragml10
+  description: null
+  archived: false
+  standard: InfraGML
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-geotiff11
+  url: https://github.com/opengeospatial/ets-geotiff11
+  description: null
+  archived: false
+  standard: GeoTiff
+  standard_version: ${spec-version}
+  conformance_classes:
+  - http://www.opengis.net/spec/GeoTIFF/1.1/conf/Core
+  - http://www.opengis.net/spec/GeoTIFF/1.1/conf/Raster2Model_CoordinateTransformation_GeoKey
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-pipelineml10
+  url: https://github.com/opengeospatial/ets-pipelineml10
+  description: null
+  archived: false
+  standard: PipelineML
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-ogcapi-tiles10
+  url: https://github.com/opengeospatial/ets-ogcapi-tiles10
+  description: null
+  archived: false
+  standard: OGC API - Tiles
+  standard_version: ${spec-version}
+  conformance_classes:
+  - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/core
+  - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/dataset-tilesets
+  - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-tilesets
+  - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tilesets-list
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-georss10
+  url: https://github.com/opengeospatial/ets-georss10
+  description: null
+  archived: false
+  standard: OGC GeoRSS Encoding Standard
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-ogcapi-edr10
+  url: https://github.com/opengeospatial/ets-ogcapi-edr10
+  description: null
+  archived: false
+  standard: OGC API - Environmental Data Retrieval
+  standard_version: ${spec-version}
+  conformance_classes:
+  - http://www.opengis.net/spec/ogcapi-edr-1/1.0/conf/core
+  - http://www.opengis.net/spec/ogcapi-edr-1/1.0/conf/geojson
+  conformance_tokens:
+  - Collections
+  - Core
+  status: read
+- name: ets-ogcapi-processes10
+  url: https://github.com/opengeospatial/ets-ogcapi-processes10
+  description: null
+  archived: false
+  standard: OGC API - Processes
+  standard_version: ${spec-version}
+  conformance_classes:
+  - http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-cis-referenceablegridcoverage1
+  url: https://github.com/opengeospatial/ets-cis-referenceablegridcoverage1
+  description: null
+  archived: false
+  standard: Coverage Implementation Schema - ReferenceableGridCoverage Extension
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-wps20
+  url: https://github.com/opengeospatial/ets-wps20
+  description: null
+  archived: false
+  standard: Web Processing Service (WPS)
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-geopose10
+  url: https://github.com/opengeospatial/ets-geopose10
+  description: Executable Test Suite of GeoPose the 1.0 standard
+  archived: false
+  standard: GeoPose 1.0
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-ogcapi-coverages10
+  url: https://github.com/opengeospatial/ets-ogcapi-coverages10
+  description: null
+  archived: false
+  standard: OGC API - Coverages
+  standard_version: ${spec-version}
+  conformance_classes:
+  - http://www.opengis.net/spec/ogcapi-coverages-1/1.0/conf/core
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-eo-geojson10
+  url: https://github.com/opengeospatial/ets-eo-geojson10
+  description: Executable Test Suite for EO GeoJSON 1.0
+  archived: false
+  standard: OGC EO Dataset Metadata GeoJSON
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-wmts10-nsg12
+  url: https://github.com/opengeospatial/ets-wmts10-nsg12
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-coveragejson10
+  url: https://github.com/opengeospatial/ets-coveragejson10
+  description: null
+  archived: false
+  standard: CoverageJSON
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-citygml20
+  url: https://github.com/opengeospatial/ets-citygml20
+  description: null
+  archived: false
+  standard: CityGML 2.0
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-gpkg13
+  url: https://github.com/opengeospatial/ets-gpkg13
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: tree-unavailable
+- name: ets-gpkg14
+  url: https://github.com/opengeospatial/ets-gpkg14
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: tree-unavailable
+- name: ets-ogcapi-features10-part2
+  url: https://github.com/opengeospatial/ets-ogcapi-features10-part2
+  description: null
+  archived: false
+  standard: 'OGC API - Features - Part 2: CRS by Reference'
+  standard_version: ${spec-version}
+  conformance_classes:
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf0
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf2
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html
+  - http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30
+  - http://www.opengis.net/spec/ogcapi-features-2/1.0/conf/crs
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-jsonfg10
+  url: https://github.com/opengeospatial/ets-jsonfg10
+  description: null
+  archived: false
+  standard: Features and Geometry JSON - Part 1 v1.0
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-citygml30-part2
+  url: https://github.com/opengeospatial/ets-citygml30-part2
+  description: null
+  archived: false
+  standard: OGC CityGML 3.0 Part 2 GML Encoding
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core Validation
+  - Global Validation
+  status: read
+- name: ets-ogcapi-processes10-part2
+  url: https://github.com/opengeospatial/ets-ogcapi-processes10-part2
+  description: null
+  archived: false
+  standard: OGC API - Processes - Part 2
+  standard_version: ${spec-version}
+  conformance_classes:
+  - http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/deploy-replace-undeploy
+  conformance_tokens:
+  - Deploy, Replace, Undeploy
+  status: read
+- name: ets-trainingdmlai10-part2
+  url: https://github.com/opengeospatial/ets-trainingdmlai10-part2
+  description: null
+  archived: false
+  standard: Training DML AI Part 2 version 1.0
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - AI TrainingDataset
+  status: read
+- name: ets-ogcapi-maps10
+  url: https://github.com/opengeospatial/ets-ogcapi-maps10
+  description: null
+  archived: false
+  standard: OGC API - Maps
+  standard_version: ${spec-version}
+  conformance_classes:
+  - http://www.opengis.net/spec/ogcapi-Maps-1/1.0/conf/core
+  - http://www.opengis.net/spec/ogcapi-Maps-1/1.0/conf/geojson
+  - http://www.opengis.net/spec/ogcapi-Maps-1/1.0/conf/gmlsf0
+  - http://www.opengis.net/spec/ogcapi-Maps-1/1.0/conf/gmlsf2
+  - http://www.opengis.net/spec/ogcapi-Maps-1/1.0/conf/html
+  - http://www.opengis.net/spec/ogcapi-Maps-1/1.0/conf/oas30
+  - http://www.opengis.net/spec/ogcapi-Maps-2/1.0/conf/crs
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-ogcapi-processes20
+  url: https://github.com/opengeospatial/ets-ogcapi-processes20
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: tree-unavailable
+- name: ets-ogcapi-edr12
+  url: https://github.com/opengeospatial/ets-ogcapi-edr12
+  description: null
+  archived: false
+  standard: null
+  standard_version: null
+  conformance_classes: []
+  conformance_tokens: []
+  status: tree-unavailable
+- name: ets-wcps11
+  url: https://github.com/opengeospatial/ets-wcps11
+  description: Repository for the Executable Test Suite for WCPS 1.1
+  archived: false
+  standard: Web Coverage Processing Standard (WCPS)
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens: []
+  status: no-declaration-found
+- name: ets-sensorml30
+  url: https://github.com/opengeospatial/ets-sensorml30
+  description: null
+  archived: false
+  standard: SensorML 3.0
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-swecommon30
+  url: https://github.com/opengeospatial/ets-swecommon30
+  description: null
+  archived: false
+  standard: SWE Common 3.0
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read
+- name: ets-geosparql11
+  url: https://github.com/opengeospatial/ets-geosparql11
+  description: Executable Test Suite for OGC GeoSPARQL 1.1
+  archived: false
+  standard: GeoSPARQL 1.1
+  standard_version: ${spec-version}
+  conformance_classes: []
+  conformance_tokens:
+  - Core
+  status: read

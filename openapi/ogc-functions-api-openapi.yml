@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  title: 'Building Blocks specified in OGC API - Features - Part 3: Filtering Functions API'
+  title: Building Blocks specified in OGC API - Features - Part 3…
   description: 'Common components used in the
 
-    [OGC standard "OGC API - Features - Part 3: Filtering"](https://docs.ogc.org/is/19-079r2/19-079r2.html).
+    OGC standard "OGC API - Features - Part 3: Filtering".
 
 
     OGC API - Features - Part 3: Filtering 1.0 is an OGC Standard.
@@ -15,7 +15,7 @@ info:
 
     This document is also available in the
 
-    [OGC Schema Repository](https://schemas.opengis.net/ogcapi/features/part3/1.0/openapi/ogcapi-features-3.yaml).'
+    OGC Schema Repository.'
   version: 1.0.0
   contact:
     name: Clemens Portele

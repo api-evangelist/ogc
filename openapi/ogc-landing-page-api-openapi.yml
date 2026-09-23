@@ -22,7 +22,7 @@ paths:
       tags:
       - Landing Page
       operationId: getLandingPage
-      summary: Retrieve the OGC API landing page for this service.
+      summary: Retrieve the OGC API landing page for this service
       parameters:
       - $ref: '#/components/parameters/f-metadata'
       responses:
@@ -36,6 +36,19 @@ paths:
     - description: Example OGC API - DGGS server
       url: https://maps.gnosis.earth/ogcapi
 components:
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
   schemas:
     exception:
       title: Exception Schema
@@ -174,15 +187,6 @@ components:
         length:
           type: integer
   responses:
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
     LandingPage:
       description: 'The landing page provides links to the API definition (link relation `service-desc`, in this case path `/api`),
 
@@ -219,6 +223,15 @@ components:
               rel: http://www.opengis.net/def/rel/ogc/1.0/dggs-list
               type: application/json
               title: List of DGGS implemented by this service
+        text/html:
+          schema:
+            type: string
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
         text/html:
           schema:
             type: string
@@ -301,19 +314,6 @@ components:
         text/html:
           schema:
             type: string
-  parameters:
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - html
-      style: form
-      explode: false
 x-refined-from:
 - ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json
 - ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json

@@ -1,7 +1,28 @@
 openapi: 3.2.0
 info:
-  title: Ogc Sortables API
+  title: 'OGC API - Records - Part 1: Core Sortables API'
   version: 1.0.0
+  description: 'This is a sample OpenAPI definition that conforms to the conformance
+
+    classes of the "OGC API - Records - Part 1: Core" standard:
+
+
+    * Searchable Catalog
+
+    * Searchable Catalog - Sorting
+
+    * Local Resources Catalog
+
+    * Local Resources Catalog - Query Parameters
+
+    * Local Resources Catalog - Sorting
+
+    * OpenAPI 3.0
+
+
+    This example is a generic definition that uses path parameters to
+
+    describe all catalogs and records.'
   contact:
     name: CubeWerx Inc.
     email: pvretano@cubewerx.com
@@ -9,7 +30,6 @@ info:
   license:
     name: CC-BY 4.0 license
     url: https://creativecommons.org/licenses/by/4.0/
-  description: 'Operations tagged Sortables across 3 of this provider''s published API definitions: ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-buildingblocks-bundle.yaml, ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://example.org/data
   description: Production server
@@ -45,41 +65,10 @@ paths:
           $ref: '#/components/responses/NotAcceptable'
         5XX:
           $ref: '#/components/responses/ServerError'
-    servers:
-    - url: https://example.org/data
-      description: Production server
-    - url: https://example.org/data-dev
-      description: Development server
 components:
-  schemas:
-    exception:
-      description: 'Imported from OGC API - Features - Part 1: Core
-
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
-      type: object
-      required:
-      - code
-      properties:
-        code:
-          type: string
-        description:
-          type: string
   responses:
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: 'Content negotiation failed. For example, the `Accept` header submitted
-
-        in the request did not support any of the media types supported by the
-
-        server for the requested resource.'
+    BadRequest:
+      description: A client error occurred.
       content:
         application/json:
           schema:
@@ -108,8 +97,8 @@ components:
         text/html:
           schema:
             type: string
-    BadRequest:
-      description: A client error occurred.
+    ServerError:
+      description: A server error occurred.
       content:
         application/json:
           schema:
@@ -117,6 +106,32 @@ components:
         text/html:
           schema:
             type: string
+    NotAcceptable:
+      description: 'Content negotiation failed. For example, the `Accept` header submitted
+
+        in the request did not support any of the media types supported by the
+
+        server for the requested resource.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+  schemas:
+    exception:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
   parameters:
     catalogId:
       name: catalogId
@@ -125,17 +140,6 @@ components:
       required: true
       schema:
         type: string
-    profile:
-      name: profile
-      in: query
-      description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      explode: false
-      style: form
     language:
       name: language
       in: query
@@ -160,11 +164,18 @@ components:
           pattern: ^((?:(en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))|((?:([A-Za-z]{2,3}(-(?:[A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-(?:[A-Za-z]{4}))?(-(?:[A-Za-z]{2}|[0-9]{3}))?(-(?:[A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-(?:[0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(?:x(-[A-Za-z0-9]{1,8})+))?)|(?:x(-[A-Za-z0-9]{1,8})+))(?:;q=(?:1|1\.0+|0|0\.[0-9]+))?$
       explode: false
       style: form
+    profile:
+      name: profile
+      in: query
+      description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
   securitySchemes:
     openIdConnect:
       type: openIdConnect
       openIdConnectUrl: https://accounts.google.com/.well-known/openid-configuration
-x-refined-from:
-- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-all-in-one.yaml
-- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-buildingblocks-bundle.yaml
-- ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml

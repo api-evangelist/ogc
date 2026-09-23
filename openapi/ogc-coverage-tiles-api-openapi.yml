@@ -19,7 +19,7 @@ paths:
     get:
       tags:
       - Coverage Tiles
-      summary: Retrieve the list of available coverage tilesets for the specified collection.
+      summary: Retrieve the list of available coverage tilesets for the specified collection
       operationId: .collection.coverage.getTileSetsList
       parameters:
       - $ref: '#/components/parameters/collectionId-coverage'
@@ -37,7 +37,7 @@ paths:
     get:
       tags:
       - Coverage Tiles
-      summary: Retrieve the coverage tileset metadata for the specified collection and tiling scheme (tile matrix set)
+      summary: Retrieve the coverage tileset metadata for the specified collection and tiling…
       operationId: .collection.coverage.getTileSet
       parameters:
       - $ref: '#/components/parameters/collectionId-coverage'
@@ -83,152 +83,48 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
-  parameters:
-    f-coverageTile:
-      name: f
-      in: query
-      description: The format of the coverage tile response (e.g. tiff). Accepted values are 'tiff' (GeoTIFF), 'netcdf', or 'png'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - tiff
-        - netcdf
-        - png
-      style: form
-      explode: false
-    tileMatrixSetId:
-      name: tileMatrixSetId
-      in: path
-      description: Identifier for a supported TileMatrixSet
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/tileMatrixSets'
-    collections-coverage:
-      name: collections
-      in: query
-      style: form
-      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
-      required: false
-      explode: false
-      schema:
-        type: array
-        items:
-          $ref: '#/components/schemas/coverage-collections'
-    collectionId-coverage:
-      name: collectionId
-      in: path
-      description: Local identifier of a coverage collection
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/coverage-collections'
-      style: simple
-      explode: false
-    datetime:
-      name: datetime
-      in: query
-      description: 'Either a date-time or an interval, half-bounded or bounded. Date and time expressions
-
-        adhere to RFC 3339. Half-bounded intervals are expressed using double-dots.
-
-
-        Examples:
-
-
-        * A date-time: "2018-02-12T23:20:50Z"
-
-        * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"
-
-        * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
-
-
-        Only features that have a temporal property that intersects the value of
-
-        `datetime` are selected.
-
-
-        If a feature has multiple temporal properties, it is the decision of the
-
-        server whether only a single temporal property is used to determine
-
-        the extent or all relevant temporal properties.'
-      required: false
-      schema:
-        type: string
-      style: form
-      explode: false
-    subset:
-      name: subset
-      in: query
-      description: "Retrieve only part of the data by slicing or trimming along one or more axis\nFor trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)\n   An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.\nFor slicing:  {axisAbbrev}({value})      (reduces dimensionality)\n"
-      style: form
-      explode: false
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-    tileRow:
-      name: tileRow
-      in: path
-      description: Row index of the tile on the selected TileMatrix. It cannot exceed the MatrixWidth-1 for the selected TileMatrix. For example, Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.
-      required: true
-      schema:
-        minimum: 0
-        type: integer
-      example: 10
-    tileCol:
-      name: tileCol
-      in: path
-      description: Column index of the tile on the selected TileMatrix. It cannot exceed the MatrixHeight-1 for the selected TileMatrix. For example, Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.
-      required: true
-      schema:
-        minimum: 0
-        type: integer
-      example: 15
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - html
-      style: form
-      explode: false
-    subset-crs:
-      name: subset-crs
-      in: query
-      description: crs for the specified subset
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-    crs:
-      name: crs
-      in: query
-      description: reproject the output to the given crs
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-    tileMatrix:
-      name: tileMatrix
-      in: path
-      description: 'Identifier selecting one of the scales defined in the TileMatrixSet and representing the scaleDenominator the tile. For example,
-
-        Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.'
-      required: true
-      schema:
-        type: string
-      example: '5'
   schemas:
+    crs:
+      title: CRS
+      oneOf:
+      - description: Simplification of the object into a url if the other properties are not present
+        type: string
+      - type: object
+        oneOf:
+        - required:
+          - uri
+          properties:
+            uri:
+              description: Reference to one coordinate reference system (CRS)
+              type: string
+              format: uri
+        - required:
+          - wkt
+          properties:
+            wkt:
+              allOf:
+              - description: An object defining the CRS using the JSON encoding for Well-known text representation of coordinate reference systems 2.0
+              - type: object
+        - required:
+          - referenceSystem
+          properties:
+            referenceSystem:
+              description: A reference system data structure as defined in the MD_ReferenceSystem of the ISO 19115
+              type: object
+    tileMatrixSets:
+      type: string
+      enum:
+      - WebMercatorQuad
+      - WorldCRS84Quad
+      - GNOSISGlobalGrid
+      - WorldMercatorWGS84Quad
+    2DPoint:
+      description: A 2D Point in the CRS indicated elsewhere
+      type: array
+      minItems: 2
+      maxItems: 2
+      items:
+        type: number
     tileSet-item:
       title: Tile Set Metadata item
       description: A minimal tileset element for use within a list of tilesets linking to full description of those tilesets.
@@ -258,38 +154,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
-    tileMatrixLimits:
-      title: TileMatrixLimits
-      description: The limits for an individual tile matrix of a TileSet's TileMatrixSet, as defined in the OGC 2D TileMatrixSet and TileSet Metadata Standard
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
       type: object
       required:
-      - tileMatrix
-      - minTileRow
-      - maxTileRow
-      - minTileCol
-      - maxTileCol
+      - type
       properties:
-        tileMatrix:
+        type:
           type: string
-        minTileRow:
+        title:
+          type: string
+        status:
           type: integer
-          minimum: 0
-        maxTileRow:
-          type: integer
-          minimum: 0
-        minTileCol:
-          type: integer
-          minimum: 0
-        maxTileCol:
-          type: integer
-          minimum: 0
-    tileMatrixSets:
+        detail:
+          type: string
+        instance:
+          type: string
+    timeStamp:
+      description: This property indicates the time and date when the response was generated using RFC 3339 notation.
       type: string
-      enum:
-      - WebMercatorQuad
-      - WorldCRS84Quad
-      - GNOSISGlobalGrid
-      - WorldMercatorWGS84Quad
+      format: date-time
+      example: '2017-08-17T08:05:32Z'
     coverage-collections:
       type: string
       enum:
@@ -620,43 +506,31 @@ components:
           type: array
           items:
             type: string
-    timeStamp:
-      description: This property indicates the time and date when the response was generated using RFC 3339 notation.
-      type: string
-      format: date-time
-      example: '2017-08-17T08:05:32Z'
-    exception:
-      title: Exception Schema
-      description: JSON schema for exceptions based on RFC 7807
+    tileMatrixLimits:
+      title: TileMatrixLimits
+      description: The limits for an individual tile matrix of a TileSet's TileMatrixSet, as defined in the OGC 2D TileMatrixSet and TileSet Metadata Standard
       type: object
       required:
-      - type
+      - tileMatrix
+      - minTileRow
+      - maxTileRow
+      - minTileCol
+      - maxTileCol
       properties:
-        type:
+        tileMatrix:
           type: string
-        title:
-          type: string
-        status:
+        minTileRow:
           type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-    2DPoint:
-      description: A 2D Point in the CRS indicated elsewhere
-      type: array
-      minItems: 2
-      maxItems: 2
-      items:
-        type: number
-    dataType:
-      anyOf:
-      - type: string
-      - type: string
-        enum:
-        - map
-        - vector
-        - coverage
+          minimum: 0
+        maxTileRow:
+          type: integer
+          minimum: 0
+        minTileCol:
+          type: integer
+          minimum: 0
+        maxTileCol:
+          type: integer
+          minimum: 0
     link:
       type: object
       required:
@@ -692,33 +566,6 @@ components:
           example: Trierer Strasse 70, 53115 Bonn
         length:
           type: integer
-    crs:
-      title: CRS
-      oneOf:
-      - description: Simplification of the object into a url if the other properties are not present
-        type: string
-      - type: object
-        oneOf:
-        - required:
-          - uri
-          properties:
-            uri:
-              description: Reference to one coordinate reference system (CRS)
-              type: string
-              format: uri
-        - required:
-          - wkt
-          properties:
-            wkt:
-              allOf:
-              - description: An object defining the CRS using the JSON encoding for Well-known text representation of coordinate reference systems 2.0
-              - type: object
-        - required:
-          - referenceSystem
-          properties:
-            referenceSystem:
-              description: A reference system data structure as defined in the MD_ReferenceSystem of the ISO 19115
-              type: object
     2DBoundingBox:
       description: Minimum bounding rectangle surrounding a 2D resource in the CRS indicated elsewhere
       type: object
@@ -738,6 +585,14 @@ components:
           maxItems: 2
           items:
             type: string
+    dataType:
+      anyOf:
+      - type: string
+      - type: string
+        enum:
+        - map
+        - vector
+        - coverage
   responses:
     TileSet:
       description: Description of the tileset
@@ -759,35 +614,6 @@ components:
           schema:
             type: string
             format: binary
-    EmptyTile:
-      description: No data available for this tile.
-    NotFound:
-      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
     TileSetsList:
       description: List of available tilesets.
       content:
@@ -808,3 +634,177 @@ components:
         text/html:
           schema:
             type: string
+    NotFound:
+      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    EmptyTile:
+      description: No data available for this tile.
+  parameters:
+    tileRow:
+      name: tileRow
+      in: path
+      description: Row index of the tile on the selected TileMatrix. It cannot exceed the MatrixWidth-1 for the selected TileMatrix. For example, Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.
+      required: true
+      schema:
+        minimum: 0
+        type: integer
+      example: 10
+    tileCol:
+      name: tileCol
+      in: path
+      description: Column index of the tile on the selected TileMatrix. It cannot exceed the MatrixHeight-1 for the selected TileMatrix. For example, Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.
+      required: true
+      schema:
+        minimum: 0
+        type: integer
+      example: 15
+    datetime:
+      name: datetime
+      in: query
+      description: 'Either a date-time or an interval, half-bounded or bounded. Date and time expressions
+
+        adhere to RFC 3339. Half-bounded intervals are expressed using double-dots.
+
+
+        Examples:
+
+
+        * A date-time: "2018-02-12T23:20:50Z"
+
+        * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"
+
+        * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
+
+
+        Only features that have a temporal property that intersects the value of
+
+        `datetime` are selected.
+
+
+        If a feature has multiple temporal properties, it is the decision of the
+
+        server whether only a single temporal property is used to determine
+
+        the extent or all relevant temporal properties.'
+      required: false
+      schema:
+        type: string
+      style: form
+      explode: false
+    tileMatrix:
+      name: tileMatrix
+      in: path
+      description: 'Identifier selecting one of the scales defined in the TileMatrixSet and representing the scaleDenominator the tile. For example,
+
+        Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.'
+      required: true
+      schema:
+        type: string
+      example: '5'
+    subset-crs:
+      name: subset-crs
+      in: query
+      description: crs for the specified subset
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    collectionId-coverage:
+      name: collectionId
+      in: path
+      description: Local identifier of a coverage collection
+      required: true
+      allowEmptyValue: false
+      schema:
+        $ref: '#/components/schemas/coverage-collections'
+      style: simple
+      explode: false
+    collections-coverage:
+      name: collections
+      in: query
+      style: form
+      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
+      required: false
+      explode: false
+      schema:
+        type: array
+        items:
+          $ref: '#/components/schemas/coverage-collections'
+    f-coverageTile:
+      name: f
+      in: query
+      description: The format of the coverage tile response (e.g. tiff). Accepted values are 'tiff' (GeoTIFF), 'netcdf', or 'png'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - tiff
+        - netcdf
+        - png
+      style: form
+      explode: false
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
+    subset:
+      name: subset
+      in: query
+      description: "Retrieve only part of the data by slicing or trimming along one or more axis\nFor trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)\n   An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.\nFor slicing:  {axisAbbrev}({value})      (reduces dimensionality)\n"
+      style: form
+      explode: false
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+    tileMatrixSetId:
+      name: tileMatrixSetId
+      in: path
+      description: Identifier for a supported TileMatrixSet
+      required: true
+      allowEmptyValue: false
+      schema:
+        $ref: '#/components/schemas/tileMatrixSets'
+    crs:
+      name: crs
+      in: query
+      description: reproject the output to the given crs
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string

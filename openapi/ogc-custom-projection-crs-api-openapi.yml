@@ -19,7 +19,7 @@ paths:
     get:
       tags:
       - Custom Projection CRS
-      summary: Retrieve the list of custom CRS projection operation methods (including their associated parameters) and datums supported by this API.
+      summary: Retrieve the list of custom CRS projection operation methods (including their…
       operationId: getCustomCRSProjections
       parameters:
       - $ref: '#/components/parameters/f-metadata'
@@ -97,6 +97,38 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
+  responses:
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
   schemas:
     exception:
       title: Exception Schema
@@ -115,35 +147,3 @@ components:
           type: string
         instance:
           type: string
-  parameters:
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - html
-      style: form
-      explode: false
-  responses:
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string

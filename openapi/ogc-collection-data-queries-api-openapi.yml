@@ -1,14 +1,12 @@
 openapi: 3.2.0
 info:
-  title: Ogc Collection data queries API
+  title: OGC API - Environmental Data Retrieval Standard Collection…
+  description: Example of OGC API - Environmental Data Retrieval Standard OpenAPI document
+  version: 1.1.0
   license:
     name: OGC License
     url: https://www.ogc.org/legal
-  version: '1.0'
-  description: 'Operations tagged Collection data queries across 2 of this provider''s published API definitions: ogc-edr-1-0-openapi-ogcapi-environmental-data-retrieval-1-bundled.json, ogc-edr-1-1-openapi-ogcapi-environmental-data-retrieval-1-bundled.json. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://www.example.org/edr
-  description: Example OGC API - Environmental Data Retrieval server
 - url: https://example.org/edr
   description: Example OGC API - Environmental Data Retrieval server
 tags:
@@ -19,9 +17,9 @@ paths:
     get:
       tags:
       - Collection data queries
-      summary: Query end point for position queries  of collection {collectionId}
+      summary: Query end point for position queries of collection {collectionId}
       description: Query end point for position queries
-      operationId: getDataForPoint
+      operationId: GetDataForPoint
       parameters:
       - name: collectionId
         in: path
@@ -94,6 +92,7 @@ paths:
                 properties:
                   type:
                     description: Coverage domain type
+                    type: string
                     enum:
                     - Coverage
                     - CoverageCollection
@@ -111,6 +110,7 @@ paths:
                       properties:
                         type:
                           description: Coverage domain type
+                          type: string
                           enum:
                           - Coverage
                         domain:
@@ -118,6 +118,7 @@ paths:
                           type: object
                           properties:
                             type:
+                              type: string
                               enum:
                               - Domain
                             domainType:
@@ -149,7 +150,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -198,7 +199,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -247,7 +248,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -294,7 +295,7 @@ paths:
                                             type: string
                                           minItems: 2
                                         bounds:
-                                          description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                          description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                           type: array
                                           minItems: 2
                                       required:
@@ -334,13 +335,14 @@ paths:
                                                 type: string
                                               minItems: 2
                                             bounds:
-                                              description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                              description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                               type: array
                                               minItems: 2
                                           required:
                                           - values
                                         - properties:
                                             dataType:
+                                              type: string
                                               enum:
                                               - tuple
                                             values:
@@ -380,7 +382,7 @@ paths:
                                                   type: string
                                                 minItems: 2
                                               bounds:
-                                                description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                                description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                                 type: array
                                                 minItems: 2
                                             required:
@@ -442,12 +444,12 @@ paths:
                                           type: string
                                         label:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         description:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         targetConcept:
@@ -457,12 +459,12 @@ paths:
                                               type: string
                                             label:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                             description:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                           required:
@@ -476,12 +478,12 @@ paths:
                                                 type: string
                                               label:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                               description:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                             required:
@@ -500,6 +502,7 @@ paths:
                             description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                             properties:
                               type:
+                                type: string
                                 enum:
                                 - NdArray
                               dataType:
@@ -556,12 +559,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -572,12 +576,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -589,12 +593,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -611,7 +615,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -650,6 +654,7 @@ paths:
                       description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                       properties:
                         type:
+                          type: string
                           enum:
                           - NdArray
                         dataType:
@@ -731,12 +736,12 @@ paths:
                                 type: string
                               label:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               description:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               targetConcept:
@@ -746,12 +751,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -765,12 +770,12 @@ paths:
                                       type: string
                                     label:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                     description:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                   required:
@@ -1108,7 +1113,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations/1234
+                                example: https://example.com/collections/monitoringsites/locations/1234
                               rel:
                                 type: string
                                 example: alternate
@@ -1136,12 +1141,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -1152,12 +1158,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -1169,12 +1175,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -1191,7 +1197,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -1233,7 +1239,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -1349,7 +1355,7 @@ paths:
     post:
       tags:
       - Collection data queries
-      summary: Query end point for position queries  of collection {collectionId}
+      summary: Query end point for position queries of collection {collectionId}
       description: Query end point for position queries
       operationId: PostDataForPoint
       parameters:
@@ -2656,16 +2662,13 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
   /collections/{collectionId}/radius:
     get:
       tags:
       - Collection data queries
-      summary: Query end point for radius queries  of collection {collectionId}
+      summary: Query end point for radius queries of collection {collectionId}
       description: Query end point for to return values within a defined radius of a point queries
-      operationId: getDataForRadius
+      operationId: GetDataForRadius
       parameters:
       - name: collectionId
         in: path
@@ -2752,6 +2755,7 @@ paths:
                 properties:
                   type:
                     description: Coverage domain type
+                    type: string
                     enum:
                     - Coverage
                     - CoverageCollection
@@ -2769,6 +2773,7 @@ paths:
                       properties:
                         type:
                           description: Coverage domain type
+                          type: string
                           enum:
                           - Coverage
                         domain:
@@ -2776,6 +2781,7 @@ paths:
                           type: object
                           properties:
                             type:
+                              type: string
                               enum:
                               - Domain
                             domainType:
@@ -2807,7 +2813,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -2856,7 +2862,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -2905,7 +2911,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -2952,7 +2958,7 @@ paths:
                                             type: string
                                           minItems: 2
                                         bounds:
-                                          description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                          description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                           type: array
                                           minItems: 2
                                       required:
@@ -2992,13 +2998,14 @@ paths:
                                                 type: string
                                               minItems: 2
                                             bounds:
-                                              description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                              description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                               type: array
                                               minItems: 2
                                           required:
                                           - values
                                         - properties:
                                             dataType:
+                                              type: string
                                               enum:
                                               - tuple
                                             values:
@@ -3038,7 +3045,7 @@ paths:
                                                   type: string
                                                 minItems: 2
                                               bounds:
-                                                description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                                description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                                 type: array
                                                 minItems: 2
                                             required:
@@ -3100,12 +3107,12 @@ paths:
                                           type: string
                                         label:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         description:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         targetConcept:
@@ -3115,12 +3122,12 @@ paths:
                                               type: string
                                             label:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                             description:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                           required:
@@ -3134,12 +3141,12 @@ paths:
                                                 type: string
                                               label:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                               description:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                             required:
@@ -3158,6 +3165,7 @@ paths:
                             description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                             properties:
                               type:
+                                type: string
                                 enum:
                                 - NdArray
                               dataType:
@@ -3214,12 +3222,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -3230,12 +3239,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -3247,12 +3256,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -3269,7 +3278,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -3308,6 +3317,7 @@ paths:
                       description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                       properties:
                         type:
+                          type: string
                           enum:
                           - NdArray
                         dataType:
@@ -3389,12 +3399,12 @@ paths:
                                 type: string
                               label:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               description:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               targetConcept:
@@ -3404,12 +3414,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -3423,12 +3433,12 @@ paths:
                                       type: string
                                     label:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                     description:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                   required:
@@ -3766,7 +3776,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations/1234
+                                example: https://example.com/collections/monitoringsites/locations/1234
                               rel:
                                 type: string
                                 example: alternate
@@ -3794,12 +3804,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -3810,12 +3821,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -3827,12 +3838,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -3849,7 +3860,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -3891,7 +3902,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -4007,7 +4018,7 @@ paths:
     post:
       tags:
       - Collection data queries
-      summary: Query end point for radius queries  of collection {collectionId}
+      summary: Query end point for radius queries of collection {collectionId}
       description: Query end point for to return values within a defined radius of a point queries
       operationId: PostDataForRadius
       parameters:
@@ -5320,14 +5331,11 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
   /collections/{collectionId}/area:
     get:
       tags:
       - Collection data queries
-      summary: Query end point for area queries  of collection {collectionId} defined by a polygon
+      summary: Query end point for area queries of collection {collectionId} defined by a…
       description: Return the data values for the data area defined by the query parameters
       operationId: GetDataForArea
       parameters:
@@ -5416,6 +5424,7 @@ paths:
                 properties:
                   type:
                     description: Coverage domain type
+                    type: string
                     enum:
                     - Coverage
                     - CoverageCollection
@@ -5433,6 +5442,7 @@ paths:
                       properties:
                         type:
                           description: Coverage domain type
+                          type: string
                           enum:
                           - Coverage
                         domain:
@@ -5440,6 +5450,7 @@ paths:
                           type: object
                           properties:
                             type:
+                              type: string
                               enum:
                               - Domain
                             domainType:
@@ -5471,7 +5482,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -5520,7 +5531,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -5569,7 +5580,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -5616,7 +5627,7 @@ paths:
                                             type: string
                                           minItems: 2
                                         bounds:
-                                          description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                          description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                           type: array
                                           minItems: 2
                                       required:
@@ -5656,13 +5667,14 @@ paths:
                                                 type: string
                                               minItems: 2
                                             bounds:
-                                              description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                              description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                               type: array
                                               minItems: 2
                                           required:
                                           - values
                                         - properties:
                                             dataType:
+                                              type: string
                                               enum:
                                               - tuple
                                             values:
@@ -5702,7 +5714,7 @@ paths:
                                                   type: string
                                                 minItems: 2
                                               bounds:
-                                                description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                                description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                                 type: array
                                                 minItems: 2
                                             required:
@@ -5764,12 +5776,12 @@ paths:
                                           type: string
                                         label:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         description:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         targetConcept:
@@ -5779,12 +5791,12 @@ paths:
                                               type: string
                                             label:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                             description:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                           required:
@@ -5798,12 +5810,12 @@ paths:
                                                 type: string
                                               label:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                               description:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                             required:
@@ -5822,6 +5834,7 @@ paths:
                             description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                             properties:
                               type:
+                                type: string
                                 enum:
                                 - NdArray
                               dataType:
@@ -5878,12 +5891,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -5894,12 +5908,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -5911,12 +5925,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -5933,7 +5947,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -5972,6 +5986,7 @@ paths:
                       description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                       properties:
                         type:
+                          type: string
                           enum:
                           - NdArray
                         dataType:
@@ -6053,12 +6068,12 @@ paths:
                                 type: string
                               label:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               description:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               targetConcept:
@@ -6068,12 +6083,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -6087,12 +6102,12 @@ paths:
                                       type: string
                                     label:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                     description:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                   required:
@@ -6430,7 +6445,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations/1234
+                                example: https://example.com/collections/monitoringsites/locations/1234
                               rel:
                                 type: string
                                 example: alternate
@@ -6458,12 +6473,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -6474,12 +6490,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -6491,12 +6507,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -6513,7 +6529,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -6555,7 +6571,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -6671,7 +6687,7 @@ paths:
     post:
       tags:
       - Collection data queries
-      summary: Query end point for area queries  of collection {collectionId} defined by a polygon
+      summary: Query end point for area queries of collection {collectionId} defined by a…
       description: Return the data values for the data area defined by the query parameters
       operationId: PostDataForArea
       parameters:
@@ -7982,14 +7998,11 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
   /collections/{collectionId}/cube:
     get:
       tags:
       - Collection data queries
-      summary: Query end point for Cube queries  of collection {collectionId} defined by a cube
+      summary: Query end point for Cube queries of collection {collectionId} defined by a cube
       description: Return the data values for the data Cube defined by the query parameters
       operationId: GetDataForCube
       parameters:
@@ -8114,6 +8127,7 @@ paths:
                 properties:
                   type:
                     description: Coverage domain type
+                    type: string
                     enum:
                     - Coverage
                     - CoverageCollection
@@ -8131,6 +8145,7 @@ paths:
                       properties:
                         type:
                           description: Coverage domain type
+                          type: string
                           enum:
                           - Coverage
                         domain:
@@ -8138,6 +8153,7 @@ paths:
                           type: object
                           properties:
                             type:
+                              type: string
                               enum:
                               - Domain
                             domainType:
@@ -8169,7 +8185,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -8218,7 +8234,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -8267,7 +8283,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -8314,7 +8330,7 @@ paths:
                                             type: string
                                           minItems: 2
                                         bounds:
-                                          description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                          description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                           type: array
                                           minItems: 2
                                       required:
@@ -8354,13 +8370,14 @@ paths:
                                                 type: string
                                               minItems: 2
                                             bounds:
-                                              description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                              description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                               type: array
                                               minItems: 2
                                           required:
                                           - values
                                         - properties:
                                             dataType:
+                                              type: string
                                               enum:
                                               - tuple
                                             values:
@@ -8400,7 +8417,7 @@ paths:
                                                   type: string
                                                 minItems: 2
                                               bounds:
-                                                description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                                description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                                 type: array
                                                 minItems: 2
                                             required:
@@ -8462,12 +8479,12 @@ paths:
                                           type: string
                                         label:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         description:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         targetConcept:
@@ -8477,12 +8494,12 @@ paths:
                                               type: string
                                             label:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                             description:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                           required:
@@ -8496,12 +8513,12 @@ paths:
                                                 type: string
                                               label:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                               description:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                             required:
@@ -8520,6 +8537,7 @@ paths:
                             description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                             properties:
                               type:
+                                type: string
                                 enum:
                                 - NdArray
                               dataType:
@@ -8576,12 +8594,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -8592,12 +8611,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -8609,12 +8628,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -8631,7 +8650,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -8670,6 +8689,7 @@ paths:
                       description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                       properties:
                         type:
+                          type: string
                           enum:
                           - NdArray
                         dataType:
@@ -8751,12 +8771,12 @@ paths:
                                 type: string
                               label:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               description:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               targetConcept:
@@ -8766,12 +8786,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -8785,12 +8805,12 @@ paths:
                                       type: string
                                     label:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                     description:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                   required:
@@ -9128,7 +9148,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations/1234
+                                example: https://example.com/collections/monitoringsites/locations/1234
                               rel:
                                 type: string
                                 example: alternate
@@ -9156,12 +9176,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -9172,12 +9193,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -9189,12 +9210,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -9211,7 +9232,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -9253,7 +9274,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -9369,7 +9390,7 @@ paths:
     post:
       tags:
       - Collection data queries
-      summary: Query end point for Cube queries  of collection {collectionId} defined by a cube
+      summary: Query end point for Cube queries of collection {collectionId} defined by a cube
       description: Return the data values for the data Cube defined by the query parameters
       operationId: PostDataForCube
       parameters:
@@ -10675,14 +10696,11 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
   /collections/{collectionId}/trajectory:
     get:
       tags:
       - Collection data queries
-      summary: Query end point for trajectory queries  of collection {collectionId} defined by a wkt linestring and a iso8601 time period
+      summary: Query end point for trajectory queries of collection {collectionId} defined by…
       description: Return the data values for the data Polygon defined by the query parameters
       operationId: GetDataForTrajectory
       parameters:
@@ -10757,6 +10775,7 @@ paths:
                 properties:
                   type:
                     description: Coverage domain type
+                    type: string
                     enum:
                     - Coverage
                     - CoverageCollection
@@ -10774,6 +10793,7 @@ paths:
                       properties:
                         type:
                           description: Coverage domain type
+                          type: string
                           enum:
                           - Coverage
                         domain:
@@ -10781,6 +10801,7 @@ paths:
                           type: object
                           properties:
                             type:
+                              type: string
                               enum:
                               - Domain
                             domainType:
@@ -10812,7 +10833,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -10861,7 +10882,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -10910,7 +10931,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -10957,7 +10978,7 @@ paths:
                                             type: string
                                           minItems: 2
                                         bounds:
-                                          description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                          description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                           type: array
                                           minItems: 2
                                       required:
@@ -10997,13 +11018,14 @@ paths:
                                                 type: string
                                               minItems: 2
                                             bounds:
-                                              description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                              description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                               type: array
                                               minItems: 2
                                           required:
                                           - values
                                         - properties:
                                             dataType:
+                                              type: string
                                               enum:
                                               - tuple
                                             values:
@@ -11043,7 +11065,7 @@ paths:
                                                   type: string
                                                 minItems: 2
                                               bounds:
-                                                description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                                description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                                 type: array
                                                 minItems: 2
                                             required:
@@ -11105,12 +11127,12 @@ paths:
                                           type: string
                                         label:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         description:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         targetConcept:
@@ -11120,12 +11142,12 @@ paths:
                                               type: string
                                             label:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                             description:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                           required:
@@ -11139,12 +11161,12 @@ paths:
                                                 type: string
                                               label:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                               description:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                             required:
@@ -11163,6 +11185,7 @@ paths:
                             description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                             properties:
                               type:
+                                type: string
                                 enum:
                                 - NdArray
                               dataType:
@@ -11219,12 +11242,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -11235,12 +11259,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -11252,12 +11276,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -11274,7 +11298,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -11313,6 +11337,7 @@ paths:
                       description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                       properties:
                         type:
+                          type: string
                           enum:
                           - NdArray
                         dataType:
@@ -11394,12 +11419,12 @@ paths:
                                 type: string
                               label:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               description:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               targetConcept:
@@ -11409,12 +11434,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -11428,12 +11453,12 @@ paths:
                                       type: string
                                     label:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                     description:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                   required:
@@ -11771,7 +11796,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations/1234
+                                example: https://example.com/collections/monitoringsites/locations/1234
                               rel:
                                 type: string
                                 example: alternate
@@ -11799,12 +11824,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -11815,12 +11841,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -11832,12 +11858,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -11854,7 +11880,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -11896,7 +11922,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -12012,7 +12038,7 @@ paths:
     post:
       tags:
       - Collection data queries
-      summary: Query end point for trajectory queries  of collection {collectionId} defined by a wkt linestring and a iso8601 time period
+      summary: Query end point for trajectory queries of collection {collectionId} defined by…
       description: Return the data values for the data Polygon defined by the query parameters
       operationId: PostDataForTrajectory
       parameters:
@@ -13319,14 +13345,11 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
   /collections/{collectionId}/corridor:
     get:
       tags:
       - Collection data queries
-      summary: Query end point for Corridor queries  of collection {collectionId} defined by a polygon
+      summary: Query end point for Corridor queries of collection {collectionId} defined by a…
       description: Return the data values for the Corridor defined by the query parameters
       operationId: GetDataForCorridor
       parameters:
@@ -13441,6 +13464,7 @@ paths:
                 properties:
                   type:
                     description: Coverage domain type
+                    type: string
                     enum:
                     - Coverage
                     - CoverageCollection
@@ -13458,6 +13482,7 @@ paths:
                       properties:
                         type:
                           description: Coverage domain type
+                          type: string
                           enum:
                           - Coverage
                         domain:
@@ -13465,6 +13490,7 @@ paths:
                           type: object
                           properties:
                             type:
+                              type: string
                               enum:
                               - Domain
                             domainType:
@@ -13496,7 +13522,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -13545,7 +13571,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -13594,7 +13620,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -13641,7 +13667,7 @@ paths:
                                             type: string
                                           minItems: 2
                                         bounds:
-                                          description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                          description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                           type: array
                                           minItems: 2
                                       required:
@@ -13681,13 +13707,14 @@ paths:
                                                 type: string
                                               minItems: 2
                                             bounds:
-                                              description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                              description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                               type: array
                                               minItems: 2
                                           required:
                                           - values
                                         - properties:
                                             dataType:
+                                              type: string
                                               enum:
                                               - tuple
                                             values:
@@ -13727,7 +13754,7 @@ paths:
                                                   type: string
                                                 minItems: 2
                                               bounds:
-                                                description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                                description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                                 type: array
                                                 minItems: 2
                                             required:
@@ -13789,12 +13816,12 @@ paths:
                                           type: string
                                         label:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         description:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         targetConcept:
@@ -13804,12 +13831,12 @@ paths:
                                               type: string
                                             label:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                             description:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                           required:
@@ -13823,12 +13850,12 @@ paths:
                                                 type: string
                                               label:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                               description:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                             required:
@@ -13847,6 +13874,7 @@ paths:
                             description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                             properties:
                               type:
+                                type: string
                                 enum:
                                 - NdArray
                               dataType:
@@ -13903,12 +13931,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -13919,12 +13948,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -13936,12 +13965,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -13958,7 +13987,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -13997,6 +14026,7 @@ paths:
                       description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                       properties:
                         type:
+                          type: string
                           enum:
                           - NdArray
                         dataType:
@@ -14078,12 +14108,12 @@ paths:
                                 type: string
                               label:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               description:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               targetConcept:
@@ -14093,12 +14123,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -14112,12 +14142,12 @@ paths:
                                       type: string
                                     label:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                     description:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                   required:
@@ -14455,7 +14485,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations/1234
+                                example: https://example.com/collections/monitoringsites/locations/1234
                               rel:
                                 type: string
                                 example: alternate
@@ -14483,12 +14513,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -14499,12 +14530,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -14516,12 +14547,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -14538,7 +14569,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -14580,7 +14611,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -14696,7 +14727,7 @@ paths:
     post:
       tags:
       - Collection data queries
-      summary: Query end point for Corridor queries  of collection {collectionId} defined by a polygon
+      summary: Query end point for Corridor queries of collection {collectionId} defined by a…
       description: Return the data values for the Corridor defined by the query parameters
       operationId: PostDataForCorridor
       parameters:
@@ -16019,9 +16050,6 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
   /collections/{collectionId}/items:
     get:
       tags:
@@ -16441,7 +16469,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations/1234
+                                example: https://example.com/collections/monitoringsites/locations/1234
                               rel:
                                 type: string
                                 example: alternate
@@ -16469,12 +16497,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -16485,12 +16514,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -16502,12 +16531,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -16524,7 +16553,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -16566,7 +16595,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -17274,9 +17303,6 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
   /collections/{collectionId}/items/{itemId}:
     get:
       tags:
@@ -17311,6 +17337,7 @@ paths:
                 properties:
                   type:
                     description: Coverage domain type
+                    type: string
                     enum:
                     - Coverage
                     - CoverageCollection
@@ -17328,6 +17355,7 @@ paths:
                       properties:
                         type:
                           description: Coverage domain type
+                          type: string
                           enum:
                           - Coverage
                         domain:
@@ -17335,6 +17363,7 @@ paths:
                           type: object
                           properties:
                             type:
+                              type: string
                               enum:
                               - Domain
                             domainType:
@@ -17366,7 +17395,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -17415,7 +17444,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -17464,7 +17493,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -17511,7 +17540,7 @@ paths:
                                             type: string
                                           minItems: 2
                                         bounds:
-                                          description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                          description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                           type: array
                                           minItems: 2
                                       required:
@@ -17551,13 +17580,14 @@ paths:
                                                 type: string
                                               minItems: 2
                                             bounds:
-                                              description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                              description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                               type: array
                                               minItems: 2
                                           required:
                                           - values
                                         - properties:
                                             dataType:
+                                              type: string
                                               enum:
                                               - tuple
                                             values:
@@ -17597,7 +17627,7 @@ paths:
                                                   type: string
                                                 minItems: 2
                                               bounds:
-                                                description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                                description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                                 type: array
                                                 minItems: 2
                                             required:
@@ -17659,12 +17689,12 @@ paths:
                                           type: string
                                         label:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         description:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         targetConcept:
@@ -17674,12 +17704,12 @@ paths:
                                               type: string
                                             label:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                             description:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                           required:
@@ -17693,12 +17723,12 @@ paths:
                                                 type: string
                                               label:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                               description:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                             required:
@@ -17717,6 +17747,7 @@ paths:
                             description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                             properties:
                               type:
+                                type: string
                                 enum:
                                 - NdArray
                               dataType:
@@ -17773,12 +17804,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -17789,12 +17821,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -17806,12 +17838,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -17828,7 +17860,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -17867,6 +17899,7 @@ paths:
                       description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                       properties:
                         type:
+                          type: string
                           enum:
                           - NdArray
                         dataType:
@@ -17948,12 +17981,12 @@ paths:
                                 type: string
                               label:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               description:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               targetConcept:
@@ -17963,12 +17996,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -17982,12 +18015,12 @@ paths:
                                       type: string
                                     label:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                     description:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                   required:
@@ -18325,7 +18358,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations/1234
+                                example: https://example.com/collections/monitoringsites/locations/1234
                               rel:
                                 type: string
                                 example: alternate
@@ -18353,12 +18386,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -18369,12 +18403,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -18386,12 +18420,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -18408,7 +18442,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -18450,7 +18484,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -19856,9 +19890,6 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
   /collections/{collectionId}/locations:
     get:
       tags:
@@ -20278,7 +20309,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations/1234
+                                example: https://example.com/collections/monitoringsites/locations/1234
                               rel:
                                 type: string
                                 example: alternate
@@ -20306,12 +20337,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -20322,12 +20354,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -20339,12 +20371,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -20361,7 +20393,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -20403,7 +20435,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -21813,14 +21845,11 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
   /collections/{collectionId}/locations/{locId}:
     get:
       tags:
       - Collection data queries
-      summary: Query end point for queries of collection {collectionId} defined by a location id
+      summary: Query end point for queries of collection {collectionId} defined by a location…
       description: Return data the for the location defined by locid
       operationId: GetCollectionDataForLocation
       parameters:
@@ -21852,6 +21881,14 @@ paths:
           type: string
         style: form
         explode: false
+      - name: parameter-name
+        in: query
+        description: comma delimited list of parameters to retrieve data for.  Valid parameters are listed in the collections metadata
+        schema:
+          type: string
+        style: form
+        explode: false
+        required: false
       - name: crs
         in: query
         description: identifier (id) of the coordinate system to return data in list of valid crs identifiers for the chosen collection are defined in the metadata responses.  If not supplied the coordinate reference system will default to WGS84.
@@ -21879,6 +21916,7 @@ paths:
                 properties:
                   type:
                     description: Coverage domain type
+                    type: string
                     enum:
                     - Coverage
                     - CoverageCollection
@@ -21896,6 +21934,7 @@ paths:
                       properties:
                         type:
                           description: Coverage domain type
+                          type: string
                           enum:
                           - Coverage
                         domain:
@@ -21903,6 +21942,7 @@ paths:
                           type: object
                           properties:
                             type:
+                              type: string
                               enum:
                               - Domain
                             domainType:
@@ -21934,7 +21974,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -21983,7 +22023,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -22032,7 +22072,7 @@ paths:
                                               type: string
                                             minItems: 2
                                           bounds:
-                                            description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                            description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                             type: array
                                             minItems: 2
                                         required:
@@ -22079,7 +22119,7 @@ paths:
                                             type: string
                                           minItems: 2
                                         bounds:
-                                          description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                          description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                           type: array
                                           minItems: 2
                                       required:
@@ -22119,13 +22159,14 @@ paths:
                                                 type: string
                                               minItems: 2
                                             bounds:
-                                              description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                              description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                               type: array
                                               minItems: 2
                                           required:
                                           - values
                                         - properties:
                                             dataType:
+                                              type: string
                                               enum:
                                               - tuple
                                             values:
@@ -22165,7 +22206,7 @@ paths:
                                                   type: string
                                                 minItems: 2
                                               bounds:
-                                                description: Optional axis bounds. Must be twice as long (and same data type) as "values"
+                                                description: Optional axis bounds. Shall be twice as long (and same data type) as "values"
                                                 type: array
                                                 minItems: 2
                                             required:
@@ -22227,12 +22268,12 @@ paths:
                                           type: string
                                         label:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         description:
                                           type: object
-                                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                          description: Object representing an internationalised string.
                                           additionalProperties:
                                             type: string
                                         targetConcept:
@@ -22242,12 +22283,12 @@ paths:
                                               type: string
                                             label:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                             description:
                                               type: object
-                                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                              description: Object representing an internationalised string.
                                               additionalProperties:
                                                 type: string
                                           required:
@@ -22261,12 +22302,12 @@ paths:
                                                 type: string
                                               label:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                               description:
                                                 type: object
-                                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                                description: Object representing an internationalised string.
                                                 additionalProperties:
                                                   type: string
                                             required:
@@ -22285,6 +22326,7 @@ paths:
                             description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                             properties:
                               type:
+                                type: string
                                 enum:
                                 - NdArray
                               dataType:
@@ -22341,12 +22383,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -22357,12 +22400,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -22374,12 +22417,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -22396,7 +22439,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -22435,6 +22478,7 @@ paths:
                       description: Object representing a multidimensional (>= 0D) array with named axes, encoded as a flat one-dimensional array in row-major order
                       properties:
                         type:
+                          type: string
                           enum:
                           - NdArray
                         dataType:
@@ -22516,12 +22560,12 @@ paths:
                                 type: string
                               label:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               description:
                                 type: object
-                                description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                description: Object representing an internationalised string.
                                 additionalProperties:
                                   type: string
                               targetConcept:
@@ -22531,12 +22575,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -22550,12 +22594,12 @@ paths:
                                       type: string
                                     label:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                     description:
                                       type: object
-                                      description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                      description: Object representing an internationalised string.
                                       additionalProperties:
                                         type: string
                                   required:
@@ -22893,7 +22937,7 @@ paths:
                             properties:
                               href:
                                 type: string
-                                example: http://data.example.com/collections/monitoringsites/locations/1234
+                                example: https://example.com/collections/monitoringsites/locations/1234
                               rel:
                                 type: string
                                 example: alternate
@@ -22921,12 +22965,13 @@ paths:
                         id:
                           type: string
                         type:
-                          description: Type of the parameter object, must be "Parameter"
+                          description: Type of the parameter object, shall be "Parameter"
+                          type: string
                           enum:
                           - Parameter
                         description:
                           type: object
-                          description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                          description: Object representing an internationalised string.
                           additionalProperties:
                             type: string
                         observedProperty:
@@ -22937,12 +22982,12 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             description:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             categories:
@@ -22954,12 +22999,12 @@ paths:
                                     type: string
                                   label:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                   description:
                                     type: object
-                                    description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                                    description: Object representing an internationalised string.
                                     additionalProperties:
                                       type: string
                                 required:
@@ -22976,7 +23021,7 @@ paths:
                               type: string
                             label:
                               type: object
-                              description: Object representing an internationalised string. TODO test that the keys are valid language identifiers
+                              description: Object representing an internationalised string.
                               additionalProperties:
                                 type: string
                             symbol:
@@ -23018,7 +23063,7 @@ paths:
                       properties:
                         href:
                           type: string
-                          example: http://data.example.com/collections/monitoringsites/locations/1234
+                          example: https://example.com/collections/monitoringsites/locations/1234
                         rel:
                           type: string
                           example: alternate
@@ -23134,7 +23179,7 @@ paths:
     post:
       tags:
       - Collection data queries
-      summary: Query end point for queries of collection {collectionId} defined by a location id
+      summary: Query end point for queries of collection {collectionId} defined by a location…
       description: Return data the for the location defined by locid
       operationId: PostCollectionDataForLocation
       parameters:
@@ -24440,9 +24485,3 @@ paths:
             text/html:
               schema:
                 type: string
-    servers:
-    - url: https://www.example.org/edr
-      description: Example OGC API - Environmental Data Retrieval server
-x-refined-from:
-- ogc-edr-1-0-openapi-ogcapi-environmental-data-retrieval-1-bundled.json
-- ogc-edr-1-1-openapi-ogcapi-environmental-data-retrieval-1-bundled.json

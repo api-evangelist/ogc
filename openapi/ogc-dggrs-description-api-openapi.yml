@@ -56,7 +56,7 @@ paths:
     get:
       tags:
       - DGGRS Description
-      summary: Retrieve information about a DGGRS Zone, such as geometry and data availability.
+      summary: Retrieve information about a DGGRS Zone, such as geometry and data availability
       operationId: .dataset.getDGGRSZoneInfo
       parameters:
       - $ref: '#/components/parameters/dggrsId'
@@ -103,7 +103,7 @@ paths:
     get:
       tags:
       - DGGRS Description
-      summary: Retrieve the description of the specified Discrete Global Grid Reference System in the context of a specified collection
+      summary: Retrieve the description of the specified Discrete Global Grid Reference System…
       operationId: .collection.getDGGRS
       parameters:
       - $ref: '#/components/parameters/dggrsId'
@@ -122,7 +122,7 @@ paths:
     get:
       tags:
       - DGGRS Description
-      summary: Retrieve information about a DGGRS Zone, such as geometry and data availability, in the context of a specific collection.
+      summary: Retrieve information about a DGGRS Zone, such as geometry and data…
       operationId: .collection.getDGGRSZoneInfo
       parameters:
       - $ref: '#/components/parameters/dggrsId'
@@ -267,6 +267,13 @@ components:
                 type: number
               stdDev:
                 type: number
+    crs:
+      title: CRS
+      oneOf:
+      - description: String representing the CRS, as a URI when possible
+        type: string
+      - type: object
+        description: JSON encoding for Well-known text representation of coordinate reference systems 2.0
     dggrs-item:
       title: Discrete Global Grid Reference System description (item)
       description: A minimal Discrete Global Grid Reference System element for use within a list of DGGRS linking to a full description.
@@ -308,6 +315,26 @@ components:
           type: string
         instance:
           type: string
+    all-collections:
+      type: string
+      enum:
+      - SRTM_ViewFinderPanorama
+      - NaturalEarth:cultural:ne_10m_admin_0_countries
+      - HRDEM-Ottawa
+      - HRDEM-RedRiver
+      - blueMarble
+      - NaturalEarth:raster:HYP_HR_SR_OB_DR
+      - NaturalEarth:physical:bathymetry
+    all-dggrs:
+      type: string
+      enum:
+      - ISEA3H
+      - ISEA9R
+      - GNOSISGlobalGrid
+      - OpenEAGGR
+      - rHEALPix
+      - H3
+      - GeoSOT
     dggrs:
       title: Discrete Global Grid Reference System description
       description: A description of a Discrete Global Grid Reference System provided by the API.
@@ -424,34 +451,18 @@ components:
           example: Trierer Strasse 70, 53115 Bonn
         length:
           type: integer
-    all-collections:
-      type: string
-      enum:
-      - SRTM_ViewFinderPanorama
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - HRDEM-Ottawa
-      - HRDEM-RedRiver
-      - blueMarble
-      - NaturalEarth:raster:HYP_HR_SR_OB_DR
-      - NaturalEarth:physical:bathymetry
-    all-dggrs:
-      type: string
-      enum:
-      - ISEA3H
-      - ISEA9R
-      - GNOSISGlobalGrid
-      - OpenEAGGR
-      - rHEALPix
-      - H3
-      - GeoSOT
-    crs:
-      title: CRS
-      oneOf:
-      - description: String representing the CRS, as a URI when possible
-        type: string
-      - type: object
-        description: JSON encoding for Well-known text representation of coordinate reference systems 2.0
   parameters:
+    collections:
+      name: collections
+      in: query
+      style: form
+      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. This parameter may be useful for dataset-wide DGGS resources, but it is not defined by OGC API - DGGS - Part 1.
+      required: false
+      explode: false
+      schema:
+        type: array
+        items:
+          $ref: '#/components/schemas/all-collections'
     collectionId-all:
       name: collectionId
       in: path
@@ -459,6 +470,14 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/all-collections'
+    zoneId:
+      name: zoneId
+      in: path
+      description: Identifier for a specific zone of a Discrete Global Grid Systems. This identifier usually includes a component corresponding to a hierarchy level / scale / resolution, components identifying a spatial region, and a optionally a temporal component.
+      required: true
+      schema:
+        type: string
+      example: B2-1-A
     datetime:
       name: datetime
       in: query
@@ -476,25 +495,6 @@ components:
         type: string
       style: form
       explode: false
-    collections:
-      name: collections
-      in: query
-      style: form
-      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. This parameter may be useful for dataset-wide DGGS resources, but it is not defined by OGC API - DGGS - Part 1.
-      required: false
-      explode: false
-      schema:
-        type: array
-        items:
-          $ref: '#/components/schemas/all-collections'
-    dggrsId:
-      name: dggrsId
-      in: path
-      description: Identifier for a supported Discrete Global Grid System
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/all-dggrs'
     f-metadata:
       name: f
       in: query
@@ -507,33 +507,15 @@ components:
         - html
       style: form
       explode: false
-    zoneId:
-      name: zoneId
+    dggrsId:
+      name: dggrsId
       in: path
-      description: Identifier for a specific zone of a Discrete Global Grid Systems. This identifier usually includes a component corresponding to a hierarchy level / scale / resolution, components identifying a spatial region, and a optionally a temporal component.
+      description: Identifier for a supported Discrete Global Grid System
       required: true
+      allowEmptyValue: false
       schema:
-        type: string
-      example: B2-1-A
+        $ref: '#/components/schemas/all-dggrs'
   responses:
-    NotFound:
-      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
     DGGSList:
       description: List of available Discrete Global Grid Reference Systems.
       content:
@@ -554,6 +536,24 @@ components:
         text/html:
           schema:
             type: string
+    DGGRS:
+      description: Description for a specific Discrete Global Grid Reference System.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/dggrs'
+        text/html:
+          schema:
+            type: string
+    NotFound:
+      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
     NotAcceptable:
       description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
       content:
@@ -563,12 +563,12 @@ components:
         text/html:
           schema:
             type: string
-    DGGRS:
-      description: Description for a specific Discrete Global Grid Reference System.
+    ServerError:
+      description: A server error occurred.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/dggrs'
+            $ref: '#/components/schemas/exception'
         text/html:
           schema:
             type: string

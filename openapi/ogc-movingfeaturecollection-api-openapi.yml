@@ -1,7 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Ogc Moving Feature Collection API
+  title: Building Blocks specified in OGC API - Moving Features…
   version: 1.0.0
+  description: 'This is the OpenAPI definition of the OGC API - Moving Features - Part 1: Core Standard. The API also implements the OGC Moving Features Encoding Extension - JSON Standard.'
   contact:
     name: Open Geospatial Consortium
     email: info@ogc.org
@@ -10,7 +11,6 @@ info:
     url: https://www.ogc.org/legal/
   x-logo:
     url: https://www.ogc.org/pub/www/files/OGC_Logo_2D_Blue_x_0_0.png
-  description: 'Operations tagged MovingFeatureCollection across 3 of this provider''s published API definitions: ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json, ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml, ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: MovingFeatureCollection
   description: Collections of moving features to be logically managed by a user.
@@ -19,9 +19,7 @@ paths:
     post:
       operationId: registerMetadata
       summary: Register metadata about a collection of moving features
-      description: 'A user SHOULD register metadata about a collection of moving features into the system.
-
-        '
+      description: A user SHOULD register metadata about a collection of moving features into the system.
       tags:
       - MovingFeatureCollection
       requestBody:
@@ -49,9 +47,7 @@ paths:
     get:
       operationId: accessMetadata
       summary: Access metadata about the collection
-      description: 'A user can access metadata with id `collectionId`.
-
-        '
+      description: A user can access metadata with id `collectionId`.
       tags:
       - MovingFeatureCollection
       parameters:
@@ -66,9 +62,7 @@ paths:
     delete:
       operationId: deleteCollection
       summary: Delete the collection
-      description: 'The collection catalog with id `collectionId` and including metadata and moving features SHOULD be deleted.
-
-        '
+      description: The collection catalog with id `collectionId` and including metadata and moving features SHOULD be deleted.
       tags:
       - MovingFeatureCollection
       parameters:
@@ -83,7 +77,13 @@ paths:
     put:
       operationId: replaceMetadata
       summary: Replace metadata about the collection
-      description: "A user SHOULD replace metadata with id `collectionId`.\n\nThe request body schema is the same the POST's one. \n\nHowever, `updateFrequency` property is NOT updated.\n"
+      description: 'A user SHOULD replace metadata with id `collectionId`.
+
+
+        The request body schema is the same the POST''s one.
+
+
+        However, `updateFrequency` property is NOT updated.'
       tags:
       - MovingFeatureCollection
       parameters:
@@ -107,63 +107,6 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   schemas:
-    collection:
-      type: object
-      required:
-      - id
-      - links
-      - itemType
-      properties:
-        id:
-          description: identifier of the collection used, for example, in URIs
-          type: string
-          example: address
-        title:
-          description: human readable title of the collection
-          type: string
-          example: address
-        description:
-          description: a description of the features in the collection
-          type: string
-          example: An address.
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/link'
-          example:
-          - href: https://data.example.com/buildings
-            rel: item
-          - href: https://example.com/concepts/buildings.html
-            rel: describedby
-            type: text/html
-        extent:
-          $ref: '#/components/schemas/extent'
-        itemType:
-          description: indicator about the type of the items in the collection
-          type: string
-          default: movingfeature
-        crs:
-          description: the list of coordinate reference systems supported by the service
-          type: array
-          items:
-            type: string
-          default:
-          - https://www.opengis.net/def/crs/OGC/1.3/CRS84
-          example:
-          - https://www.opengis.net/def/crs/OGC/1.3/CRS84
-          - https://www.opengis.net/def/crs/EPSG/0/4326
-        updateFrequency:
-          description: a time interval of sampling location. The unit is millisecond.
-          type: number
-    exception:
-      type: object
-      required:
-      - code
-      properties:
-        code:
-          type: string
-        description:
-          type: string
     extent:
       description: 'The extent of the features in the collection. In the Core only spatial and temporal
 
@@ -347,24 +290,54 @@ components:
               enum:
               - http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
               default: http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
-    collection-body:
+    collection:
       type: object
       required:
+      - id
+      - links
       - itemType
       properties:
+        id:
+          description: identifier of the collection used, for example, in URIs
+          type: string
+          example: address
         title:
           description: human readable title of the collection
           type: string
+          example: address
+        description:
+          description: a description of the features in the collection
+          type: string
+          example: An address.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+          example:
+          - href: https://data.example.com/buildings
+            rel: item
+          - href: https://example.com/concepts/buildings.html
+            rel: describedby
+            type: text/html
+        extent:
+          $ref: '#/components/schemas/extent'
+        itemType:
+          description: indicator about the type of the items in the collection
+          type: string
+          default: movingfeature
+        crs:
+          description: the list of coordinate reference systems supported by the service
+          type: array
+          items:
+            type: string
+          default:
+          - https://www.opengis.net/def/crs/OGC/1.3/CRS84
+          example:
+          - https://www.opengis.net/def/crs/OGC/1.3/CRS84
+          - https://www.opengis.net/def/crs/EPSG/0/4326
         updateFrequency:
           description: a time interval of sampling location. The unit is millisecond.
           type: number
-        description:
-          description: any description
-          type: string
-        itemType:
-          description: indicator about the type of the items in the moving features collection (the default value is 'movingfeature').
-          type: string
-          default: movingfeature
     link:
       type: object
       required:
@@ -388,6 +361,33 @@ components:
           example: Trierer Strasse 70, 53115 Bonn
         length:
           type: integer
+    collection-body:
+      type: object
+      required:
+      - itemType
+      properties:
+        title:
+          description: human readable title of the collection
+          type: string
+        updateFrequency:
+          description: a time interval of sampling location. The unit is millisecond.
+          type: number
+        description:
+          description: any description
+          type: string
+        itemType:
+          description: indicator about the type of the items in the moving features collection (the default value is 'movingfeature').
+          type: string
+          default: movingfeature
+    exception:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
   responses:
     ServerError:
       description: A server error occurred.
@@ -436,7 +436,3 @@ components:
       required: true
       schema:
         type: string
-x-refined-from:
-- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.json
-- ogc-movingfeatures-part1-1-0-openapi-ogcapi-movingfeatures-1-bundled.yaml
-- ogc-movingfeatures-part1-1-0-openapi-openapi-movingfeatures-1.yaml

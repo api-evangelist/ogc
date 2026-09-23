@@ -15,14 +15,14 @@ servers:
 - description: Example OGC API - Tiles server
   url: https://maps.ecere.com/ogcapi
 tags:
-- name: API
+- name: api
 paths:
   /api:
     get:
       tags:
-      - API
+      - api
       operationId: getAPI
-      summary: Retrieve this API definition.
+      summary: Retrieve this API definition
       parameters:
       - $ref: '#/components/parameters/f-metadata'
       responses:
@@ -38,9 +38,9 @@ paths:
   /api/all-collections:
     get:
       tags:
-      - API
+      - api
       operationId: getAPICollections
-      summary: Retrieve the list of collections available from this API implementation & deployment.
+      summary: Retrieve the list of collections available from this API implementation &…
       parameters:
       - $ref: '#/components/parameters/f-metadata'
       responses:
@@ -58,9 +58,9 @@ paths:
   /api/dggs:
     get:
       tags:
-      - API
+      - api
       operationId: getAPIDGGRS
-      summary: Retrieve the list of shared Discrete Global Grid Reference Systems available from this API implementation & deployment.
+      summary: Retrieve the list of shared Discrete Global Grid Reference Systems available…
       parameters:
       - $ref: '#/components/parameters/f-metadata'
       responses:
@@ -78,9 +78,9 @@ paths:
   /api/tileMatrixSets:
     get:
       tags:
-      - API
+      - api
       operationId: getAPITileMatrixSets
-      summary: JSON enumeration of the shared TileMatrixSets available from this API implementation & deployment (for inclusion in the API definition).
+      summary: JSON enumeration of the shared TileMatrixSets available from this API…
       parameters:
       - $ref: '#/components/parameters/f-metadata'
       responses:
@@ -98,9 +98,9 @@ paths:
   /api/styles:
     get:
       tags:
-      - API
+      - api
       operationId: getAPIStyles
-      summary: Retrieve the list of dataset styles available from this API implementation & deployment.
+      summary: Retrieve the list of dataset styles available from this API implementation &…
       parameters:
       - $ref: '#/components/parameters/f-metadata'
       responses:
@@ -118,9 +118,9 @@ paths:
   /api/coverage-collections:
     get:
       tags:
-      - API
+      - api
       operationId: getAPICoverageCollections
-      summary: Retrieve the list of coverages collections available from this API implementation & deployment.
+      summary: Retrieve the list of coverages collections available from this API…
       parameters:
       - $ref: '#/components/parameters/f-metadata'
       responses:
@@ -138,9 +138,9 @@ paths:
   /api/vectorTiles-collections:
     get:
       tags:
-      - API
+      - api
       operationId: getAPIVectorTileCollections
-      summary: Retrieve the list of collections supporting vector tiles available from this API implementation & deployment.
+      summary: Retrieve the list of collections supporting vector tiles available from this…
       parameters:
       - $ref: '#/components/parameters/f-metadata'
       responses:
@@ -156,6 +156,65 @@ paths:
     - description: Example OGC API - Tiles server
       url: https://maps.ecere.com/ogcapi
 components:
+  responses:
+    API:
+      description: The OpenAPI definition of the API.
+      content:
+        application/vnd.oai.openapi+json;version=3.0:
+          schema:
+            type: object
+        text/html:
+          schema:
+            type: string
+    Enumeration:
+      description: An enumerated list of valid string values for API parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/enumeration'
+        text/html:
+          schema:
+            type: string
+    NotFound:
+      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
   schemas:
     exception:
       title: Exception Schema
@@ -188,65 +247,6 @@ components:
           type: array
           items:
             type: string
-  responses:
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    Enumeration:
-      description: An enumerated list of valid string values for API parameters.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/enumeration'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotFound:
-      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    API:
-      description: The OpenAPI definition of the API.
-      content:
-        application/vnd.oai.openapi+json;version=3.0:
-          schema:
-            type: object
-        text/html:
-          schema:
-            type: string
-  parameters:
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - html
-      style: form
-      explode: false
 x-refined-from:
 - ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json
 - ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json
