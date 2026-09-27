@@ -82,6 +82,55 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
+  responses:
+    EmptyData:
+      description: No data available for this zone.
+    ZoneData:
+      description: DGGRS zone data returned as a response.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/dggs-json'
+        image/png:
+          schema:
+            type: string
+            format: binary
+        image/tiff; application=geotiff:
+          schema:
+            type: string
+            format: binary
+        application/geo+json:
+          schema:
+            allOf:
+            - format: geojson-feature-collection
+            - $ref: '#/components/schemas/FeatureCollection'
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotFound:
+      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
   schemas:
     dggs-json:
       type: object
@@ -281,6 +330,33 @@ components:
       - zoneId
       - depths
       - values
+    all-dggrs:
+      type: string
+      enum:
+      - ISEA3H
+      - ISEA9R
+      - GNOSISGlobalGrid
+      - OpenEAGGR
+      - rHEALPix
+      - H3
+      - GeoSOT
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
     FeatureCollection:
       title: GeoJSON FeatureCollection
       type: object
@@ -470,23 +546,6 @@ components:
           minItems: 4
           items:
             type: number
-    exception:
-      title: Exception Schema
-      description: JSON schema for exceptions based on RFC 7807
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
     all-collections:
       type: string
       enum:
@@ -497,17 +556,76 @@ components:
       - blueMarble
       - NaturalEarth:raster:HYP_HR_SR_OB_DR
       - NaturalEarth:physical:bathymetry
-    all-dggrs:
-      type: string
-      enum:
-      - ISEA3H
-      - ISEA9R
-      - GNOSISGlobalGrid
-      - OpenEAGGR
-      - rHEALPix
-      - H3
-      - GeoSOT
   parameters:
+    filter:
+      name: filter
+      in: query
+      description: The filter parameter specifies an expression in a query language (e.g. CQL2) for which an entire feature will be returned if the filter predicate is matched. The language of the filter is specified by the `filter-lang` query parameter.
+      required: false
+      schema:
+        type: string
+      style: form
+      explode: false
+    zoneId:
+      name: zoneId
+      in: path
+      description: Identifier for a specific zone of a Discrete Global Grid Systems. This identifier usually includes a component corresponding to a hierarchy level / scale / resolution, components identifying a spatial region, and a optionally a temporal component.
+      required: true
+      schema:
+        type: string
+      example: B2-1-A
+    collectionId-all:
+      name: collectionId
+      in: path
+      description: Local identifier of a collection
+      required: true
+      schema:
+        $ref: '#/components/schemas/all-collections'
+    dggrsId:
+      name: dggrsId
+      in: path
+      description: Identifier for a supported Discrete Global Grid System
+      required: true
+      allowEmptyValue: false
+      schema:
+        $ref: '#/components/schemas/all-dggrs'
+    crs:
+      name: crs
+      in: query
+      description: reproject the output to the given crs
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    properties:
+      name: properties
+      in: query
+      description: 'Select specific data record fields (measured/observed properties) to be returned using a comma-separated list of field names.
+
+        The field name must be one of the fields defined in the associated data resource''s logical schema.
+
+
+        Extensions may enable the use of complex expressions to support defining derived fields, potentially also
+
+        including the possibility to use aggregation functons.'
+      required: false
+      schema:
+        type: string
+    f-zoneData:
+      name: f
+      in: query
+      description: The format of the zone data response (e.g. GeoJSON, GeoTIFF).
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - geotiff
+        - geojson
+        - png
+      style: form
+      explode: false
     collections:
       name: collections
       in: query
@@ -519,21 +637,101 @@ components:
         type: array
         items:
           $ref: '#/components/schemas/all-collections'
-    collectionId-all:
-      name: collectionId
-      in: path
-      description: Local identifier of a collection
-      required: true
-      schema:
-        $ref: '#/components/schemas/all-collections'
-    zoneId:
-      name: zoneId
-      in: path
-      description: Identifier for a specific zone of a Discrete Global Grid Systems. This identifier usually includes a component corresponding to a hierarchy level / scale / resolution, components identifying a spatial region, and a optionally a temporal component.
-      required: true
+    datetime:
+      name: datetime
+      in: query
+      description: 'Either a date-time or an interval. Date and time expressions adhere to RFC 3339, section 5.6. Intervals may be bounded or half-bounded (double-dots at start or end). Server implementations may or may not support times expressed using time offsets from UTC, but need to support UTC time with the notation ending with a Z.
+
+        Examples:
+
+        * A date-time: "2018-02-12T23:20:50Z" * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z" * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
+
+        Only resources that have a temporal property that intersects the value of `datetime` are selected.
+
+        If a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.'
+      required: false
       schema:
         type: string
-      example: B2-1-A
+      style: form
+      explode: false
+    exclude-properties:
+      name: exclude-properties
+      in: query
+      description: 'Exclude specific data record fields (measured/observed properties) from being returned using a comma-separated list of field names.
+
+        The field name must be one of the fields defined in the associated data resource''s logical schema.'
+      required: false
+      schema:
+        type: string
+    subset:
+      name: subset
+      in: query
+      description: 'Retrieve only part of the data by slicing or trimming along one or more axis
+
+        For trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)
+
+        For slicing:  {axisAbbrev}({value})      (reduces dimensionality)
+
+        An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.
+
+        For a temporal dimension, a single asterisk can be used to indicate the high value.
+
+        Support for `*` is required for time, but optional for spatial and other dimensions.
+
+        '
+      style: form
+      explode: false
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+    values-scale:
+      name: values-scale
+      in: query
+      description: 'Specify the scale factor for a zone data output format such as PNG not supporting floating-point, to be applied before adding an offset and resulting in the encoded integer values (e.g., 8-bit or 16-bit unsigned for PNG).
+
+        '
+      style: form
+      explode: false
+      required: false
+      schema:
+        type: number
+    zone-depth:
+      name: zone-depth
+      in: query
+      description: "The DGGS resolution levels beyond the requested DGGS zone’s hierarchy level to include in the response, when retrieving data for that zone. This can be either: • A single positive integer value — representing a specific zone depth to return (e.g., `zone-depth=5`); • A range of positive integer values in the form “{low}-{high}” — representing a\n  continuous range of zone depths to return (e.g., `zone-depth=1-8`); or,\n• A comma separated list of at least two (2) positive integer values — representing a\n  set of specific zone depths to return (e.g., `zone-depth=1,3,7`). Some or all of\n  these forms of the zone-depth parameter may not be supported with particular\n  data packet encodings (the data encoding may support a fixed depth, a range of\n  depths, and/or an arbitrary selection of depths).\nWhen this parameter is omitted, the default value specified in the `defaultDepth` property of the `.../dggs/{dggrsId}` DGGRS description is used."
+      required: false
+      schema:
+        oneOf:
+        - type: integer
+          minimum: 0
+        - type: string
+          description: A comma separated list of positive integers, or a {min}-{max} range of relative zone depths
+      style: form
+      explode: false
+    geometry:
+      name: geometry
+      in: query
+      description: 'For vector output formats, specify how to return the geometry and/or what the features of the response should represent.
+
+        `vectorized`: return features with regular non-rasterized, non-quantized geometry
+
+        `zone-centroid`: rasterize to zone features and use a Point geometry representing that zone centroid
+
+        `zone-region`: rasterize to zone features and use a (Multi)Polygon/Polyhedron geometry representing that zone''s region -- not supported for DGGS-JSON-FG profiles (`profile=jsonfg-dggs*`)
+
+        `none`: (for zone listing) omit zone geometry -- not supported for DGGS-JSON-FG profiles (`profile=jsonfg-dggs*`)'
+      style: form
+      explode: false
+      required: false
+      schema:
+        type: string
+        enum:
+        - vectorized
+        - zone-region
+        - zone-centroid
+        - none
     profile:
       name: profile
       in: query
@@ -611,146 +809,6 @@ components:
         - zarr2
         - zarr2-dggs
         - zarr2-dggs-zoneids
-    datetime:
-      name: datetime
-      in: query
-      description: 'Either a date-time or an interval. Date and time expressions adhere to RFC 3339, section 5.6. Intervals may be bounded or half-bounded (double-dots at start or end). Server implementations may or may not support times expressed using time offsets from UTC, but need to support UTC time with the notation ending with a Z.
-
-        Examples:
-
-        * A date-time: "2018-02-12T23:20:50Z" * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z" * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
-
-        Only resources that have a temporal property that intersects the value of `datetime` are selected.
-
-        If a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.'
-      required: false
-      schema:
-        type: string
-      style: form
-      explode: false
-    properties:
-      name: properties
-      in: query
-      description: 'Select specific data record fields (measured/observed properties) to be returned using a comma-separated list of field names.
-
-        The field name must be one of the fields defined in the associated data resource''s logical schema.
-
-
-        Extensions may enable the use of complex expressions to support defining derived fields, potentially also
-
-        including the possibility to use aggregation functons.'
-      required: false
-      schema:
-        type: string
-    geometry:
-      name: geometry
-      in: query
-      description: 'For vector output formats, specify how to return the geometry and/or what the features of the response should represent.
-
-        `vectorized`: return features with regular non-rasterized, non-quantized geometry
-
-        `zone-centroid`: rasterize to zone features and use a Point geometry representing that zone centroid
-
-        `zone-region`: rasterize to zone features and use a (Multi)Polygon/Polyhedron geometry representing that zone''s region -- not supported for DGGS-JSON-FG profiles (`profile=jsonfg-dggs*`)
-
-        `none`: (for zone listing) omit zone geometry -- not supported for DGGS-JSON-FG profiles (`profile=jsonfg-dggs*`)'
-      style: form
-      explode: false
-      required: false
-      schema:
-        type: string
-        enum:
-        - vectorized
-        - zone-region
-        - zone-centroid
-        - none
-    f-zoneData:
-      name: f
-      in: query
-      description: The format of the zone data response (e.g. GeoJSON, GeoTIFF).
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - geotiff
-        - geojson
-        - png
-      style: form
-      explode: false
-    values-scale:
-      name: values-scale
-      in: query
-      description: 'Specify the scale factor for a zone data output format such as PNG not supporting floating-point, to be applied before adding an offset and resulting in the encoded integer values (e.g., 8-bit or 16-bit unsigned for PNG).
-
-        '
-      style: form
-      explode: false
-      required: false
-      schema:
-        type: number
-    exclude-properties:
-      name: exclude-properties
-      in: query
-      description: 'Exclude specific data record fields (measured/observed properties) from being returned using a comma-separated list of field names.
-
-        The field name must be one of the fields defined in the associated data resource''s logical schema.'
-      required: false
-      schema:
-        type: string
-    zone-depth:
-      name: zone-depth
-      in: query
-      description: "The DGGS resolution levels beyond the requested DGGS zone’s hierarchy level to include in the response, when retrieving data for that zone. This can be either: • A single positive integer value — representing a specific zone depth to return (e.g., `zone-depth=5`); • A range of positive integer values in the form “{low}-{high}” — representing a\n  continuous range of zone depths to return (e.g., `zone-depth=1-8`); or,\n• A comma separated list of at least two (2) positive integer values — representing a\n  set of specific zone depths to return (e.g., `zone-depth=1,3,7`). Some or all of\n  these forms of the zone-depth parameter may not be supported with particular\n  data packet encodings (the data encoding may support a fixed depth, a range of\n  depths, and/or an arbitrary selection of depths).\nWhen this parameter is omitted, the default value specified in the `defaultDepth` property of the `.../dggs/{dggrsId}` DGGRS description is used."
-      required: false
-      schema:
-        oneOf:
-        - type: integer
-          minimum: 0
-        - type: string
-          description: A comma separated list of positive integers, or a {min}-{max} range of relative zone depths
-      style: form
-      explode: false
-    dggrsId:
-      name: dggrsId
-      in: path
-      description: Identifier for a supported Discrete Global Grid System
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/all-dggrs'
-    subset:
-      name: subset
-      in: query
-      description: 'Retrieve only part of the data by slicing or trimming along one or more axis
-
-        For trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)
-
-        For slicing:  {axisAbbrev}({value})      (reduces dimensionality)
-
-        An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.
-
-        For a temporal dimension, a single asterisk can be used to indicate the high value.
-
-        Support for `*` is required for time, but optional for spatial and other dimensions.
-
-        '
-      style: form
-      explode: false
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-    filter:
-      name: filter
-      in: query
-      description: The filter parameter specifies an expression in a query language (e.g. CQL2) for which an entire feature will be returned if the filter predicate is matched. The language of the filter is specified by the `filter-lang` query parameter.
-      required: false
-      schema:
-        type: string
-      style: form
-      explode: false
     values-offset:
       name: values-offset
       in: query
@@ -762,61 +820,3 @@ components:
       required: false
       schema:
         type: number
-    crs:
-      name: crs
-      in: query
-      description: reproject the output to the given crs
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-  responses:
-    ZoneData:
-      description: DGGRS zone data returned as a response.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/dggs-json'
-        image/png:
-          schema:
-            type: string
-            format: binary
-        image/tiff; application=geotiff:
-          schema:
-            type: string
-            format: binary
-        application/geo+json:
-          schema:
-            allOf:
-            - format: geojson-feature-collection
-            - $ref: '#/components/schemas/FeatureCollection'
-    NotFound:
-      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    EmptyData:
-      description: No data available for this zone.
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string

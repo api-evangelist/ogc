@@ -65,6 +65,32 @@ paths:
       url: https://maps.gnosis.earth/ogcapi
 components:
   schemas:
+    timeStamp:
+      description: This property indicates the time and date when the response was generated using RFC 3339 notation.
+      type: string
+      format: date-time
+      example: '2017-08-17T08:05:32Z'
+    role:
+      description: The list of duties, job functions or permissions assigned by the system and associated with the context of this member.
+      type: array
+      minItems: 1
+      items:
+        type: string
+    grid:
+      type: object
+      description: Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.
+      allOf:
+      - type: object
+        required:
+        - cellsCount
+        properties:
+          cellsCount:
+            description: Number of samples available along the dimension for data organized as a regular or irregular grid.
+            type: integer
+            example: 50
+      - oneOf:
+        - $ref: '#/components/schemas/regularGrid'
+        - $ref: '#/components/schemas/irregularGrid'
     collections:
       type: object
       required:
@@ -83,61 +109,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/collectionDesc'
-    numberMatched:
-      description: The number of elements in the response that match the selection parameters like `bbox`.
-      type: integer
-      minimum: 0
-      example: 127
-    timeStamp:
-      description: This property indicates the time and date when the response was generated using RFC 3339 notation.
-      type: string
-      format: date-time
-      example: '2017-08-17T08:05:32Z'
-    irregularGrid:
-      type: object
-      description: Irregular grid with samples spaced at different intervals
-      required:
-      - coordinates
-      properties:
-        coordinates:
-          description: 'List of coordinates along the dimension for which data organized as an irregular grid in the collection is available
-
-            (e.g., 2, 10, 80, 100).'
-          type: array
-          minItems: 1
-          items:
-            oneOf:
-            - type:
-              - string
-              - 'null'
-            - type: number
-          example:
-          - - 2
-            - 10
-            - 80
-            - 100
-          - - '2020-11-12T12:15:00Z'
-            - '2020-11-12T12:30:00Z'
-            - '2020-11-12T12:45:00Z'
-        boundsCoordinates:
-          description: Coordinates of the lower and upper bounds of each cell in absolute units for irregular grids describing the geometry each cell
-          type: array
-          minItems: 1
-          items:
-            type: array
-            minItems: 2
-            maxItems: 2
-            items:
-              oneOf:
-              - type:
-                - string
-                - 'null'
-              - type: number
-          example:
-          - - -180
-            - -179
-          - - -179
-            - -178
+    dataType:
+      anyOf:
+      - type: string
+      - type: string
+        enum:
+        - map
+        - vector
+        - coverage
     collectionDesc:
       type: object
       required:
@@ -513,45 +492,11 @@ components:
       - blueMarble
       - NaturalEarth:raster:HYP_HR_SR_OB_DR
       - NaturalEarth:physical:bathymetry
-    regularGrid:
-      type: object
-      description: Regular grid with samples spaced at equal intervals
-      required:
-      - resolution
-      - firstCoordinate
-      properties:
-        resolution:
-          description: Resolution of regularly gridded data along the dimension in the collection
-          oneOf:
-          - type:
-            - string
-            - 'null'
-          - type: number
-          example:
-          - 0.0006866455078
-          - PT1H
-        firstCoordinate:
-          description: First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step
-          oneOf:
-          - type:
-            - string
-            - 'null'
-          - type: number
-          example: -180
-        relativeBounds:
-          description: Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells
-          type: array
-          minItems: 2
-          maxItems: 2
-          items:
-            oneOf:
-            - type:
-              - string
-              - 'null'
-            - type: number
-          example:
-          - -0.5
-          - 0.5
+    numberMatched:
+      description: The number of elements in the response that match the selection parameters like `bbox`.
+      type: integer
+      minimum: 0
+      example: 127
     numberReturned:
       description: 'The number of elements in the response.
 
@@ -565,6 +510,51 @@ components:
       type: integer
       minimum: 0
       example: 10
+    irregularGrid:
+      type: object
+      description: Irregular grid with samples spaced at different intervals
+      required:
+      - coordinates
+      properties:
+        coordinates:
+          description: 'List of coordinates along the dimension for which data organized as an irregular grid in the collection is available
+
+            (e.g., 2, 10, 80, 100).'
+          type: array
+          minItems: 1
+          items:
+            oneOf:
+            - type:
+              - string
+              - 'null'
+            - type: number
+          example:
+          - - 2
+            - 10
+            - 80
+            - 100
+          - - '2020-11-12T12:15:00Z'
+            - '2020-11-12T12:30:00Z'
+            - '2020-11-12T12:45:00Z'
+        boundsCoordinates:
+          description: Coordinates of the lower and upper bounds of each cell in absolute units for irregular grids describing the geometry each cell
+          type: array
+          minItems: 1
+          items:
+            type: array
+            minItems: 2
+            maxItems: 2
+            items:
+              oneOf:
+              - type:
+                - string
+                - 'null'
+              - type: number
+          example:
+          - - -180
+            - -179
+          - - -179
+            - -178
     extent:
       title: Extent with Uniform Additional Dimensions Schema
       description: 'This extent schema includes optional additional dimensions, but will still validate for
@@ -882,6 +872,45 @@ components:
                 - numericalNominal
                 - categoricalOrdinal
                 - categoricalNominal
+    regularGrid:
+      type: object
+      description: Regular grid with samples spaced at equal intervals
+      required:
+      - resolution
+      - firstCoordinate
+      properties:
+        resolution:
+          description: Resolution of regularly gridded data along the dimension in the collection
+          oneOf:
+          - type:
+            - string
+            - 'null'
+          - type: number
+          example:
+          - 0.0006866455078
+          - PT1H
+        firstCoordinate:
+          description: First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step
+          oneOf:
+          - type:
+            - string
+            - 'null'
+          - type: number
+          example: -180
+        relativeBounds:
+          description: Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            oneOf:
+            - type:
+              - string
+              - 'null'
+            - type: number
+          example:
+          - -0.5
+          - 0.5
     link:
       type: object
       required:
@@ -910,35 +939,98 @@ components:
           example: Trierer Strasse 70, 53115 Bonn
         length:
           type: integer
-    grid:
+    collectionDesc_2:
       type: object
-      description: Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.
-      allOf:
-      - type: object
-        required:
-        - cellsCount
-        properties:
-          cellsCount:
-            description: Number of samples available along the dimension for data organized as a regular or irregular grid.
-            type: integer
-            example: 50
-      - oneOf:
-        - $ref: '#/components/schemas/regularGrid'
-        - $ref: '#/components/schemas/irregularGrid'
-    role:
-      description: The list of duties, job functions or permissions assigned by the system and associated with the context of this member.
-      type: array
-      minItems: 1
-      items:
-        type: string
-    dataType:
-      anyOf:
-      - type: string
-      - type: string
-        enum:
-        - map
-        - vector
-        - coverage
+      required:
+      - id
+      - links
+      properties:
+        id:
+          type: string
+          description: identifier of the collection used, for example, in URIs
+          example: dem
+        title:
+          type: string
+          description: human readable title of the collection
+          example: Digital Elevation Model
+        description:
+          type: string
+          description: a description of the data in the collection
+          example: A Digital Elevation Model.
+        attribution:
+          type: string
+          title: attribution for the collection
+        links:
+          type: array
+          example:
+          - href: http://data.example.org/collections/dem?f=json
+            rel: self
+            type: application/json
+            title: Digital Elevation Model
+          - href: http://data.example.org/collections/dem?f=html
+            rel: alternate
+            type: application/json
+            title: Digital Elevation Model
+          - href: http://data.example.org/collections/dem/coverage
+            rel: coverage
+            type: image/tiff; application=geotiff
+            title: Digital Elevation Model
+          - href: http://data.example.org/collections/dem/coverage/domainset
+            rel: domainset
+            type: application/json
+            title: Digital Elevation Model
+          - href: http://data.example.org/collections/dem/coverage/rangetype
+            rel: rangetype
+            type: application/json
+            title: Digital Elevation Model
+          - href: http://data.example.org/collections/dem/coverage/metadata
+            rel: metadata
+            type: application/json
+            title: Digital Elevation Model
+          items:
+            $ref: '#/components/schemas/link_2'
+        extent:
+          $ref: '#/components/schemas/extent-uad'
+        itemType:
+          description: indicator about the type of the items in the collection if the collection has an accessible /collections/{collectionId}/items endpoint
+          type: string
+          default: unknown
+        crs:
+          description: the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system
+          type: array
+          items:
+            type: string
+          default:
+          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+          example:
+          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+          - http://www.opengis.net/def/crs/EPSG/0/4326
+        storageCrs:
+          description: the native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages
+          type: string
+          default: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+          example: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+        dataType:
+          allOf:
+          - description: Type of data represented in the collection
+          - $ref: '#/components/schemas/dataType'
+        geometryDimension:
+          description: 'The geometry dimension of the features shown in this layer (0: points, 1: curves, 2: surfaces, 3: solids), unspecified: mixed or unknown'
+          type: integer
+          minimum: 0
+          maximum: 3
+        minScaleDenominator:
+          description: Minimum scale denominator for usage of the collection
+          type: number
+        maxScaleDenominator:
+          description: Maximum scale denominator for usage of the collection
+          type: number
+        minCellSize:
+          description: Minimum cell size for usage of the collection
+          type: number
+        maxCellSize:
+          description: Maximum cell size for usage of the collection
+          type: number
     extent-uad:
       title: Extent with Uniform Additional Dimensions Schema
       description: 'The extent module only addresses spatial and temporal extents. This module extends extent by specifying how
@@ -1049,6 +1141,16 @@ components:
               type: string
               default: UCUM
               description: The language (or vocabulary) in which the unit is expressed (defaults to "UCUM" if not specified).
+    all-collections_2:
+      type: string
+      enum:
+      - blueMarble
+      - NaturalEarth:raster:HYP_HR_SR_OB_DR
+      - NaturalEarth:cultural:ne_10m_admin_0_countries
+      - NaturalEarth:physical:bathymetry
+      - SRTM_ViewFinderPanorama
+      - HRDEM-Ottawa
+      - HRDEM-RedRiver
     extent_2:
       description: 'The extent of the data in the collection. In the Core only spatial and temporal
 
@@ -1351,6 +1453,27 @@ components:
                     - 'null'
                   - type: number
                   example: PT1H
+    collections_2:
+      type: object
+      required:
+      - links
+      - collections
+      properties:
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link_2'
+        timeStamp:
+          type: string
+          format: date-time
+        numberMatched:
+          $ref: '#/components/schemas/numberMatched'
+        numberReturned:
+          $ref: '#/components/schemas/numberReturned'
+        collections:
+          type: array
+          items:
+            $ref: '#/components/schemas/collectionDesc_2'
     link_2:
       type: object
       required:
@@ -1386,28 +1509,7 @@ components:
           example: Trierer Strasse 70, 53115 Bonn
         length:
           type: integer
-    collections_2:
-      type: object
-      required:
-      - links
-      - collections
-      properties:
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/link_2'
-        timeStamp:
-          type: string
-          format: date-time
-        numberMatched:
-          $ref: '#/components/schemas/numberMatched'
-        numberReturned:
-          $ref: '#/components/schemas/numberReturned'
-        collections:
-          type: array
-          items:
-            $ref: '#/components/schemas/collectionDesc_2'
-    collectionDesc_2:
+    collectionInfo:
       type: object
       required:
       - id
@@ -1425,9 +1527,6 @@ components:
           type: string
           description: a description of the data in the collection
           example: A Digital Elevation Model.
-        attribution:
-          type: string
-          title: attribution for the collection
         links:
           type: array
           example:
@@ -1456,9 +1555,9 @@ components:
             type: application/json
             title: Digital Elevation Model
           items:
-            $ref: '#/components/schemas/link_2'
+            $ref: '#/components/schemas/link_3'
         extent:
-          $ref: '#/components/schemas/extent-uad'
+          $ref: '#/components/schemas/extent-uad_2'
         itemType:
           description: indicator about the type of the items in the collection if the collection has an accessible /collections/{collectionId}/items endpoint
           type: string
@@ -1473,11 +1572,6 @@ components:
           example:
           - http://www.opengis.net/def/crs/OGC/1.3/CRS84
           - http://www.opengis.net/def/crs/EPSG/0/4326
-        storageCrs:
-          description: the native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages
-          type: string
-          default: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-          example: http://www.opengis.net/def/crs/OGC/1.3/CRS84
         dataType:
           allOf:
           - description: Type of data represented in the collection
@@ -1499,16 +1593,6 @@ components:
         maxCellSize:
           description: Maximum cell size for usage of the collection
           type: number
-    all-collections_2:
-      type: string
-      enum:
-      - blueMarble
-      - NaturalEarth:raster:HYP_HR_SR_OB_DR
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - NaturalEarth:physical:bathymetry
-      - SRTM_ViewFinderPanorama
-      - HRDEM-Ottawa
-      - HRDEM-RedRiver
     extent-uad_2:
       title: Extent with Uniform Additional Dimensions Schema
       description: 'The extent module only addresses spatial and temporal extents. This module extends extent by specifying how
@@ -1610,6 +1694,16 @@ components:
                   example:
                   - PT1H
                   - 0.0006866455078
+    all-collections_3:
+      type: string
+      enum:
+      - blueMarble
+      - NaturalEarth:raster:HYP_HR_SR_OB_DR
+      - NaturalEarth:cultural:ne_10m_admin_0_countries
+      - NaturalEarth:physical:bathymetry
+      - SRTM_ViewFinderPanorama
+      - HRDEM-Ottawa
+      - HRDEM-RedRiver
     extent_3:
       description: 'The extent of the data in the collection. In the Core only spatial and temporal
 
@@ -1870,6 +1964,31 @@ components:
                     - 'null'
                   - type: number
                   example: PT1H
+    collections_3:
+      type: object
+      required:
+      - links
+      - collections
+      properties:
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link_3'
+        timeStamp:
+          type: string
+          format: date-time
+        numberMatched:
+          type: integer
+          minimum: 0
+          example: 1
+        numberReturned:
+          type: integer
+          minimum: 0
+          example: 1
+        collections:
+          type: array
+          items:
+            $ref: '#/components/schemas/collectionInfo'
     link_3:
       type: object
       required:
@@ -1905,223 +2024,6 @@ components:
           example: Trierer Strasse 70, 53115 Bonn
         length:
           type: integer
-    collections_3:
-      type: object
-      required:
-      - links
-      - collections
-      properties:
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/link_3'
-        timeStamp:
-          type: string
-          format: date-time
-        numberMatched:
-          type: integer
-          minimum: 0
-          example: 1
-        numberReturned:
-          type: integer
-          minimum: 0
-          example: 1
-        collections:
-          type: array
-          items:
-            $ref: '#/components/schemas/collectionInfo'
-    collectionInfo:
-      type: object
-      required:
-      - id
-      - links
-      properties:
-        id:
-          type: string
-          description: identifier of the collection used, for example, in URIs
-          example: dem
-        title:
-          type: string
-          description: human readable title of the collection
-          example: Digital Elevation Model
-        description:
-          type: string
-          description: a description of the data in the collection
-          example: A Digital Elevation Model.
-        links:
-          type: array
-          example:
-          - href: http://data.example.org/collections/dem?f=json
-            rel: self
-            type: application/json
-            title: Digital Elevation Model
-          - href: http://data.example.org/collections/dem?f=html
-            rel: alternate
-            type: application/json
-            title: Digital Elevation Model
-          - href: http://data.example.org/collections/dem/coverage
-            rel: coverage
-            type: image/tiff; application=geotiff
-            title: Digital Elevation Model
-          - href: http://data.example.org/collections/dem/coverage/domainset
-            rel: domainset
-            type: application/json
-            title: Digital Elevation Model
-          - href: http://data.example.org/collections/dem/coverage/rangetype
-            rel: rangetype
-            type: application/json
-            title: Digital Elevation Model
-          - href: http://data.example.org/collections/dem/coverage/metadata
-            rel: metadata
-            type: application/json
-            title: Digital Elevation Model
-          items:
-            $ref: '#/components/schemas/link_3'
-        extent:
-          $ref: '#/components/schemas/extent-uad_2'
-        itemType:
-          description: indicator about the type of the items in the collection if the collection has an accessible /collections/{collectionId}/items endpoint
-          type: string
-          default: unknown
-        crs:
-          description: the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system
-          type: array
-          items:
-            type: string
-          default:
-          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-          example:
-          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-          - http://www.opengis.net/def/crs/EPSG/0/4326
-        dataType:
-          allOf:
-          - description: Type of data represented in the collection
-          - $ref: '#/components/schemas/dataType'
-        geometryDimension:
-          description: 'The geometry dimension of the features shown in this layer (0: points, 1: curves, 2: surfaces, 3: solids), unspecified: mixed or unknown'
-          type: integer
-          minimum: 0
-          maximum: 3
-        minScaleDenominator:
-          description: Minimum scale denominator for usage of the collection
-          type: number
-        maxScaleDenominator:
-          description: Maximum scale denominator for usage of the collection
-          type: number
-        minCellSize:
-          description: Minimum cell size for usage of the collection
-          type: number
-        maxCellSize:
-          description: Maximum cell size for usage of the collection
-          type: number
-    all-collections_3:
-      type: string
-      enum:
-      - blueMarble
-      - NaturalEarth:raster:HYP_HR_SR_OB_DR
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - NaturalEarth:physical:bathymetry
-      - SRTM_ViewFinderPanorama
-      - HRDEM-Ottawa
-      - HRDEM-RedRiver
-  parameters:
-    collectionId-all:
-      name: collectionId
-      in: path
-      description: Local identifier of a collection
-      required: true
-      schema:
-        $ref: '#/components/schemas/all-collections'
-    datetime:
-      name: datetime
-      in: query
-      description: 'Either a date-time or an interval. Date and time expressions adhere to RFC 3339, section 5.6. Intervals may be bounded or half-bounded (double-dots at start or end). Server implementations may or may not support times expressed using time offsets from UTC, but need to support UTC time with the notation ending with a Z.
-
-        Examples:
-
-        * A date-time: "2018-02-12T23:20:50Z" * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z" * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
-
-        Only resources that have a temporal property that intersects the value of `datetime` are selected.
-
-        If a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.'
-      required: false
-      schema:
-        type: string
-      style: form
-      explode: false
-    bbox:
-      name: bbox
-      in: query
-      description: 'Only resources that have a geometry that intersects the bounding box are selected. The bounding box is provided as four or six numbers, depending on whether the coordinate reference system includes a vertical axis (elevation or depth):
-
-        * Lower left corner, coordinate axis 1 * Lower left corner, coordinate axis 2 * Minimum value, coordinate axis 3 (optional) * Upper right corner, coordinate axis 1 * Upper right corner, coordinate axis 2 * Maximum value, coordinate axis 3 (optional)
-
-        If the value consists of four numbers, the coordinate reference system is WGS84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)  unless a different coordinate reference system is specified in the parameter `bbox-crs`.
-
-        If the value consists of six numbers, the coordinate reference system is WGS 84  longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h) unless a different coordinate reference system is specified in a parameter `bbox-crs`.
-
-        For WGS84 longitude/latitude the values are in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the antimeridian the first value (west-most box edge) is larger than the third value (east-most box edge).
-
-        If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.
-
-        If a resource has multiple spatial geometry properties, it is the decision of the server  whether only a single spatial geometry property is used to determine the extent or all relevant geometries.'
-      required: false
-      schema:
-        type: array
-        oneOf:
-        - minItems: 4
-          maxItems: 4
-        - minItems: 6
-          maxItems: 6
-        items:
-          type: number
-      style: form
-      explode: false
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - html
-      style: form
-      explode: false
-    datetime_2:
-      name: datetime
-      in: query
-      description: 'Either a date-time or an interval, half-bounded or bounded. Date and time expressions
-
-        adhere to RFC 3339. Half-bounded intervals are expressed using double-dots.
-
-
-        Examples:
-
-
-        * A date-time: "2018-02-12T23:20:50Z"
-
-        * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"
-
-        * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
-
-
-        Only features that have a temporal property that intersects the value of
-
-        `datetime` are selected.
-
-
-        If a feature has multiple temporal properties, it is the decision of the
-
-        server whether only a single temporal property is used to determine
-
-        the extent or all relevant temporal properties.'
-      required: false
-      schema:
-        type: string
-      style: form
-      explode: false
   responses:
     Collection:
       description: 'Information about a particular collection of (mostly geospatial) data available from this API. The collection is accessible via one or more OGC API set of specifications, for which a link to relevant accessible resources, e.g. /collections/{collectionId}/(items, coverage, map, tiles...) is contained in the response, with the corresponding relation type, as well as key information about the collection. This information includes:
@@ -2295,6 +2197,104 @@ components:
         text/html:
           schema:
             type: string
+  parameters:
+    collectionId-all:
+      name: collectionId
+      in: path
+      description: Local identifier of a collection
+      required: true
+      schema:
+        $ref: '#/components/schemas/all-collections'
+    datetime:
+      name: datetime
+      in: query
+      description: 'Either a date-time or an interval. Date and time expressions adhere to RFC 3339, section 5.6. Intervals may be bounded or half-bounded (double-dots at start or end). Server implementations may or may not support times expressed using time offsets from UTC, but need to support UTC time with the notation ending with a Z.
+
+        Examples:
+
+        * A date-time: "2018-02-12T23:20:50Z" * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z" * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
+
+        Only resources that have a temporal property that intersects the value of `datetime` are selected.
+
+        If a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.'
+      required: false
+      schema:
+        type: string
+      style: form
+      explode: false
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
+    bbox:
+      name: bbox
+      in: query
+      description: 'Only resources that have a geometry that intersects the bounding box are selected. The bounding box is provided as four or six numbers, depending on whether the coordinate reference system includes a vertical axis (elevation or depth):
+
+        * Lower left corner, coordinate axis 1 * Lower left corner, coordinate axis 2 * Minimum value, coordinate axis 3 (optional) * Upper right corner, coordinate axis 1 * Upper right corner, coordinate axis 2 * Maximum value, coordinate axis 3 (optional)
+
+        If the value consists of four numbers, the coordinate reference system is WGS84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)  unless a different coordinate reference system is specified in the parameter `bbox-crs`.
+
+        If the value consists of six numbers, the coordinate reference system is WGS 84  longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h) unless a different coordinate reference system is specified in a parameter `bbox-crs`.
+
+        For WGS84 longitude/latitude the values are in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the antimeridian the first value (west-most box edge) is larger than the third value (east-most box edge).
+
+        If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.
+
+        If a resource has multiple spatial geometry properties, it is the decision of the server  whether only a single spatial geometry property is used to determine the extent or all relevant geometries.'
+      required: false
+      schema:
+        type: array
+        oneOf:
+        - minItems: 4
+          maxItems: 4
+        - minItems: 6
+          maxItems: 6
+        items:
+          type: number
+      style: form
+      explode: false
+    datetime_2:
+      name: datetime
+      in: query
+      description: 'Either a date-time or an interval, half-bounded or bounded. Date and time expressions
+
+        adhere to RFC 3339. Half-bounded intervals are expressed using double-dots.
+
+
+        Examples:
+
+
+        * A date-time: "2018-02-12T23:20:50Z"
+
+        * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"
+
+        * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
+
+
+        Only features that have a temporal property that intersects the value of
+
+        `datetime` are selected.
+
+
+        If a feature has multiple temporal properties, it is the decision of the
+
+        server whether only a single temporal property is used to determine
+
+        the extent or all relevant temporal properties.'
+      required: false
+      schema:
+        type: string
+      style: form
+      explode: false
 x-refined-from:
 - ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json
 - ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json

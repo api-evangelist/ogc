@@ -83,18 +83,6 @@ common:
 - type: People
   url: people/ogc-people.yml
 apis:
-- aid: ogc:ogc-api-api
-  name: Open Geospatial Consortium (OGC) API
-  description: The API API from Open Geospatial Consortium (OGC) — 7 operation(s) for api.
-  humanURL: https://ogcapi.ogc.org/common/
-  tags: []
-  tags_raw:
-  - API
-  properties:
-  - type: OpenAPI
-    url: openapi/ogc-api-api-openapi.yml
-  - type: Specification
-    url: https://schemas.opengis.net/ogcapi/
 - aid: ogc:ogc-capabilities-api
   name: Open Geospatial Consortium (OGC) Capabilities API
   description: Essential characteristics of the information available from the API.
@@ -512,5 +500,113 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/ogc-vector-tiles-api-openapi.yml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-all-collections-api
+  name: Open Geospatial Consortium (OGC) All Collections API
+  description: >-
+    The All Collections API from Open Geospatial Consortium (OGC) — 1 operation(s) for all collections.
+  humanURL: https://ogcapi.ogc.org/common/
+  tags:
+  - All Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/ogc-all-collections-api-openapi.yml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-coverage-collections-api
+  name: Open Geospatial Consortium (OGC) Coverage Collections API
+  description: >-
+    The Coverage Collections API from Open Geospatial Consortium (OGC) — 1 operation(s) for coverage collections.
+  humanURL: https://ogcapi.ogc.org/common/
+  tags:
+  - Coverage Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/ogc-coverage-collections-api-openapi.yml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-dggs-api
+  name: Open Geospatial Consortium (OGC) Dggs API
+  description: The Dggs API from Open Geospatial Consortium (OGC) — 1 operation(s) for dggs.
+  humanURL: https://ogcapi.ogc.org/common/
+  tags:
+  - Dggs
+  properties:
+  - type: OpenAPI
+    url: openapi/ogc-dggs-api-openapi.yml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-ogc-api-discrete-global-grid-systems-api
+  name: Open Geospatial Consortium (OGC) OGC API Discrete Global Grid Systems API
+  description: >-
+    The OGC API Discrete Global Grid Systems API from Open Geospatial Consortium (OGC) — 1 operation(s)
+    for ogc api discrete global grid systems.
+  humanURL: https://ogcapi.ogc.org/common/
+  tags:
+  - OGC API Discrete Global Grid Systems
+  properties:
+  - type: OpenAPI
+    url: openapi/ogc-ogc-api-discrete-global-grid-systems-api-openapi.yml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-ogc-api-maps-api
+  name: Open Geospatial Consortium (OGC) OGC API Maps API
+  description: >-
+    The OGC API Maps API from Open Geospatial Consortium (OGC) — 1 operation(s) for ogc api maps.
+  humanURL: https://ogcapi.ogc.org/common/
+  tags:
+  - OGC API Maps
+  properties:
+  - type: OpenAPI
+    url: openapi/ogc-ogc-api-maps-api-openapi.yml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-ogc-api-tiles-api
+  name: Open Geospatial Consortium (OGC) OGC API Tiles API
+  description: >-
+    The OGC API Tiles API from Open Geospatial Consortium (OGC) — 1 operation(s) for ogc api tiles.
+  humanURL: https://ogcapi.ogc.org/common/
+  tags:
+  - OGC API Tiles
+  properties:
+  - type: OpenAPI
+    url: openapi/ogc-ogc-api-tiles-api-openapi.yml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-styles-api
+  name: Open Geospatial Consortium (OGC) Styles API
+  description: The Styles API from Open Geospatial Consortium (OGC) — 1 operation(s) for styles.
+  humanURL: https://ogcapi.ogc.org/common/
+  tags:
+  - Styles
+  properties:
+  - type: OpenAPI
+    url: openapi/ogc-styles-api-openapi.yml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-tilematrixsets-api
+  name: Open Geospatial Consortium (OGC) Tile Matrix Sets API
+  description: >-
+    The TileMatrixSets API from Open Geospatial Consortium (OGC) — 1 operation(s) for tilematrixsets.
+  humanURL: https://ogcapi.ogc.org/common/
+  tags:
+  - TileMatrixSets
+  properties:
+  - type: OpenAPI
+    url: openapi/ogc-tilematrixsets-api-openapi.yml
+  - type: Specification
+    url: https://schemas.opengis.net/ogcapi/
+- aid: ogc:ogc-vectortiles-collections-api
+  name: Open Geospatial Consortium (OGC) VectorTiles Collections API
+  description: >-
+    The VectorTiles Collections API from Open Geospatial Consortium (OGC) — 1 operation(s) for vectortiles
+    collections.
+  humanURL: https://ogcapi.ogc.org/common/
+  tags:
+  - VectorTiles Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/ogc-vectortiles-collections-api-openapi.yml
   - type: Specification
     url: https://schemas.opengis.net/ogcapi/

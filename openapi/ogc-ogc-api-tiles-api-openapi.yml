@@ -1,0 +1,92 @@
+openapi: 3.2.0
+info:
+  version: '1.0'
+  title: OGC API - Tiles OGC API Tiles API
+  description: 'Example API Definition for OGC API - Tiles - Part 1: Core'
+  contact:
+    name: Open Geospatial Consortium
+    email: info@ogc.org
+  license:
+    name: OGC License
+    url: http://www.opengeospatial.org/legal/
+servers:
+- description: Example OGC API - Tiles server
+  url: https://maps.ecere.com/ogcapi
+tags:
+- name: OGC API Tiles
+paths:
+  /api:
+    get:
+      tags:
+      - OGC API Tiles
+      operationId: getAPI
+      summary: Retrieve this API definition
+      parameters:
+      - $ref: '#/components/parameters/f-metadata'
+      responses:
+        '200':
+          $ref: '#/components/responses/API'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
+  responses:
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    API:
+      description: The OpenAPI definition of the API.
+      content:
+        application/vnd.oai.openapi+json;version=3.0:
+          schema:
+            type: object
+        text/html:
+          schema:
+            type: string
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+  schemas:
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string

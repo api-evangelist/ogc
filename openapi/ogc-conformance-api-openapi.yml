@@ -47,58 +47,9 @@ components:
         - html
       style: form
       explode: false
-  schemas:
-    confClasses:
-      type: object
-      required:
-      - conformsTo
-      properties:
-        conformsTo:
-          type: array
-          items:
-            type: string
-    exception:
-      title: Exception Schema
-      description: JSON schema for exceptions based on RFC 7807
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-    confClasses_2:
-      type: object
-      required:
-      - conformsTo
-      properties:
-        conformsTo:
-          type: array
-          items:
-            type: string
-            example: http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/core
-    exception_2:
-      description: 'Imported from OGC API - Features - Part 1: Core
-
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
-      type: object
-      required:
-      - code
-      properties:
-        code:
-          type: string
-        description:
-          type: string
   responses:
-    ServerError:
-      description: A server error occurred.
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
       content:
         application/json:
           schema:
@@ -147,8 +98,8 @@ components:
               - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-uint64
               - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-geojson
               - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-tiff
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+    ServerError:
+      description: A server error occurred.
       content:
         application/json:
           schema:
@@ -193,12 +144,12 @@ components:
               - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/svg
               - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/html
               - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/api-operations
-    BadRequest:
-      description: A client error occurred.
+    ConformanceDeclaration:
+      description: The URIs of all conformance classes supported by the server.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/exception_2'
+            $ref: '#/components/schemas/confClasses_2'
         text/html:
           schema:
             type: string
@@ -215,12 +166,12 @@ components:
         text/html:
           schema:
             type: string
-    ConformanceDeclaration:
-      description: The URIs of all conformance classes supported by the server.
+    BadRequest:
+      description: A client error occurred.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/confClasses_2'
+            $ref: '#/components/schemas/exception_2'
         text/html:
           schema:
             type: string
@@ -250,6 +201,55 @@ components:
               - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geojson
               - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tiff
               - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/netcdf
+  schemas:
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+    confClasses:
+      type: object
+      required:
+      - conformsTo
+      properties:
+        conformsTo:
+          type: array
+          items:
+            type: string
+    exception_2:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+    confClasses_2:
+      type: object
+      required:
+      - conformsTo
+      properties:
+        conformsTo:
+          type: array
+          items:
+            type: string
+            example: http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/core
   securitySchemes:
     openIdConnect:
       type: openIdConnect

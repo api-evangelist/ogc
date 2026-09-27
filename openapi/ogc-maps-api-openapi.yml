@@ -185,6 +185,105 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   parameters:
+    width:
+      name: width
+      in: query
+      description: Width of the map in pixels. If omitted and `height` is specified, defaults to the width maintaining a 1:1 aspect ratio. If both `width` and `height` are omitted, the server will select default dimensions. When used together with the `center` and/or `scale-denominator` parameter, `width` takes on a subsetting role rather than scaling (resampling), defining the horizontal portion of the map to subset based on the scale (native scale, or specified by `scale-denominator`) and display resolution (0.28 mm/pixel, or specified by `mm-per-pixel`).
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: integer
+    void-color:
+      name: void-color
+      in: query
+      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the void color for parts of the map outside of the valid area of the projection / CRS. If not specified, this defaults to the same as `bgcolor`.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: string
+        default: '0xFFFFFF'
+    subset-crs:
+      name: subset-crs
+      in: query
+      description: crs for the specified subset
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    collectionId-all:
+      name: collectionId
+      in: path
+      description: Local identifier of a collection
+      required: true
+      schema:
+        $ref: '#/components/schemas/all-collections'
+    mm-per-pixel:
+      name: mm-per-pixel
+      in: query
+      description: Display resolution of the target rendering device in millimeters per pixel. This parameter controls the relationship between the dimensions of the resulting map in pixels and the scale of the map. The display resolution is taken into account for applying symbology rules, for the `scale-denominator` parameter, and for the spatial subsetting using a `center`, `width` and `height` parameters.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: number
+        default: 0.28
+    crs:
+      name: crs
+      in: query
+      description: reproject the output to the given crs
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    crs-datum:
+      name: crs-datum
+      in: query
+      description: Datum for a custom projection CRS, implying a particular ellipsoid.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: string
+    orientation:
+      name: orientation
+      in: query
+      description: Orientation in degrees by which the content of the map is to be rotated around the center of the subset area as pivot point in a counter-clockwise direction, resulting in the viewing perspective being rotated by the same orientation in a clockwise direction.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: number
+        default: 0
+    center-crs:
+      name: center-crs
+      in: query
+      description: CRS for the specified center point
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    styleId-collection:
+      name: styleId
+      in: path
+      description: An identifier representing a specific style.
+      required: true
+      allowEmptyValue: false
+      schema:
+        type: string
+    crs-proj-params:
+      name: crs-proj-params
+      in: query
+      description: Operation method parameters for a custom projection CRS.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: string
     collections:
       name: collections
       in: query
@@ -196,15 +295,110 @@ components:
         type: array
         items:
           $ref: '#/components/schemas/all-collections'
-    crs-proj-center:
-      name: crs-proj-center
+    datetime:
+      name: datetime
       in: query
-      description: Projection center for a custom projection CRS corresponding to specific projection operation method parameters for latitude and longitude.
+      description: 'Either a date-time or an interval. Date and time expressions adhere to RFC 3339, section 5.6. Intervals may be bounded or half-bounded (double-dots at start or end). Server implementations may or may not support times expressed using time offsets from UTC, but need to support UTC time with the notation ending with a Z.
+
+        Examples:
+
+        * A date-time: "2018-02-12T23:20:50Z" * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z" * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
+
+        Only resources that have a temporal property that intersects the value of `datetime` are selected.
+
+        If a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.'
+      required: false
+      schema:
+        type: string
+      style: form
+      explode: false
+    transparent:
+      name: transparent
+      in: query
+      description: Background transparency of map (defaults to `true` without a `bgcolor` specified, but to `false` when a `bgcolor` is used).
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: boolean
+        default: true
+    center:
+      name: center
+      in: query
+      description: Coordinates of center point for subsetting, in conjunction with the `width` and/or `height` parameters, taking into consideration the scale and display resolution of the map. The center coordinates are comma-separated and interpreted as [ogc:CRS84], unless the `center-crs` parameter specifies otherwise.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        minItems: 2
+        maxItems: 2
+        items:
+          type: number
+    subset:
+      name: subset
+      in: query
+      description: 'Retrieve only part of the data by slicing or trimming along one or more axis
+
+        For trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)
+
+        For slicing:  {axisAbbrev}({value})      (reduces dimensionality)
+
+        An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.
+
+        For a temporal dimension, a single asterisk can be used to indicate the high value.
+
+        Support for `*` is required for time, but optional for spatial and other dimensions.
+
+        '
+      style: form
+      explode: false
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+    crs-proj-method:
+      name: crs-proj-method
+      in: query
+      description: Projection operation method for a custom projection CRS.
       required: false
       style: form
       explode: false
       schema:
         type: string
+    scale-denominator:
+      name: scale-denominator
+      in: query
+      description: Scale denominator of the map specifying to how many units in the real world one of the same unit on the map corresponds, as printed or displayed, taking into account the display resolution (`mm-per-pixel` or 0.28 mm/pixel default). This parameter can only be used together with the `width` or `height` parameters (which provide an alternative mechanism to control the scale) if the implementation also supports subsetting, in which case those `width` and `height` parameters then control the subset of the map returned rather than the scale. If `scale-denominator` is omitted, the scale is implied from the dimensions of the returned map compared to its spatial subset area.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: number
+    bgcolor:
+      name: bgcolor
+      in: query
+      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the background color (default to 0x9C9C9C gray). If alpha is not specified, full opacity is assumed.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: string
+        default: '0xFFFFFF'
+    f-map:
+      name: f
+      in: query
+      description: The format of the map response (e.g. png). Accepted values are 'png', 'jpg' or 'tiff' (GeoTIFF).
+      required: false
+      schema:
+        type: string
+        enum:
+        - png
+        - jpg
+        - tiff
+      style: form
+      explode: false
     bbox-crs:
       name: bbox-crs
       in: query
@@ -224,30 +418,6 @@ components:
       schema:
         type: boolean
         default: true
-    collectionId-all:
-      name: collectionId
-      in: path
-      description: Local identifier of a collection
-      required: true
-      schema:
-        $ref: '#/components/schemas/all-collections'
-    styleId-collection:
-      name: styleId
-      in: path
-      description: An identifier representing a specific style.
-      required: true
-      allowEmptyValue: false
-      schema:
-        type: string
-    height:
-      name: height
-      in: query
-      description: Height of the map in pixels. If omitted and `width` is specified, defaults to the height maintaining a 1:1 aspect ratio. If both `width` and `height` are omitted, the server will select default dimensions. When used together with the `center` and/or `scale-denominator` parameter, `height` takes on a subsetting role rather than scaling (resampling), defining the vertical portion of the map to subset based on the scale (native scale, or specified by `scale-denominator`) and display resolution (0.28 mm/pixel, or specified by `mm-per-pixel`).
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: integer
     styleId:
       name: styleId
       in: path
@@ -256,46 +426,19 @@ components:
       allowEmptyValue: false
       schema:
         $ref: '#/components/schemas/styles'
-    scale-denominator:
-      name: scale-denominator
+    crs-proj-center:
+      name: crs-proj-center
       in: query
-      description: Scale denominator of the map specifying to how many units in the real world one of the same unit on the map corresponds, as printed or displayed, taking into account the display resolution (`mm-per-pixel` or 0.28 mm/pixel default). This parameter can only be used together with the `width` or `height` parameters (which provide an alternative mechanism to control the scale) if the implementation also supports subsetting, in which case those `width` and `height` parameters then control the subset of the map returned rather than the scale. If `scale-denominator` is omitted, the scale is implied from the dimensions of the returned map compared to its spatial subset area.
+      description: Projection center for a custom projection CRS corresponding to specific projection operation method parameters for latitude and longitude.
       required: false
       style: form
       explode: false
-      schema:
-        type: number
-    datetime:
-      name: datetime
-      in: query
-      description: 'Either a date-time or an interval. Date and time expressions adhere to RFC 3339, section 5.6. Intervals may be bounded or half-bounded (double-dots at start or end). Server implementations may or may not support times expressed using time offsets from UTC, but need to support UTC time with the notation ending with a Z.
-
-        Examples:
-
-        * A date-time: "2018-02-12T23:20:50Z" * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z" * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
-
-        Only resources that have a temporal property that intersects the value of `datetime` are selected.
-
-        If a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.'
-      required: false
       schema:
         type: string
-      style: form
-      explode: false
-    mm-per-pixel:
-      name: mm-per-pixel
+    height:
+      name: height
       in: query
-      description: Display resolution of the target rendering device in millimeters per pixel. This parameter controls the relationship between the dimensions of the resulting map in pixels and the scale of the map. The display resolution is taken into account for applying symbology rules, for the `scale-denominator` parameter, and for the spatial subsetting using a `center`, `width` and `height` parameters.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: number
-        default: 0.28
-    width:
-      name: width
-      in: query
-      description: Width of the map in pixels. If omitted and `height` is specified, defaults to the width maintaining a 1:1 aspect ratio. If both `width` and `height` are omitted, the server will select default dimensions. When used together with the `center` and/or `scale-denominator` parameter, `width` takes on a subsetting role rather than scaling (resampling), defining the horizontal portion of the map to subset based on the scale (native scale, or specified by `scale-denominator`) and display resolution (0.28 mm/pixel, or specified by `mm-per-pixel`).
+      description: Height of the map in pixels. If omitted and `width` is specified, defaults to the height maintaining a 1:1 aspect ratio. If both `width` and `height` are omitted, the server will select default dimensions. When used together with the `center` and/or `scale-denominator` parameter, `height` takes on a subsetting role rather than scaling (resampling), defining the vertical portion of the map to subset based on the scale (native scale, or specified by `scale-denominator`) and display resolution (0.28 mm/pixel, or specified by `mm-per-pixel`).
       required: false
       style: form
       explode: false
@@ -329,152 +472,48 @@ components:
           type: number
       style: form
       explode: false
-    bgcolor:
-      name: bgcolor
-      in: query
-      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the background color (default to 0x9C9C9C gray). If alpha is not specified, full opacity is assumed.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: string
-        default: '0xFFFFFF'
-    subset-crs:
-      name: subset-crs
-      in: query
-      description: crs for the specified subset
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-    center-crs:
-      name: center-crs
-      in: query
-      description: CRS for the specified center point
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-    void-color:
-      name: void-color
-      in: query
-      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the void color for parts of the map outside of the valid area of the projection / CRS. If not specified, this defaults to the same as `bgcolor`.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: string
-        default: '0xFFFFFF'
-    f-map:
-      name: f
-      in: query
-      description: The format of the map response (e.g. png). Accepted values are 'png', 'jpg' or 'tiff' (GeoTIFF).
-      required: false
-      schema:
-        type: string
-        enum:
-        - png
-        - jpg
-        - tiff
-      style: form
-      explode: false
-    crs-proj-method:
-      name: crs-proj-method
-      in: query
-      description: Projection operation method for a custom projection CRS.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: string
-    transparent:
-      name: transparent
-      in: query
-      description: Background transparency of map (defaults to `true` without a `bgcolor` specified, but to `false` when a `bgcolor` is used).
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: boolean
-        default: true
-    crs-proj-params:
-      name: crs-proj-params
-      in: query
-      description: Operation method parameters for a custom projection CRS.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: string
-    subset:
-      name: subset
-      in: query
-      description: 'Retrieve only part of the data by slicing or trimming along one or more axis
-
-        For trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)
-
-        For slicing:  {axisAbbrev}({value})      (reduces dimensionality)
-
-        An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.
-
-        For a temporal dimension, a single asterisk can be used to indicate the high value.
-
-        Support for `*` is required for time, but optional for spatial and other dimensions.
-
-        '
-      style: form
-      explode: false
-      required: false
-      schema:
-        type: array
-        items:
+  schemas:
+    styles:
+      type: string
+      enum:
+      - default
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
+      type: object
+      required:
+      - type
+      properties:
+        type:
           type: string
-    orientation:
-      name: orientation
-      in: query
-      description: Orientation in degrees by which the content of the map is to be rotated around the center of the subset area as pivot point in a counter-clockwise direction, resulting in the viewing perspective being rotated by the same orientation in a clockwise direction.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: number
-        default: 0
-    crs-datum:
-      name: crs-datum
-      in: query
-      description: Datum for a custom projection CRS, implying a particular ellipsoid.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: string
-    crs:
-      name: crs
-      in: query
-      description: reproject the output to the given crs
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-    center:
-      name: center
-      in: query
-      description: Coordinates of center point for subsetting, in conjunction with the `width` and/or `height` parameters, taking into consideration the scale and display resolution of the map. The center coordinates are comma-separated and interpreted as [ogc:CRS84], unless the `center-crs` parameter specifies otherwise.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: array
-        minItems: 2
-        maxItems: 2
-        items:
-          type: number
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+    all-collections:
+      type: string
+      enum:
+      - blueMarble
+      - NaturalEarth:raster:HYP_HR_SR_OB_DR
+      - NaturalEarth:cultural:ne_10m_admin_0_countries
+      - NaturalEarth:physical:bathymetry
+      - SRTM_ViewFinderPanorama
+      - HRDEM-Ottawa
+      - HRDEM-RedRiver
   responses:
-    EmptyMap:
-      description: No data available for this map extent.
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
     Map:
       description: A map image returned as a response.
       content:
@@ -508,44 +547,5 @@ components:
         text/html:
           schema:
             type: string
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-  schemas:
-    exception:
-      title: Exception Schema
-      description: JSON schema for exceptions based on RFC 7807
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-    styles:
-      type: string
-      enum:
-      - default
-    all-collections:
-      type: string
-      enum:
-      - blueMarble
-      - NaturalEarth:raster:HYP_HR_SR_OB_DR
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - NaturalEarth:physical:bathymetry
-      - SRTM_ViewFinderPanorama
-      - HRDEM-Ottawa
-      - HRDEM-RedRiver
+    EmptyMap:
+      description: No data available for this map extent.

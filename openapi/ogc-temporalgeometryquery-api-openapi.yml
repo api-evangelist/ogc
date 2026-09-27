@@ -79,34 +79,81 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
+  responses:
+    VelocityQuery:
+      description: A temporal property data that represents a time-to-velocity curve of specified temporal primitive geometry.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/temporalProperty'
+          example:
+            name: velocity
+            type: TReal
+            form: KMH
+            valueSequence:
+            - datetimes:
+              - '2011-07-15T08:00:00Z'
+              - '2011-07-15T08:00:01Z'
+              - '2011-07-15T08:00:02Z'
+              values:
+              - 0
+              - 10
+              - 20
+              interpolation: Linear
+    AccelerationQuery:
+      description: A temporal property data that represents a time-to-acceleration curve of specified temporal primitive geometry.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/temporalProperty'
+          example:
+            name: acceleration
+            type: TReal
+            form: KMH
+            valueSequence:
+            - datetimes:
+              - '2011-07-15T08:00:00Z'
+              - '2011-07-15T08:00:01Z'
+              - '2011-07-15T08:00:02Z'
+              values:
+              - 0
+              - 10
+              - 20
+              interpolation: Linear
+    DistanceQuery:
+      description: A temporal property data that represents a time-to-distance curve of specified temporal primitive geometry.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/temporalProperty'
+          example:
+            name: distance
+            type: TReal
+            form: MTR
+            valueSequence:
+            - datetimes:
+              - '2011-07-15T08:00:00Z'
+              - '2011-07-15T08:00:01Z'
+              - '2011-07-15T08:00:02Z'
+              values:
+              - 0
+              - 10
+              - 20
+              interpolation: Linear
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+          example:
+            code: '500'
+            description: Server Internal Error
   parameters:
     tGeometryId:
       name: tGeometryId
       in: path
       description: local identifier of a temporal primitive geometry
-      required: true
-      schema:
-        type: string
-    mFeatureId:
-      name: mFeatureId
-      in: path
-      description: local identifier of a moving feature
-      required: true
-      schema:
-        type: string
-    datetime:
-      name: datetime
-      in: query
-      description: "Either a date-time or an interval. Date and time expressions adhere to RFC 3339. \nIntervals may be bounded or half-bounded (double-dots at start or end).\n\nExamples:\n\n* A date-time: \"2018-02-12T23:20:50Z\"\n* A bounded interval: \"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z\"\n* Half-bounded intervals: \"2018-02-12T00:00:00Z/..\" or \"../2018-03-18T12:31:12Z\"\n\nOnly features that have temporal information that intersects the value of `datetime` are selected.\n\nIf a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties."
-      required: true
-      schema:
-        type: string
-      style: form
-      explode: false
-    collectionId:
-      name: collectionId
-      in: path
-      description: local identifier of a collection
       required: true
       schema:
         type: string
@@ -119,6 +166,20 @@ components:
         type: boolean
       style: form
       explode: false
+    collectionId:
+      name: collectionId
+      in: path
+      description: local identifier of a collection
+      required: true
+      schema:
+        type: string
+    mFeatureId:
+      name: mFeatureId
+      in: path
+      description: local identifier of a moving feature
+      required: true
+      schema:
+        type: string
     leaf:
       name: leaf
       in: query
@@ -133,7 +194,25 @@ components:
           format: date-time
       style: form
       explode: false
+    datetime:
+      name: datetime
+      in: query
+      description: "Either a date-time or an interval. Date and time expressions adhere to RFC 3339. \nIntervals may be bounded or half-bounded (double-dots at start or end).\n\nExamples:\n\n* A date-time: \"2018-02-12T23:20:50Z\"\n* A bounded interval: \"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z\"\n* Half-bounded intervals: \"2018-02-12T00:00:00Z/..\" or \"../2018-03-18T12:31:12Z\"\n\nOnly features that have temporal information that intersects the value of `datetime` are selected.\n\nIf a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties."
+      required: true
+      schema:
+        type: string
+      style: form
+      explode: false
   schemas:
+    exception:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
     temporalPrimitiveValue:
       type: object
       required:
@@ -160,29 +239,6 @@ components:
           - Step
           - Linear
           - Regression
-    link:
-      type: object
-      required:
-      - href
-      - rel
-      properties:
-        href:
-          type: string
-          example: http://data.example.com/buildings/123
-        rel:
-          type: string
-          example: alternate
-        type:
-          type: string
-          example: application/geo+json
-        hreflang:
-          type: string
-          example: en
-        title:
-          type: string
-          example: Trierer Strasse 70, 53115 Bonn
-        length:
-          type: integer
     temporalProperty:
       type: object
       required:
@@ -217,82 +273,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
-    exception:
+    link:
       type: object
       required:
-      - code
+      - href
+      - rel
       properties:
-        code:
+        href:
           type: string
-        description:
+          example: http://data.example.com/buildings/123
+        rel:
           type: string
-  responses:
-    DistanceQuery:
-      description: A temporal property data that represents a time-to-distance curve of specified temporal primitive geometry.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/temporalProperty'
-          example:
-            name: distance
-            type: TReal
-            form: MTR
-            valueSequence:
-            - datetimes:
-              - '2011-07-15T08:00:00Z'
-              - '2011-07-15T08:00:01Z'
-              - '2011-07-15T08:00:02Z'
-              values:
-              - 0
-              - 10
-              - 20
-              interpolation: Linear
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-          example:
-            code: '500'
-            description: Server Internal Error
-    AccelerationQuery:
-      description: A temporal property data that represents a time-to-acceleration curve of specified temporal primitive geometry.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/temporalProperty'
-          example:
-            name: acceleration
-            type: TReal
-            form: KMH
-            valueSequence:
-            - datetimes:
-              - '2011-07-15T08:00:00Z'
-              - '2011-07-15T08:00:01Z'
-              - '2011-07-15T08:00:02Z'
-              values:
-              - 0
-              - 10
-              - 20
-              interpolation: Linear
-    VelocityQuery:
-      description: A temporal property data that represents a time-to-velocity curve of specified temporal primitive geometry.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/temporalProperty'
-          example:
-            name: velocity
-            type: TReal
-            form: KMH
-            valueSequence:
-            - datetimes:
-              - '2011-07-15T08:00:00Z'
-              - '2011-07-15T08:00:01Z'
-              - '2011-07-15T08:00:02Z'
-              values:
-              - 0
-              - 10
-              - 20
-              interpolation: Linear
+          example: alternate
+        type:
+          type: string
+          example: application/geo+json
+        hreflang:
+          type: string
+          example: en
+        title:
+          type: string
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer

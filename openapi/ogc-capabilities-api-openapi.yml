@@ -1722,108 +1722,6 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
-  responses:
-    Conformance:
-      description: The URIs of all requirements classes supported by the server.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/confClasses'
-    LandingPage:
-      description: The links to the API capabilities.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/landingPage'
-    Collections:
-      description: A list of catalogs about collections of moving features.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/collections'
-          example:
-            collections:
-            - id: mfc-1
-              title: MovingFeatureCollection_1
-              description: a collection of moving features to manage data in a distinct (physical or logical) space
-              itemType: movingfeature
-              updateFrequency: 1000
-              extent:
-                spatial:
-                  bbox:
-                  - -180
-                  - -90
-                  - 190
-                  - 90
-                  crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-                temporal:
-                  interval:
-                  - '2011-11-11T12:22:11Z'
-                  - '2012-11-24T12:32:43Z'
-                  trs: http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
-              links:
-              - href: https://data.example.org/collections/mfc-1
-                rel: self
-                type: application/json
-            links:
-            - href: https://data.example.org/collections
-              rel: self
-              type: application/json
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-          example:
-            code: '500'
-            description: Server Internal Error
-    BadRequest:
-      description: A client error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception_2'
-        text/html:
-          schema:
-            type: string
-    LandingPage_2:
-      description: 'The landing page provides links to the API definition (link relations
-
-        `service-desc` and `service-doc`), the Conformance declaration (path
-
-        `/conformance`, link relation `conformance`), and the Record Collections
-
-        (path `/collections`, link relation `data`).'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/landingPage_2'
-        text/html:
-          schema:
-            type: string
-    ServerError_2:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception_2'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: 'Content negotiation failed. For example, the `Accept` header submitted
-
-        in the request did not support any of the media types supported by the
-
-        server for the requested resource.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception_2'
-        text/html:
-          schema:
-            type: string
   schemas:
     extent:
       description: 'The extent of the features in the collection. In the Core only spatial and temporal
@@ -2008,6 +1906,15 @@ components:
               enum:
               - http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
               default: http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
+    exception:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
     confClasses:
       type: object
       required:
@@ -2069,6 +1976,21 @@ components:
         updateFrequency:
           description: a time interval of sampling location. The unit is millisecond.
           type: number
+    landingPage:
+      type: object
+      required:
+      - links
+      properties:
+        title:
+          type: string
+          example: Moving features data server
+        description:
+          type: string
+          example: Access to data about moving features
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
     link:
       type: object
       required:
@@ -2106,22 +2028,43 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
-    landingPage:
-      type: object
-      required:
-      - links
-      properties:
-        title:
-          type: string
-          example: Moving features data server
-        description:
-          type: string
-          example: Access to data about moving features
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/link'
-    exception:
+    linkTemplate:
+      allOf:
+      - $ref: '#/components/schemas/linkBase'
+      - type: object
+        required:
+        - uriTemplate
+        properties:
+          uriTemplate:
+            type: string
+            description: 'Supplies a resolvable URI to a remote resource
+
+              (or resource fragment).'
+          varBase:
+            type: string
+            description: 'The base URI to which the variable name can be
+
+              appended to retrieve the definition of the
+
+              variable as a JSON Schema fragment.'
+            format: uri-reference
+          variables:
+            type: object
+            description: 'This object contains one key per substitution
+
+              variable in the templated URL.  Each key defines
+
+              the schema of one substitution variable using a
+
+              JSON Schema fragment and can thus include things
+
+              like the data type of the variable, enumerations,
+
+              minimum values, maximum values, etc.'
+    exception_2:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
       type: object
       required:
       - code
@@ -2172,18 +2115,26 @@ components:
 
             to by the link was changed.'
           format: date-time
-    exception_2:
-      description: 'Imported from OGC API - Features - Part 1: Core
-
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+    landingPage_2:
+      allOf:
+      - $ref: '#/components/schemas/f-landingPage'
+      - type: object
+        properties:
+          linkTemplates:
+            type: array
+            items:
+              $ref: '#/components/schemas/linkTemplate'
+    link_2:
       type: object
-      required:
-      - code
-      properties:
-        code:
-          type: string
-        description:
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/linkBase'
+      - type: object
+        required:
+        - href
+        properties:
+          href:
+            type: string
+            format: uri
     f-landingPage:
       description: 'Imported from OGC API - Features - Part 1: Core
 
@@ -2202,60 +2153,120 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link_2'
-    link_2:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/linkBase'
-      - type: object
-        required:
-        - href
-        properties:
-          href:
+  responses:
+    Conformance:
+      description: The URIs of all requirements classes supported by the server.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/confClasses'
+    Collections:
+      description: A list of catalogs about collections of moving features.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/collections'
+          example:
+            collections:
+            - id: mfc-1
+              title: MovingFeatureCollection_1
+              description: a collection of moving features to manage data in a distinct (physical or logical) space
+              itemType: movingfeature
+              updateFrequency: 1000
+              extent:
+                spatial:
+                  bbox:
+                  - -180
+                  - -90
+                  - 190
+                  - 90
+                  crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+                temporal:
+                  interval:
+                  - '2011-11-11T12:22:11Z'
+                  - '2012-11-24T12:32:43Z'
+                  trs: http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
+              links:
+              - href: https://data.example.org/collections/mfc-1
+                rel: self
+                type: application/json
+            links:
+            - href: https://data.example.org/collections
+              rel: self
+              type: application/json
+    LandingPage:
+      description: The links to the API capabilities.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/landingPage'
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+          example:
+            code: '500'
+            description: Server Internal Error
+    NotAcceptable:
+      description: 'Content negotiation failed. For example, the `Accept` header submitted
+
+        in the request did not support any of the media types supported by the
+
+        server for the requested resource.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception_2'
+        text/html:
+          schema:
             type: string
-            format: uri
-    linkTemplate:
-      allOf:
-      - $ref: '#/components/schemas/linkBase'
-      - type: object
-        required:
-        - uriTemplate
-        properties:
-          uriTemplate:
+    LandingPage_2:
+      description: 'The landing page provides links to the API definition (link relations
+
+        `service-desc` and `service-doc`), the Conformance declaration (path
+
+        `/conformance`, link relation `conformance`), and the Record Collections
+
+        (path `/collections`, link relation `data`).'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/landingPage_2'
+        text/html:
+          schema:
             type: string
-            description: 'Supplies a resolvable URI to a remote resource
-
-              (or resource fragment).'
-          varBase:
+    ServerError_2:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception_2'
+        text/html:
+          schema:
             type: string
-            description: 'The base URI to which the variable name can be
-
-              appended to retrieve the definition of the
-
-              variable as a JSON Schema fragment.'
-            format: uri-reference
-          variables:
-            type: object
-            description: 'This object contains one key per substitution
-
-              variable in the templated URL.  Each key defines
-
-              the schema of one substitution variable using a
-
-              JSON Schema fragment and can thus include things
-
-              like the data type of the variable, enumerations,
-
-              minimum values, maximum values, etc.'
-    landingPage_2:
-      allOf:
-      - $ref: '#/components/schemas/f-landingPage'
-      - type: object
-        properties:
-          linkTemplates:
-            type: array
-            items:
-              $ref: '#/components/schemas/linkTemplate'
+    BadRequest:
+      description: A client error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception_2'
+        text/html:
+          schema:
+            type: string
   parameters:
+    profile:
+      name: profile
+      in: query
+      description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
     language:
       name: language
       in: query
@@ -2278,17 +2289,6 @@ components:
 
             `q` (0 - 1).'
           pattern: ^((?:(en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))|((?:([A-Za-z]{2,3}(-(?:[A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-(?:[A-Za-z]{4}))?(-(?:[A-Za-z]{2}|[0-9]{3}))?(-(?:[A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-(?:[0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(?:x(-[A-Za-z0-9]{1,8})+))?)|(?:x(-[A-Za-z0-9]{1,8})+))(?:;q=(?:1|1\.0+|0|0\.[0-9]+))?$
-      explode: false
-      style: form
-    profile:
-      name: profile
-      in: query
-      description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
       explode: false
       style: form
   securitySchemes:
