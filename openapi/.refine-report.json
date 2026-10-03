@@ -63,9 +63,7 @@
     "ogc-vector-tiles-api-openapi.yml",
     "ogc-vectortiles-collections-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [
     "ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json: dangling $ref: #/paths/~1dggs~1%7BdggrsId%7D~1zones/get/parameters/4",
     "ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json: dangling $ref: #/paths/~1dggs~1%7BdggrsId%7D~1zones~1%7BzoneId%7D/get/responses/200"
@@ -157,8 +155,7 @@
     "tag 'Styles' spans 2 source specs (ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json, ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json): per-path servers applied",
     "tag 'TileMatrixSets' spans 2 source specs (ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json, ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json): per-path servers applied",
     "tag 'Tiling Schemes' spans 2 source specs (ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json, ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json): per-path servers applied",
-    "superseded outputs removed: ogc-api-api-openapi.yml",
-    "apis.yml register: written (+9 apis, 45 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "_original/ogc-records-part1-1-0-openapi-ogcapi-records-1-example-ref-schema-repo.yaml: archived document superseded by a larger archived document",
@@ -168,7 +165,7 @@
     "_original/ogc-edr-1-0-openapi-ogcapi-environmental-data-retrieval-1-bundled.json: archived document superseded by a larger archived document",
     "_original/ogc-connected-systems-part1-1-0-openapi-openapi-connectedsystems-1.yaml: archived document superseded by a larger archived document",
     "_original/ogc-common-part1-1-0-openapi-3-0-api-common-part-1-1-0.yaml: archived document superseded by a larger archived document",
-    "ogc-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ogc-all-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-capabilities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-collection-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-collection-data-queries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -176,10 +173,12 @@
     "ogc-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-conformance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-conformancedeclaration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ogc-coverage-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-coverage-tiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-custom-projection-crs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-data-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-dggrs-description-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ogc-dggs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-dggs-data-retrieval-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-dggs-zone-query-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-dismiss-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -193,6 +192,9 @@
     "ogc-maps-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-movingfeaturecollection-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-movingfeatures-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ogc-ogc-api-discrete-global-grid-systems-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ogc-ogc-api-maps-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ogc-ogc-api-tiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-processdescription-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-processlist-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-record-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -200,10 +202,13 @@
     "ogc-result-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-sortables-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-status-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ogc-styles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-temporalgeometry-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-temporalgeometryquery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-temporalproperty-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ogc-tilematrixsets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ogc-tiling-schemes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "ogc-vector-tiles-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "ogc-vector-tiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ogc-vectortiles-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

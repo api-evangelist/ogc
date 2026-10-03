@@ -286,54 +286,231 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
+  parameters:
+    tileRow:
+      name: tileRow
+      in: path
+      description: Row index of the tile on the selected TileMatrix. It cannot exceed the MatrixWidth-1 for the selected TileMatrix. For example, Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.
+      required: true
+      schema:
+        minimum: 0
+        type: integer
+      example: 10
+    subset:
+      name: subset
+      in: query
+      description: "Retrieve only part of the data by slicing or trimming along one or more axis\nFor trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)\n   An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.\nFor slicing:  {axisAbbrev}({value})      (reduces dimensionality)\n"
+      style: form
+      explode: false
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+    collectionId-vectorTiles:
+      name: collectionId
+      in: path
+      description: Local identifier of a vector tile collection
+      required: true
+      allowEmptyValue: false
+      schema:
+        $ref: '#/components/schemas/vectorTiles-collections'
+    bgcolor:
+      name: bgcolor
+      in: query
+      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the background color (default to 0x9C9C9C gray). If alpha is not specified, full opacity is assumed.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: string
+        default: '0xFFFFFF'
+    subset-crs:
+      name: subset-crs
+      in: query
+      description: crs for the specified subset
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
+    collections:
+      name: collections
+      in: query
+      style: form
+      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
+      required: false
+      explode: false
+      schema:
+        type: array
+        items:
+          $ref: '#/components/schemas/all-collections'
+    collections-vectorTiles:
+      name: collections
+      in: query
+      style: form
+      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
+      required: false
+      explode: false
+      schema:
+        type: array
+        items:
+          $ref: '#/components/schemas/vectorTiles-collections'
+    tileMatrix:
+      name: tileMatrix
+      in: path
+      description: 'Identifier selecting one of the scales defined in the TileMatrixSet and representing the scaleDenominator the tile. For example,
+
+        Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.'
+      required: true
+      schema:
+        type: string
+      example: '5'
+    transparent:
+      name: transparent
+      in: query
+      description: Background transparency of map (default=true).
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: boolean
+        default: true
+    crs:
+      name: crs
+      in: query
+      description: reproject the output to the given crs
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    datetime:
+      name: datetime
+      in: query
+      description: 'Either a date-time or an interval, half-bounded or bounded. Date and time expressions
+
+        adhere to RFC 3339. Half-bounded intervals are expressed using double-dots.
+
+
+        Examples:
+
+
+        * A date-time: "2018-02-12T23:20:50Z"
+
+        * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"
+
+        * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
+
+
+        Only features that have a temporal property that intersects the value of
+
+        `datetime` are selected.
+
+
+        If a feature has multiple temporal properties, it is the decision of the
+
+        server whether only a single temporal property is used to determine
+
+        the extent or all relevant temporal properties.'
+      required: false
+      schema:
+        type: string
+      style: form
+      explode: false
+    styleId-collection:
+      name: styleId
+      in: path
+      description: An identifier representing a specific style.
+      required: true
+      allowEmptyValue: false
+      schema:
+        type: string
+    tileCol:
+      name: tileCol
+      in: path
+      description: Column index of the tile on the selected TileMatrix. It cannot exceed the MatrixHeight-1 for the selected TileMatrix. For example, Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.
+      required: true
+      schema:
+        minimum: 0
+        type: integer
+      example: 15
+    f-vectorTile:
+      name: f
+      in: query
+      description: The format of the vector tile response (e.g. json). Accepted values are 'mvt' (Mapbox Vector Tiles) or 'json' (GeoJSON).
+      required: false
+      schema:
+        type: string
+        enum:
+        - mvt
+        - json
+      style: form
+      explode: false
+    tileMatrixSetId:
+      name: tileMatrixSetId
+      in: path
+      description: Identifier for a supported TileMatrixSet
+      required: true
+      allowEmptyValue: false
+      schema:
+        $ref: '#/components/schemas/tileMatrixSets'
+    styleId:
+      name: styleId
+      in: path
+      description: An identifier representing a specific style.
+      required: true
+      allowEmptyValue: false
+      schema:
+        $ref: '#/components/schemas/styles'
   schemas:
-    timeStamp:
-      description: This property indicates the time and date when the response was generated using RFC 3339 notation.
-      type: string
-      format: date-time
-      example: '2017-08-17T08:05:32Z'
-    2DBoundingBox:
-      description: Minimum bounding rectangle surrounding a 2D resource in the CRS indicated elsewhere
+    link:
       type: object
       required:
-      - lowerLeft
-      - upperRight
+      - href
+      - rel
       properties:
-        lowerLeft:
-          $ref: '#/components/schemas/2DPoint'
-        upperRight:
-          $ref: '#/components/schemas/2DPoint'
-        crs:
-          $ref: '#/components/schemas/crs'
-        orderedAxes:
-          type: array
-          minItems: 2
-          maxItems: 2
-          items:
-            type: string
-    styles:
-      type: string
-      enum:
-      - default
-    tileMatrixSets:
-      type: string
-      enum:
-      - WebMercatorQuad
-      - WorldCRS84Quad
-      - GNOSISGlobalGrid
-      - WorldMercatorWGS84Quad
-    2DPoint:
-      description: A 2D Point in the CRS indicated elsewhere
-      type: array
-      minItems: 2
-      maxItems: 2
-      items:
-        type: number
-    vectorTiles-collections:
-      type: string
-      enum:
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - NaturalEarth:physical:bathymetry
+        href:
+          type: string
+          description: Supplies the URI to a remote resource (or resource fragment).
+          example: http://data.example.com/buildings/123
+        rel:
+          type: string
+          description: The type or semantics of the relation.
+          example: alternate
+        type:
+          type: string
+          description: A hint indicating what the media type of the result of dereferencing the link should be.
+          example: application/geo+json
+        templated:
+          type: boolean
+          description: This flag set to true if the link is a URL template.
+        varBase:
+          description: A base path to retrieve semantic information about the variables used in URL template.
+          type: string
+          example: /ogcapi/vars/
+        hreflang:
+          type: string
+          description: A hint indicating what the language of the result of dereferencing the link should be.
+          example: en
+        title:
+          type: string
+          description: Used to label the destination of a link such that it can be used as a human-readable identifier.
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
     tileSet:
       title: Tile Set Metadata
       description: A resource describing a tileset based on the OGC TileSet Metadata Standard. At least one of the 'TileMatrixSet',  or a link with 'rel' http://www.opengis.net/def/rel/ogc/1.0/tiling-scheme
@@ -658,6 +835,42 @@ components:
           type: array
           items:
             type: string
+    2DBoundingBox:
+      description: Minimum bounding rectangle surrounding a 2D resource in the CRS indicated elsewhere
+      type: object
+      required:
+      - lowerLeft
+      - upperRight
+      properties:
+        lowerLeft:
+          $ref: '#/components/schemas/2DPoint'
+        upperRight:
+          $ref: '#/components/schemas/2DPoint'
+        crs:
+          $ref: '#/components/schemas/crs'
+        orderedAxes:
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            type: string
+    all-collections:
+      type: string
+      enum:
+      - blueMarble
+      - NaturalEarth:raster:HYP_HR_SR_OB_DR
+      - NaturalEarth:cultural:ne_10m_admin_0_countries
+      - NaturalEarth:physical:bathymetry
+      - SRTM_ViewFinderPanorama
+      - HRDEM-Ottawa
+      - HRDEM-RedRiver
+    2DPoint:
+      description: A 2D Point in the CRS indicated elsewhere
+      type: array
+      minItems: 2
+      maxItems: 2
+      items:
+        type: number
     crs:
       title: CRS
       oneOf:
@@ -685,60 +898,13 @@ components:
             referenceSystem:
               description: A reference system data structure as defined in the MD_ReferenceSystem of the ISO 19115
               type: object
-    dataType:
-      anyOf:
-      - type: string
-      - type: string
-        enum:
-        - map
-        - vector
-        - coverage
-    exception:
-      title: Exception Schema
-      description: JSON schema for exceptions based on RFC 7807
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-    tileSet-item:
-      title: Tile Set Metadata item
-      description: A minimal tileset element for use within a list of tilesets linking to full description of those tilesets.
-      type: object
-      required:
-      - dataType
-      - links
-      - crs
-      properties:
-        title:
-          description: A title for this tileset
-          type: string
-        dataType:
-          allOf:
-          - description: Type of data represented in the tileset
-          - $ref: '#/components/schemas/dataType'
-        crs:
-          allOf:
-          - description: Coordinate Reference System (CRS)
-          - $ref: '#/components/schemas/crs'
-        tileMatrixSetURI:
-          description: Reference to a Tile Matrix Set on an offical source for Tile Matrix Sets such as the OGC NA definition server (http://www.opengis.net/def/tms/). Required if the tile matrix set is registered on an open official source.
-          type: string
-          format: uri
-        links:
-          description: Links to related resources. A 'self' link to the tileset as well as a 'http://www.opengis.net/def/rel/ogc/1.0/tiling-scheme' link to a definition of the TileMatrixSet are required.
-          type: array
-          items:
-            $ref: '#/components/schemas/link'
+    tileMatrixSets:
+      type: string
+      enum:
+      - WebMercatorQuad
+      - WorldCRS84Quad
+      - GNOSISGlobalGrid
+      - WorldMercatorWGS84Quad
     FeatureCollection:
       title: GeoJSON FeatureCollection
       type: object
@@ -953,252 +1119,104 @@ components:
         maxTileCol:
           type: integer
           minimum: 0
-    all-collections:
+    dataType:
+      anyOf:
+      - type: string
+      - type: string
+        enum:
+        - map
+        - vector
+        - coverage
+    styles:
       type: string
       enum:
-      - blueMarble
-      - NaturalEarth:raster:HYP_HR_SR_OB_DR
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - NaturalEarth:physical:bathymetry
-      - SRTM_ViewFinderPanorama
-      - HRDEM-Ottawa
-      - HRDEM-RedRiver
-    link:
+      - default
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
       type: object
       required:
-      - href
-      - rel
+      - type
       properties:
-        href:
-          type: string
-          description: Supplies the URI to a remote resource (or resource fragment).
-          example: http://data.example.com/buildings/123
-        rel:
-          type: string
-          description: The type or semantics of the relation.
-          example: alternate
         type:
           type: string
-          description: A hint indicating what the media type of the result of dereferencing the link should be.
-          example: application/geo+json
-        templated:
-          type: boolean
-          description: This flag set to true if the link is a URL template.
-        varBase:
-          description: A base path to retrieve semantic information about the variables used in URL template.
-          type: string
-          example: /ogcapi/vars/
-        hreflang:
-          type: string
-          description: A hint indicating what the language of the result of dereferencing the link should be.
-          example: en
         title:
           type: string
-          description: Used to label the destination of a link such that it can be used as a human-readable identifier.
-          example: Trierer Strasse 70, 53115 Bonn
-        length:
+        status:
           type: integer
-  parameters:
-    collections-vectorTiles:
-      name: collections
-      in: query
-      style: form
-      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
-      required: false
-      explode: false
-      schema:
-        type: array
-        items:
-          $ref: '#/components/schemas/vectorTiles-collections'
-    tileCol:
-      name: tileCol
-      in: path
-      description: Column index of the tile on the selected TileMatrix. It cannot exceed the MatrixHeight-1 for the selected TileMatrix. For example, Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.
-      required: true
-      schema:
-        minimum: 0
-        type: integer
-      example: 15
-    subset-crs:
-      name: subset-crs
-      in: query
-      description: crs for the specified subset
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-    collectionId-vectorTiles:
-      name: collectionId
-      in: path
-      description: Local identifier of a vector tile collection
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/vectorTiles-collections'
-    crs:
-      name: crs
-      in: query
-      description: reproject the output to the given crs
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-    styleId-collection:
-      name: styleId
-      in: path
-      description: An identifier representing a specific style.
-      required: true
-      allowEmptyValue: false
-      schema:
-        type: string
-    collections:
-      name: collections
-      in: query
-      style: form
-      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
-      required: false
-      explode: false
-      schema:
-        type: array
-        items:
-          $ref: '#/components/schemas/all-collections'
-    tileMatrixSetId:
-      name: tileMatrixSetId
-      in: path
-      description: Identifier for a supported TileMatrixSet
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/tileMatrixSets'
-    datetime:
-      name: datetime
-      in: query
-      description: 'Either a date-time or an interval, half-bounded or bounded. Date and time expressions
-
-        adhere to RFC 3339. Half-bounded intervals are expressed using double-dots.
-
-
-        Examples:
-
-
-        * A date-time: "2018-02-12T23:20:50Z"
-
-        * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"
-
-        * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
-
-
-        Only features that have a temporal property that intersects the value of
-
-        `datetime` are selected.
-
-
-        If a feature has multiple temporal properties, it is the decision of the
-
-        server whether only a single temporal property is used to determine
-
-        the extent or all relevant temporal properties.'
-      required: false
-      schema:
-        type: string
-      style: form
-      explode: false
-    transparent:
-      name: transparent
-      in: query
-      description: Background transparency of map (default=true).
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: boolean
-        default: true
-    subset:
-      name: subset
-      in: query
-      description: "Retrieve only part of the data by slicing or trimming along one or more axis\nFor trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)\n   An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.\nFor slicing:  {axisAbbrev}({value})      (reduces dimensionality)\n"
-      style: form
-      explode: false
-      required: false
-      schema:
-        type: array
-        items:
+        detail:
           type: string
-    bgcolor:
-      name: bgcolor
-      in: query
-      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the background color (default to 0x9C9C9C gray). If alpha is not specified, full opacity is assumed.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: string
-        default: '0xFFFFFF'
-    tileRow:
-      name: tileRow
-      in: path
-      description: Row index of the tile on the selected TileMatrix. It cannot exceed the MatrixWidth-1 for the selected TileMatrix. For example, Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.
-      required: true
-      schema:
-        minimum: 0
-        type: integer
-      example: 10
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - html
-      style: form
-      explode: false
-    f-vectorTile:
-      name: f
-      in: query
-      description: The format of the vector tile response (e.g. json). Accepted values are 'mvt' (Mapbox Vector Tiles) or 'json' (GeoJSON).
-      required: false
-      schema:
-        type: string
-        enum:
-        - mvt
-        - json
-      style: form
-      explode: false
-    tileMatrix:
-      name: tileMatrix
-      in: path
-      description: 'Identifier selecting one of the scales defined in the TileMatrixSet and representing the scaleDenominator the tile. For example,
-
-        Ireland is fully within the Tile at WebMercatorQuad tileMatrix=5, tileRow=10 and tileCol=15.'
-      required: true
-      schema:
-        type: string
-      example: '5'
-    styleId:
-      name: styleId
-      in: path
-      description: An identifier representing a specific style.
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/styles'
+        instance:
+          type: string
+    vectorTiles-collections:
+      type: string
+      enum:
+      - NaturalEarth:cultural:ne_10m_admin_0_countries
+      - NaturalEarth:physical:bathymetry
+    timeStamp:
+      description: This property indicates the time and date when the response was generated using RFC 3339 notation.
+      type: string
+      format: date-time
+      example: '2017-08-17T08:05:32Z'
+    tileSet-item:
+      title: Tile Set Metadata item
+      description: A minimal tileset element for use within a list of tilesets linking to full description of those tilesets.
+      type: object
+      required:
+      - dataType
+      - links
+      - crs
+      properties:
+        title:
+          description: A title for this tileset
+          type: string
+        dataType:
+          allOf:
+          - description: Type of data represented in the tileset
+          - $ref: '#/components/schemas/dataType'
+        crs:
+          allOf:
+          - description: Coordinate Reference System (CRS)
+          - $ref: '#/components/schemas/crs'
+        tileMatrixSetURI:
+          description: Reference to a Tile Matrix Set on an offical source for Tile Matrix Sets such as the OGC NA definition server (http://www.opengis.net/def/tms/). Required if the tile matrix set is registered on an open official source.
+          type: string
+          format: uri
+        links:
+          description: Links to related resources. A 'self' link to the tileset as well as a 'http://www.opengis.net/def/rel/ogc/1.0/tiling-scheme' link to a definition of the TileMatrixSet are required.
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
   responses:
-    ServerError:
-      description: A server error occurred.
+    TileSetsList:
+      description: List of available tilesets.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/exception'
+            type: object
+            required:
+            - tilesets
+            properties:
+              links:
+                type: array
+                items:
+                  $ref: '#/components/schemas/link'
+              tilesets:
+                type: array
+                items:
+                  $ref: '#/components/schemas/tileSet-item'
         text/html:
           schema:
             type: string
-    EmptyTile:
-      description: No data available for this tile.
+    TileSet:
+      description: Description of the tileset
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/tileSet'
+        text/html:
+          schema:
+            type: string
     VectorTile:
       description: A vector tile returned as a response.
       content:
@@ -1229,32 +1247,14 @@ components:
         text/html:
           schema:
             type: string
-    TileSet:
-      description: Description of the tileset
+    ServerError:
+      description: A server error occurred.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/tileSet'
+            $ref: '#/components/schemas/exception'
         text/html:
           schema:
             type: string
-    TileSetsList:
-      description: List of available tilesets.
-      content:
-        application/json:
-          schema:
-            type: object
-            required:
-            - tilesets
-            properties:
-              links:
-                type: array
-                items:
-                  $ref: '#/components/schemas/link'
-              tilesets:
-                type: array
-                items:
-                  $ref: '#/components/schemas/tileSet-item'
-        text/html:
-          schema:
-            type: string
+    EmptyTile:
+      description: No data available for this tile.

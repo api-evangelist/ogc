@@ -67,6 +67,17 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   responses:
+    NotFound:
+      description: 'The requested resource does not exist on the server. For example,
+
+        a path parameter had an incorrect value.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
     NotAcceptable:
       description: 'Content negotiation failed. For example, the `Accept` header submitted
 
@@ -77,16 +88,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    Sortables:
-      description: A list of properties by which the server response may be sorted.
-      content:
-        application/json:
-          schema:
-            type: object
-            description: A JSON Schema document that defines all the sortables.
         text/html:
           schema:
             type: string
@@ -108,49 +109,17 @@ components:
         text/html:
           schema:
             type: string
-    NotFound:
-      description: 'The requested resource does not exist on the server. For example,
-
-        a path parameter had an incorrect value.'
+    Sortables:
+      description: A list of properties by which the server response may be sorted.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/exception'
+            type: object
+            description: A JSON Schema document that defines all the sortables.
         text/html:
           schema:
             type: string
-  schemas:
-    exception:
-      description: 'Imported from OGC API - Features - Part 1: Core
-
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
-      type: object
-      required:
-      - code
-      properties:
-        code:
-          type: string
-        description:
-          type: string
   parameters:
-    catalogId:
-      name: catalogId
-      in: path
-      description: local identifier of a catalog
-      required: true
-      schema:
-        type: string
-    profile:
-      name: profile
-      in: query
-      description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      explode: false
-      style: form
     language:
       name: language
       in: query
@@ -175,6 +144,37 @@ components:
           pattern: ^((?:(en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))|((?:([A-Za-z]{2,3}(-(?:[A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-(?:[A-Za-z]{4}))?(-(?:[A-Za-z]{2}|[0-9]{3}))?(-(?:[A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-(?:[0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(?:x(-[A-Za-z0-9]{1,8})+))?)|(?:x(-[A-Za-z0-9]{1,8})+))(?:;q=(?:1|1\.0+|0|0\.[0-9]+))?$
       explode: false
       style: form
+    profile:
+      name: profile
+      in: query
+      description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
+    catalogId:
+      name: catalogId
+      in: path
+      description: local identifier of a catalog
+      required: true
+      schema:
+        type: string
+  schemas:
+    exception:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/exception.yaml'
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+        description:
+          type: string
   securitySchemes:
     openIdConnect:
       type: openIdConnect
