@@ -531,6 +531,8 @@ apis:
   description: The Dggs API from Open Geospatial Consortium (OGC) — 1 operation(s) for dggs.
   humanURL: https://ogcapi.ogc.org/common/
   tags:
+  - DGGS
+  tags_raw:
   - Dggs
   properties:
   - type: OpenAPI
