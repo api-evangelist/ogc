@@ -83,20 +83,102 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   parameters:
-    properties:
-      name: properties
+    zone-depth:
+      name: zone-depth
       in: query
-      description: 'Select specific data record fields (measured/observed properties) to be returned using a comma-separated list of field names.
+      description: "The DGGS resolution levels beyond the requested DGGS zone’s hierarchy level to include in the response, when retrieving data for that zone. This can be either: • A single positive integer value — representing a specific zone depth to return (e.g., `zone-depth=5`); • A range of positive integer values in the form “{low}-{high}” — representing a\n  continuous range of zone depths to return (e.g., `zone-depth=1-8`); or,\n• A comma separated list of at least two (2) positive integer values — representing a\n  set of specific zone depths to return (e.g., `zone-depth=1,3,7`). Some or all of\n  these forms of the zone-depth parameter may not be supported with particular\n  data packet encodings (the data encoding may support a fixed depth, a range of\n  depths, and/or an arbitrary selection of depths).\nWhen this parameter is omitted, the default value specified in the `defaultDepth` property of the `.../dggs/{dggrsId}` DGGRS description is used."
+      required: false
+      schema:
+        oneOf:
+        - type: integer
+          minimum: 0
+        - type: string
+          description: A comma separated list of positive integers, or a {min}-{max} range of relative zone depths
+      style: form
+      explode: false
+    geometry:
+      name: geometry
+      in: query
+      description: 'For vector output formats, specify how to return the geometry and/or what the features of the response should represent.
 
-        The field name must be one of the fields defined in the associated data resource''s logical schema.
+        `vectorized`: return features with regular non-rasterized, non-quantized geometry
 
+        `zone-centroid`: rasterize to zone features and use a Point geometry representing that zone centroid
 
-        Extensions may enable the use of complex expressions to support defining derived fields, potentially also
+        `zone-region`: rasterize to zone features and use a (Multi)Polygon/Polyhedron geometry representing that zone''s region -- not supported for DGGS-JSON-FG profiles (`profile=jsonfg-dggs*`)
 
-        including the possibility to use aggregation functons.'
+        `none`: (for zone listing) omit zone geometry -- not supported for DGGS-JSON-FG profiles (`profile=jsonfg-dggs*`)'
+      style: form
+      explode: false
       required: false
       schema:
         type: string
+        enum:
+        - vectorized
+        - zone-region
+        - zone-centroid
+        - none
+    zoneId:
+      name: zoneId
+      in: path
+      description: Identifier for a specific zone of a Discrete Global Grid Systems. This identifier usually includes a component corresponding to a hierarchy level / scale / resolution, components identifying a spatial region, and a optionally a temporal component.
+      required: true
+      schema:
+        type: string
+      example: B2-1-A
+    collections:
+      name: collections
+      in: query
+      style: form
+      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. This parameter may be useful for dataset-wide DGGS resources, but it is not defined by OGC API - DGGS - Part 1.
+      required: false
+      explode: false
+      schema:
+        type: array
+        items:
+          $ref: '#/components/schemas/all-collections'
+    values-offset:
+      name: values-offset
+      in: query
+      description: 'Specify the offset for a zone data output format such as PNG not supporting floating-point, to be applied after multiplying by the scale factor and resulting in the encoded integer values (e.g., 8-bit or 16-bit unsigned for PNG).
+
+        '
+      style: form
+      explode: false
+      required: false
+      schema:
+        type: number
+    datetime:
+      name: datetime
+      in: query
+      description: 'Either a date-time or an interval. Date and time expressions adhere to RFC 3339, section 5.6. Intervals may be bounded or half-bounded (double-dots at start or end). Server implementations may or may not support times expressed using time offsets from UTC, but need to support UTC time with the notation ending with a Z.
+
+        Examples:
+
+        * A date-time: "2018-02-12T23:20:50Z" * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z" * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
+
+        Only resources that have a temporal property that intersects the value of `datetime` are selected.
+
+        If a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.'
+      required: false
+      schema:
+        type: string
+      style: form
+      explode: false
+    f-zoneData:
+      name: f
+      in: query
+      description: The format of the zone data response (e.g. GeoJSON, GeoTIFF).
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - geotiff
+        - geojson
+        - png
+      style: form
+      explode: false
     subset:
       name: subset
       in: query
@@ -120,6 +202,15 @@ components:
         type: array
         items:
           type: string
+    crs:
+      name: crs
+      in: query
+      description: reproject the output to the given crs
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
     profile:
       name: profile
       in: query
@@ -197,17 +288,6 @@ components:
         - zarr2
         - zarr2-dggs
         - zarr2-dggs-zoneids
-    collections:
-      name: collections
-      in: query
-      style: form
-      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. This parameter may be useful for dataset-wide DGGS resources, but it is not defined by OGC API - DGGS - Part 1.
-      required: false
-      explode: false
-      schema:
-        type: array
-        items:
-          $ref: '#/components/schemas/all-collections'
     values-scale:
       name: values-scale
       in: query
@@ -219,73 +299,6 @@ components:
       required: false
       schema:
         type: number
-    crs:
-      name: crs
-      in: query
-      description: reproject the output to the given crs
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-    datetime:
-      name: datetime
-      in: query
-      description: 'Either a date-time or an interval. Date and time expressions adhere to RFC 3339, section 5.6. Intervals may be bounded or half-bounded (double-dots at start or end). Server implementations may or may not support times expressed using time offsets from UTC, but need to support UTC time with the notation ending with a Z.
-
-        Examples:
-
-        * A date-time: "2018-02-12T23:20:50Z" * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z" * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
-
-        Only resources that have a temporal property that intersects the value of `datetime` are selected.
-
-        If a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.'
-      required: false
-      schema:
-        type: string
-      style: form
-      explode: false
-    zoneId:
-      name: zoneId
-      in: path
-      description: Identifier for a specific zone of a Discrete Global Grid Systems. This identifier usually includes a component corresponding to a hierarchy level / scale / resolution, components identifying a spatial region, and a optionally a temporal component.
-      required: true
-      schema:
-        type: string
-      example: B2-1-A
-    values-offset:
-      name: values-offset
-      in: query
-      description: 'Specify the offset for a zone data output format such as PNG not supporting floating-point, to be applied after multiplying by the scale factor and resulting in the encoded integer values (e.g., 8-bit or 16-bit unsigned for PNG).
-
-        '
-      style: form
-      explode: false
-      required: false
-      schema:
-        type: number
-    geometry:
-      name: geometry
-      in: query
-      description: 'For vector output formats, specify how to return the geometry and/or what the features of the response should represent.
-
-        `vectorized`: return features with regular non-rasterized, non-quantized geometry
-
-        `zone-centroid`: rasterize to zone features and use a Point geometry representing that zone centroid
-
-        `zone-region`: rasterize to zone features and use a (Multi)Polygon/Polyhedron geometry representing that zone''s region -- not supported for DGGS-JSON-FG profiles (`profile=jsonfg-dggs*`)
-
-        `none`: (for zone listing) omit zone geometry -- not supported for DGGS-JSON-FG profiles (`profile=jsonfg-dggs*`)'
-      style: form
-      explode: false
-      required: false
-      schema:
-        type: string
-        enum:
-        - vectorized
-        - zone-region
-        - zone-centroid
-        - none
     collectionId-all:
       name: collectionId
       in: path
@@ -293,28 +306,6 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/all-collections'
-    f-zoneData:
-      name: f
-      in: query
-      description: The format of the zone data response (e.g. GeoJSON, GeoTIFF).
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - geotiff
-        - geojson
-        - png
-      style: form
-      explode: false
-    dggrsId:
-      name: dggrsId
-      in: path
-      description: Identifier for a supported Discrete Global Grid System
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/all-dggrs'
     exclude-properties:
       name: exclude-properties
       in: query
@@ -324,19 +315,14 @@ components:
       required: false
       schema:
         type: string
-    zone-depth:
-      name: zone-depth
-      in: query
-      description: "The DGGS resolution levels beyond the requested DGGS zone’s hierarchy level to include in the response, when retrieving data for that zone. This can be either: • A single positive integer value — representing a specific zone depth to return (e.g., `zone-depth=5`); • A range of positive integer values in the form “{low}-{high}” — representing a\n  continuous range of zone depths to return (e.g., `zone-depth=1-8`); or,\n• A comma separated list of at least two (2) positive integer values — representing a\n  set of specific zone depths to return (e.g., `zone-depth=1,3,7`). Some or all of\n  these forms of the zone-depth parameter may not be supported with particular\n  data packet encodings (the data encoding may support a fixed depth, a range of\n  depths, and/or an arbitrary selection of depths).\nWhen this parameter is omitted, the default value specified in the `defaultDepth` property of the `.../dggs/{dggrsId}` DGGRS description is used."
-      required: false
+    dggrsId:
+      name: dggrsId
+      in: path
+      description: Identifier for a supported Discrete Global Grid System
+      required: true
+      allowEmptyValue: false
       schema:
-        oneOf:
-        - type: integer
-          minimum: 0
-        - type: string
-          description: A comma separated list of positive integers, or a {min}-{max} range of relative zone depths
-      style: form
-      explode: false
+        $ref: '#/components/schemas/all-dggrs'
     filter:
       name: filter
       in: query
@@ -346,17 +332,269 @@ components:
         type: string
       style: form
       explode: false
+    properties:
+      name: properties
+      in: query
+      description: 'Select specific data record fields (measured/observed properties) to be returned using a comma-separated list of field names.
+
+        The field name must be one of the fields defined in the associated data resource''s logical schema.
+
+
+        Extensions may enable the use of complex expressions to support defining derived fields, potentially also
+
+        including the possibility to use aggregation functons.'
+      required: false
+      schema:
+        type: string
+  responses:
+    EmptyData:
+      description: No data available for this zone.
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotFound:
+      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    ZoneData:
+      description: DGGRS zone data returned as a response.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/dggs-json'
+        image/png:
+          schema:
+            type: string
+            format: binary
+        image/tiff; application=geotiff:
+          schema:
+            type: string
+            format: binary
+        application/geo+json:
+          schema:
+            allOf:
+            - format: geojson-feature-collection
+            - $ref: '#/components/schemas/FeatureCollection'
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
   schemas:
-    all-collections:
+    FeatureCollection:
+      title: GeoJSON FeatureCollection
+      type: object
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            title: GeoJSON Feature
+            type: object
+            required:
+            - type
+            - properties
+            - geometry
+            properties:
+              type:
+                type: string
+                enum:
+                - Feature
+              id:
+                oneOf:
+                - type: number
+                - type: string
+              properties:
+                type:
+                - object
+                - 'null'
+              geometry:
+                oneOf:
+                - title: GeoJSON Point
+                  type:
+                  - object
+                  - 'null'
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - Point
+                    coordinates:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON LineString
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - LineString
+                    coordinates:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON Polygon
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - Polygon
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        minItems: 4
+                        items:
+                          type: array
+                          minItems: 2
+                          items:
+                            type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON MultiPoint
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - MultiPoint
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON MultiLineString
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - MultiLineString
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: array
+                          minItems: 2
+                          items:
+                            type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON MultiPolygon
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - MultiPolygon
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        items:
+                          type: array
+                          minItems: 4
+                          items:
+                            type: array
+                            minItems: 2
+                            items:
+                              type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+              bbox:
+                type: array
+                minItems: 4
+                items:
+                  type: number
+        bbox:
+          type: array
+          minItems: 4
+          items:
+            type: number
+    all-dggrs:
       type: string
       enum:
-      - SRTM_ViewFinderPanorama
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - HRDEM-Ottawa
-      - HRDEM-RedRiver
-      - blueMarble
-      - NaturalEarth:raster:HYP_HR_SR_OB_DR
-      - NaturalEarth:physical:bathymetry
+      - ISEA3H
+      - ISEA9R
+      - GNOSISGlobalGrid
+      - OpenEAGGR
+      - rHEALPix
+      - H3
+      - GeoSOT
     dggs-json:
       type: object
       properties:
@@ -555,195 +793,6 @@ components:
       - zoneId
       - depths
       - values
-    FeatureCollection:
-      title: GeoJSON FeatureCollection
-      type: object
-      required:
-      - type
-      - features
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type: array
-          items:
-            title: GeoJSON Feature
-            type: object
-            required:
-            - type
-            - properties
-            - geometry
-            properties:
-              type:
-                type: string
-                enum:
-                - Feature
-              id:
-                oneOf:
-                - type: number
-                - type: string
-              properties:
-                type:
-                - object
-                - 'null'
-              geometry:
-                oneOf:
-                - title: GeoJSON Point
-                  type:
-                  - object
-                  - 'null'
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - Point
-                    coordinates:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON LineString
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - LineString
-                    coordinates:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: array
-                        minItems: 2
-                        items:
-                          type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON Polygon
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - Polygon
-                    coordinates:
-                      type: array
-                      items:
-                        type: array
-                        minItems: 4
-                        items:
-                          type: array
-                          minItems: 2
-                          items:
-                            type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON MultiPoint
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - MultiPoint
-                    coordinates:
-                      type: array
-                      items:
-                        type: array
-                        minItems: 2
-                        items:
-                          type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON MultiLineString
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - MultiLineString
-                    coordinates:
-                      type: array
-                      items:
-                        type: array
-                        minItems: 2
-                        items:
-                          type: array
-                          minItems: 2
-                          items:
-                            type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON MultiPolygon
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - MultiPolygon
-                    coordinates:
-                      type: array
-                      items:
-                        type: array
-                        items:
-                          type: array
-                          minItems: 4
-                          items:
-                            type: array
-                            minItems: 2
-                            items:
-                              type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-              bbox:
-                type: array
-                minItems: 4
-                items:
-                  type: number
-        bbox:
-          type: array
-          minItems: 4
-          items:
-            type: number
     exception:
       title: Exception Schema
       description: JSON schema for exceptions based on RFC 7807
@@ -761,62 +810,13 @@ components:
           type: string
         instance:
           type: string
-    all-dggrs:
+    all-collections:
       type: string
       enum:
-      - ISEA3H
-      - ISEA9R
-      - GNOSISGlobalGrid
-      - OpenEAGGR
-      - rHEALPix
-      - H3
-      - GeoSOT
-  responses:
-    EmptyData:
-      description: No data available for this zone.
-    ZoneData:
-      description: DGGRS zone data returned as a response.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/dggs-json'
-        image/png:
-          schema:
-            type: string
-            format: binary
-        image/tiff; application=geotiff:
-          schema:
-            type: string
-            format: binary
-        application/geo+json:
-          schema:
-            allOf:
-            - format: geojson-feature-collection
-            - $ref: '#/components/schemas/FeatureCollection'
-    NotFound:
-      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
+      - SRTM_ViewFinderPanorama
+      - NaturalEarth:cultural:ne_10m_admin_0_countries
+      - HRDEM-Ottawa
+      - HRDEM-RedRiver
+      - blueMarble
+      - NaturalEarth:raster:HYP_HR_SR_OB_DR
+      - NaturalEarth:physical:bathymetry

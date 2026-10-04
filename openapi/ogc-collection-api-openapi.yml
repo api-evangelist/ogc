@@ -67,17 +67,117 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   schemas:
-    link:
+    contact:
       type: object
-      allOf:
-      - $ref: '#/components/schemas/linkBase'
-      - type: object
-        required:
-        - href
-        properties:
-          href:
-            type: string
-            format: uri
+      description: 'Identification of, and means of communication with, person responsible
+
+        for the resource.'
+      anyOf:
+      - required:
+        - name
+      - required:
+        - organization
+      properties:
+        identifier:
+          type: string
+          description: A value uniquely identifying a contact.
+        name:
+          type: string
+          description: The name of the responsible person.
+        position:
+          type: string
+          description: 'The name of the role or position of the responsible person taken
+
+            from the organization''s formal organizational hierarchy or chart.'
+        organization:
+          type: string
+          description: Organization/affiliation of the contact.
+        logo:
+          description: 'Graphic identifying a contact. The link relation should be `icon`
+
+            and the media type should be an image media type.'
+          allOf:
+          - $ref: '#/components/schemas/link'
+          - type: object
+            required:
+            - rel
+            - type
+            properties:
+              rel:
+                enum:
+                - icon
+        phones:
+          type: array
+          description: Telephone numbers at which contact can be made.
+          items:
+            type: object
+            required:
+            - value
+            properties:
+              value:
+                type: string
+                description: The value is the phone number itself.
+                pattern: ^\+[1-9]{1}[0-9]{3,14}$
+              roles:
+                $ref: '#/components/schemas/roles'
+        emails:
+          type: array
+          description: Email addresses at which contact can be made.
+          items:
+            type: object
+            required:
+            - value
+            properties:
+              value:
+                type: string
+                description: The value is the email number itself.
+                format: email
+              roles:
+                $ref: '#/components/schemas/roles'
+        addresses:
+          type: array
+          description: Physical location at which contact can be made.
+          items:
+            type: object
+            properties:
+              deliveryPoint:
+                type: array
+                description: Address lines for the location.
+                items:
+                  type: string
+              city:
+                type: string
+                description: City for the location.
+              administrativeArea:
+                type: string
+                description: State or province of the location.
+              postalCode:
+                type: string
+                description: ZIP or other postal code.
+              country:
+                type: string
+                description: Country of the physical address.  ISO 3166-1 is recommended.
+              roles:
+                $ref: '#/components/schemas/roles'
+        links:
+          type: array
+          description: On-line information about the contact.
+          items:
+            allOf:
+            - $ref: '#/components/schemas/link'
+            - type: object
+              required:
+              - type
+        hoursOfService:
+          type: string
+          description: Time period when the contact can be contacted.
+        contactInstructions:
+          type: string
+          description: 'Supplemental instructions on how or when to contact the
+
+            responsible party.'
+        roles:
+          $ref: '#/components/schemas/roles'
     format:
       type: object
       anyOf:
@@ -90,6 +190,166 @@ components:
           type: string
         mediaType:
           type: string
+    theme:
+      type: object
+      required:
+      - concepts
+      - scheme
+      properties:
+        concepts:
+          type: array
+          description: 'One or more entity/concept identifiers from this knowledge
+
+            system. it is recommended that a resolvable URI be used for
+
+            each entity/concept identifier.'
+          minItems: 1
+          items:
+            type: object
+            required:
+            - id
+            properties:
+              id:
+                type: string
+                description: An identifier for the concept.
+              title:
+                type: string
+                description: A human readable title for the concept.
+              description:
+                type: string
+                description: A human readable description for the concept.
+              url:
+                type: string
+                format: uri
+                description: A URI providing further description of the concept.
+        scheme:
+          type: string
+          description: 'An identifier for the knowledge organization system used
+
+            to classify the resource.  It is recommended that the
+
+            identifier be a resolvable URI.  The list of schemes used
+
+            in a searchable catalog can be determined by inspecting
+
+            the server''s OpenAPI document or, if the server implements
+
+            CQL2, by exposing a queryable (e.g. named `scheme`) and
+
+            enumerating the list of schemes in the queryable''s schema
+
+            definition.'
+    catalogCommonProperties:
+      allOf:
+      - $ref: '#/components/schemas/recordCommonProperties'
+      - type: object
+        required:
+        - type
+        properties:
+          type:
+            description: 'Fixed to "Collection" for collections of records and/or
+
+              subordinate catalogs.  Wanted to use the JSON-Schema const
+
+              key work but all the swagger validators tried complained
+
+              about it.'
+            type: string
+            enum:
+            - Collection
+          conformsTo:
+            type: array
+            description: The extensions/conformance classes used in this collection.
+            items:
+              type: string
+          recordsArrayName:
+            description: "If records are encoded in-line within the catalog object,\nthis member advertises the name of the array member that \ncontains the catalog records.  By default the name of the\nrecords array is \"records\".  However, the name of this \narray member may be different.  A local resources catalog\nis an example of a circumstance where the records array\nmember may be named something other than \"records\".  For\nexample, in the case of a local resource catalog at the \n/collections endpoint, the name of the records array is\n\"collections\"."
+            type: string
+            default: records
+          records:
+            type: array
+            description: 'An array of records that are part of this catalog that
+
+              are encoded in-line within the catalog object.
+
+              The items schema is intentionally general (i.e. object)
+
+              to accomodate records that have been extended beyond
+
+              the core record schema.'
+            items:
+              type: object
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/link'
+          linkTemplates:
+            type: array
+            items:
+              $ref: '#/components/schemas/linkTemplate'
+          defaultSortOrder:
+            $ref: '#/components/schemas/defaultSortOrder'
+          schemes:
+            type: array
+            description: A list of schemes used in this context.
+            items:
+              $ref: '#/components/schemas/scheme'
+    language:
+      type: object
+      description: The language used for textual values in this record.
+      required:
+      - code
+      properties:
+        code:
+          type: string
+          description: The language tag as per RFC-5646.
+        name:
+          type: string
+          minLength: 1
+          description: The untranslated name of the language.
+        alternate:
+          type: string
+          description: 'The name of the language in another well-understood language,
+
+            usually English.'
+        dir:
+          type: string
+          description: 'The direction for text in this language. The default, `ltr`
+
+            (left-to-right), represents the most common situation.
+
+            However, care should be taken to set the value of `dir`
+
+            appropriately if the language direction is not `ltr`.
+
+            Other values supported are `rtl` (right-to-left), `ttb`
+
+            (top-to-bottom), and `btt` (bottom-to-top).'
+          enum:
+          - ltr
+          - rtl
+          - ttb
+          - btt
+          default: ltr
+    scheme:
+      type: object
+      required:
+      - scheme-id
+      - namespace
+      properties:
+        scheme-id:
+          type: string
+          description: "An identifier for this namespace.  The identifier can be used as a \nshort-form for the namespace."
+        namespace:
+          type: string
+          description: 'A declarative region that provides a scope to the identifiers
+
+            inside it. It is recommended that the value of namespace be a URI.'
+        resolver:
+          description: 'An extensible description of a mechanism that resolves a scheme
+
+            identifier (scheme-id) to its namespace.'
+          type: object
     defaultSortOrder:
       type: array
       items:
@@ -105,6 +365,105 @@ components:
             enum:
             - asc
             - desc
+    linkBase:
+      type: object
+      properties:
+        rel:
+          type: string
+          description: The type or semantics of the relation.
+        type:
+          type: string
+          description: 'A hint indicating what the media type of the
+
+            result of dereferencing the link should be.'
+        hreflang:
+          type: string
+          description: 'A hint indicating what the language of the
+
+            result of dereferencing the link should be.'
+        title:
+          type: string
+          description: 'Used to label the destination of a link
+
+            such that it can be used as a human-readable
+
+            identifier.'
+        length:
+          type: integer
+        profile:
+          type: array
+          description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
+          items:
+            type: string
+        created:
+          type: string
+          description: 'Date of creation of the resource pointed to
+
+            by the link.'
+          format: date-time
+        updated:
+          type: string
+          description: 'Most recent date on which the resource pointed
+
+            to by the link was changed.'
+          format: date-time
+    roles:
+      description: 'The list of duties, job functions or permissions assigned by the system
+
+        and associated with the context of this member.'
+      type: array
+      minItems: 1
+      items:
+        type: string
+    f-collection:
+      description: 'Imported from OGC API - Features - Part 1: Core
+
+        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/collection.yaml'
+      type: object
+      required:
+      - id
+      - links
+      properties:
+        id:
+          description: identifier of the collection used, for example, in URIs
+          type: string
+          example: address
+        title:
+          description: human readable title of the collection
+          type: string
+          example: address
+        description:
+          description: a description of the features in the collection
+          type: string
+          example: An address.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+          example:
+          - href: http://data.example.com/buildings
+            rel: item
+          - href: http://example.com/concepts/buildings.html
+            rel: describedby
+            type: text/html
+        extent:
+          $ref: '#/components/schemas/f-extent'
+        itemType:
+          description: 'indicator about the type of the items in the collection (the
+
+            default value is ''feature'').'
+          type: string
+          default: feature
+        crs:
+          description: the list of coordinate reference systems supported by the service
+          type: array
+          items:
+            type: string
+          default:
+          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+          example:
+          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+          - http://www.opengis.net/def/crs/EPSG/0/4326
     recordCommonProperties:
       type: object
       properties:
@@ -248,167 +607,6 @@ components:
                 enum:
                 - record
                 - catalog
-    scheme:
-      type: object
-      required:
-      - scheme-id
-      - namespace
-      properties:
-        scheme-id:
-          type: string
-          description: "An identifier for this namespace.  The identifier can be used as a \nshort-form for the namespace."
-        namespace:
-          type: string
-          description: 'A declarative region that provides a scope to the identifiers
-
-            inside it. It is recommended that the value of namespace be a URI.'
-        resolver:
-          description: 'An extensible description of a mechanism that resolves a scheme
-
-            identifier (scheme-id) to its namespace.'
-          type: object
-    license:
-      type: string
-      description: 'A legal document under which the resource is made available.
-
-        If the resource is being made available under a common license
-
-        then use an SPDX license id (https://spdx.org/licenses/).
-
-        If the resource is being made available under multiple common
-
-        licenses then use an SPDX license expression v2.3 string
-
-        (https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/)
-
-        If the resource is being made available under one or more licenses
-
-        that haven''t been assigned an SPDX identifier or one or more custom
-
-        licenses then use a string value of ''other'' and include one or more
-
-        links (rel="license") in the `link` section of the record to the
-
-        file(s) that contains the text of the license(s).
-
-        There is also the case of a resource that is private or unpublished
-
-        and is thus unlicensed; in this case do not register such a resource
-
-        in the catalog in the first place since there is no point in making
-
-        such a resource discoverable.'
-    contact:
-      type: object
-      description: 'Identification of, and means of communication with, person responsible
-
-        for the resource.'
-      anyOf:
-      - required:
-        - name
-      - required:
-        - organization
-      properties:
-        identifier:
-          type: string
-          description: A value uniquely identifying a contact.
-        name:
-          type: string
-          description: The name of the responsible person.
-        position:
-          type: string
-          description: 'The name of the role or position of the responsible person taken
-
-            from the organization''s formal organizational hierarchy or chart.'
-        organization:
-          type: string
-          description: Organization/affiliation of the contact.
-        logo:
-          description: 'Graphic identifying a contact. The link relation should be `icon`
-
-            and the media type should be an image media type.'
-          allOf:
-          - $ref: '#/components/schemas/link'
-          - type: object
-            required:
-            - rel
-            - type
-            properties:
-              rel:
-                enum:
-                - icon
-        phones:
-          type: array
-          description: Telephone numbers at which contact can be made.
-          items:
-            type: object
-            required:
-            - value
-            properties:
-              value:
-                type: string
-                description: The value is the phone number itself.
-                pattern: ^\+[1-9]{1}[0-9]{3,14}$
-              roles:
-                $ref: '#/components/schemas/roles'
-        emails:
-          type: array
-          description: Email addresses at which contact can be made.
-          items:
-            type: object
-            required:
-            - value
-            properties:
-              value:
-                type: string
-                description: The value is the email number itself.
-                format: email
-              roles:
-                $ref: '#/components/schemas/roles'
-        addresses:
-          type: array
-          description: Physical location at which contact can be made.
-          items:
-            type: object
-            properties:
-              deliveryPoint:
-                type: array
-                description: Address lines for the location.
-                items:
-                  type: string
-              city:
-                type: string
-                description: City for the location.
-              administrativeArea:
-                type: string
-                description: State or province of the location.
-              postalCode:
-                type: string
-                description: ZIP or other postal code.
-              country:
-                type: string
-                description: Country of the physical address.  ISO 3166-1 is recommended.
-              roles:
-                $ref: '#/components/schemas/roles'
-        links:
-          type: array
-          description: On-line information about the contact.
-          items:
-            allOf:
-            - $ref: '#/components/schemas/link'
-            - type: object
-              required:
-              - type
-        hoursOfService:
-          type: string
-          description: Time period when the contact can be contacted.
-        contactInstructions:
-          type: string
-          description: 'Supplemental instructions on how or when to contact the
-
-            responsible party.'
-        roles:
-          $ref: '#/components/schemas/roles'
     f-extent:
       description: 'Imported from OGC API - Features - Part 1: Core
 
@@ -656,85 +854,6 @@ components:
               like the data type of the variable, enumerations,
 
               minimum values, maximum values, etc.'
-    language:
-      type: object
-      description: The language used for textual values in this record.
-      required:
-      - code
-      properties:
-        code:
-          type: string
-          description: The language tag as per RFC-5646.
-        name:
-          type: string
-          minLength: 1
-          description: The untranslated name of the language.
-        alternate:
-          type: string
-          description: 'The name of the language in another well-understood language,
-
-            usually English.'
-        dir:
-          type: string
-          description: 'The direction for text in this language. The default, `ltr`
-
-            (left-to-right), represents the most common situation.
-
-            However, care should be taken to set the value of `dir`
-
-            appropriately if the language direction is not `ltr`.
-
-            Other values supported are `rtl` (right-to-left), `ttb`
-
-            (top-to-bottom), and `btt` (bottom-to-top).'
-          enum:
-          - ltr
-          - rtl
-          - ttb
-          - btt
-          default: ltr
-    linkBase:
-      type: object
-      properties:
-        rel:
-          type: string
-          description: The type or semantics of the relation.
-        type:
-          type: string
-          description: 'A hint indicating what the media type of the
-
-            result of dereferencing the link should be.'
-        hreflang:
-          type: string
-          description: 'A hint indicating what the language of the
-
-            result of dereferencing the link should be.'
-        title:
-          type: string
-          description: 'Used to label the destination of a link
-
-            such that it can be used as a human-readable
-
-            identifier.'
-        length:
-          type: integer
-        profile:
-          type: array
-          description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
-          items:
-            type: string
-        created:
-          type: string
-          description: 'Date of creation of the resource pointed to
-
-            by the link.'
-          format: date-time
-        updated:
-          type: string
-          description: 'Most recent date on which the resource pointed
-
-            to by the link was changed.'
-          format: date-time
     exception:
       description: 'Imported from OGC API - Features - Part 1: Core
 
@@ -747,179 +866,101 @@ components:
           type: string
         description:
           type: string
-    roles:
-      description: 'The list of duties, job functions or permissions assigned by the system
+    license:
+      type: string
+      description: 'A legal document under which the resource is made available.
 
-        and associated with the context of this member.'
-      type: array
-      minItems: 1
-      items:
-        type: string
-    f-collection:
-      description: 'Imported from OGC API - Features - Part 1: Core
+        If the resource is being made available under a common license
 
-        See: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/collection.yaml'
+        then use an SPDX license id (https://spdx.org/licenses/).
+
+        If the resource is being made available under multiple common
+
+        licenses then use an SPDX license expression v2.3 string
+
+        (https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/)
+
+        If the resource is being made available under one or more licenses
+
+        that haven''t been assigned an SPDX identifier or one or more custom
+
+        licenses then use a string value of ''other'' and include one or more
+
+        links (rel="license") in the `link` section of the record to the
+
+        file(s) that contains the text of the license(s).
+
+        There is also the case of a resource that is private or unpublished
+
+        and is thus unlicensed; in this case do not register such a resource
+
+        in the catalog in the first place since there is no point in making
+
+        such a resource discoverable.'
+    link:
       type: object
-      required:
-      - id
-      - links
-      properties:
-        id:
-          description: identifier of the collection used, for example, in URIs
-          type: string
-          example: address
-        title:
-          description: human readable title of the collection
-          type: string
-          example: address
-        description:
-          description: a description of the features in the collection
-          type: string
-          example: An address.
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/link'
-          example:
-          - href: http://data.example.com/buildings
-            rel: item
-          - href: http://example.com/concepts/buildings.html
-            rel: describedby
-            type: text/html
-        extent:
-          $ref: '#/components/schemas/f-extent'
-        itemType:
-          description: 'indicator about the type of the items in the collection (the
-
-            default value is ''feature'').'
-          type: string
-          default: feature
-        crs:
-          description: the list of coordinate reference systems supported by the service
-          type: array
-          items:
-            type: string
-          default:
-          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-          example:
-          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-          - http://www.opengis.net/def/crs/EPSG/0/4326
-    catalogCommonProperties:
       allOf:
-      - $ref: '#/components/schemas/recordCommonProperties'
+      - $ref: '#/components/schemas/linkBase'
       - type: object
         required:
-        - type
+        - href
         properties:
-          type:
-            description: 'Fixed to "Collection" for collections of records and/or
-
-              subordinate catalogs.  Wanted to use the JSON-Schema const
-
-              key work but all the swagger validators tried complained
-
-              about it.'
+          href:
             type: string
-            enum:
-            - Collection
-          conformsTo:
-            type: array
-            description: The extensions/conformance classes used in this collection.
-            items:
-              type: string
-          recordsArrayName:
-            description: "If records are encoded in-line within the catalog object,\nthis member advertises the name of the array member that \ncontains the catalog records.  By default the name of the\nrecords array is \"records\".  However, the name of this \narray member may be different.  A local resources catalog\nis an example of a circumstance where the records array\nmember may be named something other than \"records\".  For\nexample, in the case of a local resource catalog at the \n/collections endpoint, the name of the records array is\n\"collections\"."
+            format: uri
+  responses:
+    BadRequest:
+      description: A client error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
             type: string
-            default: records
-          records:
-            type: array
-            description: 'An array of records that are part of this catalog that
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotFound:
+      description: 'The requested resource does not exist on the server. For example,
 
-              are encoded in-line within the catalog object.
+        a path parameter had an incorrect value.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    Catalog:
+      description: "Information about the record collection with id `collectionId`.\n\nThe response contains a link to the items in the collection\n(path `/collections/{collectionId}/items`, link relation `items`)\nas well as key information about the collection. This information\nincludes:\n\n* A local identifier for the collection that is unique for the +\n  catalog;\n* A list of coordinate reference systems (CRS) in which geometries +\n  may be returned by the server. The first CRS is the default +\n  coordinate reference system (the default is always WGS 84 with +\n  axis order longitude/latitude);\n* An optional title and description for the collection;\n* An optional extent that can be used to provide an indication of +\n  the spatial and temporal extent of the collection - typically +\n  derived from the data;\n* An optional indicator about the type of the items in the collection +\n  (the default value, if the indicator is not provided, is 'record')."
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/catalog'
+        text/html:
+          schema:
+            type: string
+    NotAcceptable:
+      description: 'Content negotiation failed. For example, the `Accept` header submitted
 
-              The items schema is intentionally general (i.e. object)
+        in the request did not support any of the media types supported by the
 
-              to accomodate records that have been extended beyond
-
-              the core record schema.'
-            items:
-              type: object
-          links:
-            type: array
-            items:
-              $ref: '#/components/schemas/link'
-          linkTemplates:
-            type: array
-            items:
-              $ref: '#/components/schemas/linkTemplate'
-          defaultSortOrder:
-            $ref: '#/components/schemas/defaultSortOrder'
-          schemes:
-            type: array
-            description: A list of schemes used in this context.
-            items:
-              $ref: '#/components/schemas/scheme'
-    theme:
-      type: object
-      required:
-      - concepts
-      - scheme
-      properties:
-        concepts:
-          type: array
-          description: 'One or more entity/concept identifiers from this knowledge
-
-            system. it is recommended that a resolvable URI be used for
-
-            each entity/concept identifier.'
-          minItems: 1
-          items:
-            type: object
-            required:
-            - id
-            properties:
-              id:
-                type: string
-                description: An identifier for the concept.
-              title:
-                type: string
-                description: A human readable title for the concept.
-              description:
-                type: string
-                description: A human readable description for the concept.
-              url:
-                type: string
-                format: uri
-                description: A URI providing further description of the concept.
-        scheme:
-          type: string
-          description: 'An identifier for the knowledge organization system used
-
-            to classify the resource.  It is recommended that the
-
-            identifier be a resolvable URI.  The list of schemes used
-
-            in a searchable catalog can be determined by inspecting
-
-            the server''s OpenAPI document or, if the server implements
-
-            CQL2, by exposing a queryable (e.g. named `scheme`) and
-
-            enumerating the list of schemes in the queryable''s schema
-
-            definition.'
+        server for the requested resource.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
   parameters:
-    profile:
-      name: profile
-      in: query
-      description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      explode: false
-      style: form
     catalogId:
       name: catalogId
       in: path
@@ -951,58 +992,17 @@ components:
           pattern: ^((?:(en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))|((?:([A-Za-z]{2,3}(-(?:[A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-(?:[A-Za-z]{4}))?(-(?:[A-Za-z]{2}|[0-9]{3}))?(-(?:[A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-(?:[0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(?:x(-[A-Za-z0-9]{1,8})+))?)|(?:x(-[A-Za-z0-9]{1,8})+))(?:;q=(?:1|1\.0+|0|0\.[0-9]+))?$
       explode: false
       style: form
-  responses:
-    Catalog:
-      description: "Information about the record collection with id `collectionId`.\n\nThe response contains a link to the items in the collection\n(path `/collections/{collectionId}/items`, link relation `items`)\nas well as key information about the collection. This information\nincludes:\n\n* A local identifier for the collection that is unique for the +\n  catalog;\n* A list of coordinate reference systems (CRS) in which geometries +\n  may be returned by the server. The first CRS is the default +\n  coordinate reference system (the default is always WGS 84 with +\n  axis order longitude/latitude);\n* An optional title and description for the collection;\n* An optional extent that can be used to provide an indication of +\n  the spatial and temporal extent of the collection - typically +\n  derived from the data;\n* An optional indicator about the type of the items in the collection +\n  (the default value, if the indicator is not provided, is 'record')."
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/catalog'
-        text/html:
-          schema:
-            type: string
-    NotFound:
-      description: 'The requested resource does not exist on the server. For example,
-
-        a path parameter had an incorrect value.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: 'Content negotiation failed. For example, the `Accept` header submitted
-
-        in the request did not support any of the media types supported by the
-
-        server for the requested resource.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    BadRequest:
-      description: A client error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
+    profile:
+      name: profile
+      in: query
+      description: "One or more identifiers that provide information about additional\nsemantics (constraints, conventions, extensions), in addition to \nthose defined by the media type, that are associated with the\ntarget resource."
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
   securitySchemes:
     openIdConnect:
       type: openIdConnect

@@ -185,57 +185,6 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   parameters:
-    subset:
-      name: subset
-      in: query
-      description: 'Retrieve only part of the data by slicing or trimming along one or more axis
-
-        For trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)
-
-        For slicing:  {axisAbbrev}({value})      (reduces dimensionality)
-
-        An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.
-
-        For a temporal dimension, a single asterisk can be used to indicate the high value.
-
-        Support for `*` is required for time, but optional for spatial and other dimensions.
-
-        '
-      style: form
-      explode: false
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-    bgcolor:
-      name: bgcolor
-      in: query
-      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the background color (default to 0x9C9C9C gray). If alpha is not specified, full opacity is assumed.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: string
-        default: '0xFFFFFF'
-    crs-datum:
-      name: crs-datum
-      in: query
-      description: Datum for a custom projection CRS, implying a particular ellipsoid.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: string
-    subset-crs:
-      name: subset-crs
-      in: query
-      description: crs for the specified subset
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
     mm-per-pixel:
       name: mm-per-pixel
       in: query
@@ -246,15 +195,65 @@ components:
       schema:
         type: number
         default: 0.28
-    height:
-      name: height
+    void-color:
+      name: void-color
       in: query
-      description: Height of the map in pixels. If omitted and `width` is specified, defaults to the height maintaining a 1:1 aspect ratio. If both `width` and `height` are omitted, the server will select default dimensions. When used together with the `center` and/or `scale-denominator` parameter, `height` takes on a subsetting role rather than scaling (resampling), defining the vertical portion of the map to subset based on the scale (native scale, or specified by `scale-denominator`) and display resolution (0.28 mm/pixel, or specified by `mm-per-pixel`).
+      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the void color for parts of the map outside of the valid area of the projection / CRS. If not specified, this defaults to the same as `bgcolor`.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: string
+        default: '0xFFFFFF'
+    void-transparent:
+      name: void-transparent
+      in: query
+      description: Background transparency for parts of the map outside of the valid areas of the CRS / projection (defaults to the same as `transparent` if not specified).
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: boolean
+        default: true
+    f-map:
+      name: f
+      in: query
+      description: The format of the map response (e.g. png). Accepted values are 'png', 'jpg' or 'tiff' (GeoTIFF).
+      required: false
+      schema:
+        type: string
+        enum:
+        - png
+        - jpg
+        - tiff
+      style: form
+      explode: false
+    styleId-collection:
+      name: styleId
+      in: path
+      description: An identifier representing a specific style.
+      required: true
+      allowEmptyValue: false
+      schema:
+        type: string
+    width:
+      name: width
+      in: query
+      description: Width of the map in pixels. If omitted and `height` is specified, defaults to the width maintaining a 1:1 aspect ratio. If both `width` and `height` are omitted, the server will select default dimensions. When used together with the `center` and/or `scale-denominator` parameter, `width` takes on a subsetting role rather than scaling (resampling), defining the horizontal portion of the map to subset based on the scale (native scale, or specified by `scale-denominator`) and display resolution (0.28 mm/pixel, or specified by `mm-per-pixel`).
       required: false
       style: form
       explode: false
       schema:
         type: integer
+    subset-crs:
+      name: subset-crs
+      in: query
+      description: crs for the specified subset
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
     collections:
       name: collections
       in: query
@@ -266,25 +265,35 @@ components:
         type: array
         items:
           $ref: '#/components/schemas/all-collections'
-    crs-proj-params:
-      name: crs-proj-params
+    center-crs:
+      name: center-crs
       in: query
-      description: Operation method parameters for a custom projection CRS.
+      description: CRS for the specified center point
       required: false
       style: form
-      explode: false
+      explode: true
       schema:
         type: string
-    void-color:
-      name: void-color
+    bgcolor:
+      name: bgcolor
       in: query
-      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the void color for parts of the map outside of the valid area of the projection / CRS. If not specified, this defaults to the same as `bgcolor`.
+      description: Web color name or hexadecimal 0x[AA]RRGGBB color value for the background color (default to 0x9C9C9C gray). If alpha is not specified, full opacity is assumed.
       required: false
       style: form
       explode: false
       schema:
         type: string
         default: '0xFFFFFF'
+    transparent:
+      name: transparent
+      in: query
+      description: Background transparency of map (defaults to `true` without a `bgcolor` specified, but to `false` when a `bgcolor` is used).
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: boolean
+        default: true
     bbox:
       name: bbox
       in: query
@@ -313,25 +322,14 @@ components:
           type: number
       style: form
       explode: false
-    transparent:
-      name: transparent
-      in: query
-      description: Background transparency of map (defaults to `true` without a `bgcolor` specified, but to `false` when a `bgcolor` is used).
-      required: false
-      style: form
-      explode: false
+    styleId:
+      name: styleId
+      in: path
+      description: An identifier representing a specific style.
+      required: true
+      allowEmptyValue: false
       schema:
-        type: boolean
-        default: true
-    crs:
-      name: crs
-      in: query
-      description: reproject the output to the given crs
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
+        $ref: '#/components/schemas/styles'
     datetime:
       name: datetime
       in: query
@@ -349,6 +347,15 @@ components:
         type: string
       style: form
       explode: false
+    crs-datum:
+      name: crs-datum
+      in: query
+      description: Datum for a custom projection CRS, implying a particular ellipsoid.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: string
     crs-proj-center:
       name: crs-proj-center
       in: query
@@ -358,36 +365,75 @@ components:
       explode: false
       schema:
         type: string
-    styleId-collection:
-      name: styleId
-      in: path
-      description: An identifier representing a specific style.
-      required: true
-      allowEmptyValue: false
-      schema:
-        type: string
-    f-map:
-      name: f
+    height:
+      name: height
       in: query
-      description: The format of the map response (e.g. png). Accepted values are 'png', 'jpg' or 'tiff' (GeoTIFF).
-      required: false
-      schema:
-        type: string
-        enum:
-        - png
-        - jpg
-        - tiff
-      style: form
-      explode: false
-    width:
-      name: width
-      in: query
-      description: Width of the map in pixels. If omitted and `height` is specified, defaults to the width maintaining a 1:1 aspect ratio. If both `width` and `height` are omitted, the server will select default dimensions. When used together with the `center` and/or `scale-denominator` parameter, `width` takes on a subsetting role rather than scaling (resampling), defining the horizontal portion of the map to subset based on the scale (native scale, or specified by `scale-denominator`) and display resolution (0.28 mm/pixel, or specified by `mm-per-pixel`).
+      description: Height of the map in pixels. If omitted and `width` is specified, defaults to the height maintaining a 1:1 aspect ratio. If both `width` and `height` are omitted, the server will select default dimensions. When used together with the `center` and/or `scale-denominator` parameter, `height` takes on a subsetting role rather than scaling (resampling), defining the vertical portion of the map to subset based on the scale (native scale, or specified by `scale-denominator`) and display resolution (0.28 mm/pixel, or specified by `mm-per-pixel`).
       required: false
       style: form
       explode: false
       schema:
         type: integer
+    subset:
+      name: subset
+      in: query
+      description: 'Retrieve only part of the data by slicing or trimming along one or more axis
+
+        For trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)
+
+        For slicing:  {axisAbbrev}({value})      (reduces dimensionality)
+
+        An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.
+
+        For a temporal dimension, a single asterisk can be used to indicate the high value.
+
+        Support for `*` is required for time, but optional for spatial and other dimensions.
+
+        '
+      style: form
+      explode: false
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+    bbox-crs:
+      name: bbox-crs
+      in: query
+      description: crs for the specified bbox
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    crs-proj-params:
+      name: crs-proj-params
+      in: query
+      description: Operation method parameters for a custom projection CRS.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: string
+    crs:
+      name: crs
+      in: query
+      description: reproject the output to the given crs
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    orientation:
+      name: orientation
+      in: query
+      description: Orientation in degrees by which the content of the map is to be rotated around the center of the subset area as pivot point in a counter-clockwise direction, resulting in the viewing perspective being rotated by the same orientation in a clockwise direction.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: number
+        default: 0
     center:
       name: center
       in: query
@@ -401,35 +447,6 @@ components:
         maxItems: 2
         items:
           type: number
-    orientation:
-      name: orientation
-      in: query
-      description: Orientation in degrees by which the content of the map is to be rotated around the center of the subset area as pivot point in a counter-clockwise direction, resulting in the viewing perspective being rotated by the same orientation in a clockwise direction.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: number
-        default: 0
-    void-transparent:
-      name: void-transparent
-      in: query
-      description: Background transparency for parts of the map outside of the valid areas of the CRS / projection (defaults to the same as `transparent` if not specified).
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: boolean
-        default: true
-    crs-proj-method:
-      name: crs-proj-method
-      in: query
-      description: Projection operation method for a custom projection CRS.
-      required: false
-      style: form
-      explode: false
-      schema:
-        type: string
     collectionId-all:
       name: collectionId
       in: path
@@ -437,13 +454,13 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/all-collections'
-    center-crs:
-      name: center-crs
+    crs-proj-method:
+      name: crs-proj-method
       in: query
-      description: CRS for the specified center point
+      description: Projection operation method for a custom projection CRS.
       required: false
       style: form
-      explode: true
+      explode: false
       schema:
         type: string
     scale-denominator:
@@ -455,76 +472,18 @@ components:
       explode: false
       schema:
         type: number
-    bbox-crs:
-      name: bbox-crs
-      in: query
-      description: crs for the specified bbox
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-    styleId:
-      name: styleId
-      in: path
-      description: An identifier representing a specific style.
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/styles'
-  schemas:
-    all-collections:
-      type: string
-      enum:
-      - blueMarble
-      - NaturalEarth:raster:HYP_HR_SR_OB_DR
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - NaturalEarth:physical:bathymetry
-      - SRTM_ViewFinderPanorama
-      - HRDEM-Ottawa
-      - HRDEM-RedRiver
-    styles:
-      type: string
-      enum:
-      - default
-    exception:
-      title: Exception Schema
-      description: JSON schema for exceptions based on RFC 7807
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
   responses:
-    NotFound:
-      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
     ServerError:
       description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotFound:
+      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
       content:
         application/json:
           schema:
@@ -549,3 +508,44 @@ components:
             format: binary
     EmptyMap:
       description: No data available for this map extent.
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+  schemas:
+    styles:
+      type: string
+      enum:
+      - default
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+    all-collections:
+      type: string
+      enum:
+      - blueMarble
+      - NaturalEarth:raster:HYP_HR_SR_OB_DR
+      - NaturalEarth:cultural:ne_10m_admin_0_countries
+      - NaturalEarth:physical:bathymetry
+      - SRTM_ViewFinderPanorama
+      - HRDEM-Ottawa
+      - HRDEM-RedRiver

@@ -67,6 +67,34 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   responses:
+    BadRequest:
+      description: A client error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    Sortables:
+      description: A list of properties by which the server response may be sorted.
+      content:
+        application/json:
+          schema:
+            type: object
+            description: A JSON Schema document that defines all the sortables.
+        text/html:
+          schema:
+            type: string
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
     NotFound:
       description: 'The requested resource does not exist on the server. For example,
 
@@ -91,35 +119,14 @@ components:
         text/html:
           schema:
             type: string
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    BadRequest:
-      description: A client error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    Sortables:
-      description: A list of properties by which the server response may be sorted.
-      content:
-        application/json:
-          schema:
-            type: object
-            description: A JSON Schema document that defines all the sortables.
-        text/html:
-          schema:
-            type: string
   parameters:
+    catalogId:
+      name: catalogId
+      in: path
+      description: local identifier of a catalog
+      required: true
+      schema:
+        type: string
     language:
       name: language
       in: query
@@ -155,13 +162,6 @@ components:
           type: string
       explode: false
       style: form
-    catalogId:
-      name: catalogId
-      in: path
-      description: local identifier of a catalog
-      required: true
-      schema:
-        type: string
   schemas:
     exception:
       description: 'Imported from OGC API - Features - Part 1: Core

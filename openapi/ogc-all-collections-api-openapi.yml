@@ -38,27 +38,31 @@ paths:
     - description: Example OGC API - DGGS server
       url: https://maps.gnosis.earth/ogcapi
 components:
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
   responses:
-    NotFound:
-      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
     ServerError:
       description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    NotFound:
+      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
       content:
         application/json:
           schema:
@@ -75,21 +79,16 @@ components:
         text/html:
           schema:
             type: string
-  schemas:
-    enumeration:
-      type: object
-      required:
-      - type
-      - enum
-      properties:
-        type:
-          type: string
-          enum:
-          - enum
-        enum:
-          type: array
-          items:
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
             type: string
+  schemas:
     exception:
       title: Exception Schema
       description: JSON schema for exceptions based on RFC 7807
@@ -107,19 +106,20 @@ components:
           type: string
         instance:
           type: string
-  parameters:
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
+    enumeration:
+      type: object
+      required:
+      - type
+      - enum
+      properties:
+        type:
+          type: string
+          enum:
+          - enum
         enum:
-        - json
-        - html
-      style: form
-      explode: false
+          type: array
+          items:
+            type: string
 x-refined-from:
 - ogc-dggs-1-0-openapi-ogcapi-dggs-1-bundled.json
 - ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json

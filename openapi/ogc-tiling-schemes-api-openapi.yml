@@ -61,68 +61,35 @@ paths:
     - description: Example OGC API - Maps server
       url: https://maps.gnosis.earth/ogcapi
 components:
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
+    tileMatrixSetId:
+      name: tileMatrixSetId
+      in: path
+      description: Identifier for a supported TileMatrixSet
+      required: true
+      allowEmptyValue: false
+      schema:
+        $ref: '#/components/schemas/tileMatrixSets'
   schemas:
-    link:
-      type: object
-      required:
-      - href
-      - rel
-      properties:
-        href:
-          type: string
-          description: Supplies the URI to a remote resource (or resource fragment).
-          example: http://data.example.com/buildings/123
-        rel:
-          type: string
-          description: The type or semantics of the relation.
-          example: alternate
-        type:
-          type: string
-          description: A hint indicating what the media type of the result of dereferencing the link should be.
-          example: application/geo+json
-        templated:
-          type: boolean
-          description: This flag set to true if the link is a URL template.
-        varBase:
-          description: A base path to retrieve semantic information about the variables used in URL template.
-          type: string
-          example: /ogcapi/vars/
-        hreflang:
-          type: string
-          description: A hint indicating what the language of the result of dereferencing the link should be.
-          example: en
-        title:
-          type: string
-          description: Used to label the destination of a link such that it can be used as a human-readable identifier.
-          example: Trierer Strasse 70, 53115 Bonn
-        length:
-          type: integer
-    tileMatrixSets:
-      type: string
-      enum:
-      - WebMercatorQuad
-      - WorldCRS84Quad
-      - GNOSISGlobalGrid
-      - WorldMercatorWGS84Quad
-    2DBoundingBox:
-      description: Minimum bounding rectangle surrounding a 2D resource in the CRS indicated elsewhere
-      type: object
-      required:
-      - lowerLeft
-      - upperRight
-      properties:
-        lowerLeft:
-          $ref: '#/components/schemas/2DPoint'
-        upperRight:
-          $ref: '#/components/schemas/2DPoint'
-        crs:
-          $ref: '#/components/schemas/crs'
-        orderedAxes:
-          type: array
-          minItems: 2
-          maxItems: 2
-          items:
-            type: string
+    2DPoint:
+      description: A 2D Point in the CRS indicated elsewhere
+      type: array
+      minItems: 2
+      maxItems: 2
+      items:
+        type: number
     exception:
       title: Exception Schema
       description: JSON schema for exceptions based on RFC 7807
@@ -140,13 +107,6 @@ components:
           type: string
         instance:
           type: string
-    2DPoint:
-      description: A 2D Point in the CRS indicated elsewhere
-      type: array
-      minItems: 2
-      maxItems: 2
-      items:
-        type: number
     tileMatrixSet:
       title: Tile Matrix Set Definition
       description: A definition of a tile matrix set following the Tile Matrix Set standard. For tileset metadata, such a description (in `tileMatrixSet` property) is only required for offline use, as an alternative to a link with a `http://www.opengis.net/def/rel/ogc/1.0/tiling-scheme` relation type.
@@ -317,6 +277,13 @@ components:
             referenceSystem:
               description: A reference system data structure as defined in the MD_ReferenceSystem of the ISO 19115
               type: object
+    tileMatrixSets:
+      type: string
+      enum:
+      - WebMercatorQuad
+      - WorldCRS84Quad
+      - GNOSISGlobalGrid
+      - WorldMercatorWGS84Quad
     tileMatrixSet-item:
       title: Tile Matrix Set Item
       description: A minimal tile matrix set element for use within a list of tile matrix sets linking to a full definition.
@@ -343,16 +310,61 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
-  responses:
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
+    link:
+      type: object
+      required:
+      - href
+      - rel
+      properties:
+        href:
+          type: string
+          description: Supplies the URI to a remote resource (or resource fragment).
+          example: http://data.example.com/buildings/123
+        rel:
+          type: string
+          description: The type or semantics of the relation.
+          example: alternate
+        type:
+          type: string
+          description: A hint indicating what the media type of the result of dereferencing the link should be.
+          example: application/geo+json
+        templated:
+          type: boolean
+          description: This flag set to true if the link is a URL template.
+        varBase:
+          description: A base path to retrieve semantic information about the variables used in URL template.
+          type: string
+          example: /ogcapi/vars/
+        hreflang:
+          type: string
+          description: A hint indicating what the language of the result of dereferencing the link should be.
+          example: en
+        title:
+          type: string
+          description: Used to label the destination of a link such that it can be used as a human-readable identifier.
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
+    2DBoundingBox:
+      description: Minimum bounding rectangle surrounding a 2D resource in the CRS indicated elsewhere
+      type: object
+      required:
+      - lowerLeft
+      - upperRight
+      properties:
+        lowerLeft:
+          $ref: '#/components/schemas/2DPoint'
+        upperRight:
+          $ref: '#/components/schemas/2DPoint'
+        crs:
+          $ref: '#/components/schemas/crs'
+        orderedAxes:
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
             type: string
+  responses:
     ServerError:
       description: A server error occurred.
       content:
@@ -376,33 +388,21 @@ components:
         text/html:
           schema:
             type: string
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
     TileMatrixSet:
       description: tile matrix set
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/tileMatrixSet'
-  parameters:
-    tileMatrixSetId:
-      name: tileMatrixSetId
-      in: path
-      description: Identifier for a supported TileMatrixSet
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/tileMatrixSets'
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - html
-      style: form
-      explode: false
 x-refined-from:
 - ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json
 - ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json
