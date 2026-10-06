@@ -17,7 +17,7 @@ deliveryModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-08-20'
-modified: '2026-08-20'
+modified: '2026-10-06'
 url: https://raw.githubusercontent.com/api-evangelist/ogc/refs/heads/main/apis.yml
 description: 'The Open Geospatial Consortium is the standards body for geospatial interoperability — a member-funded
   consortium founded in 1994 and headquartered in the United States, with 362 member organizations plus 159 individual
@@ -48,6 +48,10 @@ tags:
 - Earth Observation
 - Consortium
 common:
+- url: https://www.ogc.org/news/
+  type: Blog
+- url: https://www.ogc.org/feed/
+  type: BlogRSS
 - type: Website
   url: https://www.ogc.org/
 - type: Specification
