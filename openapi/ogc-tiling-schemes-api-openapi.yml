@@ -61,27 +61,6 @@ paths:
     - description: Example OGC API - Maps server
       url: https://maps.gnosis.earth/ogcapi
 components:
-  parameters:
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - html
-      style: form
-      explode: false
-    tileMatrixSetId:
-      name: tileMatrixSetId
-      in: path
-      description: Identifier for a supported TileMatrixSet
-      required: true
-      allowEmptyValue: false
-      schema:
-        $ref: '#/components/schemas/tileMatrixSets'
   schemas:
     2DPoint:
       description: A 2D Point in the CRS indicated elsewhere
@@ -90,23 +69,6 @@ components:
       maxItems: 2
       items:
         type: number
-    exception:
-      title: Exception Schema
-      description: JSON schema for exceptions based on RFC 7807
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
     tileMatrixSet:
       title: Tile Matrix Set Definition
       description: A definition of a tile matrix set following the Tile Matrix Set standard. For tileset metadata, such a description (in `tileMatrixSet` property) is only required for offline use, as an alternative to a link with a `http://www.opengis.net/def/rel/ogc/1.0/tiling-scheme` relation type.
@@ -250,33 +212,25 @@ components:
                       format: integer
                       minimum: 0
                       multipleOf: 1
-    crs:
-      title: CRS
-      oneOf:
-      - description: Simplification of the object into a url if the other properties are not present
-        type: string
-      - type: object
-        oneOf:
-        - required:
-          - uri
-          properties:
-            uri:
-              description: Reference to one coordinate reference system (CRS)
-              type: string
-              format: uri
-        - required:
-          - wkt
-          properties:
-            wkt:
-              allOf:
-              - description: An object defining the CRS using the JSON encoding for Well-known text representation of coordinate reference systems 2.0
-              - type: object
-        - required:
-          - referenceSystem
-          properties:
-            referenceSystem:
-              description: A reference system data structure as defined in the MD_ReferenceSystem of the ISO 19115
-              type: object
+    2DBoundingBox:
+      description: Minimum bounding rectangle surrounding a 2D resource in the CRS indicated elsewhere
+      type: object
+      required:
+      - lowerLeft
+      - upperRight
+      properties:
+        lowerLeft:
+          $ref: '#/components/schemas/2DPoint'
+        upperRight:
+          $ref: '#/components/schemas/2DPoint'
+        crs:
+          $ref: '#/components/schemas/crs'
+        orderedAxes:
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            type: string
     tileMatrixSets:
       type: string
       enum:
@@ -284,32 +238,23 @@ components:
       - WorldCRS84Quad
       - GNOSISGlobalGrid
       - WorldMercatorWGS84Quad
-    tileMatrixSet-item:
-      title: Tile Matrix Set Item
-      description: A minimal tile matrix set element for use within a list of tile matrix sets linking to a full definition.
+    exception:
+      title: Exception Schema
+      description: JSON schema for exceptions based on RFC 7807
       type: object
       required:
-      - links
+      - type
       properties:
-        id:
-          description: Optional local tile matrix set identifier, e.g. for use as unspecified `{tileMatrixSetId}` parameter. Implementation of 'identifier'
+        type:
           type: string
         title:
-          description: Title of this tile matrix set, normally used for display to a human
           type: string
-        uri:
-          description: Reference to an official source for this tileMatrixSet
+        status:
+          type: integer
+        detail:
           type: string
-          format: uri
-        crs:
-          allOf:
-          - description: Coordinate Reference System (CRS)
-          - $ref: '#/components/schemas/crs'
-        links:
-          description: Links to related resources. A 'self' link to the tile matrix set definition is required.
-          type: array
-          items:
-            $ref: '#/components/schemas/link'
+        instance:
+          type: string
     link:
       type: object
       required:
@@ -345,49 +290,60 @@ components:
           example: Trierer Strasse 70, 53115 Bonn
         length:
           type: integer
-    2DBoundingBox:
-      description: Minimum bounding rectangle surrounding a 2D resource in the CRS indicated elsewhere
+    tileMatrixSet-item:
+      title: Tile Matrix Set Item
+      description: A minimal tile matrix set element for use within a list of tile matrix sets linking to a full definition.
       type: object
       required:
-      - lowerLeft
-      - upperRight
+      - links
       properties:
-        lowerLeft:
-          $ref: '#/components/schemas/2DPoint'
-        upperRight:
-          $ref: '#/components/schemas/2DPoint'
+        id:
+          description: Optional local tile matrix set identifier, e.g. for use as unspecified `{tileMatrixSetId}` parameter. Implementation of 'identifier'
+          type: string
+        title:
+          description: Title of this tile matrix set, normally used for display to a human
+          type: string
+        uri:
+          description: Reference to an official source for this tileMatrixSet
+          type: string
+          format: uri
         crs:
-          $ref: '#/components/schemas/crs'
-        orderedAxes:
+          allOf:
+          - description: Coordinate Reference System (CRS)
+          - $ref: '#/components/schemas/crs'
+        links:
+          description: Links to related resources. A 'self' link to the tile matrix set definition is required.
           type: array
-          minItems: 2
-          maxItems: 2
           items:
-            type: string
+            $ref: '#/components/schemas/link'
+    crs:
+      title: CRS
+      oneOf:
+      - description: Simplification of the object into a url if the other properties are not present
+        type: string
+      - type: object
+        oneOf:
+        - required:
+          - uri
+          properties:
+            uri:
+              description: Reference to one coordinate reference system (CRS)
+              type: string
+              format: uri
+        - required:
+          - wkt
+          properties:
+            wkt:
+              allOf:
+              - description: An object defining the CRS using the JSON encoding for Well-known text representation of coordinate reference systems 2.0
+              - type: object
+        - required:
+          - referenceSystem
+          properties:
+            referenceSystem:
+              description: A reference system data structure as defined in the MD_ReferenceSystem of the ISO 19115
+              type: object
   responses:
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    TileMatrixSetsList:
-      description: List of tile matrix sets (tiling schemes).
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              tileMatrixSets:
-                type: array
-                items:
-                  $ref: '#/components/schemas/tileMatrixSet-item'
-        text/html:
-          schema:
-            type: string
     NotAcceptable:
       description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
       content:
@@ -403,6 +359,50 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/tileMatrixSet'
+    TileMatrixSetsList:
+      description: List of tile matrix sets (tiling schemes).
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              tileMatrixSets:
+                type: array
+                items:
+                  $ref: '#/components/schemas/tileMatrixSet-item'
+        text/html:
+          schema:
+            type: string
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
+    tileMatrixSetId:
+      name: tileMatrixSetId
+      in: path
+      description: Identifier for a supported TileMatrixSet
+      required: true
+      allowEmptyValue: false
+      schema:
+        $ref: '#/components/schemas/tileMatrixSets'
 x-refined-from:
 - ogc-maps-part1-1-0-openapi-ogcapi-maps-1-bundled.json
 - ogc-tiles-part1-1-0-openapi-ogcapi-tiles-1-bundled.json

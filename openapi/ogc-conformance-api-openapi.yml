@@ -35,6 +35,24 @@ paths:
       url: https://maps.gnosis.earth/ogcapi
 components:
   responses:
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
+    ServerError:
+      description: A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
     Conformance:
       description: The URIs of all conformance classes supported by the server
       content:
@@ -76,24 +94,6 @@ components:
               - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-uint64
               - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-geojson
               - https://www.opengis.net/spec/ogcapi-dggs-1/1.0/conf/zone-tiff
-    ServerError:
-      description: A server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
-        text/html:
-          schema:
-            type: string
     Conformance_2:
       description: The URIs of all conformance classes supported by the server
       content:
@@ -131,15 +131,6 @@ components:
               - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/svg
               - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/html
               - https://www.opengis.net/spec/ogcapi-maps-1/1.0/conf/api-operations
-    BadRequest:
-      description: A client error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception_2'
-        text/html:
-          schema:
-            type: string
     NotAcceptable_2:
       description: 'Content negotiation failed. For example, the `Accept` header submitted
 
@@ -159,6 +150,15 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/confClasses_2'
+        text/html:
+          schema:
+            type: string
+    BadRequest:
+      description: A client error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception_2'
         text/html:
           schema:
             type: string
@@ -202,6 +202,15 @@ components:
       style: form
       explode: false
   schemas:
+    confClasses:
+      type: object
+      required:
+      - conformsTo
+      properties:
+        conformsTo:
+          type: array
+          items:
+            type: string
     exception:
       title: Exception Schema
       description: JSON schema for exceptions based on RFC 7807
@@ -219,7 +228,7 @@ components:
           type: string
         instance:
           type: string
-    confClasses:
+    confClasses_2:
       type: object
       required:
       - conformsTo
@@ -228,6 +237,7 @@ components:
           type: array
           items:
             type: string
+            example: http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/core
     exception_2:
       description: 'Imported from OGC API - Features - Part 1: Core
 
@@ -240,16 +250,6 @@ components:
           type: string
         description:
           type: string
-    confClasses_2:
-      type: object
-      required:
-      - conformsTo
-      properties:
-        conformsTo:
-          type: array
-          items:
-            type: string
-            example: http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/core
   securitySchemes:
     openIdConnect:
       type: openIdConnect

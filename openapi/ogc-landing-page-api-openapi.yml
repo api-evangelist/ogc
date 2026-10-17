@@ -36,20 +36,16 @@ paths:
     - description: Example OGC API - DGGS server
       url: https://maps.gnosis.earth/ogcapi
 components:
-  parameters:
-    f-metadata:
-      name: f
-      in: query
-      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
-      required: false
-      schema:
-        type: string
-        enum:
-        - json
-        - html
-      style: form
-      explode: false
   responses:
+    NotAcceptable:
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string
     ServerError:
       description: A server error occurred.
       content:
@@ -95,15 +91,6 @@ components:
               rel: http://www.opengis.net/def/rel/ogc/1.0/dggs-list
               type: application/json
               title: List of DGGS implemented by this service
-        text/html:
-          schema:
-            type: string
-    NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/exception'
         text/html:
           schema:
             type: string
@@ -177,28 +164,20 @@ components:
         text/html:
           schema:
             type: string
+  parameters:
+    f-metadata:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+      required: false
+      schema:
+        type: string
+        enum:
+        - json
+        - html
+      style: form
+      explode: false
   schemas:
-    landingPage:
-      type: object
-      required:
-      - links
-      properties:
-        title:
-          type: string
-          title: The title of the API.
-          description: While a title is not required, implementors are strongly advised to include one.
-          example: Buildings in Bonn
-        description:
-          type: string
-          example: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API Common specification.
-        attribution:
-          type: string
-          title: attribution for the API
-          description: The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup.
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/link'
     exception:
       title: Exception Schema
       description: JSON schema for exceptions based on RFC 7807
@@ -244,6 +223,27 @@ components:
           example: Trierer Strasse 70, 53115 Bonn
         length:
           type: integer
+    landingPage:
+      type: object
+      required:
+      - links
+      properties:
+        title:
+          type: string
+          title: The title of the API.
+          description: While a title is not required, implementors are strongly advised to include one.
+          example: Buildings in Bonn
+        description:
+          type: string
+          example: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API Common specification.
+        attribution:
+          type: string
+          title: attribution for the API
+          description: The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
     link_2:
       type: object
       required:
